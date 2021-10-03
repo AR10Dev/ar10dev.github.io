@@ -1,18 +1,10 @@
-const scrollbar = require('tailwind-scrollbar')
-
 module.exports = {
   mode: 'jit',
-  plugins: [scrollbar],
+  plugins: [require('tailwind-scrollbar')],
   minify: true,
   content: ['./public/**/*.html', './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}'],
   darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {
-      width: {},
-      spacing: {},
-      colors: {}
-    }
-  },
+  theme: {},
   variants: {
     scrollbar: ['rounded'],
     extend: {
