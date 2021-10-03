@@ -1,0 +1,20 @@
+---
+import Header from '../components/Header.astro'
+import Type from '../components/Type.tsx'
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <title>Avaab Razzaq</title>
+  <link rel="stylesheet" type="text/css" href={Astro.resolve("../styles/global.css")} >
+</head>
+<body class="text-white">
+  <Header />
+  <div class="h-screen bg-gray-900 grid justify-items-center place-content-center gap-4">
+    <h1 class="text-7xl font-bold">Avaab Razzaq</h1>
+    <h3 class="text-3xl font-semibold text-slate-200">I'm a <Type client:load /></h3>
+  </div>
+</body>
+</html>
