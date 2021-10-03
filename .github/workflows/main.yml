@@ -16,7 +16,7 @@ jobs:
           version: 6.16.0
         
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm install
 
       - name: Build 🔧
         run: |
