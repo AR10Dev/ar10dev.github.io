@@ -2,12 +2,13 @@ import { Component, onCleanup, onMount } from 'solid-js'
 import Typed from 'typed.js'
 
 const Type: Component = () => {
-  let span: string | Element
+  let span: HTMLSpanElement
   let typed: Typed
 
   onMount(() => {
     const options = {
       strings: [
+        'Student',
         'Game Developer',
         'Tech Enthusiast',
         'Freelancer',
