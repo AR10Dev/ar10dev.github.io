@@ -6,5 +6,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "rootDir": "src",
+    "sourceMap": true
   }
 }
