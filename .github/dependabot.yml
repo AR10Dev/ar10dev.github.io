@@ -6,9 +6,11 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    target-branch: "next"
 
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
+    target-branch: "next"
