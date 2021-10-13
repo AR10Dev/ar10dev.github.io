@@ -1,10 +1,14 @@
-name: Build and Deploy
-on:
+name: CI
+on: 
   push:
     branches:
-      - master
+      - next
+  pull_request:
+    branches:
+      - next
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -19,11 +23,12 @@ jobs:
         run: pnpm install
 
       - name: Build 🔧
-        run: |
-          pnpm build
-          touch ./dist/.nojekyll
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        run: pnpm build
+
+  automerge:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v2.1.1
         with:
-          branch: gh-pages
-          folder: dist
+          github-token: ${{ secrets.GITHUB_TOKEN }}
