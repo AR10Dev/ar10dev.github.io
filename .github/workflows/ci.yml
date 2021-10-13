@@ -25,10 +25,3 @@ jobs:
       - name: Build 🔧
         run: pnpm build
 
-  automerge:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: fastify/github-action-merge-dependabot@v2.1.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
