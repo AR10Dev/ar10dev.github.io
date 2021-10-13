@@ -1,4 +1,4 @@
-import{t,o as e,d as s}from"../../../solid-js.web.v1.1.5-f8e67e08.js";"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self&&self;function n(t){return t&&t.__esModule&&Object.prototype.hasOwnProperty.call(t,"default")?t.default:t}var r,i,o,a=(r=function(t,e){
+import{t,o as e,d as s}from"../../../solid-js.web.v1.1.6-7718fc1b.js";"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self&&self;function n(t){return t&&t.__esModule&&Object.prototype.hasOwnProperty.call(t,"default")?t.default:t}var r,i,o,a=(r=function(t,e){
 /*!
  * 
  *   typed.js - A JavaScript Typing Animation Library
