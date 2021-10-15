@@ -1,21 +1,15 @@
 {
+  "separateMajorMinor": false,
   "extends": [
-    ":dependencyDashboard",
-    ":semanticPrefixFixDepsChoreOthers",
-    ":ignoreModulesAndTests",
-    ":autodetectPinVersions",
-    ":prHourlyLimit2",
-    ":prConcurrentLimit20",
-    "group:monorepos",
-    "group:recommended",
-    "workarounds:all"
+    ":preserveSemverRanges",
+    "group:all",
+    "schedule:daily",
+    ":maintainLockFilesMonthly"
   ],
-  "schedule": "after 7am",
-  "enabledManagers": "npm",
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    }
-  ]
+  "lockFileMaintenance": {
+    "extends": [
+      "group:all"
+    ],
+    "commitMessageAction": "Update"
+  }
 }
