@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "eslint": "eslint src",
-    "eslint:fix": "eslint src --fix"
+    "eslint:fix": "eslint src --fix",
+    "preinstall": "npx only-allow pnpm"
   },
   "keywords": [],
   "devDependencies": {
