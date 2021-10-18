@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro'
 import Type from '../components/Type.tsx'
 import About from '../components/About.astro'
+import Footer from '../components/Footer.astro'
 
 const background = 'bg-gray-900'
 ---
@@ -13,7 +14,7 @@ const background = 'bg-gray-900'
   <title>Avaab Razzaq</title>
   <link rel="stylesheet" type="text/css" href={Astro.resolve("../styles/global.css")} >
 </head>
-<body class="bg-gray-100 text-white">
+<body class="bg-gray-100 text-white select-none">
   <Header background={background} />
   <div class={`h-screen relative grid justify-items-center place-content-center gap-4 ${background}`.trim()}>
     <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto text-center">
@@ -22,5 +23,6 @@ const background = 'bg-gray-900'
     </div>
   </div>
   <About />
+  <Footer />
 </body>
 </html>
