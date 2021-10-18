@@ -1,8 +1,5 @@
 name: CI
 on: 
-  push:
-    branches:
-      - next
   pull_request:
     branches:
       - next
@@ -12,12 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.3.5
         
       - name: Setup PNPM
         uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.17.0
+          version: 6.17.2
+
+      - name: Setup node and Cache .pnpm-store
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'pnpm'
         
       - name: Install dependencies
         run: pnpm install
@@ -25,10 +28,3 @@ jobs:
       - name: Build 🔧
         run: pnpm build
 
-  automerge:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: fastify/github-action-merge-dependabot@v2.1.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
