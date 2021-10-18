@@ -3,6 +3,7 @@ on:
   pull_request:
     branches:
       - next
+      - main
 
 jobs:
   build:
@@ -27,4 +28,3 @@ jobs:
 
       - name: Build 🔧
         run: pnpm build
-
