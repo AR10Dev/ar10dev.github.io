@@ -1,1 +1,1 @@
-import{r as e,a as r}from"../../solid-js.web.v1.1.7-0ab3b7d9.js";var a=a=>(t,n,s)=>{a.replaceChildren();const o=document.createElement("astro-fragment");o.innerHTML=s,e((()=>r(t,{...n,children:o})),a)};export{a as default};
+import{r as e,a as r}from"../../solid-js.web.v1.2.0-797c4c3c.js";var a=a=>(t,c,n)=>{a.replaceChildren();const s=document.createElement("astro-fragment");s.innerHTML=n,e((()=>r(t,{...c,children:s})),a)};export{a as default};
