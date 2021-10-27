@@ -12,7 +12,7 @@ specifiers:
   eslint-plugin-prettier: 4.0.0
   postcss: 8.3.11
   prettier: 2.4.1
-  solid-js: 1.1.7
+  solid-js: 1.2.0
   tailwind-scrollbar: 1.3.1
   tailwindcss: 3.0.0-alpha.1
   typed.js: 2.0.12
@@ -20,7 +20,7 @@ specifiers:
 
 dependencies:
   astro: 0.20.12_typescript@4.4.4
-  solid-js: 1.1.7
+  solid-js: 1.2.0
   tailwindcss: 3.0.0-alpha.1_fa866e6aa6eb85ed70431566fb699b34
 
 devDependencies:
@@ -119,7 +119,7 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       babel-preset-solid: 1.1.5
-      solid-js: 1.1.7
+      solid-js: 1.2.0
     transitivePeerDependencies:
       - '@babel/core'
     dev: true
@@ -5375,8 +5375,8 @@ packages:
       smart-buffer: 4.2.0
     dev: false
 
-  /solid-js/1.1.7:
-    resolution: {integrity: sha512-+zZOdR++hFJ/dEmAaHjyI5/tPqRdItOVKsnLuBOKajCqG0n/Bs3uc8xWf8CiYTI7OIwSt5A6ASM8KDoKehfs6w==}
+  /solid-js/1.2.0:
+    resolution: {integrity: sha512-4zi7Ip+wH0ctZIiQkDPC9of4v9TDYK33/4oqn2cu7wHfBjWElk8wnwSwlkZLkmtr9VYbsEfrroXsNH1mKJdJFg==}
 
   /sorcery/0.10.0:
     resolution: {integrity: sha1-iukK19fLBfxZ8asMY3hF1cFaUrc=}
