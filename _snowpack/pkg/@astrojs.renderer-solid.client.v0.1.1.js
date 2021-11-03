@@ -1,0 +1,1 @@
+import{r as e,a as r}from"../../solid-js.web.v1.2.1-61f8c46f.js";var a=a=>(t,n,s)=>{a.replaceChildren();const o=document.createElement("astro-fragment");o.innerHTML=s,e((()=>r(t,{...n,children:o})),a)};export{a as default};
