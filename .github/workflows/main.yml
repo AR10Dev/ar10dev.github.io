@@ -9,17 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.5
+        uses: actions/checkout@v2.4.0
         
       - name: Setup PNPM
         uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.18.0
+          version: 6.20.1
 
       - name: Setup node and Cache .pnpm-store
         uses: actions/setup-node@v2
         with:
-          node-version: '17'
+          node-version: '16'
           cache: 'pnpm'
         
       - name: Install dependencies
