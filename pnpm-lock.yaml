@@ -4,7 +4,7 @@ specifiers:
   '@astrojs/renderer-solid': 0.2.0
   '@typescript-eslint/eslint-plugin': 5.5.0
   '@typescript-eslint/parser': 5.5.0
-  astro: 0.21.5
+  astro: 0.21.6
   autoprefixer: 10.4.0
   eslint: 8.3.0
   eslint-config-prettier: 8.3.0
@@ -19,7 +19,7 @@ specifiers:
   vite: 2.7.0-beta.9
 
 dependencies:
-  astro: 0.21.5_typescript@4.5.2
+  astro: 0.21.6_typescript@4.5.2
   solid-js: 1.2.5
   tailwindcss: 3.0.0-alpha.2_6b4e3d148bdcb715d5f821ed0a9c268b
 
@@ -967,8 +967,8 @@ packages:
     hasBin: true
     dev: false
 
-  /astro/0.21.5_typescript@4.5.2:
-    resolution: {integrity: sha512-rL06t9k1xsHjdP4sinQhfhuhLn+EqmgSjzsOTZP60BZIuE8gHnpchxqieoiOQZh6i/3u379cO816XLEPZCv43Q==}
+  /astro/0.21.6_typescript@4.5.2:
+    resolution: {integrity: sha512-GDW79Lseomo0YmYAdvIhj6H1yKx4Ww/jY/r7ovjV3SmxjSpHqi5ZhDS5CuKLqdjmwlp7HnzekPsin7Ydanq2KQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
