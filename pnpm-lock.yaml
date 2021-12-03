@@ -1,10 +1,10 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@astrojs/renderer-solid': 0.2.0
+  '@astrojs/renderer-solid': 0.2.1
   '@typescript-eslint/eslint-plugin': 5.5.0
   '@typescript-eslint/parser': 5.5.0
-  astro: 0.21.6
+  astro: 0.21.8
   autoprefixer: 10.4.0
   eslint: 8.3.0
   eslint-config-prettier: 8.3.0
@@ -16,15 +16,15 @@ specifiers:
   tailwindcss: 3.0.0-alpha.2
   typed.js: 2.0.12
   typescript: 4.5.2
-  vite: 2.7.0-beta.9
+  vite: 2.7.0-beta.10
 
 dependencies:
-  astro: 0.21.6_typescript@4.5.2
+  astro: 0.21.8_typescript@4.5.2
   solid-js: 1.2.5
   tailwindcss: 3.0.0-alpha.2_6b4e3d148bdcb715d5f821ed0a9c268b
 
 devDependencies:
-  '@astrojs/renderer-solid': 0.2.0
+  '@astrojs/renderer-solid': 0.2.1
   '@typescript-eslint/eslint-plugin': 5.5.0_2a935f58a3cc0b0f42856ccf18d8367f
   '@typescript-eslint/parser': 5.5.0_eslint@8.3.0+typescript@4.5.2
   autoprefixer: 10.4.0_postcss@8.4.4
@@ -36,18 +36,18 @@ devDependencies:
   tailwind-scrollbar: 1.3.1_6b4e3d148bdcb715d5f821ed0a9c268b
   typed.js: 2.0.12
   typescript: 4.5.2
-  vite: 2.7.0-beta.9
+  vite: 2.7.0-beta.10
 
 packages:
 
-  /@astrojs/compiler/0.3.9:
-    resolution: {integrity: sha512-TzmIzpB6bpGD3vghcj+cXPckXkRCf6zHcVupf6F2b9WpFkMAvrXoafkKJIids2Mq9aU4p7ooVcIDGZ9tpqZpyw==}
+  /@astrojs/compiler/0.5.6:
+    resolution: {integrity: sha512-lyUt5YEb8SutMjERYtJjExUqDAo4/HrRtfFlDmba1RxeE3A2AdK4BZq5R2n3JKp8JWFkqso9cJaVPZ463P3htA==}
     dependencies:
       typescript: 4.5.2
     dev: false
 
-  /@astrojs/language-server/0.7.19:
-    resolution: {integrity: sha512-6ZZtId4NGvMyXILbOdsAE6gllCxd7tpFL6zrMdtQcVvd1XZAABq7hmUDAD1BIfG0HHVz7cHxe5Wxq+cLWIYyVw==}
+  /@astrojs/language-server/0.8.2:
+    resolution: {integrity: sha512-AD2KDWM5CJMyhvD+ME8yJNvppliLizY34zRO+sFJ0xZ0YDIcIW9+Q0Y2gdYGoPLsr0xCu5SLpF0EmlHmTtfYEw==}
     hasBin: true
     dependencies:
       lodash: 4.17.21
@@ -60,6 +60,8 @@ packages:
       vscode-languageserver: 6.1.1
       vscode-languageserver-protocol: 3.16.0
       vscode-languageserver-textdocument: 1.0.2
+      vscode-languageserver-types: 3.16.0
+      vscode-uri: 3.0.2
     dev: false
 
   /@astrojs/markdown-remark/0.5.0:
@@ -93,8 +95,8 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: false
 
-  /@astrojs/renderer-preact/0.3.0_@babel+core@7.16.0:
-    resolution: {integrity: sha512-gw+LpSdJXeSXdMTc9aIvVHiOyBs9w37D1yGogE/cleStIN9nTM6TVeU06gtZkIHOViOGAsMXTCrM7enr6VBMKQ==}
+  /@astrojs/renderer-preact/0.3.1_@babel+core@7.16.0:
+    resolution: {integrity: sha512-NEcUEtir2H0g4bV4/GwBxqE6bJpOH4WV/FfFRAO6yxqVx3VCdRJ7163fLmMqqznczoqg9w64uEGejx+NdHAFIg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       '@babel/plugin-transform-react-jsx': 7.16.0_@babel+core@7.16.0
@@ -104,8 +106,8 @@ packages:
       - '@babel/core'
     dev: false
 
-  /@astrojs/renderer-react/0.3.0_@babel+core@7.16.0:
-    resolution: {integrity: sha512-pb9gKVHJwtFNoYrtSnBfOPm/0IerEGe6MCDrgys5lwVPWiZ9Di+7uK+C2/UdBuHDM8NEKw+zXA+6qZi/endy+g==}
+  /@astrojs/renderer-react/0.3.1_@babel+core@7.16.0:
+    resolution: {integrity: sha512-TqwQyVHhzbFKuF8+jMOlrxM767nubzZzCKuKTAzmrCRLa8vMXPqcPS7JXWD7Q6s6gXln3yhat6+3iodwgurwlw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       '@babel/plugin-transform-react-jsx': 7.16.0_@babel+core@7.16.0
@@ -115,8 +117,8 @@ packages:
       - '@babel/core'
     dev: false
 
-  /@astrojs/renderer-solid/0.2.0:
-    resolution: {integrity: sha512-55G5PnGeBABdpVhYoSyOCMZbDFR51uxzxgdRsMdmEa52ZkYPrGEIftNpGzuoCe07hBGGcU52L4Qonh3NKHq8zA==}
+  /@astrojs/renderer-solid/0.2.1:
+    resolution: {integrity: sha512-bHvVogchs8oAN7e6G9+UG+tDy5An+qaFQ6duLLIAx3tfoJawlYF38sdPivirT6B2+0OqspYuELkCNQ5nYoXF6g==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       babel-plugin-module-resolver: 4.1.0
@@ -126,8 +128,8 @@ packages:
       - '@babel/core'
     dev: true
 
-  /@astrojs/renderer-svelte/0.2.1_71d2092ae2f6c430f21099ed7e1aa8d4:
-    resolution: {integrity: sha512-0pifE/w+K6eLrDT0urBYPOBJzF7e4sL3+td7o1p4a3yGXPQsr5eKKQ66lyIKl7sgg5bXOVQhVMQbnm6rGqHxVA==}
+  /@astrojs/renderer-svelte/0.2.2_71d2092ae2f6c430f21099ed7e1aa8d4:
+    resolution: {integrity: sha512-6fs/skQURDvn2K/TVAgOmqcMUaGuocV7EwAzthHTJzlfRQUbNEWmyLtuvjcSCZnY+28vupKjEarWl3IsyqJh6Q==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       '@sveltejs/vite-plugin-svelte': 1.0.0-next.30_svelte@3.44.2+vite@2.6.14
@@ -150,8 +152,8 @@ packages:
       - vite
     dev: false
 
-  /@astrojs/renderer-vue/0.2.0_vite@2.6.14:
-    resolution: {integrity: sha512-YfQwghT0/n/tNbi/93wWsqNUwUxRCi76CdNvBRNyP01JVTZisQyqtT8yOJYGgMgqxQEscpPmD467dK89knd5gQ==}
+  /@astrojs/renderer-vue/0.2.1_vite@2.6.14:
+    resolution: {integrity: sha512-nawWIzwL40M8ran4zQaYckAdHwn1HeD6zTRH3LKCENeAjn3bJ4wxJ2KD9dZw4twACP+yBZm3y2N7iX+6CyueIQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       '@vitejs/plugin-vue': 1.9.4_vite@2.6.14
@@ -967,19 +969,19 @@ packages:
     hasBin: true
     dev: false
 
-  /astro/0.21.6_typescript@4.5.2:
-    resolution: {integrity: sha512-GDW79Lseomo0YmYAdvIhj6H1yKx4Ww/jY/r7ovjV3SmxjSpHqi5ZhDS5CuKLqdjmwlp7HnzekPsin7Ydanq2KQ==}
+  /astro/0.21.8_typescript@4.5.2:
+    resolution: {integrity: sha512-HVT2t/arLvcE+sJgA/x8/e3xEm0OfGlAuHuTjUBYV10poBTsMcfAvGmevQb7qjDzI4yoSqlivJ3Bsq960By9rg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
-      '@astrojs/compiler': 0.3.9
-      '@astrojs/language-server': 0.7.19
+      '@astrojs/compiler': 0.5.6
+      '@astrojs/language-server': 0.8.2
       '@astrojs/markdown-remark': 0.5.0
       '@astrojs/prism': 0.3.0
-      '@astrojs/renderer-preact': 0.3.0_@babel+core@7.16.0
-      '@astrojs/renderer-react': 0.3.0_@babel+core@7.16.0
-      '@astrojs/renderer-svelte': 0.2.1_71d2092ae2f6c430f21099ed7e1aa8d4
-      '@astrojs/renderer-vue': 0.2.0_vite@2.6.14
+      '@astrojs/renderer-preact': 0.3.1_@babel+core@7.16.0
+      '@astrojs/renderer-react': 0.3.1_@babel+core@7.16.0
+      '@astrojs/renderer-svelte': 0.2.2_71d2092ae2f6c430f21099ed7e1aa8d4
+      '@astrojs/renderer-vue': 0.2.1_vite@2.6.14
       '@babel/core': 7.16.0
       '@babel/traverse': 7.16.3
       '@proload/core': 0.2.2
@@ -4658,8 +4660,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vite/2.7.0-beta.9:
-    resolution: {integrity: sha512-4hVJC8iNGYLHdC2OjS9jSu5Dp3q7gtyz2+98XZsb46qVjdZHZPQBZAKpycPj1EcbGDiiJpY6XIaBKknxCQ+cKA==}
+  /vite/2.7.0-beta.10:
+    resolution: {integrity: sha512-BiZ0SOnvNtB4Q5Y8YJDYf9O2h7Abld6wsT3SCEM5k4KJstMt1oZdO1M3+L3mhSu0mVJX5wHsyt9CEv5o1lz8vg==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
