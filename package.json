@@ -18,7 +18,7 @@
     "@typescript-eslint/eslint-plugin": "5.5.0",
     "@typescript-eslint/parser": "5.5.0",
     "autoprefixer": "10.4.0",
-    "eslint": "8.3.0",
+    "eslint": "8.4.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "4.0.0",
     "postcss": "8.4.4",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "solid-js": "1.2.5",
-    "astro": "0.21.8",
+    "astro": "0.21.10",
     "tailwindcss": "3.0.0-alpha.2"
   }
 }
