@@ -3,9 +3,11 @@
   "ignorePaths": [],
   "enabledManagers": ["npm", "github-actions"],
   "automerge": true,
+  "automergeType": "branch",
   "lockFileMaintenance": {
     "enabled": true,
-    "automerge": true
+    "automerge": true,
+    "automergeType": "branch"
   },
   "rebaseConflictedPrs": false
 }
