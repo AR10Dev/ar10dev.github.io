@@ -6,6 +6,10 @@
 // helpful tooltips, and warnings if your exported object is invalid.
 // You can disable this by removing "@ts-check" and `@type` comments below.
 
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
+import cssnano from 'cssnano'
+
 // @ts-check
 export default /** @type {import('astro').AstroUserConfig} */ ({
   // projectRoot: '.',     // Where to resolve all URLs relative to. Useful if you have a monorepo project.
@@ -22,5 +26,25 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
     tailwindConfig: 'tailwind.config.js' // Path to tailwind.config.js if used, e.g. './tailwind.config.js'
   },
   // Enable the Solid renderer to support Solid JSX components.
-  renderers: ['@astrojs/renderer-solid']
+  renderers: ['@astrojs/renderer-solid'],
+  vite: {
+    build: {
+      target: 'esnext',
+      minify: 'terser',
+      terserOptions: {
+        ecma: 2020
+      }
+    },
+    css: {
+      postcss: {
+        plugins: [
+          tailwindcss,
+          autoprefixer,
+          cssnano({
+            preset: 'default'
+          })
+        ]
+      }
+    }
+  }
 })
