@@ -1,8 +1,7 @@
 module.exports = {
-  mode: 'jit',
-  plugins: [require('tailwind-scrollbar')],
+  plugins: [require('./src/plugins/tailwindcss/scrollbar.js')],
   minify: true,
-  content: ['./public/**/*.html', './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}'],
+  content: ['./src/**/*.{astro,ts,tsx}'],
   theme: {},
   variants: {
     scrollbar: ['rounded'],
