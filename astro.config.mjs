@@ -34,17 +34,6 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
       terserOptions: {
         ecma: 2020
       }
-    },
-    css: {
-      postcss: {
-        plugins: [
-          tailwindcss,
-          autoprefixer,
-          cssnano({
-            preset: 'default'
-          })
-        ]
-      }
     }
   }
 })
