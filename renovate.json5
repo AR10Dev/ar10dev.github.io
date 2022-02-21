@@ -1,5 +1,5 @@
 {
-    "extends": ["config:base", "schedule:daily"],
+    "extends": ["config:base", ":disableDependencyDashboard", "schedule:daily"],
     "enabledManagers": ["npm", "github-actions"],
     "packageRules": [
         {
