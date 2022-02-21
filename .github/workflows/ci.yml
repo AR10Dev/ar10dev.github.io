@@ -4,6 +4,11 @@ on:
     branches:
       - master
 
+  push:
+    branches:    
+      - master
+      - 'renovate/**'
+
 jobs:
   build:
     runs-on: ubuntu-latest
