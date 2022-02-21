@@ -5,8 +5,7 @@ on:
       - master
 
   push:
-    branches:    
-      - master
+    branches:
       - 'renovate/**'
 
 jobs:
