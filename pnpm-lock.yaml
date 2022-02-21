@@ -6,7 +6,7 @@ specifiers:
   '@types/node': 17.0.18
   '@typescript-eslint/eslint-plugin': 5.12.0
   '@typescript-eslint/parser': 5.12.0
-  astro: 0.23.0-next.10
+  astro: 0.23.0
   autoprefixer: 10.4.2
   cssnano: 5.0.17
   eslint: 8.9.0
@@ -22,7 +22,7 @@ specifiers:
   vite: 2.8.4
 
 dependencies:
-  astro: 0.23.0-next.10_typescript@4.5.5
+  astro: 0.23.0_typescript@4.5.5
   solid-js: 1.3.7
   tailwindcss: 3.0.23_autoprefixer@10.4.2
 
@@ -52,8 +52,8 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.4
 
-  /@astrojs/compiler/0.11.1:
-    resolution: {integrity: sha512-JbhVpAbVEZXdUqhJqCnboyekCML0Yc4yeVTxfmGhSGWWx0dcSDcUU5s7E7MCRc9O4GnQ1cjBq2ls3PLBsYuu1A==}
+  /@astrojs/compiler/0.11.3:
+    resolution: {integrity: sha512-mg0hRk8uzk5LQjtHpAFtwmkCq7YM40Inev49WPqdxDnDaK056I1dbRCm3E/h2SJhLdUyI3KRML79N6DTmL5wRg==}
     dependencies:
       typescript: 4.5.5
     dev: false
@@ -76,8 +76,8 @@ packages:
       vscode-uri: 3.0.3
     dev: false
 
-  /@astrojs/markdown-remark/0.6.1-next.2:
-    resolution: {integrity: sha512-N1J725Ap2BmQDVcpTBbfIk62AJCobeXYy5RxRtVbFhZd2jCCrI2uHSFe1sSfbeMsU2cfujyNAH/eLJx4pbcVGQ==}
+  /@astrojs/markdown-remark/0.6.1:
+    resolution: {integrity: sha512-NSyapfT9xP9AB3TJkTKKXbX41Qf9TBUPVKaHKtWzOCq8Hhd/zAiGINmIIcyVY1x0S0Tr8tGoovWeRUPAKthqHA==}
     dependencies:
       '@astrojs/prism': 0.4.0
       assert: 2.0.0
@@ -117,8 +117,8 @@ packages:
     engines: {node: ^14.15.0 || >=16.0.0}
     dev: false
 
-  /@astrojs/renderer-preact/0.5.0-next.0_@babel+core@7.17.5:
-    resolution: {integrity: sha512-DT/XRbrGEqlda0RBnUDQRfAUP2yXcyB1jootAwyli7UFs1cOlPi8DOymf2gb5S8TaKk1XLp2djx1G8K0XFJBYA==}
+  /@astrojs/renderer-preact/0.5.0_@babel+core@7.17.5:
+    resolution: {integrity: sha512-83De5FdGzCt7lqsHWx1Oc+pLgSM6G1xkdlZyV2pU0pyuV/NaTek9qaGNAmh96G28lufeyWKw1m1dVx8UGCSBnw==}
     engines: {node: ^14.15.0 || >=16.0.0}
     dependencies:
       '@babel/plugin-transform-react-jsx': 7.17.3_@babel+core@7.17.5
@@ -128,8 +128,8 @@ packages:
       - '@babel/core'
     dev: false
 
-  /@astrojs/renderer-react/0.5.0-next.0_@babel+core@7.17.5:
-    resolution: {integrity: sha512-1DuaWllhddOvTmLS9ZOcMchQ/6HBhMlngiN4mXlkRH8y0RixBeg6aLWPEj3N46ZI4Zh73JOPUSWeGuVrDKVmHg==}
+  /@astrojs/renderer-react/0.5.0_@babel+core@7.17.5:
+    resolution: {integrity: sha512-9Ij1TjJbRuPTK7mwOylDdKW6rDUk1RaBFD6rcZkrHHrA0M6b6a6HQzjXCFjJMeZIDg10N1aqtIJWM6Fptwhz1g==}
     engines: {node: ^14.15.0 || >=16.0.0}
     dependencies:
       '@babel/plugin-transform-react-jsx': 7.17.3_@babel+core@7.17.5
@@ -149,8 +149,8 @@ packages:
       - '@babel/core'
     dev: true
 
-  /@astrojs/renderer-svelte/0.4.0-next.0_7f4d3699b37748b46352c398cf5bc526:
-    resolution: {integrity: sha512-5DwL3Tt+vSKdLzUe6A7rbqG6KvrRIGzF8YU2k5F/rYPI6XOAZ1vlCD3SPY5sZwu0/qjH12BG+AwG82wlNJIenA==}
+  /@astrojs/renderer-svelte/0.4.0_7f4d3699b37748b46352c398cf5bc526:
+    resolution: {integrity: sha512-YP6e6qPMEx5Pr6tCiD+GTyT7Bl+aA1biTX9Yg8Sd7bjXHOiqfMH28d8Bo0CXHiqUXli/CTp6pRtR0WN44a4gUg==}
     engines: {node: ^14.15.0 || >=16.0.0}
     dependencies:
       '@sveltejs/vite-plugin-svelte': 1.0.0-next.37_svelte@3.46.4+vite@2.8.4
@@ -174,8 +174,8 @@ packages:
       - vite
     dev: false
 
-  /@astrojs/renderer-vue/0.4.0-next.0_vite@2.8.4:
-    resolution: {integrity: sha512-GJOH84SStDBNST1jwt1TT7aQ8z5aZ3K6w5tci0XFPq16BnT+KyHNbZITFTkY0nszF3evswV/Z0c0FJxlHeUeXQ==}
+  /@astrojs/renderer-vue/0.4.0_vite@2.8.4:
+    resolution: {integrity: sha512-jeD+KJZcIGIyZDMkA2uKkA+vRGC/+bRV4o9+q+yFJA+npLHuGt9EdSTAqvEJyBMvZ+O2JG2wgAl8S7nFy1S7nw==}
     engines: {node: ^14.15.0 || >=16.0.0}
     dependencies:
       '@vitejs/plugin-vue': 2.2.0_vite@2.8.4+vue@3.2.31
@@ -1028,19 +1028,19 @@ packages:
       util: 0.12.4
     dev: false
 
-  /astro/0.23.0-next.10_typescript@4.5.5:
-    resolution: {integrity: sha512-WKALrpi92aEdc48zi2cfgc2T24l7maVurfZ75Ugl2C805Y6MXwnKfe50Wk1s50u5gEoz9LLqFqCqU6EESW2x2g==}
+  /astro/0.23.0_typescript@4.5.5:
+    resolution: {integrity: sha512-DdoxHDScUiDkHKahZlgyPyHxNzcby/CGt6wux2iErds7w5syQhTi27/QoZmKGCpPDLwur0ksSWbSN150nR1uRw==}
     engines: {node: ^14.15.0 || >=16.0.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
-      '@astrojs/compiler': 0.11.1
+      '@astrojs/compiler': 0.11.3
       '@astrojs/language-server': 0.8.8
-      '@astrojs/markdown-remark': 0.6.1-next.2
+      '@astrojs/markdown-remark': 0.6.1
       '@astrojs/prism': 0.4.0
-      '@astrojs/renderer-preact': 0.5.0-next.0_@babel+core@7.17.5
-      '@astrojs/renderer-react': 0.5.0-next.0_@babel+core@7.17.5
-      '@astrojs/renderer-svelte': 0.4.0-next.0_7f4d3699b37748b46352c398cf5bc526
-      '@astrojs/renderer-vue': 0.4.0-next.0_vite@2.8.4
+      '@astrojs/renderer-preact': 0.5.0_@babel+core@7.17.5
+      '@astrojs/renderer-react': 0.5.0_@babel+core@7.17.5
+      '@astrojs/renderer-svelte': 0.4.0_7f4d3699b37748b46352c398cf5bc526
+      '@astrojs/renderer-vue': 0.4.0_vite@2.8.4
       '@astropub/webapi': 0.10.14
       '@babel/core': 7.17.5
       '@babel/traverse': 7.17.3
