@@ -14,7 +14,7 @@ const Type: Component = () => {
         'Freelancer',
         'Full Stack Developer'
       ],
-      typeSpeed: 70,
+      typeSpeed: 90,
       loop: true,
       backDelay: 900,
       backSpeed: 50
