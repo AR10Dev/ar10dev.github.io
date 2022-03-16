@@ -8,15 +8,14 @@ module.exports = {
     'prettier'
   ],
   parserOptions: {
-    ecmaVersion: 2021,
+    ecmaVersion: "latest",
     sourceType: 'module',
     tsconfigRootDir: __dirname,
     project: ['./tsconfig.json'],
   },
   env: {
-    es6: true,
     browser: true,
-    es2021: true
+    es2022: true
   },
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
