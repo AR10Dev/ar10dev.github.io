@@ -21,7 +21,7 @@ specifiers:
   tailwindcss: 3.0.23
   typed.js: 2.0.12
   typescript: 4.6.3
-  vite: 2.9.0-beta.9
+  vite: 2.9.1
 
 dependencies:
   astro: 0.25.4
@@ -46,7 +46,7 @@ devDependencies:
   prettier-plugin-astro: 0.0.12
   typed.js: 2.0.12
   typescript: 4.6.3
-  vite: 2.9.0-beta.9
+  vite: 2.9.1
 
 packages:
 
@@ -904,7 +904,7 @@ packages:
       strip-ansi: 7.0.1
       supports-esm: 1.0.0
       tsconfig-resolver: 3.0.1
-      vite: 2.8.6
+      vite: 2.9.1
       yargs-parser: 21.0.1
       zod: 3.14.3
     transitivePeerDependencies:
@@ -5057,8 +5057,8 @@ packages:
       vfile-message: 3.1.2
     dev: false
 
-  /vite/2.8.6:
-    resolution: {integrity: sha512-e4H0QpludOVKkmOsRyqQ7LTcMUDF3mcgyNU4lmi0B5JUbe0ZxeBBl8VoZ8Y6Rfn9eFKYtdXNPcYK97ZwH+K2ug==}
+  /vite/2.9.1:
+    resolution: {integrity: sha512-vSlsSdOYGcYEJfkQ/NeLXgnRv5zZfpAsdztkIrs7AZHV8RCMZQkwjo4DS5BnrYTqoWqLoUe1Cah4aVO4oNNqCQ==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
@@ -5079,31 +5079,6 @@ packages:
       rollup: 2.70.1
     optionalDependencies:
       fsevents: 2.3.2
-    dev: false
-
-  /vite/2.9.0-beta.9:
-    resolution: {integrity: sha512-TCAXPSgNKzg5y+cAQFUbMRGdPNcnmyU4Q1L10teubIAAMHTmm5V/8PmVZCWohcvN8ZhIV6MDgEq9P+oosm682A==}
-    engines: {node: '>=12.2.0'}
-    hasBin: true
-    peerDependencies:
-      less: '*'
-      sass: '*'
-      stylus: '*'
-    peerDependenciesMeta:
-      less:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-    dependencies:
-      esbuild: 0.14.28
-      postcss: 8.4.12
-      resolve: 1.22.0
-      rollup: 2.70.1
-    optionalDependencies:
-      fsevents: 2.3.2
-    dev: true
 
   /vscode-css-languageservice/5.3.0:
     resolution: {integrity: sha512-ujWW855AoJlE4ETU17Gff7unlZZTHDA0w26itk9EQFMfJqi9lE6S67zOsMvcPmJf55MrnGQbojDYZRiDVaFjdA==}
