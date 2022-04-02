@@ -8,10 +8,8 @@ import cssnano from 'cssnano'
 
 // https://astro.build/config
 export default defineConfig({
-  buildOptions: {
-    site: 'https://ar10dev.github.io/' // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
-  },
-  integrations: [solid(), tailwindcss(), sitemap()],
+  site: 'https://ar10dev.github.io/', // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
+  integrations: [ solid(), tailwindcss(), sitemap() ],
   vite: {
     css: {
       // PostCSS Config
