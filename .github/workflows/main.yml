@@ -1,0 +1,81 @@
+name: Main
+on: 
+  push:
+    branches:
+      - master
+      - 'renovate/**'
+  pull_request:
+  workflow_dispatch:
+
+
+jobs:
+  format:
+    if: ${{ !startsWith(github.head_ref, 'renovate/')) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6
+
+      - name: Setup node and Cache .pnpm-store
+        uses: actions/setup-node@v3
+        with:
+          node-version: '17'
+          cache: 'pnpm'
+        
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Format 🔧
+        run: pnpm eslint:fix
+
+      - name: Check for modified files
+        id: git-check
+        run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+
+      - name: Commit changes
+        if: ${{ steps.git-check.outputs.modified == 'true' }}
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply formatting changes
+          branch: ${{ github.head_ref }}
+
+  build:
+    needs: [format]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6
+
+      - name: Setup node and Cache .pnpm-store
+        uses: actions/setup-node@v3
+        with:
+          node-version: '17'
+          cache: 'pnpm'
+        
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build 🔧
+        run: pnpm build
+
+      - name: Prepare for Deploy
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: touch ./dist/.nojekyll
+
+      - name: Deploy 🚀
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: dist
+          git-config-email: <>
