@@ -24,5 +24,5 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error"
   },
-  ignorePatterns: ['node_modules']
+  ignorePatterns: ['node_modules', 'dist']
 }

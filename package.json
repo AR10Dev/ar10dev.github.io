@@ -8,8 +8,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "eslint": "eslint src",
-    "eslint:fix": "eslint src --fix",
+    "format": "prettier src --plugin=prettier-plugin-astro --check && eslint src",
+    "format:fix": "prettier src --plugin=prettier-plugin-astro --write && eslint src --fix",
     "preinstall": "npx only-allow pnpm"
   },
   "keywords": [],
@@ -28,13 +28,13 @@
     "eslint-plugin-prettier": "4.0.0",
     "postcss": "8.4.12",
     "prettier": "2.6.2",
-    "prettier-plugin-astro": "0.0.12",
+    "prettier-plugin-astro": "0.1.0-next.4",
     "typed.js": "2.0.12",
     "typescript": "4.6.3",
     "vite": "2.9.1"
   },
   "dependencies": {
-    "astro": "0.26.0",
+    "astro": "1.0.0-beta.2",
     "solid-js": "1.3.13",
     "tailwindcss": "3.0.23"
   }
