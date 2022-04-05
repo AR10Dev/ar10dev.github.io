@@ -8,8 +8,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "prettier src --plugin=prettier-plugin-astro --check && eslint src",
-    "format": "prettier src --plugin=prettier-plugin-astro --write && eslint src --fix",
+    "format": "prettier src --plugin=prettier-plugin-astro --check && eslint src",
+    "format:fix": "prettier src --plugin=prettier-plugin-astro --write && eslint src --fix",
     "preinstall": "npx only-allow pnpm"
   },
   "keywords": [],
