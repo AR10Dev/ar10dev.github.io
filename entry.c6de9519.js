@@ -1,0 +1,1 @@
+import{h as o,b as l,e as f}from"./chunks/chunk.95ed4541.js";var c=r=>(n,a,t)=>{let e;o(()=>l(n,{...a,get children(){return t!=null&&(f.context&&(e=r.querySelector("astro-fragment")),e==null&&(e=document.createElement("astro-fragment"),e.innerHTML=t)),e}}),r)};export{c as default};
