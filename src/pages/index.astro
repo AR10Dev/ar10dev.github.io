@@ -8,20 +8,22 @@ import Footer from '../components/Footer.astro'
 import '../styles/global.css'
 
 const background = 'bg-gray-900'
+const title = `Avaab Razzaq - AR10's website`
+const description = `The one and only official website on the internet created by Avaab Razzaq, aka "AR10"`
 ---
 
 <html lang='en' class='scroll-smooth'>
   <head>
     <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel='icon' type='image/x-icon' href='/favicon.ico?' />
-    <title>Avaab Razzaq</title>
-    <SEO
-      title='Avaab Razzaq - AR10'
-      s
-      blog'
-      description=`The one and only official blog on the internet created by Avaab Razzaq, aka "AR10"`
+    <meta
+      name='viewport'
+      content='width=device-width, initial-scale=1.0, maximum-scale=5.0'
     />
+    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+    <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+    <SEO title={title} description={description} />
+    <meta name='theme-color' content='#000000' />
+    <link rel='manifest' href='/manifest.json' />
   </head>
   <body
     class='bg-gray-100 text-white select-none scrollbar scrollbar-thin scrollbar-track-gray-900 scrollbar-thumb-gray-600 scrollbar-thumb-rounded-xl'
@@ -37,5 +39,10 @@ const background = 'bg-gray-900'
     </div>
     <About />
     <Footer />
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+      }
+    </script>
   </body>
 </html>
