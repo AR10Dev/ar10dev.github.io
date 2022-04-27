@@ -1,4 +1,4 @@
-lockfileVersion: 5.4
+lockfileVersion: 5.3
 
 specifiers:
   '@astrojs/sitemap': 0.1.0
@@ -23,7 +23,7 @@ specifiers:
   typed.js: 2.0.12
   typescript: 4.6.3
   vite: 2.9.5
-  workbox-build: ^6.5.3
+  workbox-build: 6.5.3
 
 dependencies:
   astro: 1.0.0-beta.17
@@ -32,18 +32,18 @@ dependencies:
 
 devDependencies:
   '@astrojs/sitemap': 0.1.0
-  '@astrojs/solid-js': 0.1.2_txjpuinqjnxvqs57hnau2nchoa
+  '@astrojs/solid-js': 0.1.2_9dd2fa21b04b6f584bbf3b414d344770
   '@astrojs/tailwind': 0.2.0
   '@babel/core': 7.17.9
   '@types/node': 17.0.26
-  '@typescript-eslint/eslint-plugin': 5.20.0_qhyndj2pafgujuttxulbfsc73e
-  '@typescript-eslint/parser': 5.20.0_5wsz2tb7zzudmaqxfve53vbauu
+  '@typescript-eslint/eslint-plugin': 5.20.0_81f0d1a74f014d44d273bd1612c85fd9
+  '@typescript-eslint/parser': 5.20.0_eslint@8.14.0+typescript@4.6.3
   astro-seo: 0.5.0
   autoprefixer: 10.4.5_postcss@8.4.12
   cssnano: 5.1.7_postcss@8.4.12
   eslint: 8.14.0
   eslint-config-prettier: 8.5.0_eslint@8.14.0
-  eslint-plugin-prettier: 4.0.0_mzpligoj26dazigcet37nxg2zy
+  eslint-plugin-prettier: 4.0.0_665eb419c9d7860ca0c224f7f6dcdace
   postcss: 8.4.12
   prettier: 2.6.2
   prettier-plugin-astro: 0.1.0-next.4
@@ -141,7 +141,7 @@ packages:
       sitemap: 7.1.1
     dev: true
 
-  /@astrojs/solid-js/0.1.2_txjpuinqjnxvqs57hnau2nchoa:
+  /@astrojs/solid-js/0.1.2_9dd2fa21b04b6f584bbf3b414d344770:
     resolution: {integrity: sha512-xXrKwWprjMkZMVSmqfPJOlrwr3WvuoZckSN/VE5WZf8JYJBZrmsEh5xJg+s3Q9dJQQ2ZdsNhTer5pm3Gp+YbOg==}
     engines: {node: ^14.15.0 || >=16.0.0}
     peerDependencies:
@@ -157,7 +157,7 @@ packages:
     resolution: {integrity: sha512-sXCe9FBgn31HAlBwimT2RfveNrYP6/j+XT/YHlj15tdlYqqcEQUj3IP43wSWwkIKwtKVrHWUjY+SOk+MeD+eow==}
     dependencies:
       svelte: 3.47.0
-      svelte2tsx: 0.5.9_ucc3fdkrl6lb7lhnlfimbouujy
+      svelte2tsx: 0.5.9_svelte@3.47.0+typescript@4.6.3
     transitivePeerDependencies:
       - typescript
     dev: false
@@ -1393,7 +1393,7 @@ packages:
       tsm: 2.2.1
     dev: false
 
-  /@rollup/plugin-babel/5.3.1_6m6vi5xreq5wlqqwvo3xvcrttm:
+  /@rollup/plugin-babel/5.3.1_@babel+core@7.17.9+rollup@2.70.2:
     resolution: {integrity: sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
@@ -1572,7 +1572,7 @@ packages:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
     dev: false
 
-  /@typescript-eslint/eslint-plugin/5.20.0_qhyndj2pafgujuttxulbfsc73e:
+  /@typescript-eslint/eslint-plugin/5.20.0_81f0d1a74f014d44d273bd1612c85fd9:
     resolution: {integrity: sha512-fapGzoxilCn3sBtC6NtXZX6+P/Hef7VDbyfGqTTpzYydwhlkevB+0vE0EnmHPVTVSy68GUncyJ/2PcrFBeCo5Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1583,10 +1583,10 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 5.20.0_5wsz2tb7zzudmaqxfve53vbauu
+      '@typescript-eslint/parser': 5.20.0_eslint@8.14.0+typescript@4.6.3
       '@typescript-eslint/scope-manager': 5.20.0
-      '@typescript-eslint/type-utils': 5.20.0_5wsz2tb7zzudmaqxfve53vbauu
-      '@typescript-eslint/utils': 5.20.0_5wsz2tb7zzudmaqxfve53vbauu
+      '@typescript-eslint/type-utils': 5.20.0_eslint@8.14.0+typescript@4.6.3
+      '@typescript-eslint/utils': 5.20.0_eslint@8.14.0+typescript@4.6.3
       debug: 4.3.4
       eslint: 8.14.0
       functional-red-black-tree: 1.0.1
@@ -1599,7 +1599,7 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/parser/5.20.0_5wsz2tb7zzudmaqxfve53vbauu:
+  /@typescript-eslint/parser/5.20.0_eslint@8.14.0+typescript@4.6.3:
     resolution: {integrity: sha512-UWKibrCZQCYvobmu3/N8TWbEeo/EPQbS41Ux1F9XqPzGuV7pfg6n50ZrFo6hryynD8qOTTfLHtHjjdQtxJ0h/w==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1627,7 +1627,7 @@ packages:
       '@typescript-eslint/visitor-keys': 5.20.0
     dev: true
 
-  /@typescript-eslint/type-utils/5.20.0_5wsz2tb7zzudmaqxfve53vbauu:
+  /@typescript-eslint/type-utils/5.20.0_eslint@8.14.0+typescript@4.6.3:
     resolution: {integrity: sha512-WxNrCwYB3N/m8ceyoGCgbLmuZwupvzN0rE8NBuwnl7APgjv24ZJIjkNzoFBXPRCGzLNkoU/WfanW0exvp/+3Iw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1637,7 +1637,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/utils': 5.20.0_5wsz2tb7zzudmaqxfve53vbauu
+      '@typescript-eslint/utils': 5.20.0_eslint@8.14.0+typescript@4.6.3
       debug: 4.3.4
       eslint: 8.14.0
       tsutils: 3.21.0_typescript@4.6.3
@@ -1672,7 +1672,7 @@ packages:
       - supports-color
     dev: true
 
-  /@typescript-eslint/utils/5.20.0_5wsz2tb7zzudmaqxfve53vbauu:
+  /@typescript-eslint/utils/5.20.0_eslint@8.14.0+typescript@4.6.3:
     resolution: {integrity: sha512-lHONGJL1LIO12Ujyx8L8xKbwWSkoUKFSO+0wDAqGXiudWB2EO7WEUT+YZLtVbmOmSllAjLb9tpoIPwpRe5Tn6w==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -2851,7 +2851,7 @@ packages:
       eslint: 8.14.0
     dev: true
 
-  /eslint-plugin-prettier/4.0.0_mzpligoj26dazigcet37nxg2zy:
+  /eslint-plugin-prettier/4.0.0_665eb419c9d7860ca0c224f7f6dcdace:
     resolution: {integrity: sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
@@ -5827,7 +5827,7 @@ packages:
     engines: {node: '>= 8'}
     dev: false
 
-  /svelte2tsx/0.5.9_ucc3fdkrl6lb7lhnlfimbouujy:
+  /svelte2tsx/0.5.9_svelte@3.47.0+typescript@4.6.3:
     resolution: {integrity: sha512-xTDASjlh+rKo4QRhTRYSH87sS7fRoyX67xhGIMPKa3FYqftRHRmMes6nVgEskiuhBovslNHYYpMMg5YM5n/STg==}
     peerDependencies:
       svelte: ^3.24
@@ -6421,7 +6421,7 @@ packages:
       '@babel/core': 7.17.9
       '@babel/preset-env': 7.16.11_@babel+core@7.17.9
       '@babel/runtime': 7.17.9
-      '@rollup/plugin-babel': 5.3.1_6m6vi5xreq5wlqqwvo3xvcrttm
+      '@rollup/plugin-babel': 5.3.1_@babel+core@7.17.9+rollup@2.70.2
       '@rollup/plugin-node-resolve': 11.2.1_rollup@2.70.2
       '@rollup/plugin-replace': 2.4.2_rollup@2.70.2
       '@surma/rollup-plugin-off-main-thread': 2.2.3
