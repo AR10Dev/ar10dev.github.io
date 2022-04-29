@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config'
 import solid from '@astrojs/solid-js'
 import tailwindcss from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
+import robotsTxt from 'astro-robots-txt'
 import tailwindCss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
@@ -9,7 +10,7 @@ import cssnano from 'cssnano'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ar10dev.github.io/', // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
-  integrations: [ solid(), tailwindcss(), sitemap() ],
+  integrations: [ solid(), tailwindcss(), sitemap(), robotsTxt() ],
   vite: {
     css: {
       // PostCSS Config
