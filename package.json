@@ -17,7 +17,7 @@
     "@astrojs/sitemap": "0.1.0",
     "@astrojs/solid-js": "0.1.2",
     "@astrojs/tailwind": "0.2.1",
-    "@babel/core": "7.17.9",
+    "@babel/core": "7.17.10",
     "@typescript-eslint/eslint-plugin": "5.21.0",
     "@typescript-eslint/parser": "5.21.0",
     "astro-robots-txt": "0.1.8",
