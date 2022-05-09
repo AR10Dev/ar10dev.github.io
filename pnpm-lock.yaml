@@ -22,7 +22,7 @@ specifiers:
   tailwindcss: 3.0.24
   typed.js: 2.0.12
   typescript: 4.6.4
-  vite: 2.9.6
+  vite: 2.9.8
   workbox-build: 6.5.3
 
 dependencies:
@@ -49,7 +49,7 @@ devDependencies:
   prettier-plugin-astro: 0.1.0-next.4
   typed.js: 2.0.12
   typescript: 4.6.4
-  vite: 2.9.6
+  vite: 2.9.8
   workbox-build: 6.5.3
 
 packages:
@@ -465,6 +465,8 @@ packages:
     resolution: {integrity: sha512-n2Q6i+fnJqzOaq2VkdXxy2TCPCWQZHiCo0XqmrCvDWcZQKRyZzYi4Z0yxlBuN0w+r2ZHmre+Q087DSrw3pbJDQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+    dependencies:
+      '@babel/types': 7.17.10
 
   /@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression/7.16.7_@babel+core@7.17.10:
     resolution: {integrity: sha512-anv/DObl7waiGEnC24O9zqL0pSuI9hljihqiDuFHC8d7/bjr/4RLGPWuc8rYOff/QPzbEPSkzG8wGG9aDuhHRg==}
@@ -1941,7 +1943,7 @@ packages:
       strip-ansi: 7.0.1
       supports-esm: 1.0.0
       tsconfig-resolver: 3.0.1
-      vite: 2.9.6
+      vite: 2.9.8
       yargs-parser: 21.0.1
       zod: 3.14.4
     transitivePeerDependencies:
@@ -6295,8 +6297,8 @@ packages:
       vfile-message: 3.1.2
     dev: false
 
-  /vite/2.9.6:
-    resolution: {integrity: sha512-3IffdrByHW95Yjv0a13TQOQfJs7L5dVlSPuTt432XLbRMriWbThqJN2k/IS6kXn5WY4xBLhK9XoaWay1B8VzUw==}
+  /vite/2.9.8:
+    resolution: {integrity: sha512-zsBGwn5UT3YS0NLSJ7hnR54+vUKfgzMUh/Z9CxF1YKEBVIe213+63jrFLmZphgGI5zXwQCSmqIdbPuE8NJywPw==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
