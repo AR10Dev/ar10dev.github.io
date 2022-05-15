@@ -1,0 +1,1 @@
+import{h as o,b as i,e as l}from"./chunks/chunk.b555b8e2.js";var c=t=>(n,a,r)=>{window._$HY||(window._$HY={events:[],completed:new WeakSet,r:{}});let e;o(()=>i(n,{...a,get children(){return r!=null&&(l.context&&(e=t.querySelector("astro-fragment")),e==null&&(e=document.createElement("astro-fragment"),e.innerHTML=r)),e}}),t)};export{c as default};
