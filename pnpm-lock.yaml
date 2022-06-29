@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/sitemap': 0.1.2
   '@astrojs/solid-js': 0.1.4
-  '@astrojs/tailwind': 0.2.1
+  '@astrojs/tailwind': 0.2.2
   '@babel/core': 7.18.5
   '@typescript-eslint/eslint-plugin': 5.23.0
   '@typescript-eslint/parser': 5.23.0
@@ -33,7 +33,7 @@ dependencies:
 devDependencies:
   '@astrojs/sitemap': 0.1.2
   '@astrojs/solid-js': 0.1.4_fjpt4gfurtqwe2gh2rvvp4bduu
-  '@astrojs/tailwind': 0.2.1
+  '@astrojs/tailwind': 0.2.2
   '@babel/core': 7.18.5
   '@typescript-eslint/eslint-plugin': 5.23.0_sz7i2ul2hhobmvt3762ecj6gzu
   '@typescript-eslint/parser': 5.23.0_yrtj344k46h67sdw7qqyyz3die
@@ -177,8 +177,8 @@ packages:
       - typescript
     dev: false
 
-  /@astrojs/tailwind/0.2.1:
-    resolution: {integrity: sha512-aHG6YZjfkkXNwEzgR8VG0u0qWjXwset6oqe0LpdIOKYZJuqo0WL8gmacF/8Dhl8WkJbNinFUzQcd6HCfU0EcyQ==}
+  /@astrojs/tailwind/0.2.2:
+    resolution: {integrity: sha512-0h32udM1+CNl0Jw1F/mwJJzhKWlYAAnrCTwk5+56aE6Q/cLNaJrSuxgArREtEGQoX2Fk+pJcbq4BPey0EP6VPA==}
     dependencies:
       '@proload/core': 0.3.2
       autoprefixer: 10.4.7_postcss@8.4.14
