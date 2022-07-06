@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@astrojs/sitemap': 0.1.2
+  '@astrojs/sitemap': 0.2.4
   '@astrojs/solid-js': 0.1.4
   '@astrojs/tailwind': 0.2.2
   '@babel/core': 7.18.6
@@ -31,7 +31,7 @@ dependencies:
   tailwindcss: 3.0.24
 
 devDependencies:
-  '@astrojs/sitemap': 0.1.2
+  '@astrojs/sitemap': 0.2.4
   '@astrojs/solid-js': 0.1.4_mgszwrjqbyg3vr4bcoyunonmd4
   '@astrojs/tailwind': 0.2.2
   '@babel/core': 7.18.6
@@ -152,8 +152,11 @@ packages:
     engines: {node: ^14.15.0 || >=16.0.0}
     dev: false
 
-  /@astrojs/sitemap/0.1.2:
-    resolution: {integrity: sha512-KUDpYCISGE6ntbwFin/foYAgzh0V02VEWVUYIF3z73Mr3jkF8iTsLhx/h/aZCLTiFtYIY6koarch1LRt4V2Gvg==}
+  /@astrojs/sitemap/0.2.4:
+    resolution: {integrity: sha512-seEs/q5MemFY8q14s2WNbDwKWFnvqPz5PxwyofFych5Q1tIYFLUn9w2xj+tAukBRqeUcnrwILFV/kzR7P/Cxxg==}
+    dependencies:
+      sitemap: 7.1.1
+      zod: 3.17.3
     dev: true
 
   /@astrojs/solid-js/0.1.4_mgszwrjqbyg3vr4bcoyunonmd4:
@@ -1633,6 +1636,12 @@ packages:
   /@types/resolve/1.20.2:
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
     dev: false
+
+  /@types/sax/1.2.4:
+    resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
+    dependencies:
+      '@types/node': 17.0.30
+    dev: true
 
   /@types/trusted-types/2.0.2:
     resolution: {integrity: sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==}
@@ -5648,6 +5657,10 @@ packages:
       suf-regex: 0.3.4
     dev: true
 
+  /sax/1.2.4:
+    resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
+    dev: true
+
   /section-matter/1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
     engines: {node: '>=4'}
@@ -5724,6 +5737,17 @@ packages:
   /sisteransi/1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
     dev: false
+
+  /sitemap/7.1.1:
+    resolution: {integrity: sha512-mK3aFtjz4VdJN0igpIJrinf3EO8U8mxOPsTBzSsy06UtjZQJ3YY3o3Xa7zSc5nMqcMrRwlChHZ18Kxg0caiPBg==}
+    engines: {node: '>=12.0.0', npm: '>=5.6.0'}
+    hasBin: true
+    dependencies:
+      '@types/node': 17.0.30
+      '@types/sax': 1.2.4
+      arg: 5.0.1
+      sax: 1.2.4
+    dev: true
 
   /slash/3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
@@ -6759,7 +6783,6 @@ packages:
 
   /zod/3.17.3:
     resolution: {integrity: sha512-4oKP5zvG6GGbMlqBkI5FESOAweldEhSOZ6LI6cG+JzUT7ofj1ZOC0PJudpQOpT1iqOFpYYtX5Pw0+o403y4bcg==}
-    dev: false
 
   /zwitch/2.0.2:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}
