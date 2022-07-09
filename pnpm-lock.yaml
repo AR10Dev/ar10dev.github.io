@@ -18,7 +18,7 @@ specifiers:
   postcss: 8.4.14
   prettier: 2.6.2
   prettier-plugin-astro: 0.1.1
-  solid-js: 1.4.6
+  solid-js: 1.4.7
   tailwindcss: 3.0.24
   typed.js: 2.0.12
   typescript: 4.6.4
@@ -27,12 +27,12 @@ specifiers:
 
 dependencies:
   astro: 1.0.0-beta.64
-  solid-js: 1.4.6
+  solid-js: 1.4.7
   tailwindcss: 3.0.24
 
 devDependencies:
   '@astrojs/sitemap': 0.2.4
-  '@astrojs/solid-js': 0.2.0_mgszwrjqbyg3vr4bcoyunonmd4
+  '@astrojs/solid-js': 0.2.0_3czbc23nqkmh4e66ssbg3l5ccy
   '@astrojs/tailwind': 0.2.2
   '@babel/core': 7.18.6
   '@typescript-eslint/eslint-plugin': 5.23.0_sz7i2ul2hhobmvt3762ecj6gzu
@@ -159,14 +159,14 @@ packages:
       zod: 3.17.3
     dev: true
 
-  /@astrojs/solid-js/0.2.0_mgszwrjqbyg3vr4bcoyunonmd4:
+  /@astrojs/solid-js/0.2.0_3czbc23nqkmh4e66ssbg3l5ccy:
     resolution: {integrity: sha512-gsRP5Ng3M3goYH6djTE9dL+/7FYHH5I3NvLSLrPAM/S8TwTLT+Vqcc9yiWlQ4/6lSDgEbeVpwNvW8lOWXkrM0Q==}
     engines: {node: ^14.15.0 || >=16.0.0}
     peerDependencies:
       solid-js: ^1.3.6
     dependencies:
       babel-preset-solid: 1.4.2_@babel+core@7.18.6
-      solid-js: 1.4.6
+      solid-js: 1.4.7
     transitivePeerDependencies:
       - '@babel/core'
     dev: true
@@ -5759,8 +5759,8 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /solid-js/1.4.6:
-    resolution: {integrity: sha512-vF0x5qbVCDi8zlEyN92y/i+pS7QNYh3uNvbSyUYDhLifKuYqGcJwGxbH9zzDX5sR8o1ijgzI6BEAXlcR7Mkkjw==}
+  /solid-js/1.4.7:
+    resolution: {integrity: sha512-u3hoe5w3xseAc/8zLwYaQVGanWXknMMQkzryNz7lOPy2ygW6DhCtfMseun4kLflRNRzrUUpTV3W5p7j2SGcHCQ==}
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
