@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@astrojs/sitemap': 0.2.4
+  '@astrojs/sitemap': 0.2.5
   '@astrojs/solid-js': 0.2.0
   '@astrojs/tailwind': 0.2.2
   '@babel/core': 7.18.6
@@ -31,7 +31,7 @@ dependencies:
   tailwindcss: 3.0.24
 
 devDependencies:
-  '@astrojs/sitemap': 0.2.4
+  '@astrojs/sitemap': 0.2.5
   '@astrojs/solid-js': 0.2.0_3czbc23nqkmh4e66ssbg3l5ccy
   '@astrojs/tailwind': 0.2.2
   '@babel/core': 7.18.6
@@ -152,8 +152,8 @@ packages:
     engines: {node: ^14.15.0 || >=16.0.0}
     dev: false
 
-  /@astrojs/sitemap/0.2.4:
-    resolution: {integrity: sha512-seEs/q5MemFY8q14s2WNbDwKWFnvqPz5PxwyofFych5Q1tIYFLUn9w2xj+tAukBRqeUcnrwILFV/kzR7P/Cxxg==}
+  /@astrojs/sitemap/0.2.5:
+    resolution: {integrity: sha512-qfUchNrjU0eomANAulNyCa7Nbo0V/KVbTGdhBg3WbjlqCg9V0TRC0QHxAk/Ca3FIfxEtV+1pfQxRNnCPTtN2oQ==}
     dependencies:
       sitemap: 7.1.1
       zod: 3.17.3
