@@ -7,7 +7,7 @@ specifiers:
   '@babel/core': 7.18.9
   '@typescript-eslint/eslint-plugin': 5.23.0
   '@typescript-eslint/parser': 5.23.0
-  astro: 1.0.0-rc.2
+  astro: 1.0.0-rc.3
   astro-robots-txt: 0.3.7
   astro-seo: 0.5.1
   autoprefixer: 10.4.7
@@ -26,7 +26,7 @@ specifiers:
   workbox-build: 6.5.4
 
 dependencies:
-  astro: 1.0.0-rc.2
+  astro: 1.0.0-rc.3
   solid-js: 1.4.8
   tailwindcss: 3.0.24
 
@@ -1924,8 +1924,8 @@ packages:
     resolution: {integrity: sha512-SzT3yh0yQ3wu3U6Tp8xseBlmD6Gt3tcEqSekMpxWE+jgpb/ugooZA+MqZXuPd6kH6uRQENHflGAWD3w2S3EbUw==}
     dev: true
 
-  /astro/1.0.0-rc.2:
-    resolution: {integrity: sha512-a950/UCWM6f/l6xGiO8AiAdXMyOuSJk/FRMZXevH7p0H5ze5j4yTyMv0e43rztfk4jIshjdJdg4dV9xzg8P+QQ==}
+  /astro/1.0.0-rc.3:
+    resolution: {integrity: sha512-lX4UCJFvLGrXTFkbijqAUHxH2V4+Jx0sqHjt2mydp32UuZf+sePd18ztCz68gE5WLK3kxMboFN9n3eAwkwvY1Q==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -1973,7 +1973,7 @@ packages:
       prompts: 2.4.2
       recast: 0.20.5
       rehype: 12.0.1
-      resolve: 1.22.0
+      resolve: 1.22.1
       rollup: 2.75.7
       semver: 7.3.7
       shiki: 0.10.1
@@ -6052,7 +6052,7 @@ packages:
       '@types/json5': 0.0.30
       '@types/resolve': 1.20.2
       json5: 2.2.1
-      resolve: 1.22.0
+      resolve: 1.22.1
       strip-bom: 4.0.0
       type-fest: 0.13.1
     dev: false
