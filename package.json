@@ -22,7 +22,7 @@
     "@typescript-eslint/parser": "5.23.0",
     "astro-robots-txt": "0.3.7",
     "astro-seo": "0.5.1",
-    "autoprefixer": "10.4.7",
+    "autoprefixer": "10.4.8",
     "cssnano": "5.1.12",
     "eslint": "8.20.0",
     "eslint-config-prettier": "8.5.0",
