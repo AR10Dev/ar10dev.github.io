@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@astrojs/sitemap': 0.2.6
+  '@astrojs/sitemap': 0.3.0
   '@astrojs/solid-js': 0.4.1
   '@astrojs/tailwind': 0.2.5
   '@babel/core': 7.18.10
@@ -31,7 +31,7 @@ dependencies:
   tailwindcss: 3.0.24
 
 devDependencies:
-  '@astrojs/sitemap': 0.2.6
+  '@astrojs/sitemap': 0.3.0
   '@astrojs/solid-js': 0.4.1_kpssc5aqipn2htirjadp2bthhm
   '@astrojs/tailwind': 0.2.5
   '@babel/core': 7.18.10
@@ -150,11 +150,11 @@ packages:
     engines: {node: ^14.18.0 || >=16.12.0}
     dev: false
 
-  /@astrojs/sitemap/0.2.6:
-    resolution: {integrity: sha512-OKxVpdK8QbxUd+bTfJnsFNrbX4i/gbNws8MzHKHtF1a52mYho6ssAiFwz5dgTfmwvz41zsNlwDhW3YsUZbaxZw==}
+  /@astrojs/sitemap/0.3.0:
+    resolution: {integrity: sha512-hjAF4hmMv899hQiIXoIKlsxkipHmiEnOna1SSL4RB7Ro83gJqPc92Anv3apJDK4RPKU9gnni1nUWi+r5TpMNSQ==}
     dependencies:
       sitemap: 7.1.1
-      zod: 3.17.3
+      zod: 3.17.9
     dev: true
 
   /@astrojs/solid-js/0.4.1_kpssc5aqipn2htirjadp2bthhm:
@@ -6786,10 +6786,6 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: false
-
-  /zod/3.17.3:
-    resolution: {integrity: sha512-4oKP5zvG6GGbMlqBkI5FESOAweldEhSOZ6LI6cG+JzUT7ofj1ZOC0PJudpQOpT1iqOFpYYtX5Pw0+o403y4bcg==}
-    dev: true
 
   /zod/3.17.9:
     resolution: {integrity: sha512-QF1843pYoRk1jFP+/UiEySXaTSiIyFod3KyDzoO3qHKGZdX7z7RNXI4lEsiibvpnIZQwcDVU58ZrxP4pQ7BmTQ==}

@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@astrojs/sitemap": "0.2.6",
+    "@astrojs/sitemap": "0.3.0",
     "@astrojs/solid-js": "0.4.1",
     "@astrojs/tailwind": "0.2.5",
     "@babel/core": "7.18.10",
