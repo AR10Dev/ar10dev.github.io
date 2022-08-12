@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/sitemap': 0.3.0
   '@astrojs/solid-js': 0.4.1
-  '@astrojs/tailwind': 0.2.5
+  '@astrojs/tailwind': 1.0.0
   '@babel/core': 7.18.10
   '@typescript-eslint/eslint-plugin': 5.23.0
   '@typescript-eslint/parser': 5.23.0
@@ -33,7 +33,7 @@ dependencies:
 devDependencies:
   '@astrojs/sitemap': 0.3.0
   '@astrojs/solid-js': 0.4.1_kpssc5aqipn2htirjadp2bthhm
-  '@astrojs/tailwind': 0.2.5
+  '@astrojs/tailwind': 1.0.0
   '@babel/core': 7.18.10
   '@typescript-eslint/eslint-plugin': 5.23.0_jcbigptbglbx4qazx7dj3keu3e
   '@typescript-eslint/parser': 5.23.0_vxmhu3tyr7cxhd2vxjkubkv7im
@@ -168,8 +168,8 @@ packages:
       - '@babel/core'
     dev: true
 
-  /@astrojs/tailwind/0.2.5:
-    resolution: {integrity: sha512-VbqDVNn/Geb4p0WjjnjBs8staZgubXU16elpxqIwD4y/E2nq585/HWOJt6eK+MifDqeE/C2mGMNK+GLwZW6ylg==}
+  /@astrojs/tailwind/1.0.0:
+    resolution: {integrity: sha512-hEpvKBJKCStaxRZt3ENDacQlzUTOvW1D7dfIUyTf7jMUK4O+y8Q7gdTjERf1HBEi/YXrYNX1zhAElwp6lvW5oQ==}
     dependencies:
       '@proload/core': 0.3.2
       autoprefixer: 10.4.8_postcss@8.4.16
