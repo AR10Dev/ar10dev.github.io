@@ -23,7 +23,7 @@
     "astro-robots-txt": "0.3.7",
     "astro-seo": "0.5.1",
     "autoprefixer": "10.4.8",
-    "cssnano": "5.1.12",
+    "cssnano": "5.1.13",
     "eslint": "8.21.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
