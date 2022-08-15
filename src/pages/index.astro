@@ -2,7 +2,7 @@
 import { SEO } from 'astro-seo'
 
 import Header from '@components/Header.astro'
-import Type from '@components/Type.tsx'
+import Type from '@components/Type'
 import About from '@components/About.astro'
 import Footer from '@components/Footer.astro'
 import '../styles/global.css'
@@ -30,7 +30,7 @@ const description = `The one and only official website on the internet created b
   >
     <Header {background} />
     <div
-      class={`h-screen relative grid justify-items-center place-content-center gap-4 ${background}`.trim()}
+      class={`h-screen relative grid justify-items-center place-content-center gap-4 ${background}`}
     >
       <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto text-center">
         <h1 class="text-7xl font-bold">Avaab Razzaq</h1>

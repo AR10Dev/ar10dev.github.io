@@ -29,8 +29,8 @@ const Navbar: Component = () => {
     <ul class="space-x-3 py-4 pr-2 h-full font-bold uppercase text-gray-300">
       <For each={links}>
         {link => (
-          <li class={`float-right ${current() === link ? 'text-yellow-500' : ''}`.trim()}>
-            <a class="block px-2" href={`#${link}`.trim()}>
+          <li class={`float-right ${current() === link ? 'text-yellow-500' : ''}`}>
+            <a class="block px-2" href={`#${link}`}>
               {link}
             </a>
           </li>
