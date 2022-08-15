@@ -36,7 +36,8 @@ module.exports = plugin(function ({ addUtilities, matchUtilities, theme }) {
       '--scrollbar-width': '17px',
       'scrollbar-color': 'var(--scrollbar-thumb) var(--scrollbar-track)',
       '&::-webkit-scrollbar': {
-        width: 'var(--scrollbar-width)'
+        width: 'var(--scrollbar-width)',
+        height: 'var(--scrollbar-width)'
       }
     },
     '.scrollbar-thin': {
