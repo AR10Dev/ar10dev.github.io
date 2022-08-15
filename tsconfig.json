@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["@astrojs/image/client"],
+    "types": ["@astrojs/client"],
     "baseUrl": "./src",
     "target": "ESNext",
     "module": "ESNext",

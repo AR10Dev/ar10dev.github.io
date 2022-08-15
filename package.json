@@ -14,7 +14,6 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@astrojs/image": "0.3.4",
     "@astrojs/sitemap": "1.0.0",
     "@astrojs/solid-js": "1.0.0",
     "@astrojs/tailwind": "1.0.0",
