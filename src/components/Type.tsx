@@ -1,4 +1,6 @@
-import { Component, onCleanup, onMount } from 'solid-js'
+import type { Component } from 'solid-js'
+import type { TypedOptions } from 'typed.js'
+import { onCleanup, onMount } from 'solid-js'
 import Typed from 'typed.js'
 
 const Type: Component = () => {
@@ -6,12 +8,12 @@ const Type: Component = () => {
   let typed: Typed
 
   onMount(() => {
-    const options = {
+    const options: TypedOptions = {
       strings: [
         'Student',
         'Game Developer',
+        'Professor',
         'Tech Enthusiast',
-        'Freelancer',
         'Full Stack Developer'
       ],
       typeSpeed: 90,

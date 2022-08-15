@@ -1,4 +1,5 @@
-import { Component, onMount, createSignal, For } from 'solid-js'
+import type { Component } from 'solid-js'
+import { onMount, createSignal, For } from 'solid-js'
 
 const links: string[] = ['contact', 'works', 'skill', 'about']
 

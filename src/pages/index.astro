@@ -1,10 +1,10 @@
 ---
 import { SEO } from 'astro-seo'
 
-import Header from '../components/Header.astro'
-import Type from '../components/Type.tsx'
-import About from '../components/About.astro'
-import Footer from '../components/Footer.astro'
+import Header from '@components/Header.astro'
+import Type from '@components/Type.tsx'
+import About from '@components/About.astro'
+import Footer from '@components/Footer.astro'
 import '../styles/global.css'
 
 const background = 'bg-gray-900'
@@ -12,29 +12,29 @@ const title = `Avaab Razzaq - AR10's website`
 const description = `The one and only official website on the internet created by Avaab Razzaq, aka "AR10"`
 ---
 
-<html lang='en' class='scroll-smooth'>
+<html lang="en" class="scroll-smooth">
   <head>
-    <meta charset='UTF-8' />
+    <meta charset="UTF-8" />
     <meta
-      name='viewport'
-      content='width=device-width, initial-scale=1.0, maximum-scale=5.0'
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
     />
-    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
-    <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-    <SEO title={title} description={description} />
-    <meta name='theme-color' content='#000000' />
-    <link rel='manifest' href='/manifest.json' />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <SEO {title} {description} />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="/manifest.json" />
   </head>
   <body
-    class='bg-gray-100 text-white select-none scrollbar scrollbar-thin scrollbar-track-gray-900 scrollbar-thumb-gray-600 scrollbar-thumb-rounded-xl'
+    class="bg-gray-100 text-white select-none scrollbar scrollbar-thin scrollbar-track-gray-900 scrollbar-thumb-gray-600 scrollbar-thumb-rounded-xl"
   >
-    <Header background={background} />
+    <Header {background} />
     <div
       class={`h-screen relative grid justify-items-center place-content-center gap-4 ${background}`.trim()}
     >
-      <div class='max-w-screen-lg xl:max-w-screen-xl mx-auto text-center'>
-        <h1 class='text-7xl font-bold'>Avaab Razzaq</h1>
-        <h3 class='text-3xl font-semibold text-slate-200'>I'm a <Type client:load /></h3>
+      <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto text-center">
+        <h1 class="text-7xl font-bold">Avaab Razzaq</h1>
+        <h3 class="text-3xl font-semibold text-slate-200">I'm a <Type client:load /></h3>
       </div>
     </div>
     <About />
