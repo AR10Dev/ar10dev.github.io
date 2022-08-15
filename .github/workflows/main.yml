@@ -71,7 +71,7 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: actions/upload-pages-artifact@v1
         with:
-          path: "${{ inputs.path }}dist/"
+          path: '${{ inputs.path }}dist/'
 
   deploy:
     if: ${{ github.event_name == 'workflow_dispatch' }}
