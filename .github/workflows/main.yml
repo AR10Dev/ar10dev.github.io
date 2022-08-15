@@ -1,5 +1,5 @@
 name: Main
-on: 
+on:
   push:
     branches:
       - master
@@ -14,18 +14,16 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-        
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
-        with:
-          version: latest
 
       - name: Setup node and Cache .pnpm-store
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: latest
           cache: 'pnpm'
-        
+
       - name: Install dependencies
         run: pnpm install
 
@@ -44,37 +42,41 @@ jobs:
           branch: ${{ github.head_ref }}
 
   build:
-    needs: [format]
+    needs: format
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-        
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
-        with:
-          version: latest
 
       - name: Setup node and Cache .pnpm-store
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: latest
           cache: 'pnpm'
-        
+
       - name: Install dependencies
         run: pnpm install
 
       - name: Build 🔧
         run: pnpm build
 
-      - name: Prepare for Deploy
+      - name: Upload Pages Artifact 🚀
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        run: touch ./dist/.nojekyll
-
-      - name: Deploy 🚀
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        uses: actions/upload-pages-artifact@v1
         with:
-          branch: gh-pages
-          folder: dist
-          git-config-email: <>
+          path: "${{ inputs.path }}dist/"
+
+  deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v1
