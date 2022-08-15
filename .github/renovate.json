@@ -1,0 +1,16 @@
+{
+  "extends": ["config:base", ":disableDependencyDashboard"],
+  "enabledManagers": ["npm", "github-actions"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest", "rollback"],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "prCreation": "immediate"
+    }
+  ]
+}
