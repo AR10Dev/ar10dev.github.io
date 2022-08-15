@@ -9,5 +9,5 @@ import robotsTxt from 'astro-robots-txt'
 export default defineConfig({
   site: 'https://ar10dev.github.io/', // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
   experimental: { integrations: true },
-  integrations: [ solid(), tailwindcss(), sitemap(), robotsTxt(), image()]
+  integrations: [solid(), tailwindcss(), sitemap(), robotsTxt(), image()]
 })
