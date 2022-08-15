@@ -1,8 +1,7 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  plugins: [require('./src/plugins/tailwindcss/scrollbar.js')],
-  minify: true,
   content: ['./src/**/*.{astro,ts,tsx}'],
-  theme: {},
+  plugins: [require('./src/plugins/tailwindcss/scrollbar.js')],
   variants: {
     scrollbar: ['rounded'],
     extend: {

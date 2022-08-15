@@ -8,10 +8,10 @@ module.exports = {
     'prettier'
   ],
   parserOptions: {
-    ecmaVersion: "latest",
+    ecmaVersion: 'latest',
     sourceType: 'module',
     tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
+    project: ['./tsconfig.json']
   },
   env: {
     browser: true,
@@ -19,10 +19,10 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
-    "prettier/prettier": "error",
-    "@typescript-eslint/indent": ["error", 2],
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error"
+    'prettier/prettier': 'error',
+    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-explicit-any': 'error'
   },
   ignorePatterns: ['node_modules', 'dist']
 }
