@@ -7,11 +7,6 @@ on:
   pull_request:
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   format:
     if: ${{ !startsWith(github.head_ref, 'renovate/') }}
@@ -19,8 +14,6 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.PAT }}
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
@@ -83,6 +76,10 @@ jobs:
   deploy:
     if: ${{ github.event_name == 'workflow_dispatch' }}
     needs: build
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
