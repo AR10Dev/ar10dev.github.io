@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - master
-      - next
-      - 'next/**'
       - 'renovate/**'
   pull_request:
   workflow_dispatch:
