@@ -23,7 +23,7 @@ specifiers:
   tailwindcss: 3.1.8
   typed.js: 2.0.12
   typescript: 4.7.4
-  vite: 3.0.7
+  vite: 3.0.8
   workbox-build: 6.5.4
 
 dependencies:
@@ -51,7 +51,7 @@ devDependencies:
   prettier-plugin-astro: 0.5.0
   typed.js: 2.0.12
   typescript: 4.7.4
-  vite: 3.0.7
+  vite: 3.0.8
   workbox-build: 6.5.4
 
 packages:
@@ -6171,8 +6171,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vite/3.0.7:
-    resolution: {integrity: sha512-dILhvKba1mbP1wCezVQx/qhEK7/+jVn9ciadEcyKMMhZpsuAi/eWZfJRMkmYlkSFG7Qq9NvJbgFq4XOBxugJsA==}
+  /vite/3.0.8:
+    resolution: {integrity: sha512-AOZ4eN7mrkJiOLuw8IA7piS4IdOQyQCA81GxGsAQvAZzMRi9ZwGB3TOaYsj4uLAWK46T5L4AfQ6InNGlxX30IQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
