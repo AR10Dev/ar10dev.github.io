@@ -1,21 +1,14 @@
-name: Main
+name: Next
 on:
-  push:
-    branches:
-      - master
-      - 'renovate/**'
   pull_request:
-  workflow_dispatch:
 
 jobs:
   format:
-    if: ${{ !startsWith(github.head_ref, 'renovate/') }}
+    if: ${{ startsWith(github.head_ref, 'next') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
@@ -68,25 +61,3 @@ jobs:
 
       - name: Build 🔧
         run: pnpm build
-
-      - name: Upload Pages Artifact 🚀
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: '${{ inputs.path }}dist/'
-
-  deploy:
-    if: ${{ github.event_name == 'workflow_dispatch' }}
-    needs: build
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages 🚀
-        id: deployment
-        uses: actions/deploy-pages@v1
