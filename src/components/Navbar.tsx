@@ -26,7 +26,7 @@ const Navbar: Component = () => {
   }
 
   return (
-    <ul class="space-x-3 py-4 pr-2 h-full font-bold uppercase text-gray-300">
+    <ul class="h-full space-x-3 py-4 pr-2 font-bold uppercase text-gray-300">
       <For each={links}>
         {link => (
           <li class={`float-right ${current() === link ? 'text-yellow-500' : ''}`}>
