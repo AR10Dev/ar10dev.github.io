@@ -15,7 +15,9 @@ specifiers:
   cssnano-preset-advanced: 5.3.8
   eslint: 8.22.0
   eslint-config-prettier: 8.5.0
+  eslint-plugin-astro: ^0.17.1
   eslint-plugin-prettier: 4.2.1
+  eslint-plugin-tailwindcss: ^3.6.0
   postcss: 8.4.16
   prettier: 2.7.1
   prettier-plugin-astro: 0.5.0
@@ -45,7 +47,9 @@ devDependencies:
   cssnano-preset-advanced: 5.3.8_postcss@8.4.16
   eslint: 8.22.0
   eslint-config-prettier: 8.5.0_eslint@8.22.0
+  eslint-plugin-astro: 0.17.1_eslint@8.22.0
   eslint-plugin-prettier: 4.2.1_i2cojdczqdiurzgttlwdgf764e
+  eslint-plugin-tailwindcss: 3.6.0
   postcss: 8.4.16
   prettier: 2.7.1
   prettier-plugin-astro: 0.5.0
@@ -81,7 +85,6 @@ packages:
 
   /@astrojs/compiler/0.23.3:
     resolution: {integrity: sha512-eBWo0d3DoRDeg2Di1/5YJtOXh5eGFSjJMp1wVoVfoITHR4egdUGgsrDHZTzj0a25M/S9W5S6SpXCyNWcqi8jOA==}
-    dev: false
 
   /@astrojs/language-server/0.20.3:
     resolution: {integrity: sha512-MuzTsSpUjtmMXfrBThtZwgO39Jc+Bbl5hLevumkp01N/YCKE+Iipd3ELSdbk7+TPiuBV+/SKrVmaQPvJBnWPkA==}
@@ -1919,6 +1922,20 @@ packages:
       tslib: 2.4.0
     dev: false
 
+  /astro-eslint-parser/0.5.1:
+    resolution: {integrity: sha512-es63TAA7vjgV8aI5pUOXqoxa9JHelqzFSk1qOVSCGkeoAMayrr7BdFt9waVWyXyIcOjTXJlQa1pM832bEaCS2Q==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    dependencies:
+      '@astrojs/compiler': 0.23.3
+      '@typescript-eslint/types': 5.33.1
+      debug: 4.3.4
+      eslint-visitor-keys: 3.3.0
+      espree: 9.3.3
+      synckit: 0.8.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /astro-robots-txt/0.3.7:
     resolution: {integrity: sha512-UWUstLmkVF6zaM8oaYRDqkcvxpa1RLUsJRNXfN2b5azODKEfgICzXRM4MA0a+/oq7lEuk0JPKJbbgwMOeYT1og==}
     dependencies:
@@ -2896,6 +2913,23 @@ packages:
       eslint: 8.22.0
     dev: true
 
+  /eslint-plugin-astro/0.17.1_eslint@8.22.0:
+    resolution: {integrity: sha512-G2S2zAaDokH2v7O+nzcd0iFskGJ1ohANhQpsFwaAqDPyn+GolFl4zSCnoQefLZ+ONEeZkZ8Jp7Imvbo3FI3LOA==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      eslint: '>=7.0.0'
+    dependencies:
+      '@typescript-eslint/types': 5.33.1
+      astro-eslint-parser: 0.5.1
+      eslint: 8.22.0
+      eslint-utils: 3.0.0_eslint@8.22.0
+      postcss: 8.4.16
+      postcss-selector-parser: 6.0.10
+      sourcemap-codec: 1.4.8
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /eslint-plugin-prettier/4.2.1_i2cojdczqdiurzgttlwdgf764e:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
@@ -2911,6 +2945,17 @@ packages:
       eslint-config-prettier: 8.5.0_eslint@8.22.0
       prettier: 2.7.1
       prettier-linter-helpers: 1.0.0
+    dev: true
+
+  /eslint-plugin-tailwindcss/3.6.0:
+    resolution: {integrity: sha512-gWLGNWHuhh5ngwkJ2sgSByanpRw2s5GdrM2ff2/w8Ho2mWh2MyGvpnFZpL4b0XT/C0WF9zlq57+vFHJOeFhMkg==}
+    engines: {node: '>=12.13.0'}
+    dependencies:
+      fast-glob: 3.2.11
+      postcss: 8.4.16
+      tailwindcss: 3.1.8
+    transitivePeerDependencies:
+      - ts-node
     dev: true
 
   /eslint-scope/5.1.1:
@@ -5765,6 +5810,14 @@ packages:
   /synckit/0.7.3:
     resolution: {integrity: sha512-jNroMv7Juy+mJ/CHW5H6TzsLWpa1qck6sCHbkv8YTur+irSq2PjbvmGnm2gy14BUQ6jF33vyR4DPssHqmqsDQw==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+    dependencies:
+      '@pkgr/utils': 2.3.0
+      tslib: 2.4.0
+    dev: true
+
+  /synckit/0.8.3:
+    resolution: {integrity: sha512-1goXnDYNJlKwCM37f5MTzRwo+8SqutgVtg2d37D6YnHHT4E3IhQMRfKiGdfTZU7LBlI6T8inCQUxnMBFHrbqWw==}
+    engines: {node: ^14.18.0 || >=16.0.0}
     dependencies:
       '@pkgr/utils': 2.3.0
       tslib: 2.4.0
