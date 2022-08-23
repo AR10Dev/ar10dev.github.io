@@ -8,7 +8,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': 5.34.0
   '@typescript-eslint/parser': 5.34.0
   astro: 1.0.7
-  astro-robots-txt: 0.3.7
+  astro-robots-txt: 0.3.8
   astro-seo: 0.5.1
   autoprefixer: 10.4.8
   cssnano: 5.1.13
@@ -40,7 +40,7 @@ devDependencies:
   '@babel/core': 7.18.13
   '@typescript-eslint/eslint-plugin': 5.34.0_euudt5oqhhodkyae5tf6wjmsda
   '@typescript-eslint/parser': 5.34.0_4rv7y5c6xz3vfxwhbrcxxi73bq
-  astro-robots-txt: 0.3.7
+  astro-robots-txt: 0.3.8
   astro-seo: 0.5.1
   autoprefixer: 10.4.8_postcss@8.4.16
   cssnano: 5.1.13_postcss@8.4.16
@@ -1941,8 +1941,8 @@ packages:
       - supports-color
     dev: true
 
-  /astro-robots-txt/0.3.7:
-    resolution: {integrity: sha512-UWUstLmkVF6zaM8oaYRDqkcvxpa1RLUsJRNXfN2b5azODKEfgICzXRM4MA0a+/oq7lEuk0JPKJbbgwMOeYT1og==}
+  /astro-robots-txt/0.3.8:
+    resolution: {integrity: sha512-rx69T8hd79whl4cmGKZCA5KUgWuSU9EKPPqO6RKfIrvDoFpw7sZ/j7EDXWYmT7f+U94oiISNVLnIafmUEkgC5A==}
     dependencies:
       deepmerge: 4.2.2
       valid-filename: 4.0.0
