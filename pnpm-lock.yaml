@@ -9,7 +9,7 @@ specifiers:
   '@typescript-eslint/parser': 5.34.0
   astro: 1.0.8
   astro-robots-txt: 0.3.8
-  astro-seo: 0.5.1
+  astro-seo: 0.6.0
   autoprefixer: 10.4.8
   cssnano: 5.1.13
   cssnano-preset-advanced: 5.3.8
@@ -41,7 +41,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.34.0_euudt5oqhhodkyae5tf6wjmsda
   '@typescript-eslint/parser': 5.34.0_4rv7y5c6xz3vfxwhbrcxxi73bq
   astro-robots-txt: 0.3.8
-  astro-seo: 0.5.1
+  astro-seo: 0.6.0
   autoprefixer: 10.4.8_postcss@8.4.16
   cssnano: 5.1.13_postcss@8.4.16
   cssnano-preset-advanced: 5.3.8_postcss@8.4.16
@@ -1945,8 +1945,8 @@ packages:
       zod: 3.18.0
     dev: true
 
-  /astro-seo/0.5.1:
-    resolution: {integrity: sha512-SzT3yh0yQ3wu3U6Tp8xseBlmD6Gt3tcEqSekMpxWE+jgpb/ugooZA+MqZXuPd6kH6uRQENHflGAWD3w2S3EbUw==}
+  /astro-seo/0.6.0:
+    resolution: {integrity: sha512-nR+dJlAyQhX6s0oAmbBqPq3KCZax/zVAerFsclGiJQ2znOkS/7L+RGjziS4M9Q3OQxm3FMfqIKHp9Ns73Q81ww==}
     dev: true
 
   /astro/1.0.8:

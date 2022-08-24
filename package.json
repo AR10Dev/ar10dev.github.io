@@ -21,7 +21,7 @@
     "@typescript-eslint/eslint-plugin": "5.34.0",
     "@typescript-eslint/parser": "5.34.0",
     "astro-robots-txt": "0.3.8",
-    "astro-seo": "0.5.1",
+    "astro-seo": "0.6.0",
     "autoprefixer": "10.4.8",
     "cssnano": "5.1.13",
     "cssnano-preset-advanced": "5.3.8",
