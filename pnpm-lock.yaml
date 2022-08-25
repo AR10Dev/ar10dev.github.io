@@ -7,7 +7,7 @@ specifiers:
   '@babel/core': 7.18.13
   '@typescript-eslint/eslint-plugin': 5.35.1
   '@typescript-eslint/parser': 5.35.1
-  astro: 1.0.8
+  astro: 1.0.9
   astro-robots-txt: 0.3.8
   astro-seo: 0.6.0
   autoprefixer: 10.4.8
@@ -29,7 +29,7 @@ specifiers:
   workbox-build: 6.5.4
 
 dependencies:
-  astro: 1.0.8
+  astro: 1.0.9
   solid-js: 1.4.8
   tailwindcss: 3.1.8_postcss@8.4.16
 
@@ -81,6 +81,11 @@ packages:
 
   /@astrojs/compiler/0.23.3:
     resolution: {integrity: sha512-eBWo0d3DoRDeg2Di1/5YJtOXh5eGFSjJMp1wVoVfoITHR4egdUGgsrDHZTzj0a25M/S9W5S6SpXCyNWcqi8jOA==}
+    dev: true
+
+  /@astrojs/compiler/0.23.4:
+    resolution: {integrity: sha512-vNZIa5Tf5nOqBEGJvM6xyYBnGcz4MAp+bBPnyVI0UYRjsIWlP7RgMdCpRV0OOh5kgh00BoAypGv27kcoJCMVfA==}
+    dev: false
 
   /@astrojs/language-server/0.20.3:
     resolution: {integrity: sha512-MuzTsSpUjtmMXfrBThtZwgO39Jc+Bbl5hLevumkp01N/YCKE+Iipd3ELSdbk7+TPiuBV+/SKrVmaQPvJBnWPkA==}
@@ -1949,12 +1954,12 @@ packages:
     resolution: {integrity: sha512-nR+dJlAyQhX6s0oAmbBqPq3KCZax/zVAerFsclGiJQ2znOkS/7L+RGjziS4M9Q3OQxm3FMfqIKHp9Ns73Q81ww==}
     dev: true
 
-  /astro/1.0.8:
-    resolution: {integrity: sha512-cWey5M/EjdgeZCRlOAB6YP05ui3U9ZfHPdb4r5HmumOE/1w8auDqRiHPpb2RCGYD7RpxOXcJu5XfJL4V2F1UpQ==}
+  /astro/1.0.9:
+    resolution: {integrity: sha512-Pa/7wLIuXFs+sgdVxUTT0QHe+9yKQVE21jxZU/p2ZzcUrAB+8JN32fHEG28QTwEx+NuwTqvC5xTvDBXLZJGtqw==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
-      '@astrojs/compiler': 0.23.3
+      '@astrojs/compiler': 0.23.4
       '@astrojs/language-server': 0.20.3
       '@astrojs/markdown-remark': 1.0.0
       '@astrojs/telemetry': 1.0.0
@@ -1995,7 +2000,7 @@ packages:
       recast: 0.20.5
       rehype: 12.0.1
       resolve: 1.22.1
-      rollup: 2.78.0
+      rollup: 2.77.3
       semver: 7.3.7
       shiki: 0.10.1
       sirv: 2.0.2
@@ -5463,6 +5468,7 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
 
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
