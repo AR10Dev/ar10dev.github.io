@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/sitemap': 1.0.0
-  '@astrojs/solid-js': 1.0.0
+  '@astrojs/solid-js': 1.1.0
   '@astrojs/tailwind': 1.0.0
   '@babel/core': 7.18.13
   '@typescript-eslint/eslint-plugin': 5.35.1
@@ -35,7 +35,7 @@ dependencies:
 
 devDependencies:
   '@astrojs/sitemap': 1.0.0
-  '@astrojs/solid-js': 1.0.0_tgnzfiaphiwhltoilmf5oe47yq
+  '@astrojs/solid-js': 1.1.0_tgnzfiaphiwhltoilmf5oe47yq
   '@astrojs/tailwind': 1.0.0
   '@babel/core': 7.18.13
   '@typescript-eslint/eslint-plugin': 5.35.1_4kgehhvxgrxdvptdn2db7re534
@@ -159,8 +159,8 @@ packages:
       zod: 3.18.0
     dev: true
 
-  /@astrojs/solid-js/1.0.0_tgnzfiaphiwhltoilmf5oe47yq:
-    resolution: {integrity: sha512-OEshIFX7itx8mzh3vFQgsWjzzcCYJegjY6aIoO0w2W34MP+iwEYvUwuyd6tXsDRPzTEDoCVDJDLHw/uZoNB18w==}
+  /@astrojs/solid-js/1.1.0_tgnzfiaphiwhltoilmf5oe47yq:
+    resolution: {integrity: sha512-Vys8y2eIBWqjjUmOMQyZuD3VVYacr/EZAu3iOnKx9RWJmo9Ox0JZTQXVNb5W6yseKN0ODIDdTGaP8/ZzdrhxUw==}
     engines: {node: ^14.18.0 || >=16.12.0}
     peerDependencies:
       solid-js: ^1.4.3

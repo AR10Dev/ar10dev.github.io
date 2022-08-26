@@ -15,7 +15,7 @@
   "keywords": [],
   "devDependencies": {
     "@astrojs/sitemap": "1.0.0",
-    "@astrojs/solid-js": "1.0.0",
+    "@astrojs/solid-js": "1.1.0",
     "@astrojs/tailwind": "1.0.0",
     "@babel/core": "7.18.13",
     "@typescript-eslint/eslint-plugin": "5.35.1",
