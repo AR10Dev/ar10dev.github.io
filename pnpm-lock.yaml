@@ -26,7 +26,6 @@ specifiers:
   prettier-plugin-astro: 0.5.3
   solid-js: 1.5.1
   tailwindcss: 3.1.8
-  typed.js: 2.0.12
   typescript: 4.8.2
   vite: 3.0.9
   workbox-build: 6.5.4
@@ -59,7 +58,6 @@ devDependencies:
   postcss: 8.4.16
   prettier: 2.7.1
   prettier-plugin-astro: 0.5.3
-  typed.js: 2.0.12
   typescript: 4.8.2
   vite: 3.0.9
   workbox-build: 6.5.4
@@ -6593,10 +6591,6 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
     dev: false
-
-  /typed.js/2.0.12:
-    resolution: {integrity: sha512-lyACZh1cu+vpfYY3DG/bvsGLXXbdoDDpWxmqta10IQUdMXisMXOEyl+jos+YT9uBbzK4QaKYBjT3R0kTJO0Slw==}
-    dev: true
 
   /typedarray-to-buffer/3.1.5:
     resolution: {integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==}
