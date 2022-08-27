@@ -11,7 +11,7 @@ pre-commit:
   parallel: true
   commands:
     eslint:
-      glob: '*.{js,ts,jsx,tsx}'
+      glob: '*.{js,ts,jsx,tsx,astro}'
       run: pnpm eslint {staged_files}
     format:
       glob: '*.{js,ts,jsx,tsx,json,yml,astro}'
