@@ -5,14 +5,14 @@ specifiers:
   '@astrojs/solid-js': 1.1.0
   '@astrojs/tailwind': 1.0.0
   '@babel/core': 7.18.13
-  '@cspell/eslint-plugin': 6.8.0
+  '@cspell/eslint-plugin': 6.8.1
   '@typescript-eslint/eslint-plugin': 5.35.1
   '@typescript-eslint/parser': 5.35.1
   astro: 1.1.1
   astro-robots-txt: 0.3.8
   astro-seo: 0.6.0
   autoprefixer: 10.4.8
-  cspell: 6.8.0
+  cspell: 6.8.1
   cssnano: 5.1.13
   cssnano-preset-advanced: 5.3.8
   eslint: 8.23.0
@@ -40,13 +40,13 @@ devDependencies:
   '@astrojs/solid-js': 1.1.0_tgnzfiaphiwhltoilmf5oe47yq
   '@astrojs/tailwind': 1.0.0
   '@babel/core': 7.18.13
-  '@cspell/eslint-plugin': 6.8.0
+  '@cspell/eslint-plugin': 6.8.1
   '@typescript-eslint/eslint-plugin': 5.35.1_pfwtupu3r4wxmgbx6hj7gwmyuu
   '@typescript-eslint/parser': 5.35.1_yqf6kl63nyoq5megxukfnom5rm
   astro-robots-txt: 0.3.8
   astro-seo: 0.6.0
   autoprefixer: 10.4.8_postcss@8.4.16
-  cspell: 6.8.0
+  cspell: 6.8.1
   cssnano: 5.1.13_postcss@8.4.16
   cssnano-preset-advanced: 5.3.8_postcss@8.4.16
   eslint: 8.23.0
@@ -1586,8 +1586,8 @@ packages:
     resolution: {integrity: sha512-/MB0RS0Gn01s4pgmjy0FvsLfr3RRMrRphEuvTRserNcM8XVtoIVAtrjig/Gg0DPwDrN8Clm0L1j7iQay6S8D0g==}
     dev: true
 
-  /@cspell/eslint-plugin/6.8.0:
-    resolution: {integrity: sha512-boSOeey8uAAfLI4wuPXrQUJVD6MHM+v39KEyhKRUyuDwlp4tyjoRrXlGubMYb1fNvvJIt1mxx1sVEyYrWy9sHg==}
+  /@cspell/eslint-plugin/6.8.1:
+    resolution: {integrity: sha512-gxoSvNsC8fL7hW18Ijf2tNaB+q3k5VSSV90kpQzgX9UIp5KOkTzIPueALNwk/2TMhn3/owEsja6jCiz9i+5miw==}
     engines: {node: '>=14'}
     dependencies:
       cspell-lib: 6.8.1
@@ -2775,8 +2775,8 @@ packages:
       gensequence: 3.1.1
     dev: true
 
-  /cspell/6.8.0:
-    resolution: {integrity: sha512-mef1ECEw5bRdxdUvxuf4q7pkUDp9PRaPaLjjcW+v88wp0cyXWhCK/y/MTTa5o+xUkSvHqPXWF1E83NmGey3ZTQ==}
+  /cspell/6.8.1:
+    resolution: {integrity: sha512-w+MCy9a7uMu0bwwDuFJy85SbF6pikCc6fzQo3B/hXuu+xrz12TCbjsXsdezTXl9YqPsUDN0A8A6AwHEN7t7GFw==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
