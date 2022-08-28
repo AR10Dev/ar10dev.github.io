@@ -1,6 +1,8 @@
 ---
-import Navbar from './Navbar'
+import Navbar from '@solid-components/Navbar'
 const { background } = Astro.props
+
+const links: string[] = ['contact', 'works', 'skill', 'about']
 ---
 
 <header class={`fixed inset-x-0 top-0 z-[1] w-full ${background}`}>
@@ -9,7 +11,7 @@ const { background } = Astro.props
       <a href="/"><img src="/pwa-512x512.png" alt="logo" /></a>
     </h1>
     <nav class="flex-grow">
-      <Navbar client:load />
+      <Navbar {...links} client:load />
     </nav>
   </div>
 </header>

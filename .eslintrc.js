@@ -7,6 +7,8 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:tailwindcss/recommended',
     'plugin:astro/recommended',
+    'plugin:solid/typescript',
+    'plugin:@cspell/recommended',
     'prettier'
   ],
   parserOptions: {
@@ -19,7 +21,7 @@ module.exports = {
     browser: true,
     es2022: true
   },
-  plugins: ['@typescript-eslint', 'prettier', 'tailwindcss'],
+  plugins: ['@typescript-eslint', 'prettier', 'tailwindcss', 'solid'],
   rules: {
     'prettier/prettier': 'error',
     '@typescript-eslint/indent': ['error', 2],

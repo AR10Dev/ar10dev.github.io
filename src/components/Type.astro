@@ -1,0 +1,20 @@
+---
+import type { TyperProps } from '@solid-components/types'
+import Typer from '@solid-components/Typer'
+const typer: TyperProps = {
+  cursor: true,
+  loop: true,
+  typingSpeed: 90,
+  typingPause: 1300,
+  backspaceSpeed: 80,
+  text: [
+    'Student',
+    'Game Developer',
+    'Professor',
+    'Tech Enthusiast',
+    'Full Stack Developer'
+  ]
+}
+---
+
+<Typer {...typer} client:load />

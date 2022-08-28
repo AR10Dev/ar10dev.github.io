@@ -1,9 +1,7 @@
 import type { Component } from 'solid-js'
 import { onMount, createSignal, For } from 'solid-js'
 
-const links: string[] = ['contact', 'works', 'skill', 'about']
-
-const Navbar: Component = () => {
+const Navbar: Component<string[]> = links => {
   const [current, setCurrent] = createSignal('')
 
   onMount(() => {

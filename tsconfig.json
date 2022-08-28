@@ -14,7 +14,8 @@
     "noEmit": true,
     "importsNotUsedAsValues": "error",
     "paths": {
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@solid-components/*": ["components/solid/*"]
     }
   }
 }
