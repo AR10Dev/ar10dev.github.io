@@ -17,5 +17,5 @@ pre-commit:
       glob: '*.{js,ts,jsx,tsx,json,yml,astro}'
       run: pnpm prettier --plugin-search-dir=. {staged_files} --write
     cspell:
-      glob: '*.md'
-      run: pnpm cspell "**/*{md}"
+      glob: '*.{md,mdx}'
+      run: pnpm cspell "**/*.{md,mdx}"

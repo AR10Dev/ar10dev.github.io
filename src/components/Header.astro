@@ -1,6 +1,11 @@
 ---
 import Navbar from '@solid-components/Navbar'
-const { background } = Astro.props
+
+export interface Props {
+  background: string
+}
+
+const { background } = Astro.props as Props
 
 const links: string[] = ['contact', 'works', 'skill', 'about']
 ---
@@ -11,7 +16,7 @@ const links: string[] = ['contact', 'works', 'skill', 'about']
       <a href="/"><img src="/pwa-512x512.png" alt="logo" /></a>
     </h1>
     <nav class="flex-grow">
-      <Navbar {...links} client:load />
+      <Navbar links={links} client:load />
     </nav>
   </div>
 </header>

@@ -4,10 +4,10 @@ import { createSignal, onCleanup, onMount, Show } from 'solid-js'
 
 /**
  * A Solid.js component that displays a text typing animation with a variety of options
- * for customisation.
+ * for customization.
  *
  * @param {TyperProps} props - The component props used to provide the text and
- * customise the typewriter animation. Defined by the ```TyperProps``` interface.
+ * customize the typewriter animation. Defined by the ```TyperProps``` interface.
  *
  * Example usage:
  * ```jsx
@@ -56,7 +56,7 @@ const Typer: Component = ({
   const [paused, setPaused] = createSignal(false)
 
   onMount(() => {
-    // Initialise the current line
+    // Initialize the current line
     setCurrentLine(typeof text === 'string' ? text : text[0])
     // Run the typing time loop with or without a start delay
     if (startDelay) {

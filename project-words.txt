@@ -1,3 +1,5 @@
 astro
-astrojs
-tailwindcss
+Erasmo
+ITCS
+shiki
+Typer
