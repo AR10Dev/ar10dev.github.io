@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@astrojs/mdx': ^0.10.2
+  '@astrojs/mdx': 0.10.2
   '@astrojs/sitemap': 1.0.0
   '@astrojs/solid-js': 1.1.0
   '@babel/core': 7.18.13
@@ -29,7 +29,7 @@ specifiers:
   prettier-plugin-astro: 0.5.3
   solid-js: 1.5.1
   typescript: 4.8.2
-  unocss-preset-scrollbar: ^0.2.1
+  unocss-preset-scrollbar: 0.2.1
   vite: 3.0.9
   workbox-build: 6.5.4
 
