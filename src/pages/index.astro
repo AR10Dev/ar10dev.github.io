@@ -5,9 +5,8 @@ import Header from '@components/Header.astro'
 import About from '@components/About.astro'
 import Footer from '@components/Footer.astro'
 import Type from '@components/Type.astro'
-import '../styles/global.css'
 
-const background: string = 'bg-gray-900'
+const background = 'bg-gray-900'
 const title = `Avaab Razzaq - AR10's website`
 const description = `The one and only official website on the internet created by Avaab Razzaq, aka "AR10"`
 ---
@@ -26,9 +25,9 @@ const description = `The one and only official website on the internet created b
     <link rel="manifest" href="/manifest.json" />
   </head>
   <body
-    class="text-white bg-gray-100 select-none scrollbar scrollbar-thin scrollbar-track-gray-900 scrollbar-thumb-gray-600 scrollbar-thumb-rounded-xl"
+    class="text-white bg-gray-100 select-none scrollbar scrollbar-rounded scrollbar-track-radius-0px scrollbar-w-8px scrollbar-track-color-gray-900 scrollbar-thumb-color-gray-600"
   >
-    <Header {background} />
+    <Header background={background} />
     <div
       class={`h-screen relative grid justify-items-center place-content-center gap-4 ${background}`}
     >

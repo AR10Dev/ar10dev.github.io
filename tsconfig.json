@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["@astrojs/client"],
+    //"types": ["@astrojs/client"],
     "baseUrl": "./src",
     "target": "ESNext",
     "module": "ESNext",
@@ -15,7 +15,8 @@
     "importsNotUsedAsValues": "error",
     "paths": {
       "@components/*": ["components/*"],
-      "@solid-components/*": ["components/solid/*"]
+      "@solid-components/*": ["components/solid/*"],
+      "@markdown-components/*": ["components/markdown/*"]
     }
   }
 }

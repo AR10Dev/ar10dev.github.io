@@ -5,7 +5,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
-    'plugin:tailwindcss/recommended',
     'plugin:astro/recommended',
     'plugin:solid/typescript',
     'plugin:@cspell/recommended',
@@ -21,7 +20,7 @@ module.exports = {
     browser: true,
     es2022: true
   },
-  plugins: ['@typescript-eslint', 'prettier', 'tailwindcss', 'solid'],
+  plugins: ['@typescript-eslint', 'prettier', 'solid'],
   rules: {
     'prettier/prettier': 'error',
     '@typescript-eslint/indent': ['error', 2],

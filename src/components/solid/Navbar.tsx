@@ -1,7 +1,7 @@
 import type { Component } from 'solid-js'
 import { onMount, createSignal, For } from 'solid-js'
 
-const Navbar: Component<string[]> = links => {
+const Navbar: Component<{ links: string[] }> = props => {
   const [current, setCurrent] = createSignal('')
 
   onMount(() => {
@@ -25,7 +25,7 @@ const Navbar: Component<string[]> = links => {
 
   return (
     <ul class="h-full space-x-3 py-4 pr-2 font-bold uppercase text-gray-300">
-      <For each={links}>
+      <For each={props.links}>
         {link => (
           <li class={`float-right ${current() === link ? 'text-yellow-500' : ''}`}>
             <a class="block px-2" href={`#${link}`}>
