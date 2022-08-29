@@ -46,6 +46,6 @@
   "dependencies": {
     "@unocss/astro": "0.45.13",
     "astro": "1.1.1",
-    "solid-js": "1.5.1"
+    "solid-js": "1.5.2"
   }
 }
