@@ -1,12 +1,5 @@
 name: CI
-on:
-  pull_request:
-    branches:
-      - master
-
-  push:
-    branches:
-      - 'renovate/**'
+on: push
 
 jobs:
   build:
