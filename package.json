@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@astrojs/mdx": "0.10.2",
+    "@astrojs/mdx": "0.10.3",
     "@astrojs/sitemap": "1.0.0",
     "@astrojs/solid-js": "1.1.0",
     "@babel/core": "7.18.13",
