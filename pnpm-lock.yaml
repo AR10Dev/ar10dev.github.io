@@ -26,7 +26,7 @@ specifiers:
   lefthook: 1.1.1
   postcss: 8.4.16
   prettier: 2.7.1
-  prettier-plugin-astro: 0.5.3
+  prettier-plugin-astro: 0.5.4
   solid-js: 1.5.3
   typescript: 4.8.2
   unocss-preset-scrollbar: 0.2.1
@@ -62,7 +62,7 @@ devDependencies:
   lefthook: 1.1.1
   postcss: 8.4.16
   prettier: 2.7.1
-  prettier-plugin-astro: 0.5.3
+  prettier-plugin-astro: 0.5.4
   typescript: 4.8.2
   unocss-preset-scrollbar: 0.2.1
   vite: 3.0.9
@@ -102,7 +102,7 @@ packages:
     dependencies:
       '@vscode/emmet-helper': 2.8.4
       prettier: 2.7.1
-      prettier-plugin-astro: 0.5.3
+      prettier-plugin-astro: 0.5.4
       source-map: 0.7.4
       typescript: 4.6.4
       vscode-css-languageservice: 6.0.1
@@ -5941,8 +5941,8 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier-plugin-astro/0.5.3:
-    resolution: {integrity: sha512-g4uJ/7k1rJeIWBifeBgTqzgV5gmMTG+lOmOvUZvtIh1R91aqa+yYMzbysIlsJKRaRyWefejrOpvpIuEePBDAyw==}
+  /prettier-plugin-astro/0.5.4:
+    resolution: {integrity: sha512-ILs/WgUYtKBOn3Zh217/PwjCFtUWEKQjcCFJDevri0hGEBwEnnda9aqSLL0/nhCOmQn/UE7M9zLQvThu970ZHw==}
     engines: {node: ^14.15.0 || >=16.0.0, npm: '>=6.14.0'}
     dependencies:
       '@astrojs/compiler': 0.23.4
