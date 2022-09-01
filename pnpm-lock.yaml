@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@astrojs/mdx': 0.10.3
+  '@astrojs/mdx': 0.11.0
   '@astrojs/sitemap': 1.0.0
   '@astrojs/solid-js': 1.1.0
   '@babel/core': 7.18.13
@@ -39,7 +39,7 @@ dependencies:
   solid-js: 1.5.3
 
 devDependencies:
-  '@astrojs/mdx': 0.10.3
+  '@astrojs/mdx': 0.11.0
   '@astrojs/sitemap': 1.0.0
   '@astrojs/solid-js': 1.1.0_6oiwpgus3xazyyknhv4ig6ur3e
   '@babel/core': 7.18.13
@@ -142,8 +142,8 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/mdx/0.10.3:
-    resolution: {integrity: sha512-bZ74xKJ1eqH9shd4TcpgS4Rn2ycQvXwBXkgKSABvFHQhT16vufuBo0M9vmLDdHKnDupYphCj1aBilmN9VeLugA==}
+  /@astrojs/mdx/0.11.0:
+    resolution: {integrity: sha512-nAtPNGYpzMlLVjM3P7DBZqjNJ7mIDJct+G9vgTrHYdsCvk5T18HXQLgwMS6WlIyQ2AGy+jah2VpRxDwBffh0MA==}
     engines: {node: ^14.18.0 || >=16.12.0}
     dependencies:
       '@astrojs/prism': 1.0.1
@@ -153,6 +153,7 @@ packages:
       es-module-lexer: 0.10.5
       github-slugger: 1.4.0
       gray-matter: 4.0.3
+      kleur: 4.1.5
       rehype-raw: 6.1.1
       remark-frontmatter: 4.0.1
       remark-gfm: 3.0.1
