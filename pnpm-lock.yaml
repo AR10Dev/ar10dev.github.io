@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@astrojs/mdx': 0.11.0
+  '@astrojs/mdx': 0.11.1
   '@astrojs/sitemap': 1.0.0
   '@astrojs/solid-js': 1.1.0
   '@babel/core': 7.18.13
@@ -39,7 +39,7 @@ dependencies:
   solid-js: 1.5.3
 
 devDependencies:
-  '@astrojs/mdx': 0.11.0
+  '@astrojs/mdx': 0.11.1
   '@astrojs/sitemap': 1.0.0
   '@astrojs/solid-js': 1.1.0_6oiwpgus3xazyyknhv4ig6ur3e
   '@babel/core': 7.18.13
@@ -142,8 +142,8 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/mdx/0.11.0:
-    resolution: {integrity: sha512-nAtPNGYpzMlLVjM3P7DBZqjNJ7mIDJct+G9vgTrHYdsCvk5T18HXQLgwMS6WlIyQ2AGy+jah2VpRxDwBffh0MA==}
+  /@astrojs/mdx/0.11.1:
+    resolution: {integrity: sha512-L0uUBRlfRZvXhS5rc/VIrQlHldgj7cwrSb81K3cAB2LrzqZ3QgU+GRx/mdMN95Brqkv+8x77cNmsbAwXxijeNA==}
     engines: {node: ^14.18.0 || >=16.12.0}
     dependencies:
       '@astrojs/prism': 1.0.1
