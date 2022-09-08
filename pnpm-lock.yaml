@@ -11,7 +11,7 @@ specifiers:
   '@unocss/astro': 0.45.18
   '@unocss/preset-attributify': 0.45.18
   '@unocss/preset-wind': 0.45.18
-  astro: 1.1.6
+  astro: 1.1.7
   astro-robots-txt: 0.3.8
   astro-seo: 0.6.0
   autoprefixer: 10.4.8
@@ -35,7 +35,7 @@ specifiers:
 
 dependencies:
   '@unocss/astro': 0.45.18_vite@3.1.0
-  astro: 1.1.6
+  astro: 1.1.7
   solid-js: 1.5.4
 
 devDependencies:
@@ -95,6 +95,10 @@ packages:
 
   /@astrojs/compiler/0.23.4:
     resolution: {integrity: sha512-vNZIa5Tf5nOqBEGJvM6xyYBnGcz4MAp+bBPnyVI0UYRjsIWlP7RgMdCpRV0OOh5kgh00BoAypGv27kcoJCMVfA==}
+
+  /@astrojs/compiler/0.23.5:
+    resolution: {integrity: sha512-vBMPy9ok4iLapSyCCT1qsZ9dK7LkVFl9mObtLEmWiec9myGHS9h2kQY2xzPeFNJiWXUf9O6tSyQpQTy5As/p3g==}
+    dev: false
 
   /@astrojs/language-server/0.23.0:
     resolution: {integrity: sha512-vWQOPipssNUivHIytKX9Zw7TSYVIb1sItDEuZvaWIcim8Q3n7sbigaPpakeVhNh8EbstMMuYswUffJuUemueAw==}
@@ -2412,12 +2416,12 @@ packages:
     resolution: {integrity: sha512-nR+dJlAyQhX6s0oAmbBqPq3KCZax/zVAerFsclGiJQ2znOkS/7L+RGjziS4M9Q3OQxm3FMfqIKHp9Ns73Q81ww==}
     dev: true
 
-  /astro/1.1.6:
-    resolution: {integrity: sha512-rNV1VjO5tlqu5nSrvOJdAIxwUVaFOYtG/siopederG6xK2EjCvmFjFUGOBW+xVkQCeA7j3OfE+5CZ8Wa+ZrcOw==}
+  /astro/1.1.7:
+    resolution: {integrity: sha512-bQr95BIgD6Eu0exGOY26TxxKahZ3FiiEOpu3oUzsdM9kgeWUW8Mtjz3BKD+klZS9x0z3NYWOueCgxqe+vij8Vg==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
-      '@astrojs/compiler': 0.23.4
+      '@astrojs/compiler': 0.23.5
       '@astrojs/language-server': 0.23.0
       '@astrojs/markdown-remark': 1.1.1
       '@astrojs/telemetry': 1.0.0
