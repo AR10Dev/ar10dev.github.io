@@ -11,7 +11,7 @@ specifiers:
   '@unocss/astro': 0.45.18
   '@unocss/preset-attributify': 0.45.18
   '@unocss/preset-wind': 0.45.18
-  astro: 1.1.7
+  astro: 1.1.8
   astro-robots-txt: 0.3.8
   astro-seo: 0.6.0
   autoprefixer: 10.4.8
@@ -35,7 +35,7 @@ specifiers:
 
 dependencies:
   '@unocss/astro': 0.45.18_vite@3.1.0
-  astro: 1.1.7
+  astro: 1.1.8
   solid-js: 1.5.4
 
 devDependencies:
@@ -98,6 +98,11 @@ packages:
 
   /@astrojs/compiler/0.23.5:
     resolution: {integrity: sha512-vBMPy9ok4iLapSyCCT1qsZ9dK7LkVFl9mObtLEmWiec9myGHS9h2kQY2xzPeFNJiWXUf9O6tSyQpQTy5As/p3g==}
+    dev: true
+
+  /@astrojs/compiler/0.24.0:
+    resolution: {integrity: sha512-xZ81C/oMfExdF18I1Tyd2BKKzBqO+qYYctSy4iCwH4UWSo/4Y8A8MAzV1hG67uuE7hFRourSl6H5KUbhyChv/A==}
+    dev: false
 
   /@astrojs/language-server/0.23.0:
     resolution: {integrity: sha512-vWQOPipssNUivHIytKX9Zw7TSYVIb1sItDEuZvaWIcim8Q3n7sbigaPpakeVhNh8EbstMMuYswUffJuUemueAw==}
@@ -1899,6 +1904,35 @@ packages:
     dependencies:
       '@types/estree': 1.0.0
 
+  /@types/babel__core/7.1.19:
+    resolution: {integrity: sha512-WEOTgRsbYkvA/KCsDwVEGkd7WAr1e3g31VHQ8zy5gul/V1qKullU/BU5I68X5v7V3GnB9eotmom4v5a5gjxorw==}
+    dependencies:
+      '@babel/parser': 7.19.0
+      '@babel/types': 7.19.0
+      '@types/babel__generator': 7.6.4
+      '@types/babel__template': 7.4.1
+      '@types/babel__traverse': 7.18.1
+    dev: false
+
+  /@types/babel__generator/7.6.4:
+    resolution: {integrity: sha512-tFkciB9j2K755yrTALxD44McOrk+gfpIpvC3sxHjRawj6PfnQxrse4Clq5y/Rq+G3mrBurMax/lG8Qn2t9mSsg==}
+    dependencies:
+      '@babel/types': 7.19.0
+    dev: false
+
+  /@types/babel__template/7.4.1:
+    resolution: {integrity: sha512-azBFKemX6kMg5Io+/rdGT0dkGreboUVR0Cdm3fz9QJWpaQGJRQXl7C+6hOTCZcMll7KFyEQpgbYI2lHdsS4U7g==}
+    dependencies:
+      '@babel/parser': 7.19.0
+      '@babel/types': 7.19.0
+    dev: false
+
+  /@types/babel__traverse/7.18.1:
+    resolution: {integrity: sha512-FSdLaZh2UxaMuLp9lixWaHq/golWTRWOnRsAXzDTDSDOQLuZb1nsdCt6pJSPWSEQt2eFZ2YVk3oYhn+1kLMeMA==}
+    dependencies:
+      '@babel/types': 7.19.0
+    dev: false
+
   /@types/debug/4.1.7:
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
     dependencies:
@@ -1926,6 +1960,10 @@ packages:
     resolution: {integrity: sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==}
     dependencies:
       '@types/unist': 2.0.6
+
+  /@types/html-escaper/3.0.0:
+    resolution: {integrity: sha512-OcJcvP3Yk8mjYwf/IdXZtTE1tb/u0WF0qa29ER07ZHCYUBZXSN29Z1mBS+/96+kNMGTFUAbSz9X+pHmHpZrTCw==}
+    dev: false
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
@@ -1992,6 +2030,10 @@ packages:
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
+
+  /@types/yargs-parser/21.0.0:
+    resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
+    dev: false
 
   /@typescript-eslint/eslint-plugin/5.36.2_2l2r3i3lm6jysqd4ac3ql4n2mm:
     resolution: {integrity: sha512-OwwR8LRwSnI98tdc2z7mJYgY60gf7I9ZfGjN5EjCwwns9bdTuQfAXcsjSB2wSQ/TVNYSGKf4kzVXbNGaZvwiXw==}
@@ -2415,12 +2457,12 @@ packages:
     resolution: {integrity: sha512-nR+dJlAyQhX6s0oAmbBqPq3KCZax/zVAerFsclGiJQ2znOkS/7L+RGjziS4M9Q3OQxm3FMfqIKHp9Ns73Q81ww==}
     dev: true
 
-  /astro/1.1.7:
-    resolution: {integrity: sha512-bQr95BIgD6Eu0exGOY26TxxKahZ3FiiEOpu3oUzsdM9kgeWUW8Mtjz3BKD+klZS9x0z3NYWOueCgxqe+vij8Vg==}
+  /astro/1.1.8:
+    resolution: {integrity: sha512-Wgo3GQAI/klxpym5XrtrEbnKSKmOYsuv0Gm2j6S4Y0F4LZg7Q4O1gv6OHiD1hX1q3u1LrWP4+3WuenxJBmgHOw==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
-      '@astrojs/compiler': 0.23.5
+      '@astrojs/compiler': 0.24.0
       '@astrojs/language-server': 0.23.0
       '@astrojs/markdown-remark': 1.1.1
       '@astrojs/telemetry': 1.0.0
@@ -2433,6 +2475,9 @@ packages:
       '@babel/types': 7.19.0
       '@proload/core': 0.3.2
       '@proload/plugin-tsm': 0.2.1_@proload+core@0.3.2
+      '@types/babel__core': 7.1.19
+      '@types/html-escaper': 3.0.0
+      '@types/yargs-parser': 21.0.0
       boxen: 6.2.1
       ci-info: 3.3.2
       common-ancestor-path: 1.0.1
