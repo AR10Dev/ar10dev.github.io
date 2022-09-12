@@ -8,7 +8,7 @@ specifiers:
   '@cspell/eslint-plugin': 6.8.1
   '@typescript-eslint/eslint-plugin': 5.36.2
   '@typescript-eslint/parser': 5.36.2
-  '@unocss/astro': 0.45.18
+  '@unocss/astro': 0.45.21
   '@unocss/preset-attributify': 0.45.18
   '@unocss/preset-wind': 0.45.18
   astro: 1.2.1
@@ -34,7 +34,7 @@ specifiers:
   workbox-build: 6.5.4
 
 dependencies:
-  '@unocss/astro': 0.45.18_vite@3.1.0
+  '@unocss/astro': 0.45.21_vite@3.1.0
   astro: 1.2.1
   solid-js: 1.5.4
 
@@ -2162,21 +2162,21 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@unocss/astro/0.45.18_vite@3.1.0:
-    resolution: {integrity: sha512-dikg3GswRCiFvGWNssk+X4dZVqYQvoqH3b9jwSGRjOsVQUfxm0hUBcAFj9idAstkR1zbjnPDMKMSYx4woVRZUg==}
+  /@unocss/astro/0.45.21_vite@3.1.0:
+    resolution: {integrity: sha512-6lsDQu6nBX5CZZ+JPqAdp9ypkZrzi6NuBgyjZtChCoLhwEB2kNDCg7Qwu93Ee7/TT8MYAiANar9N+U2EuxzcKA==}
     dependencies:
-      '@unocss/core': 0.45.18
-      '@unocss/reset': 0.45.18
-      '@unocss/vite': 0.45.18_vite@3.1.0
+      '@unocss/core': 0.45.21
+      '@unocss/reset': 0.45.21
+      '@unocss/vite': 0.45.21_vite@3.1.0
     transitivePeerDependencies:
       - vite
     dev: false
 
-  /@unocss/config/0.45.18:
-    resolution: {integrity: sha512-A7VUvUOnm+2tsipMferCf0VhllcmXjDsX3QGg34Vlkl5jkYbwGTETyvhJ09uY4GAWrNMSAjvu+YI+E8fr3xmTg==}
+  /@unocss/config/0.45.21:
+    resolution: {integrity: sha512-EXHdUwwKQ0Y9MizXpfGoCL8RRPoZ2d0l5uYeyB2qETCcwjm2pM5qodEssll/B4mHNfjv51ywsnSSAwHP7GR+8A==}
     engines: {node: '>=14'}
     dependencies:
-      '@unocss/core': 0.45.18
+      '@unocss/core': 0.45.21
       unconfig: 0.3.6
     dev: false
 
@@ -2186,9 +2186,14 @@ packages:
 
   /@unocss/core/0.45.18:
     resolution: {integrity: sha512-506GHQX8/TpKNZ96k4ujSWp5SpcsZZnwwTg9NcLf7M3y5BXEwv0dE7Jfz7eJiFm2G+RYEgrXwYk7y7dFF8evxA==}
+    dev: true
 
-  /@unocss/inspector/0.45.18:
-    resolution: {integrity: sha512-5J++2Y2gp1qs7TeICkZ6VSOMS84ksRlCq3efw4YF5NjFhqvx+rOuWrHidHLHLycxczeBWgkz3ROHeOtAMrVDAg==}
+  /@unocss/core/0.45.21:
+    resolution: {integrity: sha512-9yvgEYHFy6NFQwiQ0fEMg3QUGvcHfXbSmZszupa8ojpbR7UM26Ng+RY/Tyx1zh9HBaS7N+73z7u6gcygc7mUJA==}
+    dev: false
+
+  /@unocss/inspector/0.45.21:
+    resolution: {integrity: sha512-NgtlIt8e1Zjc9Fh19RTBbo9asgXfK00kq00khngGfvjdQu+MMGsjGPz/PYkFrAdjcXVxyV1aKr0PKXQr2e6ZOA==}
     dependencies:
       gzip-size: 6.0.0
       sirv: 2.0.2
@@ -2219,33 +2224,33 @@ packages:
       '@unocss/preset-mini': 0.45.18
     dev: true
 
-  /@unocss/reset/0.45.18:
-    resolution: {integrity: sha512-85T9tdRo86Legeus3HHCMvwUDJRWoUz2hcHrwVeI5J1mCgC0uw/0+BybOyzHBEW4uvFLp9n3tI6Z8x0k+7ZFMQ==}
+  /@unocss/reset/0.45.21:
+    resolution: {integrity: sha512-9JyC8P8qci1fuUvIOZXfO0jsug2YOUlFq8bx904J4sQ33qFl4NhkrpXAU+kFs0HS5SvgUx7BDfLY7W7BGG3RxQ==}
     dev: false
 
-  /@unocss/scope/0.45.18:
-    resolution: {integrity: sha512-HOYQx60GBW9J6ypRMUqTNRhVZpQfY96bPB4ZtmSaYNrkcT/VLjbkYKZW5z53rPiKWMitZAX9AQb0oEMGpvvraw==}
+  /@unocss/scope/0.45.21:
+    resolution: {integrity: sha512-oyi6onHnUrdieQI19qKlkMXqykeU5i6mmuHg1VCVSlvh2QQhHypacIAVSohK88DQucVIfzHTWxBqHxZGHCs5Ag==}
     dev: false
 
-  /@unocss/transformer-directives/0.45.18:
-    resolution: {integrity: sha512-KLNWNCgBpY3ahl9+FYTX4eiPqgrIEaPzIWT4bwbuSQHg4GbiXxy0Xx66XKtgib9ezAF+PXxyB0ygWspiLup8SA==}
+  /@unocss/transformer-directives/0.45.21:
+    resolution: {integrity: sha512-bF7UThxj81+MM5ZZ0LLaEFhiexSbftF+Ld+AxHhe0MtaBo1oZp8z9AQrCCfQC1rJY5zAcbBGjTJO5BSVsvIDlQ==}
     dependencies:
-      '@unocss/core': 0.45.18
+      '@unocss/core': 0.45.21
       css-tree: 2.2.1
     dev: false
 
-  /@unocss/vite/0.45.18_vite@3.1.0:
-    resolution: {integrity: sha512-6ouAqz+zBsOQ5Zcj1kwQfh5TugxvSWVye9s0UlXOyAj9wrluHZ7NV13QFGDJdPJkYl+dOq0wIlIdwsDEeWrENw==}
+  /@unocss/vite/0.45.21_vite@3.1.0:
+    resolution: {integrity: sha512-BrCJMSy9i9j9mmzu2pfPFQuRPNWASxQfy3D6k+4R3c51OfKBSDcfeD7FyM866TE1gllCIFdQQH1Ay+tXkjlOMQ==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0
     dependencies:
       '@ampproject/remapping': 2.2.0
       '@rollup/pluginutils': 4.2.1
-      '@unocss/config': 0.45.18
-      '@unocss/core': 0.45.18
-      '@unocss/inspector': 0.45.18
-      '@unocss/scope': 0.45.18
-      '@unocss/transformer-directives': 0.45.18
+      '@unocss/config': 0.45.21
+      '@unocss/core': 0.45.21
+      '@unocss/inspector': 0.45.21
+      '@unocss/scope': 0.45.21
+      '@unocss/transformer-directives': 0.45.21
       magic-string: 0.26.3
       vite: 3.1.0
     dev: false
