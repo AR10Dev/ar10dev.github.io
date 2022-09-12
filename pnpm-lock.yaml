@@ -11,7 +11,7 @@ specifiers:
   '@unocss/astro': 0.45.21
   '@unocss/preset-attributify': 0.45.21
   '@unocss/preset-wind': 0.45.21
-  astro: 1.2.1
+  astro: 1.2.2
   astro-robots-txt: 0.3.8
   astro-seo: 0.6.0
   autoprefixer: 10.4.9
@@ -35,7 +35,7 @@ specifiers:
 
 dependencies:
   '@unocss/astro': 0.45.21_vite@3.1.0
-  astro: 1.2.1
+  astro: 1.2.2
   solid-js: 1.5.4
 
 devDependencies:
@@ -2402,8 +2402,8 @@ packages:
     resolution: {integrity: sha512-nR+dJlAyQhX6s0oAmbBqPq3KCZax/zVAerFsclGiJQ2znOkS/7L+RGjziS4M9Q3OQxm3FMfqIKHp9Ns73Q81ww==}
     dev: true
 
-  /astro/1.2.1:
-    resolution: {integrity: sha512-bNWrYALx2o15QPfF0QKUI6UXZa6FQgprH4hQI742VHl4FGSizCPb1CVejyrIt4pKDvGcM2LUW/J2A5yZ8eIU1A==}
+  /astro/1.2.2:
+    resolution: {integrity: sha512-qfK7Ch7dSO0CJEwkcEx/oxMxEuaDcaHCcrJ1PGMWFzdjBXrT45tDgnXXis06yT+AuolLSOIbPhpEi3QWsGqvuQ==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
