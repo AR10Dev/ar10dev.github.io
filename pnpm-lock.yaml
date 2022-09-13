@@ -15,7 +15,7 @@ specifiers:
   astro-robots-txt: 0.3.8
   astro-seo: 0.6.0
   autoprefixer: 10.4.9
-  cspell: 6.8.1
+  cspell: 6.8.2
   cssnano: 5.1.13
   cssnano-preset-advanced: 5.3.8
   eslint: 8.23.0
@@ -51,7 +51,7 @@ devDependencies:
   astro-robots-txt: 0.3.8
   astro-seo: 0.6.0
   autoprefixer: 10.4.9_postcss@8.4.16
-  cspell: 6.8.1
+  cspell: 6.8.2
   cssnano: 5.1.13_postcss@8.4.16
   cssnano-preset-advanced: 5.3.8_postcss@8.4.16
   eslint: 8.23.0
@@ -1427,11 +1427,6 @@ packages:
       '@cspell/dict-swift': 1.0.3
       '@cspell/dict-typescript': 2.0.1
       '@cspell/dict-vue': 2.0.2
-    dev: true
-
-  /@cspell/cspell-pipe/6.8.1:
-    resolution: {integrity: sha512-FbpYK58PlrGIOjZxu51/dFkFv7iaPhKWrkQ/q/9vW82g2ovouFeql0S7X9g4Dnn75Pd5P/pYPgFubCSawtp3pA==}
-    engines: {node: '>=14'}
     dev: true
 
   /@cspell/cspell-pipe/6.8.2:
@@ -2865,20 +2860,13 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /cspell-gitignore/6.8.1:
-    resolution: {integrity: sha512-GpLr0xoQQHk8IpDGhMY76EyThwSwfAOe5er5iDYlEFRsCp0sUnllXVSJunb4QZIcMl2zbj5lGgPuCvzKcjy3SQ==}
+  /cspell-gitignore/6.8.2:
+    resolution: {integrity: sha512-JoU/rGeGrjSqOMvY5q+bloxtO5Y8QLpJEEIAvHHZ+oTOlExZ/CIAYnO6X3lC6ylNRYc1+I2KEOFa6R0+0OSdVQ==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
       cspell-glob: 6.8.2
       find-up: 5.0.0
-    dev: true
-
-  /cspell-glob/6.8.1:
-    resolution: {integrity: sha512-LSiGN9ht4cJdr/zIuh6GlV0soYKPBNvQovhjYPFZZjvCbH7iIkTNxCuXBKylF1iorsH1jrTY88fmNBeYqkwuFA==}
-    engines: {node: '>=14'}
-    dependencies:
-      micromatch: 4.0.5
     dev: true
 
   /cspell-glob/6.8.2:
@@ -2903,34 +2891,6 @@ packages:
     dependencies:
       '@cspell/cspell-service-bus': 6.8.2
       node-fetch: 2.6.7
-    transitivePeerDependencies:
-      - encoding
-    dev: true
-
-  /cspell-lib/6.8.1:
-    resolution: {integrity: sha512-FzLSOg/IRClx9JfN2STg9KaoNwQsvKICviKjk0kdrRJywDUUA/uNL7KqI0khSWGPRVjPK2Itu9NpgB66Ux4xEA==}
-    engines: {node: '>=14'}
-    dependencies:
-      '@cspell/cspell-bundled-dicts': 6.8.2
-      '@cspell/cspell-pipe': 6.8.2
-      '@cspell/cspell-types': 6.8.2
-      clear-module: 4.1.2
-      comment-json: 4.2.3
-      configstore: 5.0.1
-      cosmiconfig: 7.0.1
-      cspell-glob: 6.8.2
-      cspell-grammar: 6.8.2
-      cspell-io: 6.8.2
-      cspell-trie-lib: 6.8.2
-      fast-equals: 4.0.3
-      find-up: 5.0.0
-      fs-extra: 10.1.0
-      gensequence: 3.1.1
-      import-fresh: 3.3.0
-      resolve-from: 5.0.0
-      resolve-global: 1.0.0
-      vscode-languageserver-textdocument: 1.0.7
-      vscode-uri: 3.0.3
     transitivePeerDependencies:
       - encoding
     dev: true
@@ -2973,17 +2933,17 @@ packages:
       gensequence: 4.0.2
     dev: true
 
-  /cspell/6.8.1:
-    resolution: {integrity: sha512-w+MCy9a7uMu0bwwDuFJy85SbF6pikCc6fzQo3B/hXuu+xrz12TCbjsXsdezTXl9YqPsUDN0A8A6AwHEN7t7GFw==}
+  /cspell/6.8.2:
+    resolution: {integrity: sha512-WHF8tQXetHgAjyG6f0rDhWXRQllSpZULOIuDZj6PeZyHubuObzsMsW0asDvL8j+EGKXr8NPo4J3vjxahYmSJ+w==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      '@cspell/cspell-pipe': 6.8.1
+      '@cspell/cspell-pipe': 6.8.2
       chalk: 4.1.2
       commander: 9.4.0
-      cspell-gitignore: 6.8.1
-      cspell-glob: 6.8.1
-      cspell-lib: 6.8.1
+      cspell-gitignore: 6.8.2
+      cspell-glob: 6.8.2
+      cspell-lib: 6.8.2
       fast-json-stable-stringify: 2.1.0
       file-entry-cache: 6.0.1
       fs-extra: 10.1.0
@@ -4172,11 +4132,6 @@ packages:
 
   /functions-have-names/1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
-    dev: true
-
-  /gensequence/3.1.1:
-    resolution: {integrity: sha512-ys3h0hiteRwmY6BsvSttPmkhC0vEQHPJduANBRtH/dlDPZ0UBIb/dXy80IcckXyuQ6LKg+PloRqvGER9IS7F7g==}
-    engines: {node: '>=10.0.0'}
     dev: true
 
   /gensequence/4.0.2:
