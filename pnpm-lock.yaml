@@ -14,7 +14,7 @@ specifiers:
   astro: 1.2.4
   astro-robots-txt: 0.3.8
   astro-seo: 0.6.0
-  autoprefixer: 10.4.10
+  autoprefixer: 10.4.11
   cspell: 6.8.2
   cssnano: 5.1.13
   cssnano-preset-advanced: 5.3.8
@@ -50,7 +50,7 @@ devDependencies:
   '@unocss/preset-wind': 0.45.21
   astro-robots-txt: 0.3.8
   astro-seo: 0.6.0
-  autoprefixer: 10.4.10_postcss@8.4.16
+  autoprefixer: 10.4.11_postcss@8.4.16
   cspell: 6.8.2
   cssnano: 5.1.13_postcss@8.4.16
   cssnano-preset-advanced: 5.3.8_postcss@8.4.16
@@ -2547,8 +2547,8 @@ packages:
     engines: {node: '>= 4.0.0'}
     dev: true
 
-  /autoprefixer/10.4.10_postcss@8.4.16:
-    resolution: {integrity: sha512-nMaiDARyp1e74c8IeAXkr+BmFKa8By4Zak7tyaNPF09Iu39WFpNXOWrVirmXjKr+5cOyERwvtbMOLYz6iBJYgQ==}
+  /autoprefixer/10.4.11_postcss@8.4.16:
+    resolution: {integrity: sha512-5lHp6DgRodxlBLSkzHOTcufWFflH1ewfy2hvFQyjrblBFlP/0Yh4O/Wrg4ow8WRlN3AAUFFLAQwX8hTptzqVHg==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
@@ -3069,7 +3069,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
-      autoprefixer: 10.4.10_postcss@8.4.16
+      autoprefixer: 10.4.11_postcss@8.4.16
       cssnano-preset-default: 5.2.12_postcss@8.4.16
       postcss: 8.4.16
       postcss-discard-unused: 5.1.0_postcss@8.4.16
