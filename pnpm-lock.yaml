@@ -11,7 +11,7 @@ specifiers:
   '@unocss/astro': 0.45.21
   '@unocss/preset-attributify': 0.45.21
   '@unocss/preset-wind': 0.45.21
-  astro: 1.2.5
+  astro: 1.2.6
   astro-robots-txt: 0.3.9
   astro-seo: 0.6.0
   autoprefixer: 10.4.11
@@ -35,7 +35,7 @@ specifiers:
 
 dependencies:
   '@unocss/astro': 0.45.21_vite@3.1.1
-  astro: 1.2.5
+  astro: 1.2.6
   solid-js: 1.5.5
 
 devDependencies:
@@ -2402,8 +2402,8 @@ packages:
     resolution: {integrity: sha512-nR+dJlAyQhX6s0oAmbBqPq3KCZax/zVAerFsclGiJQ2znOkS/7L+RGjziS4M9Q3OQxm3FMfqIKHp9Ns73Q81ww==}
     dev: true
 
-  /astro/1.2.5:
-    resolution: {integrity: sha512-kyP4HVQt9h+O8C+djY4q4VsBsT2Vgt4AjNDZQZQr8sdN+GdDQISAxZMCpUp99w9PndpAPGxvVEJMQD3MG+dyjQ==}
+  /astro/1.2.6:
+    resolution: {integrity: sha512-u6s5EH6+F/IpNkjJJ2RAKMWmBIOVz4AozjyW7aD0hsiGkVF0VYu7AqNWO3TTG6WQ6c9YbosDpfj+JKTT+S/JhA==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -2463,7 +2463,7 @@ packages:
       vfile: 5.3.4
       vite: 3.1.0
       yargs-parser: 21.1.1
-      zod: 3.18.0
+      zod: 3.19.1
     transitivePeerDependencies:
       - less
       - sass
@@ -7622,10 +7622,10 @@ packages:
 
   /zod/3.18.0:
     resolution: {integrity: sha512-gwTm8RfUCe8l9rDwN5r2A17DkAa8Ez4Yl4yXqc5VqeGaXaJahzYYXbTwvhroZi0SNBqTwh/bKm2N0mpCzuw4bA==}
+    dev: true
 
   /zod/3.19.1:
     resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
-    dev: true
 
   /zwitch/2.0.2:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}
