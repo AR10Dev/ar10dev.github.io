@@ -21,7 +21,7 @@
     "@cspell/eslint-plugin": "6.10.1",
     "@typescript-eslint/eslint-plugin": "5.38.0",
     "@typescript-eslint/parser": "5.38.0",
-    "@unocss/preset-attributify": "0.45.23",
+    "@unocss/preset-attributify": "0.45.25",
     "@unocss/preset-wind": "0.45.22",
     "astro-robots-txt": "0.3.9",
     "astro-seo": "0.6.0",
