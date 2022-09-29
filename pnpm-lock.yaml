@@ -10,7 +10,7 @@ specifiers:
   '@typescript-eslint/parser': 5.38.1
   '@unocss/astro': 0.45.26
   '@unocss/preset-attributify': 0.45.26
-  '@unocss/preset-wind': 0.45.25
+  '@unocss/preset-wind': 0.45.26
   astro: 1.3.1
   astro-robots-txt: 0.3.9
   astro-seo: 0.6.0
@@ -47,7 +47,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.38.1_c7qepppml3d4ahu5cnfwqe6ltq
   '@typescript-eslint/parser': 5.38.1_ypn2ylkkyfa5i233caldtndbqa
   '@unocss/preset-attributify': 0.45.26
-  '@unocss/preset-wind': 0.45.25
+  '@unocss/preset-wind': 0.45.26
   astro-robots-txt: 0.3.9
   astro-seo: 0.6.0
   autoprefixer: 10.4.12_postcss@8.4.16
@@ -2255,10 +2255,6 @@ packages:
     resolution: {integrity: sha512-DJ3Uk2ePVXvV1qQmgoLK44aqB6f0s+naOEvouI97nzVXDZgxDQPBxIPB/L4vvE4U+gQxEiHwwE3gJ75iPqVzXw==}
     dev: true
 
-  /@unocss/core/0.45.25:
-    resolution: {integrity: sha512-3CVIkKPW4t3x0L7SM607M0PYs8BEJM/RdTjsoY2w5uvQtv/ypmkPdCWXe6gIQlNhAAyUIVxNaOB8GIXG+IelBQ==}
-    dev: true
-
   /@unocss/core/0.45.26:
     resolution: {integrity: sha512-V7lNAXy1Ou2+UsD8n8a0ynE7BPuMtZSn6dQtrhNvtkstEBZtBAvlGM07wnSqwZfYeKs8k/MA6Z7S0yJKQzcl1Q==}
 
@@ -2281,18 +2277,17 @@ packages:
       '@unocss/core': 0.31.17
     dev: true
 
-  /@unocss/preset-mini/0.45.25:
-    resolution: {integrity: sha512-lHJ00W+4ptfcH4mXLguZvsj6GCSYmW9i1EBZ68J8xzbxKLVMI3URFkpgNJ22oHr4+EziUjIxihppMsXq5XHPfg==}
+  /@unocss/preset-mini/0.45.26:
+    resolution: {integrity: sha512-Kab6F2pZHzJudGene6NwGMYA96fuU8gNjCVouSd6oqFF1ZhEBxkQOR56TRjppyCi0MU89hciV5T6kcVZDquGUw==}
     dependencies:
-      '@unocss/core': 0.45.25
+      '@unocss/core': 0.45.26
     dev: true
 
-  /@unocss/preset-wind/0.45.25:
-    resolution: {integrity: sha512-my86NzVSTQ4/9RbMpMHUPNrSz3TNFtZhO93LicLSmShtGyBKBxx/J1+l9XrRDL3wrsQbgmIIOlz7VMrKKV7V3A==}
+  /@unocss/preset-wind/0.45.26:
+    resolution: {integrity: sha512-/7YnUIXBkakeNzDpxsOzoHgVKL/nH9kyKHT1hSLj60IlAoN+YfoOwpCOn+taysovjiGmLIKdeEuOAN3HuEi1aw==}
     dependencies:
-      '@unocss/core': 0.45.25
-      '@unocss/preset-mini': 0.45.25
-      pathe: 0.3.8
+      '@unocss/core': 0.45.26
+      '@unocss/preset-mini': 0.45.26
     dev: true
 
   /@unocss/reset/0.45.26:
@@ -5926,10 +5921,6 @@ packages:
   /path-type/4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
-    dev: true
-
-  /pathe/0.3.8:
-    resolution: {integrity: sha512-c71n61F1skhj/jzZe+fWE9XDoTYjWbUwIKVwFftZ5IOgiX44BVkTkD+/803YDgR50tqeO4eXWxLyVHBLWQAD1g==}
     dev: true
 
   /periscopic/3.0.4:
