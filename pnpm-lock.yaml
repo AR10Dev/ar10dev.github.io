@@ -26,7 +26,7 @@ specifiers:
   lefthook: 1.1.1
   postcss: 8.4.16
   prettier: 2.7.1
-  prettier-plugin-astro: 0.5.4
+  prettier-plugin-astro: 0.5.5
   solid-js: 1.5.7
   typescript: 4.8.4
   unocss-preset-scrollbar: 0.2.1
@@ -62,7 +62,7 @@ devDependencies:
   lefthook: 1.1.1
   postcss: 8.4.16
   prettier: 2.7.1
-  prettier-plugin-astro: 0.5.4
+  prettier-plugin-astro: 0.5.5
   typescript: 4.8.4
   unocss-preset-scrollbar: 0.2.1
   vite: 3.1.4
@@ -93,12 +93,8 @@ packages:
       leven: 3.1.0
     dev: true
 
-  /@astrojs/compiler/0.23.4:
-    resolution: {integrity: sha512-vNZIa5Tf5nOqBEGJvM6xyYBnGcz4MAp+bBPnyVI0UYRjsIWlP7RgMdCpRV0OOh5kgh00BoAypGv27kcoJCMVfA==}
-
   /@astrojs/compiler/0.23.5:
     resolution: {integrity: sha512-vBMPy9ok4iLapSyCCT1qsZ9dK7LkVFl9mObtLEmWiec9myGHS9h2kQY2xzPeFNJiWXUf9O6tSyQpQTy5As/p3g==}
-    dev: true
 
   /@astrojs/compiler/0.24.0:
     resolution: {integrity: sha512-xZ81C/oMfExdF18I1Tyd2BKKzBqO+qYYctSy4iCwH4UWSo/4Y8A8MAzV1hG67uuE7hFRourSl6H5KUbhyChv/A==}
@@ -111,7 +107,7 @@ packages:
       '@vscode/emmet-helper': 2.8.4
       events: 3.3.0
       prettier: 2.7.1
-      prettier-plugin-astro: 0.5.4
+      prettier-plugin-astro: 0.5.5
       source-map: 0.7.4
       vscode-css-languageservice: 6.0.1
       vscode-html-languageservice: 5.0.1
@@ -6330,11 +6326,11 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier-plugin-astro/0.5.4:
-    resolution: {integrity: sha512-ILs/WgUYtKBOn3Zh217/PwjCFtUWEKQjcCFJDevri0hGEBwEnnda9aqSLL0/nhCOmQn/UE7M9zLQvThu970ZHw==}
+  /prettier-plugin-astro/0.5.5:
+    resolution: {integrity: sha512-tEJiPjTB1eVT5Czcbkj9GoRG/oMewOnG9x737p/hJUD5QXJmn7LiYFM2dKkX0i4A1fhhsGfXT+uqsAXcw2r8JQ==}
     engines: {node: ^14.15.0 || >=16.0.0, npm: '>=6.14.0'}
     dependencies:
-      '@astrojs/compiler': 0.23.4
+      '@astrojs/compiler': 0.23.5
       prettier: 2.7.1
       sass-formatter: 0.7.5
       synckit: 0.7.3
