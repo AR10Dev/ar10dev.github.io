@@ -30,11 +30,11 @@ specifiers:
   solid-js: 1.5.7
   typescript: 4.8.4
   unocss-preset-scrollbar: 0.2.1
-  vite: 3.1.6
+  vite: 3.1.7
   workbox-build: 6.5.4
 
 dependencies:
-  '@unocss/astro': 0.45.29_vite@3.1.6
+  '@unocss/astro': 0.45.29_vite@3.1.7
   astro: 1.4.6
   solid-js: 1.5.7
 
@@ -65,7 +65,7 @@ devDependencies:
   prettier-plugin-astro: 0.5.5
   typescript: 4.8.4
   unocss-preset-scrollbar: 0.2.1
-  vite: 3.1.6
+  vite: 3.1.7
   workbox-build: 6.5.4
 
 packages:
@@ -2234,12 +2234,12 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@unocss/astro/0.45.29_vite@3.1.6:
+  /@unocss/astro/0.45.29_vite@3.1.7:
     resolution: {integrity: sha512-osmUD8Dy0uPdA2BI6xZIUzOf0jHWySjDbdHNLceLVNnwxhl2znwqaSbSe/hUBypneGIX3wrHPUs9pwKFMLwPXw==}
     dependencies:
       '@unocss/core': 0.45.29
       '@unocss/reset': 0.45.29
-      '@unocss/vite': 0.45.29_vite@3.1.6
+      '@unocss/vite': 0.45.29_vite@3.1.7
     transitivePeerDependencies:
       - vite
     dev: false
@@ -2306,7 +2306,7 @@ packages:
       css-tree: 2.2.1
     dev: false
 
-  /@unocss/vite/0.45.29_vite@3.1.6:
+  /@unocss/vite/0.45.29_vite@3.1.7:
     resolution: {integrity: sha512-pRCGtNP1XS4Pk8sSniHvkiOfB35xSu89l5xlib2sFjhjZ1nBn+KgUHNnmtt8/qsWgLFK6KkHKjwqx9c7mXmekw==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0
@@ -2319,7 +2319,7 @@ packages:
       '@unocss/scope': 0.45.29
       '@unocss/transformer-directives': 0.45.29
       magic-string: 0.26.6
-      vite: 3.1.6
+      vite: 3.1.7
     dev: false
 
   /@vscode/emmet-helper/2.8.4:
@@ -2530,7 +2530,7 @@ packages:
       typescript: 4.8.4
       unist-util-visit: 4.1.1
       vfile: 5.3.4
-      vite: 3.1.6
+      vite: 3.1.7
       yargs-parser: 21.1.1
       zod: 3.19.1
     transitivePeerDependencies:
@@ -7385,8 +7385,8 @@ packages:
       unist-util-stringify-position: 3.0.2
       vfile-message: 3.1.2
 
-  /vite/3.1.6:
-    resolution: {integrity: sha512-qMXIwnehvvcK5XfJiXQUiTxoYAEMKhM+jqCY6ZSTKFBKu1hJnAKEzP3AOcnTerI0cMZYAaJ4wpW1wiXLMDt4mA==}
+  /vite/3.1.7:
+    resolution: {integrity: sha512-5vCAmU4S8lyVdFCInu9M54f/g8qbOMakVw5xJ4pjoaDy5wgy9sLLZkGdSLN52dlsBqh0tBqxjaqqa8LgPqwRAA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
