@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/mdx': 0.11.4
   '@astrojs/sitemap': 1.0.0
-  '@astrojs/solid-js': 1.2.0
+  '@astrojs/solid-js': 1.2.1
   '@babel/core': 7.19.3
   '@cspell/eslint-plugin': 6.12.0
   '@typescript-eslint/eslint-plugin': 5.40.1
@@ -41,7 +41,7 @@ dependencies:
 devDependencies:
   '@astrojs/mdx': 0.11.4
   '@astrojs/sitemap': 1.0.0
-  '@astrojs/solid-js': 1.2.0_7zpsegf5mtbhfyocbjszjyobfu
+  '@astrojs/solid-js': 1.2.1_7zpsegf5mtbhfyocbjszjyobfu
   '@babel/core': 7.19.3
   '@cspell/eslint-plugin': 6.12.0
   '@typescript-eslint/eslint-plugin': 5.40.1_ukgdydjtebaxmxfqp5v5ulh64y
@@ -206,8 +206,8 @@ packages:
       zod: 3.18.0
     dev: true
 
-  /@astrojs/solid-js/1.2.0_7zpsegf5mtbhfyocbjszjyobfu:
-    resolution: {integrity: sha512-1s3vBO+HrrVtNxDO8JjQKLh0WPuYFZEkSei0sq5jFEUYO1MxBWwBRjX9pGU06i7fQxMaABe7E8DtgaJywFN95w==}
+  /@astrojs/solid-js/1.2.1_7zpsegf5mtbhfyocbjszjyobfu:
+    resolution: {integrity: sha512-kTVrSv8sXptLFUHxlRNYQUZUF+1Oi88gsDd6Lut9MMstC9zCdqbTnAy+Z7r7sCmm9J5FgsXA3YSnyQfouup5ug==}
     engines: {node: ^14.18.0 || >=16.12.0}
     peerDependencies:
       solid-js: ^1.4.3
