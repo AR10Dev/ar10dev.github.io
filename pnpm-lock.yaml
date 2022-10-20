@@ -27,7 +27,7 @@ specifiers:
   postcss: 8.4.18
   prettier: 2.7.1
   prettier-plugin-astro: 0.6.0
-  solid-js: 1.5.9
+  solid-js: 1.6.0
   typescript: 4.8.4
   unocss-preset-scrollbar: 0.2.1
   vite: 3.1.8
@@ -36,12 +36,12 @@ specifiers:
 dependencies:
   '@unocss/astro': 0.45.30_vite@3.1.8
   astro: 1.5.2
-  solid-js: 1.5.9
+  solid-js: 1.6.0
 
 devDependencies:
   '@astrojs/mdx': 0.11.4
   '@astrojs/sitemap': 1.0.0
-  '@astrojs/solid-js': 1.2.1_7zpsegf5mtbhfyocbjszjyobfu
+  '@astrojs/solid-js': 1.2.1_5bijbz2v3cwrpgy2bv5dep5qii
   '@babel/core': 7.19.3
   '@cspell/eslint-plugin': 6.12.0
   '@typescript-eslint/eslint-plugin': 5.40.1_ukgdydjtebaxmxfqp5v5ulh64y
@@ -201,14 +201,14 @@ packages:
       zod: 3.18.0
     dev: true
 
-  /@astrojs/solid-js/1.2.1_7zpsegf5mtbhfyocbjszjyobfu:
+  /@astrojs/solid-js/1.2.1_5bijbz2v3cwrpgy2bv5dep5qii:
     resolution: {integrity: sha512-kTVrSv8sXptLFUHxlRNYQUZUF+1Oi88gsDd6Lut9MMstC9zCdqbTnAy+Z7r7sCmm9J5FgsXA3YSnyQfouup5ug==}
     engines: {node: ^14.18.0 || >=16.12.0}
     peerDependencies:
       solid-js: ^1.4.3
     dependencies:
       babel-preset-solid: 1.5.2_@babel+core@7.19.3
-      solid-js: 1.5.9
+      solid-js: 1.6.0
     transitivePeerDependencies:
       - '@babel/core'
     dev: true
@@ -6862,8 +6862,8 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /solid-js/1.5.9:
-    resolution: {integrity: sha512-vzM/KLui4r7JaTXh2+clrjZmEVP+gow4yFr8yDcz8+KtsrLmMxZXmIHqXoPImFy4FBFBZwtOCnRXp7NEOHPzIg==}
+  /solid-js/1.6.0:
+    resolution: {integrity: sha512-db5s65ErgZnBhapPx77qauzul8akHlMCvirS+Y86U4abMa3uizMVNW9ql3UxbO0yMzMGNpFJwUiOlXmJCbwVpA==}
     dependencies:
       csstype: 3.1.0
 
