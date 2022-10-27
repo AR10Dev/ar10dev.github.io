@@ -44,7 +44,7 @@
     "workbox-build": "6.5.4"
   },
   "dependencies": {
-    "@unocss/astro": "0.46.0",
+    "@unocss/astro": "0.46.1",
     "astro": "1.5.3",
     "solid-js": "1.6.0"
   }
