@@ -26,7 +26,7 @@ specifiers:
   lefthook: 1.1.3
   postcss: 8.4.18
   prettier: 2.7.1
-  prettier-plugin-astro: 0.6.0
+  prettier-plugin-astro: 0.7.0
   solid-js: 1.6.0
   typescript: 4.8.4
   unocss-preset-scrollbar: 0.2.1
@@ -62,7 +62,7 @@ devDependencies:
   lefthook: 1.1.3
   postcss: 8.4.18
   prettier: 2.7.1
-  prettier-plugin-astro: 0.6.0
+  prettier-plugin-astro: 0.7.0
   typescript: 4.8.4
   unocss-preset-scrollbar: 0.2.1
   vite: 3.2.1
@@ -104,6 +104,10 @@ packages:
   /@astrojs/compiler/0.28.1:
     resolution: {integrity: sha512-rcuQs5kcT6OshfJxXkZ2Tn61V4/5UAmvZKma/qmNhpAdBkGk6J/1gJ/Gxa2sAS6WNUjUyVo5BRrdsNGW36qkoQ==}
     dev: false
+
+  /@astrojs/compiler/0.29.5:
+    resolution: {integrity: sha512-XpSJyBO6ha5mGqsD71ie83SOcv3p7zKq6qzngyeLKhccCXtf9Zn/4tGbi/Iq4YmkRBNCjLEkF0wZMYWY+eJYAA==}
+    dev: true
 
   /@astrojs/language-server/0.26.2:
     resolution: {integrity: sha512-9nkfdd6CMXLDIJojnwbYu5XrYfOI+g63JlktOlpFCwFjFNpm1u0e/+pXXmj6Zs+PkSTo0kV1UM77dRKRS5OC1Q==}
@@ -6407,11 +6411,11 @@ packages:
       synckit: 0.7.3
     dev: false
 
-  /prettier-plugin-astro/0.6.0:
-    resolution: {integrity: sha512-xU67TzyGi1u/pwVbEh55AwoOfcOpsh9BtD2MpUAEVrViAcdrBDcmA9VN0edLgla7f2NYu8ntGakxTSrSNFv1mQ==}
+  /prettier-plugin-astro/0.7.0:
+    resolution: {integrity: sha512-ehCUx7MqHWvkHwUmxxAWLsL35pFaCTM5YXQ8xjG/1W6dY2yBhvEks+2aCfjeI5zmMrZNCXkiMQtpznSlLSLrxw==}
     engines: {node: ^14.15.0 || >=16.0.0, npm: '>=6.14.0'}
     dependencies:
-      '@astrojs/compiler': 0.27.2
+      '@astrojs/compiler': 0.29.5
       prettier: 2.7.1
       sass-formatter: 0.7.5
       synckit: 0.8.4
