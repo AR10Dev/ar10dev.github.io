@@ -30,18 +30,18 @@ specifiers:
   solid-js: 1.6.1
   typescript: 4.8.4
   unocss-preset-scrollbar: 0.2.1
-  vite: 3.2.2
+  vite: 3.2.3
   workbox-build: 6.5.4
 
 dependencies:
-  '@unocss/astro': 0.46.3_vite@3.2.2
+  '@unocss/astro': 0.46.3_vite@3.2.3
   astro: 1.6.3
   solid-js: 1.6.1
 
 devDependencies:
   '@astrojs/mdx': 0.11.5
   '@astrojs/sitemap': 1.0.0
-  '@astrojs/solid-js': 1.2.2_vlgextdy6vus4zs4rvyekxweyu
+  '@astrojs/solid-js': 1.2.2_rty3y2qff3jdc3n3estynpvrau
   '@babel/core': 7.20.2
   '@cspell/eslint-plugin': 6.14.0
   '@typescript-eslint/eslint-plugin': 5.42.0_ofgjrzjuekeo7s3hdyz2yuzw34
@@ -65,7 +65,7 @@ devDependencies:
   prettier-plugin-astro: 0.7.0
   typescript: 4.8.4
   unocss-preset-scrollbar: 0.2.1
-  vite: 3.2.2
+  vite: 3.2.3
   workbox-build: 6.5.4
 
 packages:
@@ -201,7 +201,7 @@ packages:
       zod: 3.18.0
     dev: true
 
-  /@astrojs/solid-js/1.2.2_vlgextdy6vus4zs4rvyekxweyu:
+  /@astrojs/solid-js/1.2.2_rty3y2qff3jdc3n3estynpvrau:
     resolution: {integrity: sha512-kC16HKo4LVQfecfRHqRsqaVMQ7wrziege0YieZipuY3HvsX4l3i4O+QCnyHQsJ9W5MMdUvFAtf1IP1nJAdvisA==}
     engines: {node: ^14.18.0 || >=16.12.0}
     peerDependencies:
@@ -209,7 +209,7 @@ packages:
     dependencies:
       babel-preset-solid: 1.5.2_@babel+core@7.20.2
       solid-js: 1.6.1
-      vitefu: 0.1.0_vite@3.2.2
+      vitefu: 0.1.0_vite@3.2.3
     transitivePeerDependencies:
       - '@babel/core'
       - vite
@@ -2239,12 +2239,12 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@unocss/astro/0.46.3_vite@3.2.2:
+  /@unocss/astro/0.46.3_vite@3.2.3:
     resolution: {integrity: sha512-3Of0VLh5TVWc5MXzAF+Ik/9XBDkaaUcbxKquAI6hMSehtcnGOpmmNLZNjOaBdLuFDFP4RJGZ9Kkp/MuSLPuHDQ==}
     dependencies:
       '@unocss/core': 0.46.3
       '@unocss/reset': 0.46.3
-      '@unocss/vite': 0.46.3_vite@3.2.2
+      '@unocss/vite': 0.46.3_vite@3.2.3
     transitivePeerDependencies:
       - rollup
       - vite
@@ -2312,7 +2312,7 @@ packages:
       css-tree: 2.2.1
     dev: false
 
-  /@unocss/vite/0.46.3_vite@3.2.2:
+  /@unocss/vite/0.46.3_vite@3.2.3:
     resolution: {integrity: sha512-LCq3olCaRTheit6s5oE6x9/BlODpdG5K5CJ44GP7UZei3SuHOAKkbHNq7tanmMXc1jvIUre8HOeIKhARcA5Bwg==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0
@@ -2325,7 +2325,7 @@ packages:
       '@unocss/scope': 0.46.3
       '@unocss/transformer-directives': 0.46.3
       magic-string: 0.26.7
-      vite: 3.2.2
+      vite: 3.2.3
     transitivePeerDependencies:
       - rollup
     dev: false
@@ -2541,11 +2541,12 @@ packages:
       typescript: 4.8.4
       unist-util-visit: 4.1.1
       vfile: 5.3.4
-      vite: 3.2.2
-      vitefu: 0.1.0_vite@3.2.2
+      vite: 3.2.3
+      vitefu: 0.1.0_vite@3.2.3
       yargs-parser: 21.1.1
       zod: 3.19.1
     transitivePeerDependencies:
+      - '@types/node'
       - less
       - sass
       - stylus
@@ -7424,17 +7425,20 @@ packages:
       unist-util-stringify-position: 3.0.2
       vfile-message: 3.1.2
 
-  /vite/3.2.2:
-    resolution: {integrity: sha512-pLrhatFFOWO9kS19bQ658CnRYzv0WLbsPih6R+iFeEEhDOuYgYCX2rztUViMz/uy/V8cLCJvLFeiOK7RJEzHcw==}
+  /vite/3.2.3:
+    resolution: {integrity: sha512-h8jl1TZ76eGs3o2dIBSsvXDLb1m/Ec1iej8ZMdz+PsaFUsftZeWe2CZOI3qogEsMNaywc17gu0q6cQDzh/weCQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
+      '@types/node': '>= 14'
       less: '*'
       sass: '*'
       stylus: '*'
       sugarss: '*'
       terser: ^5.4.0
     peerDependenciesMeta:
+      '@types/node':
+        optional: true
       less:
         optional: true
       sass:
@@ -7453,7 +7457,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitefu/0.1.0_vite@3.2.2:
+  /vitefu/0.1.0_vite@3.2.3:
     resolution: {integrity: sha512-5MQSHP9yr0HIve8q4XNb7QXfO1P4tzZDZP99qH0FM5ClcwYddeGXRDQ4TQYRUeXLjZ+vLecirHtGNpwFFUF7sw==}
     peerDependencies:
       vite: ^3.0.0
@@ -7462,7 +7466,7 @@ packages:
         optional: true
     dependencies:
       import-meta-resolve: 2.1.0
-      vite: 3.2.2
+      vite: 3.2.3
 
   /vscode-css-languageservice/6.0.1:
     resolution: {integrity: sha512-81n/eeYuJwQdvpoy6IK1258PtPbO720fl13FcJ5YQECPyHMFkmld1qKHwPJkyLbLPfboqJPM53ys4xW8v+iBVw==}
