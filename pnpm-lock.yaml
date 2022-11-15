@@ -30,18 +30,18 @@ specifiers:
   solid-js: 1.6.2
   typescript: 4.8.4
   unocss-preset-scrollbar: 0.2.1
-  vite: 3.2.3
+  vite: 3.2.4
   workbox-build: 6.5.4
 
 dependencies:
-  '@unocss/astro': 0.46.5_vite@3.2.3
+  '@unocss/astro': 0.46.5_vite@3.2.4
   astro: 1.6.8
   solid-js: 1.6.2
 
 devDependencies:
   '@astrojs/mdx': 0.11.6
   '@astrojs/sitemap': 1.0.0
-  '@astrojs/solid-js': 1.2.3_uw2ushnhcupy3ckhh2aev5wabi
+  '@astrojs/solid-js': 1.2.3_hw7nefjdmatqw4e3tmqzky5k4u
   '@babel/core': 7.20.2
   '@cspell/eslint-plugin': 6.14.2
   '@typescript-eslint/eslint-plugin': 5.43.0_yy4vf4gcvxiubmg7fqa55dqe2i
@@ -65,7 +65,7 @@ devDependencies:
   prettier-plugin-astro: 0.7.0
   typescript: 4.8.4
   unocss-preset-scrollbar: 0.2.1
-  vite: 3.2.3
+  vite: 3.2.4
   workbox-build: 6.5.4
 
 packages:
@@ -200,7 +200,7 @@ packages:
       zod: 3.18.0
     dev: true
 
-  /@astrojs/solid-js/1.2.3_uw2ushnhcupy3ckhh2aev5wabi:
+  /@astrojs/solid-js/1.2.3_hw7nefjdmatqw4e3tmqzky5k4u:
     resolution: {integrity: sha512-YyWQVcIeUMGKTnK3myXmBrG6dfYL5qiQNn8fv50jV0nPgahLeSUTIVxtt5WtqmbFr5kGTwDyk63TZoUvCUWJXA==}
     engines: {node: ^14.18.0 || >=16.12.0}
     peerDependencies:
@@ -208,7 +208,7 @@ packages:
     dependencies:
       babel-preset-solid: 1.5.2_@babel+core@7.20.2
       solid-js: 1.6.2
-      vitefu: 0.2.1_vite@3.2.3
+      vitefu: 0.2.1_vite@3.2.4
     transitivePeerDependencies:
       - '@babel/core'
       - vite
@@ -2261,12 +2261,12 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@unocss/astro/0.46.5_vite@3.2.3:
+  /@unocss/astro/0.46.5_vite@3.2.4:
     resolution: {integrity: sha512-Ey4ReY0ult1IARdgYsEynwGbfvmwoUBOFKKdQzsm6TQR/HcSGLND4Yzoa0OTotG5gj6h9jCPjypZtw6xCUqyzg==}
     dependencies:
       '@unocss/core': 0.46.5
       '@unocss/reset': 0.46.5
-      '@unocss/vite': 0.46.5_vite@3.2.3
+      '@unocss/vite': 0.46.5_vite@3.2.4
     transitivePeerDependencies:
       - rollup
       - vite
@@ -2334,7 +2334,7 @@ packages:
       css-tree: 2.2.1
     dev: false
 
-  /@unocss/vite/0.46.5_vite@3.2.3:
+  /@unocss/vite/0.46.5_vite@3.2.4:
     resolution: {integrity: sha512-/auNcS1L3PjwAA3U/i9scJf2Zx3kkgCdKiXyfetjws4ddAnVE+LrDmIKbbdSUiWFoq9W2QOPpOPpV2xips2gmg==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0
@@ -2347,7 +2347,7 @@ packages:
       '@unocss/scope': 0.46.5
       '@unocss/transformer-directives': 0.46.5
       magic-string: 0.26.7
-      vite: 3.2.3
+      vite: 3.2.4
     transitivePeerDependencies:
       - rollup
     dev: false
@@ -2562,8 +2562,8 @@ packages:
       typescript: 4.8.4
       unist-util-visit: 4.1.1
       vfile: 5.3.4
-      vite: 3.2.3
-      vitefu: 0.2.1_vite@3.2.3
+      vite: 3.2.4
+      vitefu: 0.2.1_vite@3.2.4
       yargs-parser: 21.1.1
       zod: 3.19.1
     transitivePeerDependencies:
@@ -7424,8 +7424,8 @@ packages:
       unist-util-stringify-position: 3.0.2
       vfile-message: 3.1.2
 
-  /vite/3.2.3:
-    resolution: {integrity: sha512-h8jl1TZ76eGs3o2dIBSsvXDLb1m/Ec1iej8ZMdz+PsaFUsftZeWe2CZOI3qogEsMNaywc17gu0q6cQDzh/weCQ==}
+  /vite/3.2.4:
+    resolution: {integrity: sha512-Z2X6SRAffOUYTa+sLy3NQ7nlHFU100xwanq1WDwqaiFiCe+25zdxP1TfCS5ojPV2oDDcXudHIoPnI1Z/66B7Yw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -7456,7 +7456,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitefu/0.2.1_vite@3.2.3:
+  /vitefu/0.2.1_vite@3.2.4:
     resolution: {integrity: sha512-clkvXTAeUf+XQKm3bhWUhT4pye+3acm6YCTGaWhxxIvZZ/QjnA3JA8Zud+z/mO5y5XYvJJhevs5Sjkv/FI8nRw==}
     peerDependencies:
       vite: ^3.0.0
@@ -7464,7 +7464,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 3.2.3
+      vite: 3.2.4
 
   /vscode-css-languageservice/6.0.1:
     resolution: {integrity: sha512-81n/eeYuJwQdvpoy6IK1258PtPbO720fl13FcJ5YQECPyHMFkmld1qKHwPJkyLbLPfboqJPM53ys4xW8v+iBVw==}
