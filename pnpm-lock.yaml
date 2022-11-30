@@ -11,7 +11,7 @@ specifiers:
   '@unocss/astro': 0.47.3
   '@unocss/preset-attributify': 0.47.3
   '@unocss/preset-wind': 0.47.3
-  astro: 1.6.11
+  astro: 1.6.12
   astro-robots-txt: 0.3.10
   astro-seo: 0.6.0
   autoprefixer: 10.4.13
@@ -35,7 +35,7 @@ specifiers:
 
 dependencies:
   '@unocss/astro': 0.47.3_vite@3.2.4
-  astro: 1.6.11
+  astro: 1.6.12
   solid-js: 1.6.2
 
 devDependencies:
@@ -268,15 +268,6 @@ packages:
       semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
-
-  /@babel/generator/7.20.2:
-    resolution: {integrity: sha512-SD75PMIK6i9H8G/tfGvB4KKl4Nw6Ssos9nGgYwxbgyTP0iX/Z55DveoH86rmUB/YHTQQ+ZC0F7xxaY8l2OF44Q==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/types': 7.20.5
-      '@jridgewell/gen-mapping': 0.3.2
-      jsesc: 2.5.2
-    dev: false
 
   /@babel/generator/7.20.5:
     resolution: {integrity: sha512-jl7JY2Ykn9S0yj4DQP82sYvPU+T3g0HFcWTqDLqiuA9tGRNIj9VfbtXGAYTTkyNEnQk1jkMGOdYka8aG/lulCA==}
@@ -515,14 +506,6 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       chalk: 2.4.2
       js-tokens: 4.0.0
-
-  /@babel/parser/7.20.2:
-    resolution: {integrity: sha512-afk318kh2uKbo7BEj2QtEi8HVCGrwHUffrYDy7dgVcSa2j9lY3LDjPzcyGdpX7xgm35aWqvciZJ4WKmdF/SxYg==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-    dependencies:
-      '@babel/types': 7.20.5
-    dev: false
 
   /@babel/parser/7.20.5:
     resolution: {integrity: sha512-r27t/cy/m9uKLXQNWWebeCUHgnAZq0CpG1OwKRxzJMP1vpSU4bSIK2hq+/cp0bQxetkXx38n09rNu8jVkcK/zA==}
@@ -1375,24 +1358,6 @@ packages:
       '@babel/parser': 7.20.5
       '@babel/types': 7.20.5
 
-  /@babel/traverse/7.20.1:
-    resolution: {integrity: sha512-d3tN8fkVJwFLkHkBN479SOsw4DMZnz8cdbL/gvuDuzy3TS6Nfw80HuQqhw1pITbIruHyh7d1fMA47kWzmcUEGA==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/code-frame': 7.18.6
-      '@babel/generator': 7.20.5
-      '@babel/helper-environment-visitor': 7.18.9
-      '@babel/helper-function-name': 7.19.0
-      '@babel/helper-hoist-variables': 7.18.6
-      '@babel/helper-split-export-declaration': 7.18.6
-      '@babel/parser': 7.20.5
-      '@babel/types': 7.20.5
-      debug: 4.3.4
-      globals: 11.12.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /@babel/traverse/7.20.5:
     resolution: {integrity: sha512-WM5ZNN3JITQIq9tFZaw1ojLU3WgWdtkxnhM1AegMS+PvHjkM5IXjmYEGY7yukz5XS4sJyEf2VzWjI8uAavhxBQ==}
     engines: {node: '>=6.9.0'}
@@ -1409,15 +1374,6 @@ packages:
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
-
-  /@babel/types/7.20.2:
-    resolution: {integrity: sha512-FnnvsNWgZCr232sqtXggapvlkk/tuwR/qhGzcmxI0GXLCjmPYQPzio2FbdlWuY6y1sHFfQKk+rRbUZ9VStQMog==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/helper-string-parser': 7.19.4
-      '@babel/helper-validator-identifier': 7.19.1
-      to-fast-properties: 2.0.0
-    dev: false
 
   /@babel/types/7.20.5:
     resolution: {integrity: sha512-c9fst/h2/dcF7H+MJKZ2T0KjEQ8hY/BNnDk/H3XY8C4Aw/eWQXWn/lWntHF9ooUBnGmEvbfGrTgLWc+um0YDUg==}
@@ -2613,8 +2569,8 @@ packages:
     resolution: {integrity: sha512-nR+dJlAyQhX6s0oAmbBqPq3KCZax/zVAerFsclGiJQ2znOkS/7L+RGjziS4M9Q3OQxm3FMfqIKHp9Ns73Q81ww==}
     dev: true
 
-  /astro/1.6.11:
-    resolution: {integrity: sha512-T0xb0U0FOrqXxl87x4mjpufhf0b47RMPIu8WWK+2ODrRZkPj1sr24alh3Y/PLSyiWSqoGZF7xzQ6hzt0jDCyVQ==}
+  /astro/1.6.12:
+    resolution: {integrity: sha512-Pa1BfD/w2B/1bi6UXyvwbSnKnZqBglWgw8vjuEP+YJ8tb63g2yAn4mOy2Fh/Z5jn6fV1mkA2HS2TN2ZpTgagdg==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -2624,11 +2580,11 @@ packages:
       '@astrojs/telemetry': 1.0.1
       '@astrojs/webapi': 1.1.1
       '@babel/core': 7.20.5
-      '@babel/generator': 7.20.2
-      '@babel/parser': 7.20.2
+      '@babel/generator': 7.20.5
+      '@babel/parser': 7.20.5
       '@babel/plugin-transform-react-jsx': 7.18.10_@babel+core@7.20.5
-      '@babel/traverse': 7.20.1
-      '@babel/types': 7.20.2
+      '@babel/traverse': 7.20.5
+      '@babel/types': 7.20.5
       '@proload/core': 0.3.3
       '@proload/plugin-tsm': 0.2.1_@proload+core@0.3.3
       '@types/babel__core': 7.1.19
