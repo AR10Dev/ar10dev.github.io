@@ -9,7 +9,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': 5.45.0
   '@typescript-eslint/parser': 5.45.0
   '@unocss/astro': 0.47.5
-  '@unocss/preset-attributify': 0.47.4
+  '@unocss/preset-attributify': 0.47.5
   '@unocss/preset-wind': 0.47.4
   astro: 1.6.12
   astro-robots-txt: 0.3.10
@@ -46,7 +46,7 @@ devDependencies:
   '@cspell/eslint-plugin': 6.15.1
   '@typescript-eslint/eslint-plugin': 5.45.0_czs5uoqkd3podpy6vgtsxfc7au
   '@typescript-eslint/parser': 5.45.0_hsf322ms6xhhd4b5ne6lb74y4a
-  '@unocss/preset-attributify': 0.47.4
+  '@unocss/preset-attributify': 0.47.5
   '@unocss/preset-wind': 0.47.4
   astro-robots-txt: 0.3.10
   astro-seo: 0.6.0
@@ -2291,7 +2291,6 @@ packages:
 
   /@unocss/core/0.47.5:
     resolution: {integrity: sha512-KADysCd6JEIowGB6INGgZRuYhaaxrxiQXl9Xh/V+H4bgjtaNDxYyvZ2qKx5+u/kB4U9iSI0ULxBAY3oyqZ/Yjw==}
-    dev: false
 
   /@unocss/inspector/0.47.5:
     resolution: {integrity: sha512-voGndZeAZxMg9H4Af9rbUh3rEXTQGgIq5k9jKI1tJF6nrBLDO6QXdK835DA/3x+oxnlzPX76QMc/spSUAwJZeQ==}
@@ -2300,10 +2299,10 @@ packages:
       sirv: 2.0.2
     dev: false
 
-  /@unocss/preset-attributify/0.47.4:
-    resolution: {integrity: sha512-1zqNtRUX0Ztkw2zknbtu1lT/129Y+oixZyc3+UlOODSOq4+653fXiV8kIFul9VFZt2kvdOdvTqmHlSO37fdxFw==}
+  /@unocss/preset-attributify/0.47.5:
+    resolution: {integrity: sha512-mLW63u1mM4UA7VqiJE6Y5Yok+KaP3E9Rhe9PAY9ipmO4R8m17A3BiNW+UV/skKhW0j+h+Zpw5YdYdwhe2Fw7Rg==}
     dependencies:
-      '@unocss/core': 0.47.4
+      '@unocss/core': 0.47.5
     dev: true
 
   /@unocss/preset-mini/0.31.17:
