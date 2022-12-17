@@ -11,7 +11,7 @@ specifiers:
   '@unocss/astro': 0.47.6
   '@unocss/preset-attributify': 0.47.6
   '@unocss/preset-wind': 0.47.6
-  astro: 1.6.15
+  astro: 1.7.1
   astro-robots-txt: 0.3.10
   astro-seo: 0.6.0
   autoprefixer: 10.4.13
@@ -35,7 +35,7 @@ specifiers:
 
 dependencies:
   '@unocss/astro': 0.47.6_vite@4.0.1
-  astro: 1.6.15
+  astro: 1.7.1
   solid-js: 1.6.5
 
 devDependencies:
@@ -2679,8 +2679,8 @@ packages:
     resolution: {integrity: sha512-nR+dJlAyQhX6s0oAmbBqPq3KCZax/zVAerFsclGiJQ2znOkS/7L+RGjziS4M9Q3OQxm3FMfqIKHp9Ns73Q81ww==}
     dev: true
 
-  /astro/1.6.15:
-    resolution: {integrity: sha512-FT60PalffV0bCNxqEHadRzb+Rd3g3lYxV3fR9+bZ2CRlbSfC3UdoaLDh5wC6gJiz91caH1R0XiYaV0WT2Zg91g==}
+  /astro/1.7.1:
+    resolution: {integrity: sha512-ENfHAm8/zYPgO5G1KJtCzt+hnTJaYdfjYqFWBB9PcBdxlHOOQvOd1zWCVX+uOvwKe8+ASUHXyyyULh3qlB5UUQ==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -2706,8 +2706,9 @@ packages:
       cookie: 0.5.0
       debug: 4.3.4
       deepmerge-ts: 4.2.2
+      devalue: 4.2.0
       diff: 5.1.0
-      es-module-lexer: 0.10.5
+      es-module-lexer: 1.1.0
       execa: 6.1.0
       fast-glob: 3.2.11
       github-slugger: 1.4.0
@@ -3458,6 +3459,10 @@ packages:
     resolution: {integrity: sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g==}
     dev: false
 
+  /devalue/4.2.0:
+    resolution: {integrity: sha512-mbjoAaCL2qogBKgeFxFPOXAUsZchircF+B/79LD4sHH0+NHfYm8gZpQrskKDn5gENGt35+5OI1GUF7hLVnkPDw==}
+    dev: false
+
   /diff/5.1.0:
     resolution: {integrity: sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==}
     engines: {node: '>=0.3.1'}
@@ -3594,6 +3599,11 @@ packages:
 
   /es-module-lexer/0.10.5:
     resolution: {integrity: sha512-+7IwY/kiGAacQfY+YBhKMvEmyAJnw5grTUgjG85Pe7vcUI/6b7pZjZG8nQ7+48YhzEAEqrEgD2dCz/JIK+AYvw==}
+    dev: true
+
+  /es-module-lexer/1.1.0:
+    resolution: {integrity: sha512-fJg+1tiyEeS8figV+fPcPpm8WqJEflG3yPU0NOm5xMvrNkuiy7HzX/Ljng4Y0hAoiw4/3hQTCFYw+ub8+a2pRA==}
+    dev: false
 
   /es-to-primitive/1.2.1:
     resolution: {integrity: sha512-QCOllgZJtaUo9miYBcLChTUaHNjJF3PYs1VidD7AwiEj1kYxKeQTctLAezAOH5ZKRH0g2IgPn6KwB4IT8iRpvA==}
