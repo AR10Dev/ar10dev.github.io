@@ -11,7 +11,6 @@ import { presetScrollbar } from 'unocss-preset-scrollbar'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ar10dev.github.io/', // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
-  experimental: { integrations: true },
   integrations: [
     solid(),
     UnoCSS({

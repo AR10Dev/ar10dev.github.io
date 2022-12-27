@@ -17,7 +17,6 @@
     "@astrojs/mdx": "0.13.0",
     "@astrojs/sitemap": "1.0.0",
     "@astrojs/solid-js": "1.2.3",
-    "@babel/core": "7.20.7",
     "@cspell/eslint-plugin": "6.18.0",
     "@typescript-eslint/eslint-plugin": "5.47.1",
     "@typescript-eslint/parser": "5.47.1",
