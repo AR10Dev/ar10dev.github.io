@@ -21,7 +21,7 @@
     "@typescript-eslint/eslint-plugin": "5.48.1",
     "@typescript-eslint/parser": "5.48.1",
     "@unocss/preset-attributify": "0.48.4",
-    "@unocss/preset-wind": "0.48.3",
+    "@unocss/preset-wind": "0.48.4",
     "astro-robots-txt": "0.3.11",
     "astro-seo": "0.6.1",
     "autoprefixer": "10.4.13",
