@@ -16,7 +16,7 @@
   "devDependencies": {
     "@astrojs/mdx": "0.15.2",
     "@astrojs/sitemap": "1.0.1",
-    "@astrojs/solid-js": "2.0.0",
+    "@astrojs/solid-js": "2.0.1",
     "@cspell/eslint-plugin": "6.19.2",
     "@typescript-eslint/eslint-plugin": "5.49.0",
     "@typescript-eslint/parser": "5.49.0",
