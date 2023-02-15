@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@astrojs/mdx': 0.16.0
+  '@astrojs/mdx': 0.16.2
   '@astrojs/sitemap': 1.0.1
   '@astrojs/solid-js': 2.0.2
   '@cspell/eslint-plugin': 6.26.1
@@ -38,7 +38,7 @@ dependencies:
   solid-js: 1.6.11
 
 devDependencies:
-  '@astrojs/mdx': 0.16.0_astro@2.0.11
+  '@astrojs/mdx': 0.16.2_astro@2.0.11
   '@astrojs/sitemap': 1.0.1
   '@astrojs/solid-js': 2.0.2_solid-js@1.6.11+vite@4.1.1
   '@cspell/eslint-plugin': 6.26.1
@@ -136,8 +136,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@astrojs/mdx/0.16.0_astro@2.0.11:
-    resolution: {integrity: sha512-HNk0FhNNthI7+pLmheJyPVU36dXE5l+9UwmmnrMV6COHNZIO2t+pnWnsushEDYZjpkYITDwnXKnQAtD8Mqj4xw==}
+  /@astrojs/mdx/0.16.2_astro@2.0.11:
+    resolution: {integrity: sha512-ZNOdBW7ExnWM50+wubg8iw5J1jkUVkTHAJXQt3IwH4TVIOC3mQyr5hDPfN2/pwG9Ch9RNlI+7nsDFNaHY0AeaA==}
     engines: {node: '>=16.12.0'}
     dependencies:
       '@astrojs/markdown-remark': 2.0.1_astro@2.0.11
