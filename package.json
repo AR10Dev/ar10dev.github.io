@@ -27,7 +27,7 @@
     "autoprefixer": "10.4.13",
     "cspell": "6.25.0",
     "cssnano": "5.1.15",
-    "cssnano-preset-advanced": "5.3.9",
+    "cssnano-preset-advanced": "5.3.10",
     "eslint": "8.34.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-astro": "0.23.0",
