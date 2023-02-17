@@ -9,7 +9,7 @@ specifiers:
   '@typescript-eslint/parser': 5.52.0
   '@unocss/astro': 0.49.6
   '@unocss/preset-attributify': 0.49.6
-  '@unocss/preset-wind': 0.49.4
+  '@unocss/preset-wind': 0.49.6
   astro: 2.0.12
   astro-robots-txt: 0.3.12
   astro-seo: 0.7.0
@@ -45,7 +45,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.52.0_6cfvjsbua5ptj65675bqcn6oza
   '@typescript-eslint/parser': 5.52.0_7kw3g6rralp5ps6mg3uyzz6azm
   '@unocss/preset-attributify': 0.49.6
-  '@unocss/preset-wind': 0.49.4
+  '@unocss/preset-wind': 0.49.6
   astro-robots-txt: 0.3.12
   astro-seo: 0.7.0
   autoprefixer: 10.4.13_postcss@8.4.21
@@ -2389,10 +2389,6 @@ packages:
     resolution: {integrity: sha512-DJ3Uk2ePVXvV1qQmgoLK44aqB6f0s+naOEvouI97nzVXDZgxDQPBxIPB/L4vvE4U+gQxEiHwwE3gJ75iPqVzXw==}
     dev: true
 
-  /@unocss/core/0.49.4:
-    resolution: {integrity: sha512-1RNV+KBgRo0uuaa5Etwc5cfxkdhJelIXRFz3LeXBOU4dIrTzBAMr352M+oZ/nnkbnAROGf3icTE0UcmSaCA2RQ==}
-    dev: true
-
   /@unocss/core/0.49.6:
     resolution: {integrity: sha512-XVk8E4A8XH85uteouQkeRD+SUuZ1/qOqEGAsJ0RUBzLp9Yvb+xWHwVVvMs7XJKeo49PpyrZCk9mHJ6hjr748Gg==}
 
@@ -2415,17 +2411,17 @@ packages:
       '@unocss/core': 0.31.17
     dev: true
 
-  /@unocss/preset-mini/0.49.4:
-    resolution: {integrity: sha512-GsVKBRi2BbliEic7SfdY2AG03T+wEOd3yZOY+NtwEJ9Z/hwb1zRQHiizDuyth0E3FCHVfZkk9C0/WXy8Z1Qj3g==}
+  /@unocss/preset-mini/0.49.6:
+    resolution: {integrity: sha512-DkMUwhlKJNW5AtdgaKDyLqJeNuYYtYF384KMrbMCUzH5mJ32MwONzsYClVaNdc7XTnjJWbPHStI5IQQ8Yndc7w==}
     dependencies:
-      '@unocss/core': 0.49.4
+      '@unocss/core': 0.49.6
     dev: true
 
-  /@unocss/preset-wind/0.49.4:
-    resolution: {integrity: sha512-Ycp5iBT7XZy3635fqPU1UpjsPvTbH9am94RV1H3g3txpar1wcUsEE9Lihb0cjWVssoIDQUft5S++XX+rIRIZuA==}
+  /@unocss/preset-wind/0.49.6:
+    resolution: {integrity: sha512-gMBLdS2DdxwydKyExeuhJMp1bsQ0vhs4pbUr9smZiSMcwmORivGisIgaDWTaOmcYlH/eU+ntDk3ctEuPnOwLnQ==}
     dependencies:
-      '@unocss/core': 0.49.4
-      '@unocss/preset-mini': 0.49.4
+      '@unocss/core': 0.49.6
+      '@unocss/preset-mini': 0.49.6
     dev: true
 
   /@unocss/reset/0.49.6:
