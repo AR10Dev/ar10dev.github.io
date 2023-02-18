@@ -12,7 +12,7 @@ specifiers:
   '@unocss/preset-wind': 0.49.7
   astro: 2.0.14
   astro-robots-txt: 0.3.12
-  astro-seo: 0.7.0
+  astro-seo: 0.7.1
   autoprefixer: 10.4.13
   cspell: 6.26.3
   cssnano: 5.1.15
@@ -47,7 +47,7 @@ devDependencies:
   '@unocss/preset-attributify': 0.49.7
   '@unocss/preset-wind': 0.49.7
   astro-robots-txt: 0.3.12
-  astro-seo: 0.7.0
+  astro-seo: 0.7.1
   autoprefixer: 10.4.13_postcss@8.4.21
   cspell: 6.26.3
   cssnano: 5.1.15_postcss@8.4.21
@@ -2603,8 +2603,8 @@ packages:
       zod: 3.20.6
     dev: true
 
-  /astro-seo/0.7.0:
-    resolution: {integrity: sha512-G7zJUr4lfKLeqfWx2g5rfuBsOsIOfqxIOqErQfrMsMchDFfLFxNKAuW8yAo8hynJJwBvtGyS/vOXgGdMVVCFrA==}
+  /astro-seo/0.7.1:
+    resolution: {integrity: sha512-8Yo1nQrl2iB5zj+VUAHrvGIck8bZ4WAmXQgJOeF9FuAZGQD5qK6DtSZaRbpBXsFfZYHA6tE8pjs3btHhLbC1zQ==}
     dev: true
 
   /astro/2.0.14:

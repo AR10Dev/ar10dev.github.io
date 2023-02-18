@@ -23,7 +23,7 @@
     "@unocss/preset-attributify": "0.49.7",
     "@unocss/preset-wind": "0.49.7",
     "astro-robots-txt": "0.3.12",
-    "astro-seo": "0.7.0",
+    "astro-seo": "0.7.1",
     "autoprefixer": "10.4.13",
     "cspell": "6.26.3",
     "cssnano": "5.1.15",
