@@ -24,7 +24,7 @@
     "@unocss/preset-wind": "0.50.4",
     "astro-robots-txt": "0.4.0",
     "astro-seo": "0.7.1",
-    "autoprefixer": "10.4.13",
+    "autoprefixer": "10.4.14",
     "cspell": "6.28.0",
     "cssnano": "5.1.15",
     "cssnano-preset-advanced": "5.3.10",
