@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@astrojs/mdx": "0.18.0",
+    "@astrojs/mdx": "0.18.1",
     "@astrojs/sitemap": "1.2.0",
     "@astrojs/solid-js": "2.1.0",
     "@cspell/eslint-plugin": "6.29.2",
