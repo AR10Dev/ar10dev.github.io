@@ -8,7 +8,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': 5.55.0
   '@typescript-eslint/parser': 5.55.0
   '@unocss/astro': 0.50.6
-  '@unocss/preset-attributify': 0.50.5
+  '@unocss/preset-attributify': 0.50.6
   '@unocss/preset-wind': 0.50.4
   astro: 2.1.3
   astro-robots-txt: 0.4.0
@@ -44,7 +44,7 @@ devDependencies:
   '@cspell/eslint-plugin': 6.29.3
   '@typescript-eslint/eslint-plugin': 5.55.0_qsnvknysi52qtaxqdyqyohkcku
   '@typescript-eslint/parser': 5.55.0_j4766f7ecgqbon3u7zlxn5zszu
-  '@unocss/preset-attributify': 0.50.5
+  '@unocss/preset-attributify': 0.50.6
   '@unocss/preset-wind': 0.50.4
   astro-robots-txt: 0.4.0
   astro-seo: 0.7.1
@@ -2452,13 +2452,8 @@ packages:
     resolution: {integrity: sha512-k/8CdnO4w7f+QdvCpS3U5y6xApC4odiErkBKCCaGgBqOWkuTSL92TiBnffSEA2WepGm1+Mv4urIk20ocKYxbUQ==}
     dev: true
 
-  /@unocss/core/0.50.5:
-    resolution: {integrity: sha512-NWDEHK0mqFCNNL77PYk8Qa1zgl2+p2PtmExakNLCHugLQJxc0jRPjeHO9x8x3MUiqQZPnBNzKxtFx6K7euSi/g==}
-    dev: true
-
   /@unocss/core/0.50.6:
     resolution: {integrity: sha512-WMIp8xr7YSlID2whqfRGLwagp59e6u4ckPACEpoDOW8sTeSPRZm54hxPhuWXD1SQuqcwHPMtM9nzGD8UOnqQxA==}
-    dev: false
 
   /@unocss/inspector/0.50.6:
     resolution: {integrity: sha512-6nX1YtaL67ohn/PfSSBv3npJ8qZcdc7S9X2zE6PUD/xhwtz7Bohx9I/KtmFdjJz5WeeGR7di0uYC6xsAcFLndQ==}
@@ -2467,10 +2462,10 @@ packages:
       sirv: 2.0.2
     dev: false
 
-  /@unocss/preset-attributify/0.50.5:
-    resolution: {integrity: sha512-ypyTrmB2mzQ/v4vmQPUI+KQl/1Est8pYRCDqrTgIFubCq5uaBd43bsmLDeFXgGUzmAg+/fBil634xTerLy0KyQ==}
+  /@unocss/preset-attributify/0.50.6:
+    resolution: {integrity: sha512-hLxBoOnwMLILhJ5fM2AtnjSWej2GffIjTdrAHIBctEy8sLssou5lIbSukDptuGRTSwkishuvQhH020dptB3YJw==}
     dependencies:
-      '@unocss/core': 0.50.5
+      '@unocss/core': 0.50.6
     dev: true
 
   /@unocss/preset-mini/0.31.17:
