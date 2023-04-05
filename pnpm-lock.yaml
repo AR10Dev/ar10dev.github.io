@@ -16,8 +16,8 @@ devDependencies:
     specifier: 0.18.2
     version: 0.18.2(astro@2.1.9)(rollup@3.20.2)
   '@astrojs/sitemap':
-    specifier: 1.2.1
-    version: 1.2.1
+    specifier: 1.2.2
+    version: 1.2.2
   '@astrojs/solid-js':
     specifier: 2.1.0
     version: 2.1.0(@babel/core@7.21.3)(solid-js@1.7.2)(vite@4.2.1)
@@ -207,8 +207,8 @@ packages:
     dependencies:
       prismjs: 1.29.0
 
-  /@astrojs/sitemap@1.2.1:
-    resolution: {integrity: sha512-nlKP1qc1ENZ61w+ep5RdsObjYWso4QdLGC5WyzssnKkgVDijHT61s/tHFfBWHhxqdjcw4x1V1um/eSQZPDTR3Q==}
+  /@astrojs/sitemap@1.2.2:
+    resolution: {integrity: sha512-rjgFEPzETMVYgOMECIFP2vCkwzF9nLB31/6XWN548IeU/IlFgYR28RbsGTIjUElDak/9AF3jzjtzyldAZger3Q==}
     dependencies:
       sitemap: 7.1.1
       zod: 3.21.4
@@ -2259,7 +2259,7 @@ packages:
   /@types/sax@1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 18.15.6
     dev: true
 
   /@types/semver@7.3.13:
