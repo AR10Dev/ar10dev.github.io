@@ -13,8 +13,8 @@ dependencies:
 
 devDependencies:
   '@astrojs/mdx':
-    specifier: 0.18.2
-    version: 0.18.2(astro@2.2.0)(rollup@3.20.2)
+    specifier: 0.18.3
+    version: 0.18.3(astro@2.2.0)(rollup@3.20.2)
   '@astrojs/sitemap':
     specifier: 1.2.2
     version: 1.2.2
@@ -152,29 +152,6 @@ packages:
       vscode-languageserver-types: 3.17.3
       vscode-uri: 3.0.7
 
-  /@astrojs/markdown-remark@2.1.2(astro@2.2.0):
-    resolution: {integrity: sha512-rYkmFEv2w7oEk6ZPgxHkhWzwcxSUGc1vJU0cbCu5sHF8iFNnc1cmMsjXWa5DrU5sCEf8VVYE1iFlbbnFzvHQJw==}
-    peerDependencies:
-      astro: ^2.1.5
-    dependencies:
-      '@astrojs/prism': 2.1.1
-      astro: 2.2.0
-      github-slugger: 1.5.0
-      import-meta-resolve: 2.2.2
-      rehype-raw: 6.1.1
-      rehype-stringify: 9.0.3
-      remark-gfm: 3.0.1
-      remark-parse: 10.0.1
-      remark-rehype: 10.1.0
-      remark-smartypants: 2.0.0
-      shiki: 0.11.1
-      unified: 10.1.2
-      unist-util-visit: 4.1.2
-      vfile: 5.3.7
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /@astrojs/markdown-remark@2.1.3(astro@2.2.0):
     resolution: {integrity: sha512-Di8Qbit9p7L7eqKklAJmiW9nVD+XMsNHpaNzCLduWjOonDu9fVgEzdjeDrTVCDtgrvkfhpAekuNXrp5+w4F91g==}
     peerDependencies:
@@ -197,11 +174,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@astrojs/mdx@0.18.2(astro@2.2.0)(rollup@3.20.2):
-    resolution: {integrity: sha512-eSR6R62I5cwM6AH8r4UhyBwcV/KKLaZ2siXDA9QR9O4uzUBRnT4gwvoGOvaqpjZCvdNJ2ThaVjePH4DFvxFhaQ==}
+  /@astrojs/mdx@0.18.3(astro@2.2.0)(rollup@3.20.2):
+    resolution: {integrity: sha512-fFkzYthnFqxmdp6IesvzU6FDHdAGo9bf4dbMOPCREcBfEhATqSpT9gjK/HdJ5s1MfZI8jjYeSC3yzhmNlq62qA==}
     engines: {node: '>=16.12.0'}
     dependencies:
-      '@astrojs/markdown-remark': 2.1.2(astro@2.2.0)
+      '@astrojs/markdown-remark': 2.1.3(astro@2.2.0)
       '@astrojs/prism': 2.1.1
       '@mdx-js/mdx': 2.3.0
       '@mdx-js/rollup': 2.3.0(rollup@3.20.2)
