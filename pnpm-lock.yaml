@@ -34,8 +34,8 @@ devDependencies:
     specifier: 0.50.8
     version: 0.50.8
   '@unocss/preset-wind':
-    specifier: 0.50.6
-    version: 0.50.6
+    specifier: 0.50.8
+    version: 0.50.8
   astro-robots-txt:
     specifier: 0.4.1
     version: 0.4.1
@@ -2610,6 +2610,12 @@ packages:
       '@unocss/core': 0.50.6
     dev: true
 
+  /@unocss/preset-mini@0.50.8:
+    resolution: {integrity: sha512-/4sbOdyaqJMvFkw1xzo2+h6bZJHw6WCYw1mF+f0ydHzj8ruvwaj9ClDDOweW5cdrk3wzDzRZ6NPRahKqLwv6/Q==}
+    dependencies:
+      '@unocss/core': 0.50.8
+    dev: true
+
   /@unocss/preset-tagify@0.50.6:
     resolution: {integrity: sha512-ZyG/SJMobn4GZMbgrZOxT59ARp22LwgJGArCwJVosh3rraRVlb+B4x6ctMl6JOiLG5B1lHT9vZ92//u51Y0WTw==}
     dependencies:
@@ -2643,6 +2649,13 @@ packages:
     dependencies:
       '@unocss/core': 0.50.6
       '@unocss/preset-mini': 0.50.6
+    dev: true
+
+  /@unocss/preset-wind@0.50.8:
+    resolution: {integrity: sha512-lF6MAJm2HVF8GJoBIIus1cpZL1ybisj8fl3KYEzVUFUWCwmNnxG4rr+CGnck3bDRYk2zmEvTwX+cISTCwq2u1Q==}
+    dependencies:
+      '@unocss/core': 0.50.8
+      '@unocss/preset-mini': 0.50.8
     dev: true
 
   /@unocss/reset@0.50.6:
