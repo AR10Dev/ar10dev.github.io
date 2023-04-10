@@ -34,8 +34,8 @@ devDependencies:
     specifier: 0.51.2
     version: 0.51.2
   '@unocss/preset-wind':
-    specifier: 0.50.8
-    version: 0.50.8
+    specifier: 0.51.2
+    version: 0.51.2
   astro-robots-txt:
     specifier: 0.4.1
     version: 0.4.1
@@ -2545,12 +2545,14 @@ packages:
     resolution: {integrity: sha512-WMIp8xr7YSlID2whqfRGLwagp59e6u4ckPACEpoDOW8sTeSPRZm54hxPhuWXD1SQuqcwHPMtM9nzGD8UOnqQxA==}
     dev: true
 
-  /@unocss/core@0.50.8:
-    resolution: {integrity: sha512-rWmyeNE0Na8dJPDynLVar0X22qMHFNhO+/F2FZDpG4tubTavXJJo9uvhZr/D381kiWxt+XZ38y6EAD4UMdBqMA==}
-    dev: true
-
   /@unocss/core@0.51.2:
     resolution: {integrity: sha512-P/XYiahNbBD3KyuOW78MLo0brcSLZ6xaLPNPzeSDXloJlIZHeP/JnMpoZz/Evk2mC7xFqE+pjraPZTnIDHdjpw==}
+
+  /@unocss/extractor-arbitrary-variants@0.51.2:
+    resolution: {integrity: sha512-wA6vijuKUWtJQyrEuYQKaWTrja9B7MwKnRqnx1Jt6KIV8uYMm95k4bCkcMDNdqZECY2UvSDbzR2d/wFC0RDERg==}
+    dependencies:
+      '@unocss/core': 0.51.2
+    dev: true
 
   /@unocss/inspector@0.50.6:
     resolution: {integrity: sha512-6nX1YtaL67ohn/PfSSBv3npJ8qZcdc7S9X2zE6PUD/xhwtz7Bohx9I/KtmFdjJz5WeeGR7di0uYC6xsAcFLndQ==}
@@ -2614,10 +2616,11 @@ packages:
       '@unocss/core': 0.50.6
     dev: true
 
-  /@unocss/preset-mini@0.50.8:
-    resolution: {integrity: sha512-/4sbOdyaqJMvFkw1xzo2+h6bZJHw6WCYw1mF+f0ydHzj8ruvwaj9ClDDOweW5cdrk3wzDzRZ6NPRahKqLwv6/Q==}
+  /@unocss/preset-mini@0.51.2:
+    resolution: {integrity: sha512-dngctlr5YABt6WAkuElKmQ7sSpapbGFiNKfMxMS1GGxwP27kH60nrYonkNhy+K6cqgEBOot7ukGw7o6Qo3u6dg==}
     dependencies:
-      '@unocss/core': 0.50.8
+      '@unocss/core': 0.51.2
+      '@unocss/extractor-arbitrary-variants': 0.51.2
     dev: true
 
   /@unocss/preset-tagify@0.50.6:
@@ -2655,11 +2658,11 @@ packages:
       '@unocss/preset-mini': 0.50.6
     dev: true
 
-  /@unocss/preset-wind@0.50.8:
-    resolution: {integrity: sha512-lF6MAJm2HVF8GJoBIIus1cpZL1ybisj8fl3KYEzVUFUWCwmNnxG4rr+CGnck3bDRYk2zmEvTwX+cISTCwq2u1Q==}
+  /@unocss/preset-wind@0.51.2:
+    resolution: {integrity: sha512-BCWZBBTkAM1gr6O1Re+d73axY9N8+D5STJ8LkP2yogFeYxTYcHj2ke0wRciM66Og3C5bnE6lcMewqsx5ezLRzw==}
     dependencies:
-      '@unocss/core': 0.50.8
-      '@unocss/preset-mini': 0.50.8
+      '@unocss/core': 0.51.2
+      '@unocss/preset-mini': 0.51.2
     dev: true
 
   /@unocss/reset@0.50.6:
