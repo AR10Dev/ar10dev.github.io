@@ -5,7 +5,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:prettier/recommended',
-    'plugin:astro/recommended',
     'plugin:solid/typescript',
     'plugin:@cspell/recommended',
     'prettier'
@@ -27,19 +26,5 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-explicit-any': 'error'
   },
-  ignorePatterns: ['node_modules', 'dist'],
-  overrides: [
-    {
-      // Define the configuration for `.astro` file.
-      files: ['*.astro'],
-      // Allows Astro components to be parsed.
-      parser: 'astro-eslint-parser',
-      // Parse the script in `.astro` as TypeScript by adding the following configuration.
-      // It's the setting you need when using TypeScript.
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-        extraFileExtensions: ['.astro']
-      }
-    }
-  ]
+  ignorePatterns: ['node_modules', 'dist']
 }

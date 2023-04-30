@@ -11,10 +11,10 @@ pre-commit:
   parallel: true
   commands:
     eslint:
-      glob: '*.{js,ts,jsx,tsx,astro}'
+      glob: '*.{js,ts,jsx,tsx}'
       run: pnpm eslint {staged_files}
     format:
-      glob: '*.{js,ts,jsx,tsx,json,yml,astro}'
+      glob: '*.{js,ts,jsx,tsx,json,yml}'
       run: pnpm prettier --plugin-search-dir=. {staged_files} --write
     cspell:
       glob: '*.{md,mdx}'

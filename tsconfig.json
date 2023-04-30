@@ -1,22 +1,21 @@
 {
   "compilerOptions": {
-    //"types": ["@astrojs/client"],
-    "baseUrl": "./src",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "importsNotUsedAsValues": "error",
+    "jsx": "preserve",
+    "strict": true,
+    "types": [
+      "solid-start/env"
+      // "vite-plugin-pwa/client",
+      // "vite-plugin-pwa/info"
+    ],
+    "baseUrl": "./",
     "paths": {
-      "@components/*": ["components/*"],
-      "@solid-components/*": ["components/solid/*"],
-      "@markdown-components/*": ["components/markdown/*"]
+      "~/*": ["./src/*"]
     }
   }
 }

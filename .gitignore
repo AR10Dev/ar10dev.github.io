@@ -32,5 +32,10 @@ typings/
 .env
 .env.test
 
-# Astro build output
+# Solid-Start build output
 dist
+
+# Backup Files
+backup
+# Solid-Start server inspect
+.solid
