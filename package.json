@@ -37,7 +37,7 @@
     "workbox-window": "6.5.4"
   },
   "dependencies": {
-    "@solidjs/meta": "0.28.4",
+    "@solidjs/meta": "0.28.5",
     "@solidjs/router": "0.8.2",
     "@unocss/vite": "0.51.12",
     "solid-js": "1.7.5",
