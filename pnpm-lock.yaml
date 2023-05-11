@@ -17,8 +17,8 @@ dependencies:
     specifier: 0.2.26
     version: 0.2.26(@solidjs/meta@0.28.5)(@solidjs/router@0.8.2)(solid-js@1.7.5)(solid-start-static@0.2.26)(vite@4.3.5)
   undici:
-    specifier: 5.22.0
-    version: 5.22.0
+    specifier: 5.22.1
+    version: 5.22.1
 
 devDependencies:
   '@cspell/eslint-plugin':
@@ -62,7 +62,7 @@ devDependencies:
     version: 2.8.8
   solid-start-static:
     specifier: 0.2.26
-    version: 0.2.26(solid-start@0.2.26)(undici@5.22.0)(vite@4.3.5)
+    version: 0.2.26(solid-start@0.2.26)(undici@5.22.1)(vite@4.3.5)
   typescript:
     specifier: 5.0.4
     version: 5.0.4
@@ -6379,7 +6379,7 @@ packages:
   /solid-ssr@1.7.0:
     resolution: {integrity: sha512-SK0nycd6gTVrsIHeNgOBrZoIVvpYExZMx4HAu/27zClaW3QAi2tf//RTG/uS/6vHPNdEX0+q6+nvErxQeyaswA==}
 
-  /solid-start-static@0.2.26(solid-start@0.2.26)(undici@5.22.0)(vite@4.3.5):
+  /solid-start-static@0.2.26(solid-start@0.2.26)(undici@5.22.1)(vite@4.3.5):
     resolution: {integrity: sha512-lQj2sj2HUFxNLzUm8pTGX1D78usVad8RS4r5tGdJzeshgldNGqYN+vZS+cQSMnBrIQBV3ch8J1e3LPQx2IDtxA==}
     peerDependencies:
       solid-start: '*'
@@ -6393,7 +6393,7 @@ packages:
       sirv-cli: 2.0.2
       solid-ssr: 1.7.0
       solid-start: 0.2.26(@solidjs/meta@0.28.5)(@solidjs/router@0.8.2)(solid-js@1.7.5)(solid-start-static@0.2.26)(vite@4.3.5)
-      undici: 5.22.0
+      undici: 5.22.1
       vite: 4.3.5(@types/node@18.16.7)
 
   /solid-start@0.2.26(@solidjs/meta@0.28.5)(@solidjs/router@0.8.2)(solid-js@1.7.5)(solid-start-static@0.2.26)(vite@4.3.5):
@@ -6459,9 +6459,9 @@ packages:
       set-cookie-parser: 2.6.0
       sirv: 2.0.2
       solid-js: 1.7.5
-      solid-start-static: 0.2.26(solid-start@0.2.26)(undici@5.22.0)(vite@4.3.5)
+      solid-start-static: 0.2.26(solid-start@0.2.26)(undici@5.22.1)(vite@4.3.5)
       terser: 5.16.8
-      undici: 5.22.0
+      undici: 5.22.1
       vite: 4.3.5(@types/node@18.16.7)
       vite-plugin-inspect: 0.7.19(rollup@3.20.2)(vite@4.3.5)
       vite-plugin-solid: 2.7.0(solid-js@1.7.5)(vite@4.3.5)
@@ -6762,8 +6762,8 @@ packages:
       defu: 6.1.2
       jiti: 1.18.2
 
-  /undici@5.22.0:
-    resolution: {integrity: sha512-fR9RXCc+6Dxav4P9VV/sp5w3eFiSdOjJYsbtWfd4s5L5C4ogyuVpdKIVHeW0vV1MloM65/f7W45nR9ZxwVdyiA==}
+  /undici@5.22.1:
+    resolution: {integrity: sha512-Ji2IJhFXZY0x/0tVBXeQwgPlLWw13GVzpsWPQ3rV50IFMMof2I55PZZxtm4P6iNq+L5znYN9nSTAq0ZyE6lSJw==}
     engines: {node: '>=14.0'}
     dependencies:
       busboy: 1.6.0
