@@ -25,8 +25,8 @@ devDependencies:
     specifier: 6.31.1
     version: 6.31.1
   '@solid-primitives/mouse':
-    specifier: 2.0.12
-    version: 2.0.12(solid-js@1.7.5)
+    specifier: 2.0.13
+    version: 2.0.13(solid-js@1.7.5)
   '@solid-primitives/raf':
     specifier: 2.1.11
     version: 2.1.11(solid-js@1.7.5)
@@ -3217,12 +3217,21 @@ packages:
       solid-js: 1.7.5
     dev: true
 
-  /@solid-primitives/mouse@2.0.12(solid-js@1.7.5):
-    resolution: {integrity: sha512-ldqLXCjNubA+5YzUdbRJ6TyIwV9/1mFeSqbgW2JUnfGV8a8CnHbBjkZNRx5Ztu+K3XQOQwhvjOdjQDoSiRdcpg==}
+  /@solid-primitives/event-listener@2.2.12(solid-js@1.7.5):
+    resolution: {integrity: sha512-CGSn4BF8t9887LWdnGOOIIEoMJFhrs4mCeSDoGJRLy1zmPjokFb+IMNd3VLTpvf6+prxEDIEy6wrzE373ZvTzA==}
     peerDependencies:
       solid-js: ^1.6.12
     dependencies:
-      '@solid-primitives/event-listener': 2.2.11(solid-js@1.7.5)
+      '@solid-primitives/utils': 6.1.1(solid-js@1.7.5)
+      solid-js: 1.7.5
+    dev: true
+
+  /@solid-primitives/mouse@2.0.13(solid-js@1.7.5):
+    resolution: {integrity: sha512-vWQg1EKuZKhY8psFZhaSKNv9AmtPsFmWyv9aW1S7vZejbYB15Upi3Ml4uFOUHIuIK4v4pdUA9FLuIsXi7QnSww==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/event-listener': 2.2.12(solid-js@1.7.5)
       '@solid-primitives/rootless': 1.4.0(solid-js@1.7.5)
       '@solid-primitives/static-store': 0.0.3(solid-js@1.7.5)
       '@solid-primitives/utils': 6.1.1(solid-js@1.7.5)
