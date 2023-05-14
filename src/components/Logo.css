@@ -1,0 +1,5 @@
+canvas {
+    background-color: #666;
+    -webkit-mask: url(logo.svg) 50% 50% no-repeat;
+    mask: url(logo.svg) 50% 50% no-repeat;
+}

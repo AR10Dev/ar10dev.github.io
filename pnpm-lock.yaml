@@ -24,6 +24,18 @@ devDependencies:
   '@cspell/eslint-plugin':
     specifier: 6.31.1
     version: 6.31.1
+  '@solid-primitives/mouse':
+    specifier: 2.0.12
+    version: 2.0.12(solid-js@1.7.5)
+  '@solid-primitives/raf':
+    specifier: 2.1.11
+    version: 2.1.11(solid-js@1.7.5)
+  '@solid-primitives/scroll':
+    specifier: 2.0.15
+    version: 2.0.15(solid-js@1.7.5)
+  '@solid-primitives/utils':
+    specifier: 6.1.1
+    version: 6.1.1(solid-js@1.7.5)
   '@types/node':
     specifier: 18.16.9
     version: 18.16.9
@@ -3195,6 +3207,73 @@ packages:
 
   /@sideway/pinpoint@2.0.0:
     resolution: {integrity: sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==}
+
+  /@solid-primitives/event-listener@2.2.11(solid-js@1.7.5):
+    resolution: {integrity: sha512-pX/offimvt8qtXxwk3kUB6R7igVhnXmSHosQ0ITBOPQvcyhB9Lfrb80zSM8Z0MUf6ZKWyt5n8lco+yK5v2+bIg==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/utils': 6.1.1(solid-js@1.7.5)
+      solid-js: 1.7.5
+    dev: true
+
+  /@solid-primitives/mouse@2.0.12(solid-js@1.7.5):
+    resolution: {integrity: sha512-ldqLXCjNubA+5YzUdbRJ6TyIwV9/1mFeSqbgW2JUnfGV8a8CnHbBjkZNRx5Ztu+K3XQOQwhvjOdjQDoSiRdcpg==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/event-listener': 2.2.11(solid-js@1.7.5)
+      '@solid-primitives/rootless': 1.4.0(solid-js@1.7.5)
+      '@solid-primitives/static-store': 0.0.3(solid-js@1.7.5)
+      '@solid-primitives/utils': 6.1.1(solid-js@1.7.5)
+      solid-js: 1.7.5
+    dev: true
+
+  /@solid-primitives/raf@2.1.11(solid-js@1.7.5):
+    resolution: {integrity: sha512-cHmjJMwHNYC+o5OUO90ZG71zKjroIXbjqKRZEYMIwemIvZQfEveM8/KgvOIrjrxAer6fkk6IWtlpSPQA18CYgw==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/utils': 6.1.1(solid-js@1.7.5)
+      solid-js: 1.7.5
+    dev: true
+
+  /@solid-primitives/rootless@1.4.0(solid-js@1.7.5):
+    resolution: {integrity: sha512-hShkSvajBQKWI0g1oNKfLb3W5owQIhW1wBaMBgq/sAdUhWevyM+ldYab2bry5vnh7DxemLSCrtvFJWNTHCuJgQ==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/utils': 6.1.1(solid-js@1.7.5)
+      solid-js: 1.7.5
+    dev: true
+
+  /@solid-primitives/scroll@2.0.15(solid-js@1.7.5):
+    resolution: {integrity: sha512-tZ6u4twLXJAUMO/43uE9RtutKfnx8GHExl52iLzPPcpJ1ZxgnrN9H+3d/Zc5d9oCd+GaTn+UyDmJfAHO6wWLzw==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/event-listener': 2.2.11(solid-js@1.7.5)
+      '@solid-primitives/rootless': 1.4.0(solid-js@1.7.5)
+      '@solid-primitives/static-store': 0.0.3(solid-js@1.7.5)
+      solid-js: 1.7.5
+    dev: true
+
+  /@solid-primitives/static-store@0.0.3(solid-js@1.7.5):
+    resolution: {integrity: sha512-OHwr9w8gb+IZGGEdmPL5Oet62p4c8Py3AaxxOopxv++SmGoed2niO8nORNbUk/riScvqzeDpOrAuQ//fYPm2tw==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      '@solid-primitives/utils': 6.1.1(solid-js@1.7.5)
+      solid-js: 1.7.5
+    dev: true
+
+  /@solid-primitives/utils@6.1.1(solid-js@1.7.5):
+    resolution: {integrity: sha512-wxxUdxja126jTROs9Ro8Z5ExbHs9rv2Tl744S3Qmzki/gTcTXW8D1TvTArQcjqkCvSw8OIQ2EO2NI8sR28Trxg==}
+    peerDependencies:
+      solid-js: ^1.6.12
+    dependencies:
+      solid-js: 1.7.5
+    dev: true
 
   /@solidjs/meta@0.28.5(solid-js@1.7.5):
     resolution: {integrity: sha512-52luJR6hVNMA1K8Od5OD0d8WVz/svqZG4is8lrDimiUGxdia3DzuLF+pK56dnEzbNt9cA42qVFL134U9LkC9Gg==}

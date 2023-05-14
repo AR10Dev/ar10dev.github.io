@@ -12,7 +12,7 @@ export default function About() {
               and ready for new challenges.
             </p>
             <p class="text-base text-gray-700">
-              I code since the first ```printf("Hello Wold");``` in 2016. In 2020, I
+              I code since the first ```printf("Hello World");``` in 2016. In 2020, I
               graduated in IT from ITCS Erasmo da Rotterdam.
             </p>
           </div>

@@ -4,6 +4,8 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Typer from '../components/Typer'
 import { TyperProps } from '../components/types'
+import Cursor from '../components/Cursor'
+import Logo from '~/components/Logo'
 
 export default function Home() {
   const links: string[] = ['contact', 'works', 'skill', 'about']
@@ -26,13 +28,14 @@ export default function Home() {
     <>
       <header class={`fixed inset-x-0 top-0 z-[1] w-full ${background}`}>
         <div class="flex max-w-screen-lg p-4 mx-auto bg-gray-900 xl:max-w-screen-xl">
-          <h1 class="flex-none w-16 h-16 pl-2">
+          <h1 class="flex-none w-17 pt-3">
             <A href="/">
-              <img
+              <Logo />
+              {/* <img
                 src="/pwa-512x512.png"
                 alt="logo"
                 class="block align-middle max-w-full h-auto"
-              />
+              /> */}
             </A>
           </h1>
           <nav class="flex-grow">
@@ -52,6 +55,7 @@ export default function Home() {
       </div>
       <About />
       <Footer />
+      <Cursor />
     </>
   )
 }
