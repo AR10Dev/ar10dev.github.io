@@ -28,8 +28,8 @@ devDependencies:
     specifier: 2.0.14
     version: 2.0.14(solid-js@1.7.5)
   '@solid-primitives/raf':
-    specifier: 2.1.11
-    version: 2.1.11(solid-js@1.7.5)
+    specifier: 2.1.12
+    version: 2.1.12(solid-js@1.7.5)
   '@solid-primitives/scroll':
     specifier: 2.0.16
     version: 2.0.16(solid-js@1.7.5)
@@ -3238,12 +3238,12 @@ packages:
       solid-js: 1.7.5
     dev: true
 
-  /@solid-primitives/raf@2.1.11(solid-js@1.7.5):
-    resolution: {integrity: sha512-cHmjJMwHNYC+o5OUO90ZG71zKjroIXbjqKRZEYMIwemIvZQfEveM8/KgvOIrjrxAer6fkk6IWtlpSPQA18CYgw==}
+  /@solid-primitives/raf@2.1.12(solid-js@1.7.5):
+    resolution: {integrity: sha512-rGz/zumMg08sTJCnN+jNQfVKol3M9SQcd0aj8adQVEhqp0KxW6fHPH/z8yWoCU6Ie1ddrHnok2sJaGCu9cHehg==}
     peerDependencies:
       solid-js: ^1.6.12
     dependencies:
-      '@solid-primitives/utils': 6.1.1(solid-js@1.7.5)
+      '@solid-primitives/utils': 6.2.0(solid-js@1.7.5)
       solid-js: 1.7.5
     dev: true
 
