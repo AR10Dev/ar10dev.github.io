@@ -34,8 +34,8 @@ devDependencies:
     specifier: 2.0.17
     version: 2.0.17(solid-js@1.7.5)
   '@solid-primitives/utils':
-    specifier: 6.1.1
-    version: 6.1.1(solid-js@1.7.5)
+    specifier: 6.2.0
+    version: 6.2.0(solid-js@1.7.5)
   '@types/node':
     specifier: 20.1.4
     version: 20.1.4
@@ -3264,14 +3264,6 @@ packages:
       solid-js: ^1.6.12
     dependencies:
       '@solid-primitives/utils': 6.2.0(solid-js@1.7.5)
-      solid-js: 1.7.5
-    dev: true
-
-  /@solid-primitives/utils@6.1.1(solid-js@1.7.5):
-    resolution: {integrity: sha512-wxxUdxja126jTROs9Ro8Z5ExbHs9rv2Tl744S3Qmzki/gTcTXW8D1TvTArQcjqkCvSw8OIQ2EO2NI8sR28Trxg==}
-    peerDependencies:
-      solid-js: ^1.6.12
-    dependencies:
       solid-js: 1.7.5
     dev: true
 
