@@ -1,6 +1,6 @@
 export default [
   {
-    files: ["src/**/*.{js,ts,jsx,tsx}"],
+    files: ['src/**/*.{js,ts,jsx,tsx}'],
     ignores: ['node_modules', 'dist', '.solid'],
     languageOptions: {
       parser: '@typescript-eslint/parser'
@@ -12,7 +12,7 @@ export default [
       'plugin:@typescript-eslint/recommended-requiring-type-checking',
       'plugin:prettier/recommended',
       'plugin:solid/typescript',
-//    'plugin:@cspell/recommended',
+      //    'plugin:@cspell/recommended',
       'prettier'
     ],
     rules: {
