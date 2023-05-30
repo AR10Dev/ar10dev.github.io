@@ -37,7 +37,7 @@
     "unocss-preset-scrollbar": "0.2.1",
     "vite": "4.3.9",
     "vite-plugin-lightningcss": "0.0.5",
-    "vite-plugin-pwa": "0.15.1",
+    "vite-plugin-pwa": "0.15.2",
     "workbox-window": "6.6.0"
   },
   "dependencies": {
