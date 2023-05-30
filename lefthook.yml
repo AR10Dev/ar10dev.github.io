@@ -1,5 +1,5 @@
 #   Refer for explanation to following link:
-#   https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
+#   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
 
 pre-push:
   commands:
@@ -15,7 +15,7 @@ pre-commit:
       run: pnpm eslint {staged_files}
     format:
       glob: '*.{js,ts,jsx,tsx,json,yml}'
-      run: pnpm prettier --plugin-search-dir=. {staged_files} --write
+      run: pnpm prettier {staged_files} --write
     cspell:
       glob: '*.{md,mdx}'
       run: pnpm cspell "**/*.{md,mdx}"

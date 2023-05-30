@@ -21,12 +21,12 @@ const Cursor: Component = () => {
     <>
       <div
         style={{ transform: `translate(${pos().x}px, ${pos().y}px)` }}
-        class="block fixed z-10 top-0 left-0 w-10 h-10 rounded-full border-2 border-bg-blue-600 mt-[calc(40px*-0.5)] ml-[calc(40px*-0.5)] pointer-events-none transition-transform duration-[850ms] ease-[cubic-bezier(0,0.02,0,1)]"
-      ></div>
+        class="block fixed z-10 top-0 left-0 w-10 h-10 rounded-full border-dashed border-2 border-blue-600 mt-[calc(40px*-0.5)] ml-[calc(40px*-0.5)] pointer-events-none transition-transform duration-[850ms] ease-[cubic-bezier(0,0.02,0,1)]"
+      />
       <div
         style={{ transform: `translate(${pos().x}px, ${pos().y}px)` }}
-        class="block fixed z-10 top-0 left-0 w-0.5 h-0.5 rounded-full border-2 border-bg-light-blue-600 mt-[calc(2px*-0.5)] ml-[calc(2px*-0.5)] pointer-events-none transition-transform duration-700 ease-[cubic-bezier(0,0.02,0,1)]"
-      ></div>
+        class="block fixed z-10 top-0 left-0 w-0.5 h-0.5 rounded-full border-2 border-light-blue-600 mt-[calc(2px*-0.5)] ml-[calc(2px*-0.5)] pointer-events-none transition-transform duration-700 ease-[cubic-bezier(0,0.02,0,1)]"
+      />
     </>
   )
 }

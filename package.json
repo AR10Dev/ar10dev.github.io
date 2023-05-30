@@ -9,8 +9,8 @@
     "dev": "solid-start dev",
     "build": "solid-start build",
     "start": "solid-start start",
-    "format": "prettier --plugin-search-dir=. . --check",
-    "format:fix": "prettier --plugin-search-dir=. . --write",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
     "preinstall": "npx only-allow pnpm"
   },
   "keywords": [],

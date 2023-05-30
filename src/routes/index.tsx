@@ -6,6 +6,7 @@ import Typer from '../components/Typer'
 import { TyperProps } from '../components/types'
 import Cursor from '../components/Cursor'
 import Logo from '~/components/Logo'
+import Skill from '~/components/Skill'
 
 export default function Home() {
   const links: string[] = ['contact', 'works', 'skill', 'about']
@@ -54,6 +55,7 @@ export default function Home() {
         </div>
       </div>
       <About />
+      <Skill />
       <Footer />
       <Cursor />
     </>

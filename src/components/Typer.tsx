@@ -24,24 +24,19 @@ import { createSignal, onCleanup, onMount, Show } from 'solid-js'
  * />
  * ```
  */
-const Typer: Component = ({
-  className,
-  style,
-  cursorClassName = 'cursor',
-  text,
-  loop,
-  cursor,
-  startDelay,
-  typingSpeed = 120,
-  backspaceSpeed = 70,
-  typingPause = 1200,
-  backspacePause = 400,
-  onTypingEnd,
-  onBackspaceEnd,
-  onFinish
-}: TyperProps) => {
+const Typer: Component = (_props: TyperProps) => {
   // Check if text props are an array (multiple lines) or a string (single line)
-  const singleLine: boolean = typeof text === 'string'
+  const props = mergeProps(
+    {
+      cursorClassName: 'cursor',
+      typingSpeed: 120,
+      backspaceSpeed: 70,
+      typingPause: 1200,
+      backspacePause: 400
+    },
+    _props
+  )
+  const singleLine: boolean = typeof props.text === 'string'
   // The current text displayed within the <span>
   const [currentText, setCurrentText] = createSignal<string>('')
   // The current line selected from the text prop.
@@ -57,14 +52,14 @@ const Typer: Component = ({
 
   onMount(() => {
     // Initialize the current line
-    setCurrentLine(typeof text === 'string' ? text : text[0])
+    setCurrentLine(typeof props.text === 'string' ? props.text : props.text[0])
     // Run the typing time loop with or without a start delay
-    if (startDelay) {
+    if (props.startDelay) {
       setTimeout(() => {
-        timeLoop(typingSpeed)
-      }, startDelay)
+        timeLoop(props.typingSpeed)
+      }, props.startDelay)
     } else {
-      timeLoop(typingSpeed)
+      timeLoop(props.typingSpeed)
     }
   })
 
@@ -83,10 +78,10 @@ const Typer: Component = ({
       setTimeout(() => {
         if (paused()) {
           setPaused(false) // Ensure next interval is not paused
-          timeLoop(direction() === 'forward' ? backspacePause : typingPause)
+          timeLoop(direction() === 'forward' ? props.backspacePause : props.typingPause)
         } else {
           typewrite()
-          timeLoop(direction() === 'forward' ? typingSpeed : backspaceSpeed)
+          timeLoop(direction() === 'forward' ? props.typingSpeed : props.backspaceSpeed)
         }
       }, intervalTime)
     } else {
@@ -113,16 +108,16 @@ const Typer: Component = ({
     // Currently typing forward, so check if it is at the end of the line.
     if (currentText().length === currentLine().length) {
       // The current line is finished, check what needs to be done next.
-      if (singleLine || currentLineIndex() + 1 === text.length) {
+      if (singleLine || currentLineIndex() + 1 === props.text.length) {
         // Currently on final line, so loop it or finish...
-        if (loop) {
+        if (props.loop) {
           // Looping so change the direction to backspace typing
           setDirection('backward')
           // Since we have changed direction, we could run a pause here...
           setPaused(true)
         } else {
           setFinished(true)
-          onFinish && onFinish()
+          props.onFinish && props.onFinish()
         }
       } else {
         // It must be in a loop, so we can confidently shift to backspace typing...
@@ -131,7 +126,7 @@ const Typer: Component = ({
         setPaused(true)
       }
       // If there is a lineAction provided, here is where to call it...
-      onTypingEnd && onTypingEnd()
+      props.onTypingEnd && props.onTypingEnd()
     } else {
       // Since we are not at the beginning, simply add a character
       setCurrentText(currentLine().substring(0, currentText().length + 1)) // Update the displayed text
@@ -149,14 +144,14 @@ const Typer: Component = ({
       // Backspace ended, now at start of line
       if (!singleLine) {
         // Multiple lines, so we need to change lines.
-        if (currentLineIndex() + 1 === text.length) {
+        if (currentLineIndex() + 1 === props.text.length) {
           // Reset back to the first line
           setCurrentLineIndex(0)
-          setCurrentLine(text[0])
+          setCurrentLine(props.text[0])
         } else {
           // Move to the next line...
           setCurrentLineIndex(currentLineIndex() + 1)
-          setCurrentLine(text[currentLineIndex()])
+          setCurrentLine(props.text[currentLineIndex()])
         }
       }
       // We are at the beginning so we need to change direction, and switch lines if using multiple lines
@@ -164,7 +159,7 @@ const Typer: Component = ({
       // Since we have changed direction, we could run a pause here...
       setPaused(true)
       // Call the onBackspaceEnd() method if it exists.
-      onBackspaceEnd && onBackspaceEnd()
+      props.onBackspaceEnd && props.onBackspaceEnd()
     } else {
       // Since we are not at the beginning, simply remove a character.
       setCurrentText(currentLine().substring(0, currentText().length - 1)) // Update the displayed text
@@ -172,10 +167,10 @@ const Typer: Component = ({
   }
 
   return (
-    <span class={className} style={style}>
+    <span class={props.className} style={props.style}>
       {currentText()}
-      <Show when={cursor && !finished()}>
-        <span class={cursorClassName}>|</span>
+      <Show when={props.cursor && !finished()}>
+        <span class={props.cursorClassName}>|</span>
       </Show>
     </span>
   )

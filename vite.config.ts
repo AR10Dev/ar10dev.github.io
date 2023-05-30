@@ -5,7 +5,7 @@ import presetWind from '@unocss/preset-wind'
 import presetAttributify from '@unocss/preset-attributify'
 import { presetScrollbar } from 'unocss-preset-scrollbar'
 import lightningcss from 'vite-plugin-lightningcss'
-//import { VitePWA } from 'vite-plugin-pwa'
+// import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vite'
 
 export default defineConfig({

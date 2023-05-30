@@ -1,7 +1,6 @@
 // @refresh reload
 import { Suspense } from 'solid-js'
 import {
-  A,
   Body,
   ErrorBoundary,
   FileRoutes,
@@ -36,7 +35,7 @@ export default function Root() {
           content="The one and only official website on the internet created by Avaab Razzaq, aka 'AR10'"
         />
         {/* <Link rel="mask-icon" href="/mask-icon.svg" color="#FFFFFF"/>
-                { pwaInfo?.webManifest?.href ? <Link rel="manifest" href={pwaInfo.webManifest.href}/> : '' } */}
+        { pwaInfo?.webManifest?.href ? <Link rel="manifest" href={pwaInfo.webManifest.href}/> : '' } */}
       </Head>
       <Body class="m-0 text-white bg-gray-100 select-none scrollbar scrollbar-rounded scrollbar-track-radius-0px scrollbar-w-8px scrollbar-track-color-gray-900 scrollbar-thumb-color-gray-600">
         <Suspense>
