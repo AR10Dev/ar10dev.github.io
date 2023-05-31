@@ -38,7 +38,7 @@
     "vite": "4.3.9",
     "vite-plugin-lightningcss": "0.0.5",
     "vite-plugin-pwa": "0.15.2",
-    "workbox-window": "6.6.0"
+    "workbox-window": "6.6.1"
   },
   "dependencies": {
     "@solidjs/meta": "0.28.5",
