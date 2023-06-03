@@ -26,7 +26,7 @@
     "@unocss/preset-attributify": "0.52.7",
     "@unocss/preset-wind": "0.52.7",
     "cspell": "6.31.1",
-    "eslint": "8.41.0",
+    "eslint": "8.42.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-solid": "0.12.1",
