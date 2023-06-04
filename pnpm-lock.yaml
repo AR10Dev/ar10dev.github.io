@@ -50,8 +50,8 @@ devDependencies:
     specifier: 5.59.8
     version: 5.59.8(eslint@8.42.0)(typescript@5.1.3)
   '@unocss/preset-attributify':
-    specifier: 0.52.7
-    version: 0.52.7
+    specifier: 0.53.0
+    version: 0.53.0
   '@unocss/preset-wind':
     specifier: 0.52.7
     version: 0.52.7
@@ -3581,6 +3581,10 @@ packages:
   /@unocss/core@0.52.7:
     resolution: {integrity: sha512-dZonrlfu33SkUMsZXlsyYSM79tr2nLer/hBEU2ZaemRik2KchxIUNlZV6kX1f1k3m+gEtVQOyx1MImpgLS8PWg==}
 
+  /@unocss/core@0.53.0:
+    resolution: {integrity: sha512-MB6hqSN2wjmm3NNYspNqzxvMv7LnyLqz0uCWr15elRqnjsuq01w7DZ1iPS9ckA2M3YjQIRTXR9YPtDbSqY0jcA==}
+    dev: true
+
   /@unocss/extractor-arbitrary-variants@0.51.12:
     resolution: {integrity: sha512-/HJH48LbnzTzPkq7yNf+F8tpq7F8b0ibuv0Y/PFQdRN+5OBpRoVwzK7pnJccpiOFbWqlfIQ/ao0MgVc+321tUw==}
     dependencies:
@@ -3627,10 +3631,10 @@ packages:
       '@unocss/core': 0.51.12
     dev: true
 
-  /@unocss/preset-attributify@0.52.7:
-    resolution: {integrity: sha512-rq3ntPbuwGTZO7ebQhsuaZjKCmkDPBNP7sX+lXhaOsIsIGM4JGmLTBNSZ03YUx6QVgYVbjO1MKv734AHNYG4/Q==}
+  /@unocss/preset-attributify@0.53.0:
+    resolution: {integrity: sha512-RqvSbuECeMBVVt2rmNIozznLBkfzkfe7vOIx3arytPBG/nggDnC1GB/xTxCGAiU7UcEXw03laWtjwXHmJHt8Gw==}
     dependencies:
-      '@unocss/core': 0.52.7
+      '@unocss/core': 0.53.0
     dev: true
 
   /@unocss/preset-icons@0.51.12:
