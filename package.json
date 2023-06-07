@@ -43,7 +43,7 @@
   "dependencies": {
     "@solidjs/meta": "0.28.5",
     "@solidjs/router": "0.8.2",
-    "@unocss/vite": "0.53.0",
+    "@unocss/vite": "0.53.1",
     "solid-js": "1.7.6",
     "solid-start": "0.2.26",
     "undici": "5.22.1"
