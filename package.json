@@ -24,7 +24,7 @@
     "@typescript-eslint/eslint-plugin": "5.60.0",
     "@typescript-eslint/parser": "5.60.0",
     "@unocss/preset-attributify": "0.53.3",
-    "@unocss/preset-wind": "0.53.1",
+    "@unocss/preset-wind": "0.53.3",
     "cspell": "6.31.1",
     "eslint": "8.43.0",
     "eslint-config-prettier": "8.8.0",
