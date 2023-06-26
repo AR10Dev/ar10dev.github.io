@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base", ":disableDependencyDashboard"],
   "enabledManagers": ["npm", "github-actions"],
-  "baseBranches": ["next"],
+  "baseBranches": ["solid-start"],
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest", "rollback"],
