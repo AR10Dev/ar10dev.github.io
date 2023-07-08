@@ -35,8 +35,8 @@ devDependencies:
     specifier: 5.61.0
     version: 5.61.0(eslint@8.44.0)(typescript@5.1.6)
   '@unocss/preset-attributify':
-    specifier: 0.53.4
-    version: 0.53.4
+    specifier: 0.53.5
+    version: 0.53.5
   '@unocss/preset-wind':
     specifier: 0.53.4
     version: 0.53.4
@@ -2708,8 +2708,8 @@ packages:
       chokidar: 3.5.3
       colorette: 2.0.20
       consola: 3.1.0
-      fast-glob: 3.2.12
-      magic-string: 0.30.0
+      fast-glob: 3.3.0
+      magic-string: 0.30.1
       pathe: 1.1.1
       perfect-debounce: 1.0.0
     transitivePeerDependencies:
@@ -2742,7 +2742,6 @@ packages:
 
   /@unocss/core@0.53.5:
     resolution: {integrity: sha512-jBvk4FeUAALAomGfMFFmrXLy01/5DjugdnWgawFAQpSToFTxbMHS7x+pXKu/18cq+YLS8uyl9S0Ywy1jNbfS3Q==}
-    dev: false
 
   /@unocss/extractor-arbitrary-variants@0.53.4:
     resolution: {integrity: sha512-ydkfObZALqRqe/M68hBsIfT6KsUFm3nBD/4xUf4hvOiIySwptzUWYliVSoPHqhEq8L122oAEG1i5Yg8kQUUJZQ==}
@@ -2773,8 +2772,8 @@ packages:
       '@unocss/config': 0.53.4
       '@unocss/core': 0.53.4
       css-tree: 2.3.1
-      fast-glob: 3.2.12
-      magic-string: 0.30.0
+      fast-glob: 3.3.0
+      magic-string: 0.30.1
       postcss: 8.4.25
     dev: true
 
@@ -2782,6 +2781,12 @@ packages:
     resolution: {integrity: sha512-/lYH0SHFEkROOMHJ5td3txHnR93RRt/ZtsJ4brH3ptJixiEiShl5oNGS8cHBV/jV/KYsBW4gqeVomzUGCGWu9w==}
     dependencies:
       '@unocss/core': 0.53.4
+    dev: true
+
+  /@unocss/preset-attributify@0.53.5:
+    resolution: {integrity: sha512-0TJD9hVUWu0T4dtdURApyFiliqbckYYGZe2PZBgUrHCypbI0zq7k3MdXFYmIuYxqDPErJVm8rO9lwMpKfTsvuA==}
+    dependencies:
+      '@unocss/core': 0.53.5
     dev: true
 
   /@unocss/preset-icons@0.53.4:
@@ -2909,8 +2914,8 @@ packages:
       '@unocss/scope': 0.53.4
       '@unocss/transformer-directives': 0.53.4
       chokidar: 3.5.3
-      fast-glob: 3.2.12
-      magic-string: 0.30.0
+      fast-glob: 3.3.0
+      magic-string: 0.30.1
       vite: 4.4.2
     transitivePeerDependencies:
       - rollup
@@ -4468,7 +4473,6 @@ packages:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.5
-    dev: false
 
   /fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
@@ -5498,19 +5502,11 @@ packages:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /magic-string@0.30.0:
-    resolution: {integrity: sha512-LA+31JYDJLs82r2ScLrlz1GjSgu66ZV518eyWT+S8VhyQn/JL0u9MeBOvQMGYiPk1DBiSN9DDMOcXvigJZaViQ==}
-    engines: {node: '>=12'}
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.15
-    dev: true
-
   /magic-string@0.30.1:
     resolution: {integrity: sha512-mbVKXPmS0z0G4XqFDCTllmDQ6coZzn94aMlb0o/A4HEHJCKcanlDZwYJgwnkmgD3jyWhUgj9VsPrfd972yPffA==}
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
-    dev: false
 
   /make-dir@3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
