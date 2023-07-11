@@ -12,8 +12,8 @@ dependencies:
     specifier: 2.8.1
     version: 2.8.1
   solid-js:
-    specifier: 1.7.7
-    version: 1.7.7
+    specifier: 1.7.8
+    version: 1.7.8
 
 devDependencies:
   '@astrojs/mdx':
@@ -24,7 +24,7 @@ devDependencies:
     version: 1.3.3
   '@astrojs/solid-js':
     specifier: 2.2.0
-    version: 2.2.0(@babel/core@7.22.5)(solid-js@1.7.7)(vite@4.4.2)
+    version: 2.2.0(@babel/core@7.22.5)(solid-js@1.7.8)(vite@4.4.2)
   '@cspell/eslint-plugin':
     specifier: 6.31.1
     version: 6.31.1
@@ -224,14 +224,14 @@ packages:
       zod: 3.21.4
     dev: true
 
-  /@astrojs/solid-js@2.2.0(@babel/core@7.22.5)(solid-js@1.7.7)(vite@4.4.2):
+  /@astrojs/solid-js@2.2.0(@babel/core@7.22.5)(solid-js@1.7.8)(vite@4.4.2):
     resolution: {integrity: sha512-yZcpwGnPnFsF74+9ppXBy/h3rAbrhNuRCz/pTck2KWufwsmn5SwUWTBWLGgSqK3dhaw56Mp2MMJQuLY3Nc5VMw==}
     engines: {node: '>=16.12.0'}
     peerDependencies:
       solid-js: ^1.4.3
     dependencies:
       babel-preset-solid: 1.7.7(@babel/core@7.22.5)
-      solid-js: 1.7.7
+      solid-js: 1.7.8
       vitefu: 0.2.4(vite@4.4.2)
     transitivePeerDependencies:
       - '@babel/core'
@@ -7207,8 +7207,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /solid-js@1.7.7:
-    resolution: {integrity: sha512-SPdYVke/Z6Za24PBTbULyQYPrhGO1ZbPany76atO2zF2dmYn2pCotbsw1JtlgWnr9dK2JbwPGnA3ODTGPLhZNw==}
+  /solid-js@1.7.8:
+    resolution: {integrity: sha512-XHBWk1FvFd0JMKljko7FfhefJMTSgYEuVKcQ2a8hzRXfiuSJAGsrPPafqEo+f6l+e8Oe3cROSpIL6kbzjC1fjQ==}
     dependencies:
       csstype: 3.1.2
       seroval: 0.5.1
