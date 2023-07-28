@@ -28,7 +28,7 @@
     "cspell": "6.31.2",
     "cssnano": "6.0.1",
     "cssnano-preset-advanced": "6.0.1",
-    "eslint": "8.45.0",
+    "eslint": "8.46.0",
     "eslint-config-prettier": "8.9.0",
     "eslint-plugin-astro": "0.27.2",
     "eslint-plugin-prettier": "4.2.1",
