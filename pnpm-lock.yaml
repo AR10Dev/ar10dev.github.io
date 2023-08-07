@@ -35,8 +35,8 @@ devDependencies:
     specifier: 5.62.0
     version: 5.62.0(eslint@8.46.0)(typescript@5.1.6)
   '@unocss/preset-attributify':
-    specifier: 0.54.1
-    version: 0.54.1
+    specifier: 0.54.2
+    version: 0.54.2
   '@unocss/preset-wind':
     specifier: 0.54.1
     version: 0.54.1
@@ -2754,7 +2754,6 @@ packages:
 
   /@unocss/core@0.54.2:
     resolution: {integrity: sha512-PyyJOJtZ2K0BVSawAA/5X46w3Vgj/39jy+2EGKrT0KD4pbYid8oQo84OkXEEms5gAnIAAZHayGqs43zi/FRp0A==}
-    dev: false
 
   /@unocss/extractor-arbitrary-variants@0.53.4:
     resolution: {integrity: sha512-ydkfObZALqRqe/M68hBsIfT6KsUFm3nBD/4xUf4hvOiIySwptzUWYliVSoPHqhEq8L122oAEG1i5Yg8kQUUJZQ==}
@@ -2802,10 +2801,10 @@ packages:
       '@unocss/core': 0.53.4
     dev: true
 
-  /@unocss/preset-attributify@0.54.1:
-    resolution: {integrity: sha512-DBQSHH6f7JmxOS49oaoDkxzsoChgeSfTsvoGOZHWN4PanjOalLfIUBst2Jwl15UBwEILokaWNuKTIhGkDtQcig==}
+  /@unocss/preset-attributify@0.54.2:
+    resolution: {integrity: sha512-mH1Qc+Omg6Fr6gMspZl9GfBq9bR/GeYnWy3qosL4b3wUmKuRFi7JONUuFA9pKaA+k5xZ85A+4ksDTf6kxjoguQ==}
     dependencies:
-      '@unocss/core': 0.54.1
+      '@unocss/core': 0.54.2
     dev: true
 
   /@unocss/preset-icons@0.53.4:
