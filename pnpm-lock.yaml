@@ -35,8 +35,8 @@ devDependencies:
     specifier: 5.62.0
     version: 5.62.0(eslint@8.47.0)(typescript@5.1.6)
   '@unocss/preset-attributify':
-    specifier: 0.55.0
-    version: 0.55.0
+    specifier: 0.55.1
+    version: 0.55.1
   '@unocss/preset-wind':
     specifier: 0.55.0
     version: 0.55.0
@@ -2342,21 +2342,6 @@ packages:
       rollup: 2.79.1
     dev: true
 
-  /@rollup/pluginutils@5.0.2(rollup@2.79.1):
-    resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      rollup: ^1.20.0||^2.0.0||^3.0.0
-    peerDependenciesMeta:
-      rollup:
-        optional: true
-    dependencies:
-      '@types/estree': 1.0.1
-      estree-walker: 2.0.2
-      picomatch: 2.3.1
-      rollup: 2.79.1
-    dev: true
-
   /@rollup/pluginutils@5.0.3(rollup@2.79.1):
     resolution: {integrity: sha512-hfllNN4a80rwNQ9QCxhxuHCGHMAvabXqxNdaChUSSadMre7t4iEUI6fFAhBOn/eIYTgYVhBv7vCLsAJ4u3lf3g==}
     engines: {node: '>=14.0.0'}
@@ -2370,7 +2355,6 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
       rollup: 2.79.1
-    dev: false
 
   /@surma/rollup-plugin-off-main-thread@2.2.3:
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
@@ -2732,7 +2716,7 @@ packages:
     hasBin: true
     dependencies:
       '@ampproject/remapping': 2.2.1
-      '@rollup/pluginutils': 5.0.2(rollup@2.79.1)
+      '@rollup/pluginutils': 5.0.3(rollup@2.79.1)
       '@unocss/config': 0.53.4
       '@unocss/core': 0.53.4
       '@unocss/preset-uno': 0.53.4
@@ -2778,7 +2762,6 @@ packages:
 
   /@unocss/core@0.55.1:
     resolution: {integrity: sha512-hZffURZtvH72UvobL9anzE1t7PDldBa89fxWVIsjLb8KHReNfcOv8uEepce0ODUfGrdWPbij017XG/HY5YUexg==}
-    dev: false
 
   /@unocss/extractor-arbitrary-variants@0.53.4:
     resolution: {integrity: sha512-ydkfObZALqRqe/M68hBsIfT6KsUFm3nBD/4xUf4hvOiIySwptzUWYliVSoPHqhEq8L122oAEG1i5Yg8kQUUJZQ==}
@@ -2826,10 +2809,10 @@ packages:
       '@unocss/core': 0.53.4
     dev: true
 
-  /@unocss/preset-attributify@0.55.0:
-    resolution: {integrity: sha512-AbqoamJLsFqJih1MMyxEslLScWSpOdlTbF9R+gSnrWwkGZDuZszcyTDbXrhCPWPUkihR7NY9XQSKxUkTb6MJJg==}
+  /@unocss/preset-attributify@0.55.1:
+    resolution: {integrity: sha512-DX3PMeW0atZiCu3YULVbVAhuvy2bx27hAbE9Wo+QGs+MY0hK6+ilsWqsDzNmScHze5zW2HlNwucdtPs8TiV7dA==}
     dependencies:
-      '@unocss/core': 0.55.0
+      '@unocss/core': 0.55.1
     dev: true
 
   /@unocss/preset-icons@0.53.4:
@@ -2964,7 +2947,7 @@ packages:
       vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0
     dependencies:
       '@ampproject/remapping': 2.2.1
-      '@rollup/pluginutils': 5.0.2(rollup@2.79.1)
+      '@rollup/pluginutils': 5.0.3(rollup@2.79.1)
       '@unocss/config': 0.53.4
       '@unocss/core': 0.53.4
       '@unocss/inspector': 0.53.4
