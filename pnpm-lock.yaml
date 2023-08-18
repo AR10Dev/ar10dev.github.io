@@ -23,8 +23,8 @@ devDependencies:
     specifier: 1.4.0
     version: 1.4.0
   '@astrojs/solid-js':
-    specifier: 2.2.0
-    version: 2.2.0(@babel/core@7.22.5)(solid-js@1.7.11)(vite@4.4.9)
+    specifier: 2.2.1
+    version: 2.2.1(@babel/core@7.22.5)(solid-js@1.7.11)(vite@4.4.9)
   '@cspell/eslint-plugin':
     specifier: 6.31.3
     version: 6.31.3
@@ -220,8 +220,8 @@ packages:
       zod: 3.21.4
     dev: true
 
-  /@astrojs/solid-js@2.2.0(@babel/core@7.22.5)(solid-js@1.7.11)(vite@4.4.9):
-    resolution: {integrity: sha512-yZcpwGnPnFsF74+9ppXBy/h3rAbrhNuRCz/pTck2KWufwsmn5SwUWTBWLGgSqK3dhaw56Mp2MMJQuLY3Nc5VMw==}
+  /@astrojs/solid-js@2.2.1(@babel/core@7.22.5)(solid-js@1.7.11)(vite@4.4.9):
+    resolution: {integrity: sha512-LJRKX1raHePOWE5lL7OjYvtap/S4fQoZLPB0pVw6RKUJtCeRIYD44x5DxFk52dFCkjnlVuWFlQkvtefT8kotcQ==}
     engines: {node: '>=16.12.0'}
     peerDependencies:
       solid-js: ^1.4.3
