@@ -37,7 +37,7 @@
     "postcss": "8.4.28",
     "prettier": "2.8.8",
     "prettier-plugin-astro": "0.12.0",
-    "typescript": "5.1.6",
+    "typescript": "5.2.2",
     "unocss-preset-scrollbar": "0.2.1",
     "vite": "4.4.9",
     "workbox-build": "7.0.0"
