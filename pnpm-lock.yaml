@@ -12,8 +12,8 @@ dependencies:
     specifier: 2.10.15
     version: 2.10.15
   solid-js:
-    specifier: 1.7.11
-    version: 1.7.11
+    specifier: 1.8.5
+    version: 1.8.5
 
 devDependencies:
   '@astrojs/mdx':
@@ -24,7 +24,7 @@ devDependencies:
     version: 1.4.0
   '@astrojs/solid-js':
     specifier: 2.2.1
-    version: 2.2.1(@babel/core@7.22.5)(solid-js@1.7.11)(vite@4.4.9)
+    version: 2.2.1(@babel/core@7.22.5)(solid-js@1.8.5)(vite@4.4.9)
   '@cspell/eslint-plugin':
     specifier: 6.31.3
     version: 6.31.3
@@ -224,14 +224,14 @@ packages:
       zod: 3.21.4
     dev: true
 
-  /@astrojs/solid-js@2.2.1(@babel/core@7.22.5)(solid-js@1.7.11)(vite@4.4.9):
+  /@astrojs/solid-js@2.2.1(@babel/core@7.22.5)(solid-js@1.8.5)(vite@4.4.9):
     resolution: {integrity: sha512-LJRKX1raHePOWE5lL7OjYvtap/S4fQoZLPB0pVw6RKUJtCeRIYD44x5DxFk52dFCkjnlVuWFlQkvtefT8kotcQ==}
     engines: {node: '>=16.12.0'}
     peerDependencies:
       solid-js: ^1.4.3
     dependencies:
       babel-preset-solid: 1.7.7(@babel/core@7.22.5)
-      solid-js: 1.7.11
+      solid-js: 1.8.5
       vitefu: 0.2.4(vite@4.4.9)
     transitivePeerDependencies:
       - '@babel/core'
@@ -7162,8 +7162,8 @@ packages:
       randombytes: 2.1.0
     dev: true
 
-  /seroval@0.5.1:
-    resolution: {integrity: sha512-ZfhQVB59hmIauJG5Ydynupy8KHyr5imGNtdDhbZG68Ufh1Ynkv9KOYOAABf71oVbQxJ8VkWnMHAjEHE7fWkH5g==}
+  /seroval@0.12.3:
+    resolution: {integrity: sha512-5WDeMpv7rmEylsypRj1iwRVHE/QLsMLiZ+9savlNNQEVdgGia1iRMb7qyaAagY0wu/7+QTe6d2wldk/lgaLb6g==}
     engines: {node: '>=10'}
 
   /server-destroy@1.0.1:
@@ -7225,11 +7225,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /solid-js@1.7.11:
-    resolution: {integrity: sha512-JkuvsHt8jqy7USsy9xJtT18aF9r2pFO+GB8JQ2XGTvtF49rGTObB46iebD25sE3qVNvIbwglXOXdALnJq9IHtQ==}
+  /solid-js@1.8.5:
+    resolution: {integrity: sha512-xvtJvzJzWbsn35oKFhW9kNwaxG1Z/YLMsDp4tLVcYZTMPzvzQ8vEZuyDQ6nt7xDArVgZJ7TUFrJUwrui/oq53A==}
     dependencies:
       csstype: 3.1.2
-      seroval: 0.5.1
+      seroval: 0.12.3
 
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
