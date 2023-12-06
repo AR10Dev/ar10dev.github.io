@@ -27,7 +27,7 @@ jobs:
         run: pnpm build
 
       - name: Upload Pages Artifact 🚀
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: '${{ inputs.path }}dist/'
 
