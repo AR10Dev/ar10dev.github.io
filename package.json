@@ -30,7 +30,7 @@
     "cssnano-preset-advanced": "6.0.1",
     "eslint": "8.55.0",
     "eslint-config-prettier": "8.10.0",
-    "eslint-plugin-astro": "0.29.1",
+    "eslint-plugin-astro": "0.30.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-solid": "0.13.0",
     "lefthook": "1.5.5",
