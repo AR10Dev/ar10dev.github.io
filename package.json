@@ -35,7 +35,7 @@
     "eslint-plugin-solid": "0.13.1",
     "lefthook": "1.5.5",
     "postcss": "8.4.33",
-    "prettier": "2.8.8",
+    "prettier": "3.2.5",
     "prettier-plugin-astro": "0.12.3",
     "typescript": "5.3.3",
     "unocss-preset-scrollbar": "0.3.0",
