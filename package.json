@@ -38,7 +38,7 @@
     "prettier": "2.8.8",
     "prettier-plugin-astro": "0.12.3",
     "typescript": "5.3.3",
-    "unocss-preset-scrollbar": "0.3.0",
+    "unocss-preset-scrollbar": "0.3.1",
     "vite": "4.5.1",
     "workbox-build": "7.0.0"
   },
