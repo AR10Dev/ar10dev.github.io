@@ -40,7 +40,7 @@
     "typescript": "5.4.5",
     "unocss-preset-scrollbar": "0.3.1",
     "vite": "4.5.3",
-    "workbox-build": "7.1.0"
+    "workbox-build": "7.1.1"
   },
   "dependencies": {
     "@unocss/astro": "0.59.4",
