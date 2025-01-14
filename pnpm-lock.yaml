@@ -71,8 +71,8 @@ devDependencies:
     specifier: 4.2.1
     version: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.57.1)(prettier@2.8.8)
   eslint-plugin-solid:
-    specifier: 0.14.1
-    version: 0.14.1(eslint@8.57.1)(typescript@5.5.2)
+    specifier: 0.14.5
+    version: 0.14.5(eslint@8.57.1)(typescript@5.5.2)
   lefthook:
     specifier: 1.6.18
     version: 1.6.18
@@ -4547,11 +4547,12 @@ packages:
       prettier-linter-helpers: 1.0.0
     dev: true
 
-  /eslint-plugin-solid@0.14.1(eslint@8.57.1)(typescript@5.5.2):
-    resolution: {integrity: sha512-2bR21xTGhXufK5qqib0h8fQkoZbVm0Xmsgioj+D6ynLXvVq20Atf5F/qyu2WUVNukKJkpd6WsYW0JRWFo2yZvQ==}
-    engines: {node: '>=12.0.0'}
+  /eslint-plugin-solid@0.14.5(eslint@8.57.1)(typescript@5.5.2):
+    resolution: {integrity: sha512-nfuYK09ah5aJG/oEN6P1qziy1zLgW4PDWe75VNPi4CEFYk1x2AEqwFeQfEPR7gNn0F2jOeqKhx2E+5oNCOBYWQ==}
+    engines: {node: '>=18.0.0'}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
+      typescript: '>=4.8.4'
     dependencies:
       '@typescript-eslint/utils': 7.13.1(eslint@8.57.1)(typescript@5.5.2)
       eslint: 8.57.1
@@ -4560,9 +4561,9 @@ packages:
       kebab-case: 1.0.2
       known-css-properties: 0.30.0
       style-to-object: 1.0.6
+      typescript: 5.5.2
     transitivePeerDependencies:
       - supports-color
-      - typescript
     dev: true
 
   /eslint-scope@5.1.1:
