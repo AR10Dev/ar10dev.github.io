@@ -12,8 +12,8 @@ dependencies:
     specifier: 2.10.15
     version: 2.10.15
   solid-js:
-    specifier: 1.8.17
-    version: 1.8.17
+    specifier: 1.9.4
+    version: 1.9.4
 
 devDependencies:
   '@astrojs/mdx':
@@ -24,7 +24,7 @@ devDependencies:
     version: 1.4.0
   '@astrojs/solid-js':
     specifier: 2.2.1
-    version: 2.2.1(@babel/core@7.24.5)(solid-js@1.8.17)(vite@4.5.5)
+    version: 2.2.1(@babel/core@7.24.5)(solid-js@1.9.4)(vite@4.5.5)
   '@cspell/eslint-plugin':
     specifier: 6.31.3
     version: 6.31.3
@@ -279,14 +279,14 @@ packages:
       zod: 3.21.4
     dev: true
 
-  /@astrojs/solid-js@2.2.1(@babel/core@7.24.5)(solid-js@1.8.17)(vite@4.5.5):
+  /@astrojs/solid-js@2.2.1(@babel/core@7.24.5)(solid-js@1.9.4)(vite@4.5.5):
     resolution: {integrity: sha512-LJRKX1raHePOWE5lL7OjYvtap/S4fQoZLPB0pVw6RKUJtCeRIYD44x5DxFk52dFCkjnlVuWFlQkvtefT8kotcQ==}
     engines: {node: '>=16.12.0'}
     peerDependencies:
       solid-js: ^1.4.3
     dependencies:
       babel-preset-solid: 1.7.7(@babel/core@7.24.5)
-      solid-js: 1.8.17
+      solid-js: 1.9.4
       vitefu: 0.2.4(vite@4.5.5)
     transitivePeerDependencies:
       - '@babel/core'
@@ -7512,16 +7512,16 @@ packages:
       randombytes: 2.1.0
     dev: true
 
-  /seroval-plugins@1.0.5(seroval@1.0.5):
-    resolution: {integrity: sha512-8+pDC1vOedPXjKG7oz8o+iiHrtF2WswaMQJ7CKFpccvSYfrzmvKY9zOJWCg+881722wIHfwkdnRmiiDm9ym+zQ==}
+  /seroval-plugins@1.2.0(seroval@1.2.0):
+    resolution: {integrity: sha512-hULTbfzSe81jGWLH8TAJjkEvw6JWMqOo9Uq+4V4vg+HNq53hyHldM9ZOfjdzokcFysiTp9aFdV2vJpZFqKeDjQ==}
     engines: {node: '>=10'}
     peerDependencies:
       seroval: ^1.0
     dependencies:
-      seroval: 1.0.5
+      seroval: 1.2.0
 
-  /seroval@1.0.5:
-    resolution: {integrity: sha512-TM+Z11tHHvQVQKeNlOUonOWnsNM+2IBwZ4vwoi4j3zKzIpc5IDw8WPwCfcc8F17wy6cBcJGbZbFOR0UCuTZHQA==}
+  /seroval@1.2.0:
+    resolution: {integrity: sha512-GURoU99ko2UiAgUC3qDCk59Jb3Ss4Po8VIMGkG8j5PFo2Q7y0YSMP8QG9NuL/fJCoTz9V1XZUbpNIMXPOfaGpA==}
     engines: {node: '>=10'}
 
   /server-destroy@1.0.1:
@@ -7587,12 +7587,12 @@ packages:
     resolution: {integrity: sha512-g6T+p7QO8npa+/hNx9ohv1E5pVCmWrVCUzUXJyLdMmftX6ER0oiWY/w9knEonLpnOp6b6FenKnMfR8gqwWdwig==}
     dev: true
 
-  /solid-js@1.8.17:
-    resolution: {integrity: sha512-E0FkUgv9sG/gEBWkHr/2XkBluHb1fkrHywUgA6o6XolPDCJ4g1HaLmQufcBBhiF36ee40q+HpG/vCZu7fLpI3Q==}
+  /solid-js@1.9.4:
+    resolution: {integrity: sha512-ipQl8FJ31bFUoBNScDQTG3BjN6+9Rg+Q+f10bUbnO6EOTTf5NGerJeHc7wyu5I4RMHEl/WwZwUmy/PTRgxxZ8g==}
     dependencies:
       csstype: 3.1.2
-      seroval: 1.0.5
-      seroval-plugins: 1.0.5(seroval@1.0.5)
+      seroval: 1.2.0
+      seroval-plugins: 1.2.0(seroval@1.2.0)
 
   /source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
