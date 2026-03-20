@@ -14,9 +14,9 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@astrojs/mdx": "0.19.7",
-    "@astrojs/sitemap": "1.4.0",
-    "@astrojs/solid-js": "2.2.1",
+    "@astrojs/mdx": "5.0.2",
+    "@astrojs/sitemap": "3.7.1",
+    "@astrojs/solid-js": "6.0.1",
     "@cspell/eslint-plugin": "6.31.3",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@unocss/astro": "0.65.4",
-    "astro": "2.10.15",
+    "astro": "6.0.8",
     "solid-js": "1.9.10"
   }
 }
