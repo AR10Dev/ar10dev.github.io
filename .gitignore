@@ -31,3 +31,6 @@ dist
 
 # Astro generated cache/types
 .astro/
+
+# Typescript mcp cache
+.lsmcp/
