@@ -1,0 +1,11 @@
+{
+  "order": 2,
+  "category": "Web Apps",
+  "title": "SaaS Analytics Dashboard",
+  "summary": "Built a full-stack analytics app with event ingestion, cohorts, and retention views for product teams.",
+  "impact": "Enabled rollout decisions that improved D30 retention by 14%.",
+  "timeframe": "10-week build",
+  "stack": ["Astro", "SolidJS", "TypeScript", "PostgreSQL"],
+  "proofLabel": "Code architecture",
+  "proofUrl": "https://github.com/AR10Dev"
+}

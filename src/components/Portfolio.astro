@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+
+const portfolioItems = await getCollection("portfolio");
+const sorted = portfolioItems.sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<section id="work" class="min-h-screen relative flex items-center justify-center py-16 px-4">
+  <div class="max-w-screen-lg mx-auto xl:max-w-screen-xl w-full">
+    <h2 class="text-4xl font-bold text-center mb-12" style="color: var(--text-strong);">Results</h2>
+    <div class="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
+      {
+        sorted.map((item) => (
+          <article class="rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow" style="background: color-mix(in srgb, var(--surface-elevated) 95%, var(--accent-strong)); border: 1px solid var(--border-strong);">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <p class="text-sm font-semibold" style="color: var(--accent-strong);">{item.data.category}</p>
+                <h3 class="text-2xl font-bold mt-2" style="color: var(--text-strong);">{item.data.title}</h3>
+              </div>
+            </div>
+
+            <p class="mb-4" style="color: var(--text-muted);">{item.data.summary}</p>
+
+            <div class="border-t pt-4 mb-4" style="border-color: var(--border-strong);">
+              <p class="text-sm font-semibold" style="color: var(--accent-strong);">Impact</p>
+              <p class="text-base mt-1" style="color: var(--text-strong);">{item.data.impact}</p>
+            </div>
+
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <p class="text-xs font-semibold" style="color: var(--accent-strong);">Timeframe</p>
+                <p class="text-sm" style="color: var(--text-muted);">{item.data.timeframe}</p>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <p class="text-xs font-semibold mb-2" style="color: var(--accent-strong);">Tech Stack</p>
+              <div class="flex flex-wrap gap-2">
+                {item.data.stack.map((tech) => (
+                  <span class="text-xs px-2 py-1 rounded" style="background: var(--surface-panel); color: var(--text-strong); border: 1px solid var(--border-strong);">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <a
+              href={item.data.proofUrl}
+              class="inline-block text-sm font-semibold transition-colors border-b pb-1"
+              style="color: var(--accent-strong); border-color: var(--accent-strong);"
+            >
+              {item.data.proofLabel} →
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

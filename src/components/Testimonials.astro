@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+
+const testimonials = await getCollection("testimonials");
+const sorted = testimonials.sort((a, b) => (b.data.order ?? 0) - (a.data.order ?? 0));
+---
+
+<section id="testimonials" class="min-h-screen relative flex items-center justify-center py-16 px-4">
+  <div class="max-w-screen-lg mx-auto xl:max-w-screen-xl w-full">
+    <h2 class="text-4xl font-bold text-center mb-12" style="color: var(--text-strong);">What Clients Say</h2>
+    <div class="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
+      {
+        sorted.map((testimonial) => (
+          <article class="rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow" style="background: var(--surface-elevated); border: 1px solid var(--border-strong);">
+            <div class="mb-6">
+              <p class="text-lg italic" style="color: var(--text-strong);">
+                "{testimonial.data.quote}"
+              </p>
+            </div>
+            <div class="border-t pt-4" style="border-color: var(--border-strong);">
+              <p class="font-semibold" style="color: var(--text-strong);">{testimonial.data.author}</p>
+              <p class="text-sm" style="color: var(--text-muted);">{testimonial.data.company}</p>
+              {testimonial.data.year && (
+                <p class="text-xs mt-1" style="color: var(--accent-strong);">{testimonial.data.year}</p>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

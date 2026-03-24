@@ -1,17 +1,20 @@
 ---
-import { SEO } from 'astro-seo'
+import { SEO } from "astro-seo";
+import "../styles/global.css";
 
-import Header from '@components/Header.astro'
-import About from '@components/About.astro'
-import Footer from '@components/Footer.astro'
-import Type from '@components/Type.astro'
+import About from "@components/About.astro";
+import Contact from "@components/Contact.astro";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import Portfolio from "@components/Portfolio.astro";
+import Testimonials from "@components/Testimonials.astro";
+import Type from "@components/Type.astro";
 
-const background = 'bg-gray-900'
-const title = `Avaab Razzaq - AR10's website`
-const description = `The one and only official website on the internet created by Avaab Razzaq, aka "AR10"`
+const title = `Avaab Razzaq - AI-Driven Growth Engineer`;
+const description = `I build intelligent AI systems and the marketing engines that scale them.`;
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" style="background: radial-gradient(circle at 12% 15%, var(--bg-mesh-a), transparent 40%), radial-gradient(circle at 86% 28%, var(--bg-mesh-b), transparent 42%), var(--bg-canvas); background-attachment: fixed;">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -22,28 +25,53 @@ const description = `The one and only official website on the internet created b
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <SEO {title} {description} />
     <meta name="theme-color" content="#000000" />
-    <link rel="manifest" href="/manifest.json" />
   </head>
-  <body
-    class="text-white bg-gray-100 select-none scrollbar scrollbar-rounded scrollbar-track-radius-0px scrollbar-w-8px scrollbar-track-color-gray-900 scrollbar-thumb-color-gray-600"
-  >
-    <Header background={background} />
-    <div
-      class={`h-screen relative grid justify-items-center place-content-center gap-4 ${background}`}
+  <body class="site-shell select-none">
+    <script is:inline>
+      // Initialize theme immediately to prevent flash
+      const storedTheme = localStorage?.getItem?.("theme");
+      if (storedTheme === "dark" || (!storedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+    <Header background="bg-[color-mix(in_srgb,var(--surface-elevated)_92%,transparent)]" />
+    <section
+      id="hero"
+      class="relative min-h-screen grid items-center justify-center pt-24 pb-12 px-4"
     >
       <div class="max-w-screen-lg mx-auto text-center xl:max-w-screen-xl">
-        <h1 class="font-bold text-7xl">Avaab Razzaq</h1>
-        <h3 class="text-3xl font-semibold text-slate-200">
+        <p class="text-[var(--accent-strong)] font-semibold mb-4 text-lg">AI-Driven Growth Engineer</p>
+        <h1 class="font-bold text-6xl md:text-7xl mb-4 text-[var(--text-strong)]">Avaab Razzaq</h1>
+        <h3 class="text-2xl md:text-3xl font-semibold text-[var(--text-muted)] mb-8">
           I'm a <Type />
         </h3>
+        <p class="text-base md:text-lg text-[var(--text-muted)] max-w-2xl mx-auto mb-8">
+          I combine agent design, full-stack product engineering, and conversion-focused marketing to help teams launch faster and grow smarter.
+        </p>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <a 
+            href="https://cal.com/ar10dev"
+            class="px-8 py-3 bg-[var(--accent-strong)] text-[var(--accent-contrast)] font-semibold rounded-lg hover:opacity-90 transition-all"
+          >
+            Book a Strategy Call
+          </a>
+          <a 
+            href="#work"
+            class="px-8 py-3 border-2 border-[var(--accent-strong)] text-[var(--accent-strong)] font-semibold rounded-lg hover:bg-[var(--accent-strong)] hover:text-[var(--accent-contrast)] transition-all"
+          >
+            Explore Case Studies
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
     <About />
+    <Portfolio />
+    <Testimonials />
+    <Contact />
     <Footer />
     <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-      }
+      import "../scripts/homepage";
+      import "../scripts/scroll-reveal";
     </script>
   </body>
 </html>

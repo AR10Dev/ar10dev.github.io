@@ -1,0 +1,92 @@
+---
+import { SEO } from "astro-seo";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+interface Props {
+  pageTitle: string;
+  pageDescription: string;
+  canonicalUrl: string;
+  ogImage: string;
+  structuredData?: Record<string, unknown>;
+  headerBackground: string;
+}
+
+const {
+  pageTitle,
+  pageDescription,
+  canonicalUrl,
+  ogImage,
+  structuredData,
+  headerBackground,
+} = Astro.props as Props;
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href={canonicalUrl} />
+    <SEO title={pageTitle} description={pageDescription} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Avaab Razzaq AI-Driven Growth Engineer" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="theme-color" content="#0e2a47" />
+
+    {
+      structuredData && (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={JSON.stringify(structuredData)}
+        ></script>
+      )
+    }
+
+    <script is:inline>
+      (() => {
+        try {
+          const storedTheme = localStorage.getItem("theme");
+          const systemPrefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          const shouldUseDark =
+            storedTheme === null ? systemPrefersDark : storedTheme === "dark";
+          document.documentElement.classList.toggle("dark", shouldUseDark);
+        } catch {
+          // Ignore localStorage restrictions and use default styles.
+        }
+      })();
+    </script>
+
+    <style is:global>
+      @import "../styles/global.css";
+    </style>
+  </head>
+  <body class="site-shell">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <Header background={headerBackground} />
+
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+
+    <Footer />
+    <script src="/src/scripts/homepage.ts"></script>
+  </body>
+</html>

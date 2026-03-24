@@ -4,7 +4,7 @@
     "baseUrl": "./src",
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "preserve",
@@ -12,7 +12,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "importsNotUsedAsValues": "error",
+    "verbatimModuleSyntax": true,
     "paths": {
       "@components/*": ["components/*"],
       "@solid-components/*": ["components/solid/*"],

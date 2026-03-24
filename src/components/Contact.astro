@@ -1,0 +1,79 @@
+---
+interface HomepageConfig {
+  contactEmail: string;
+  timezone: string;
+  responseTime: string;
+  location: string;
+  availability: string;
+  bookingUrl: string;
+  githubUrl: string;
+}
+
+const config: HomepageConfig = {
+  contactEmail: "hello@ar10.dev",
+  timezone: "Pakistan Standard Time (UTC+5)",
+  responseTime: "Replies within 24 hours on business days",
+  location: "Pakistan",
+  availability: "Open for consulting and product partnerships",
+  bookingUrl: "https://cal.com/ar10dev",
+  githubUrl: "https://github.com/AR10Dev",
+};
+---
+
+<section id="contact" class="min-h-screen relative flex items-center justify-center py-16 px-4">
+  <div class="max-w-screen-lg mx-auto xl:max-w-screen-xl w-full">
+    <h2 class="text-4xl font-bold text-center mb-8" style="color: var(--text-strong);">Get in Touch</h2>
+    <p class="text-center text-lg max-w-2xl mx-auto mb-12" style="color: var(--text-muted);">
+      Let's talk about how I can help with your next project. Whether it's building intelligent AI systems or scaling your growth.
+    </p>
+
+    <div class="grid gap-8 md:grid-cols-2 mb-12">
+      <div class="rounded-lg p-8" style="background: var(--surface-elevated); border: 1px solid var(--border-strong);">
+        <h3 class="text-xl font-semibold mb-4" style="color: var(--text-strong);">Quick Info</h3>
+        <div class="space-y-4">
+          <div>
+            <p class="text-sm" style="color: var(--accent-strong);">Location</p>
+            <p class="text-base font-medium" style="color: var(--text-strong);">{config.location}</p>
+          </div>
+          <div>
+            <p class="text-sm" style="color: var(--accent-strong);">Timezone</p>
+            <p class="text-base font-medium" style="color: var(--text-strong);">{config.timezone}</p>
+          </div>
+          <div>
+            <p class="text-sm" style="color: var(--accent-strong);">Response Time</p>
+            <p class="text-base font-medium" style="color: var(--text-strong);">{config.responseTime}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg p-8" style="background: color-mix(in srgb, var(--surface-elevated) 95%, var(--accent-strong)); border: 1px solid var(--border-strong);">
+        <h3 class="text-xl font-semibold mb-4" style="color: var(--text-strong);">Availability</h3>
+        <p class="text-base mb-6" style="color: var(--text-muted);">{config.availability}</p>
+        <a
+          href={config.bookingUrl}
+          class="inline-block font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-all"
+          style="background: var(--accent-strong); color: var(--accent-contrast);"
+        >
+          Book a Strategy Call
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
+      <a
+        href={`mailto:${config.contactEmail}`}
+        class="px-6 py-3 font-semibold rounded-lg transition-all"
+        style="background: var(--surface-elevated); color: var(--text-strong); border: 1px solid var(--border-strong);"
+      >
+        Email: {config.contactEmail}
+      </a>
+      <a
+        href={config.githubUrl}
+        class="px-6 py-3 font-semibold rounded-lg transition-all"
+        style="background: var(--surface-panel); color: var(--text-strong); border: 1px solid var(--border-strong);"
+      >
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>

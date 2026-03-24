@@ -1,0 +1,11 @@
+{
+  "order": 1,
+  "category": "AI Workflows",
+  "title": "Multi-Agent Support Automation",
+  "summary": "Designed a triage and response workflow using routing prompts, guardrails, and escalation logic.",
+  "impact": "Reduced first-response time by 43% and repetitive tickets by 31%.",
+  "timeframe": "6-week implementation",
+  "stack": ["OpenAI", "Node.js", "Webhook orchestration", "CRM integration"],
+  "proofLabel": "Architecture approach",
+  "proofUrl": "https://github.com/AR10Dev"
+}

@@ -1,0 +1,11 @@
+{
+  "order": 3,
+  "category": "Marketing Campaigns",
+  "title": "Launch Funnel Optimization",
+  "summary": "Connected paid acquisition, lifecycle messaging, and landing page experiments into a single growth loop.",
+  "impact": "Improved landing-page conversion from 2.3% to 4.9% in six weeks.",
+  "timeframe": "6-week optimization sprint",
+  "stack": ["GA4", "A/B testing", "Email automation", "Attribution reporting"],
+  "proofLabel": "Case-study breakdown",
+  "proofUrl": "https://github.com/AR10Dev"
+}

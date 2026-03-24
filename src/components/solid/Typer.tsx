@@ -1,6 +1,6 @@
-import type { Component } from 'solid-js'
-import type { TyperProps, TypewriterDirection } from './types'
-import { createSignal, onCleanup, onMount, Show } from 'solid-js'
+import type { Component } from "solid-js";
+import { createSignal, onCleanup, onMount, Show } from "solid-js";
+import type { TyperProps, TypewriterDirection } from "./types";
 
 /**
  * A Solid.js component that displays a text typing animation with a variety of options
@@ -27,7 +27,7 @@ import { createSignal, onCleanup, onMount, Show } from 'solid-js'
 const Typer: Component = ({
   className,
   style,
-  cursorClassName = 'cursor',
+  cursorClassName = "cursor",
   text,
   loop,
   cursor,
@@ -38,40 +38,41 @@ const Typer: Component = ({
   backspacePause = 400,
   onTypingEnd,
   onBackspaceEnd,
-  onFinish
+  onFinish,
 }: TyperProps) => {
   // Check if text props are an array (multiple lines) or a string (single line)
-  const singleLine: boolean = typeof text === 'string'
+  const singleLine: boolean = typeof text === "string";
   // The current text displayed within the <span>
-  const [currentText, setCurrentText] = createSignal<string>('')
+  const [currentText, setCurrentText] = createSignal<string>("");
   // The current line selected from the text prop.
-  const [currentLine, setCurrentLine] = createSignal<string>('')
+  const [currentLine, setCurrentLine] = createSignal<string>("");
   // The index number used to select the current line.
-  const [currentLineIndex, setCurrentLineIndex] = createSignal<number>(0)
+  const [currentLineIndex, setCurrentLineIndex] = createSignal<number>(0);
   // The current direction of the typewriter
-  const [direction, setDirection] = createSignal<TypewriterDirection>('forward')
+  const [direction, setDirection] =
+    createSignal<TypewriterDirection>("forward");
   // Variable for when the typing has finished
-  const [finished, setFinished] = createSignal(false)
+  const [finished, setFinished] = createSignal(false);
   // Variable for when the typewriter is paused
-  const [paused, setPaused] = createSignal(false)
+  const [paused, setPaused] = createSignal(false);
 
   onMount(() => {
     // Initialize the current line
-    setCurrentLine(typeof text === 'string' ? text : text[0])
+    setCurrentLine(typeof text === "string" ? text : text[0]);
     // Run the typing time loop with or without a start delay
     if (startDelay) {
       setTimeout(() => {
-        timeLoop(typingSpeed)
-      }, startDelay)
+        timeLoop(typingSpeed);
+      }, startDelay);
     } else {
-      timeLoop(typingSpeed)
+      timeLoop(typingSpeed);
     }
-  })
+  });
 
   onCleanup(() => {
     // Cleanup component to end the loop when it is unmounted
-    setFinished(true)
-  })
+    setFinished(true);
+  });
 
   /**
    * Loop that runs continuously or until the typewrite is finished.
@@ -82,15 +83,13 @@ const Typer: Component = ({
       // Run timeout interval unless the animation is finished
       setTimeout(() => {
         if (paused()) {
-          setPaused(false) // Ensure next interval is not paused
-          timeLoop(direction() === 'forward' ? backspacePause : typingPause)
+          setPaused(false); // Ensure next interval is not paused
+          timeLoop(direction() === "forward" ? backspacePause : typingPause);
         } else {
-          typewrite()
-          timeLoop(direction() === 'forward' ? typingSpeed : backspaceSpeed)
+          typewrite();
+          timeLoop(direction() === "forward" ? typingSpeed : backspaceSpeed);
         }
-      }, intervalTime)
-    } else {
-      console.log('Typing finished')
+      }, intervalTime);
     }
   }
 
@@ -98,10 +97,10 @@ const Typer: Component = ({
    * Run a single typing animation, forwards or backwards
    */
   function typewrite() {
-    if (direction() === 'forward') {
-      handleForwardTyping()
+    if (direction() === "forward") {
+      handleForwardTyping();
     } else {
-      handleBackSpace()
+      handleBackSpace();
     }
   }
 
@@ -117,24 +116,24 @@ const Typer: Component = ({
         // Currently on final line, so loop it or finish...
         if (loop) {
           // Looping so change the direction to backspace typing
-          setDirection('backward')
+          setDirection("backward");
           // Since we have changed direction, we could run a pause here...
-          setPaused(true)
+          setPaused(true);
         } else {
-          setFinished(true)
-          onFinish && onFinish()
+          setFinished(true);
+          onFinish?.();
         }
       } else {
         // It must be in a loop, so we can confidently shift to backspace typing...
-        setDirection('backward')
+        setDirection("backward");
         // Since we have changed direction, we could run a pause here...
-        setPaused(true)
+        setPaused(true);
       }
       // If there is a lineAction provided, here is where to call it...
-      onTypingEnd && onTypingEnd()
+      onTypingEnd?.();
     } else {
       // Since we are not at the beginning, simply add a character
-      setCurrentText(currentLine().substring(0, currentText().length + 1)) // Update the displayed text
+      setCurrentText(currentLine().substring(0, currentText().length + 1)); // Update the displayed text
     }
   }
 
@@ -151,23 +150,23 @@ const Typer: Component = ({
         // Multiple lines, so we need to change lines.
         if (currentLineIndex() + 1 === text.length) {
           // Reset back to the first line
-          setCurrentLineIndex(0)
-          setCurrentLine(text[0])
+          setCurrentLineIndex(0);
+          setCurrentLine(text[0]);
         } else {
           // Move to the next line...
-          setCurrentLineIndex(currentLineIndex() + 1)
-          setCurrentLine(text[currentLineIndex()])
+          setCurrentLineIndex(currentLineIndex() + 1);
+          setCurrentLine(text[currentLineIndex()]);
         }
       }
       // We are at the beginning so we need to change direction, and switch lines if using multiple lines
-      setDirection('forward') // Change direction
+      setDirection("forward"); // Change direction
       // Since we have changed direction, we could run a pause here...
-      setPaused(true)
+      setPaused(true);
       // Call the onBackspaceEnd() method if it exists.
-      onBackspaceEnd && onBackspaceEnd()
+      onBackspaceEnd?.();
     } else {
       // Since we are not at the beginning, simply remove a character.
-      setCurrentText(currentLine().substring(0, currentText().length - 1)) // Update the displayed text
+      setCurrentText(currentLine().substring(0, currentText().length - 1)); // Update the displayed text
     }
   }
 
@@ -178,7 +177,7 @@ const Typer: Component = ({
         <span class={cursorClassName}>|</span>
       </Show>
     </span>
-  )
-}
+  );
+};
 
-export default Typer
+export default Typer;

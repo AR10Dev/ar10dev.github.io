@@ -1,41 +1,46 @@
-import type { Component } from 'solid-js'
-import { onMount, createSignal, For } from 'solid-js'
+import type { Component } from "solid-js";
+import { createSignal, For, onMount } from "solid-js";
 
-const Navbar: Component<{ links: string[] }> = props => {
-  const [current, setCurrent] = createSignal('')
+const Navbar: Component<{ links: string[] }> = (props) => {
+  const [current, setCurrent] = createSignal("");
 
   onMount(() => {
-    getSection()
+    getSection();
 
     window.onscroll = () => {
-      getSection()
-    }
-  })
+      getSection();
+    };
+  });
 
   const getSection = () => {
-    const sections = document.querySelectorAll('div')
+    const sections = document.querySelectorAll("section");
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
       if (window.scrollY + 200 >= sectionTop) {
-        setCurrent(section.getAttribute('id'))
+        setCurrent(section.getAttribute("id"));
       }
-    })
-  }
+    });
+  };
 
   return (
-    <ul class="h-full space-x-3 py-4 pr-2 font-bold uppercase text-gray-300">
+    <ul class="h-full space-x-3 py-4 pr-2 font-bold uppercase" style="color: var(--text-muted);">
       <For each={props.links}>
-        {link => (
-          <li class={`float-right ${current() === link ? 'text-yellow-500' : ''}`}>
-            <a class="block px-2" href={`#${link}`}>
+        {(link) => (
+          <li
+            class={`float-right transition-colors`}
+            style={{
+              color: current() === link ? "var(--accent-strong)" : "var(--text-muted)",
+            }}
+          >
+            <a class="block px-2 hover:opacity-80 transition-opacity" href={`#${link}`}>
               {link}
             </a>
           </li>
         )}
       </For>
     </ul>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

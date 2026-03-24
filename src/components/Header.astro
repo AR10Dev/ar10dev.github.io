@@ -1,22 +1,41 @@
 ---
-import Navbar from '@solid-components/Navbar'
+import Navbar from "@solid-components/Navbar";
 
 export interface Props {
-  background: string
+  background: string;
 }
 
-const { background } = Astro.props as Props
+const { background } = Astro.props as Props;
 
-const links: string[] = ['contact', 'works', 'skill', 'about']
+const links: string[] = ["contact", "results", "work", "about"];
 ---
 
-<header class={`fixed inset-x-0 top-0 z-[1] w-full ${background}`}>
-  <div class="flex max-w-screen-lg p-4 mx-auto bg-gray-900 xl:max-w-screen-xl">
+<header class={`fixed inset-x-0 top-0 z-50 w-full ${background}`} style="border-bottom: 1px solid var(--border-strong);">
+  <div class="flex items-center max-w-screen-lg p-4 mx-auto xl:max-w-screen-xl">
     <h1 class="flex-none w-16 h-16 pl-2">
-      <a href="/"><img src="/pwa-512x512.png" alt="logo" /></a>
+      <a href="/" class="transition-opacity hover:opacity-80">
+        <img
+          src="/pwa-512x512.png"
+          alt="Avaab Razzaq logo"
+          width="64"
+          height="64"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </a>
     </h1>
-    <nav class="flex-grow">
+    <nav class="flex-grow" aria-label="Main navigation">
       <Navbar links={links} client:load />
     </nav>
+    <button
+      id="theme-toggle"
+      type="button"
+      class="ml-3 rounded-md border px-3 py-1.5 text-sm font-semibold transition-all"
+      style="border-color: var(--border-strong); color: var(--text-strong); background: transparent;"
+      aria-pressed="false"
+      aria-label="Toggle color theme"
+    >
+      Dark mode
+    </button>
   </div>
 </header>

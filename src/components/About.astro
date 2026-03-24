@@ -1,11 +1,22 @@
 ---
-import AboutMe from '@markdown-components/AboutMe.mdx'
+import { getEntry, render } from "astro:content";
+
+const entry = await getEntry("about", "about-me");
+
+if (!entry) {
+  throw new Error("Missing content entry: about/about-me.mdx");
+}
+
+const { Content } = await render(entry);
 ---
 
-<div id="about" class="grid gap-4 justify-items-center place-content-center">
-  <section class="max-w-screen-lg mx-auto xl:max-w-screen-xl">
-    <article class="p-8 mx-8 my-8 bg-white border shadow-xl rounded-xl xl:mx-20">
-      <AboutMe />
+<section id="about" class="min-h-screen relative flex items-center justify-center py-16 px-4">
+  <div class="max-w-screen-lg mx-auto xl:max-w-screen-xl w-full">
+    <article class="p-8 md:p-12 rounded-xl shadow-lg" style="background: var(--surface-panel); border: 1px solid var(--border-strong);">
+      <h2 class="text-4xl font-bold text-center mb-8" style="color: var(--text-strong);">About Me</h2>
+      <div class="prose prose-invert max-w-none" style="color: var(--text-muted);">
+        <Content />
+      </div>
     </article>
-  </section>
-</div>
+  </div>
+</section>
