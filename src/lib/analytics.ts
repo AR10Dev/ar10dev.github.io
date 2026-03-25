@@ -10,7 +10,7 @@ declare global {
  */
 export const trackEvent = (
   eventName: string,
-  payload: Record<string, unknown> = {}
+  payload: Record<string, unknown> = {},
 ): void => {
   window.dataLayer ||= [];
   window.dataLayer.push({ event: eventName, ...payload });
@@ -22,7 +22,7 @@ export const trackEvent = (
   window.dispatchEvent(
     new CustomEvent("portfolio:track", {
       detail: { eventName, ...payload },
-    })
+    }),
   );
 
   if (import.meta.env.DEV) {

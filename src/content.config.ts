@@ -1,42 +1,40 @@
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
-import { z } from "astro:schema";
+import { z } from "astro/zod";
 
-const aboutCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/about" }),
+const siteCollection = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/site" }),
   schema: z.object({
-    title: z.string(),
+    brandTitle: z.string(),
+    metaDescription: z.string(),
+    kicker: z.string(),
+    heroLead: z.string(),
+    githubUrl: z.string().url(),
+    responseTime: z.string(),
+    timezone: z.string(),
+    location: z.string(),
+    availability: z.string(),
+    contactEmail: z.string().email(),
+    bookingUrl: z.string().url(),
   }),
 });
 
 const portfolioCollection = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/portfolio" }),
   schema: z.object({
-    order: z.number(),
-    category: z.string(),
+    order: z.number().int().nonnegative(),
     title: z.string(),
+    category: z.string(),
     summary: z.string(),
     impact: z.string(),
     timeframe: z.string(),
     stack: z.array(z.string()),
+    proofUrl: z.string().url(),
     proofLabel: z.string(),
-    proofUrl: z.string(),
-  }),
-});
-
-const testimonialsCollection = defineCollection({
-  loader: glob({ pattern: "**/*.json", base: "./src/content/testimonials" }),
-  schema: z.object({
-    order: z.number().optional(),
-    quote: z.string(),
-    author: z.string(),
-    company: z.string(),
-    year: z.number().optional(),
   }),
 });
 
 export const collections = {
-  about: aboutCollection,
+  site: siteCollection,
   portfolio: portfolioCollection,
-  testimonials: testimonialsCollection,
 };

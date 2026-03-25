@@ -1,11 +1,11 @@
 {
   "order": 1,
-  "category": "AI Workflows",
-  "title": "Multi-Agent Support Automation",
-  "summary": "Designed a triage and response workflow using routing prompts, guardrails, and escalation logic.",
-  "impact": "Reduced first-response time by 43% and repetitive tickets by 31%.",
-  "timeframe": "6-week implementation",
-  "stack": ["OpenAI", "Node.js", "Webhook orchestration", "CRM integration"],
-  "proofLabel": "Architecture approach",
-  "proofUrl": "https://github.com/AR10Dev"
+  "title": "AI Workflow Automation Platform",
+  "category": "Automation",
+  "summary": "Designed a multi-agent workflow that automated lead qualification, follow-up sequencing, and CRM enrichment.",
+  "impact": "Reduced manual ops by 62% while increasing qualified handoffs to sales.",
+  "timeframe": "2025",
+  "stack": ["TypeScript", "Astro", "Bun", "OpenAI API"],
+  "proofUrl": "https://github.com/AR10Dev",
+  "proofLabel": "View implementation"
 }

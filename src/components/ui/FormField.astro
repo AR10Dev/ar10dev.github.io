@@ -1,0 +1,13 @@
+---
+interface Props {
+  label: string;
+  className?: string;
+}
+
+const { label, className = "" } = Astro.props as Props;
+---
+
+<label class={`block text-[0.8rem] font-bold uppercase tracking-[0.07em] text-[var(--card-body)] ${className}`.trim()}>
+  {label}
+  <slot />
+</label>

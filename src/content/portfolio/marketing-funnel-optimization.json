@@ -1,11 +1,11 @@
 {
   "order": 3,
-  "category": "Marketing Campaigns",
-  "title": "Launch Funnel Optimization",
-  "summary": "Connected paid acquisition, lifecycle messaging, and landing page experiments into a single growth loop.",
-  "impact": "Improved landing-page conversion from 2.3% to 4.9% in six weeks.",
-  "timeframe": "6-week optimization sprint",
-  "stack": ["GA4", "A/B testing", "Email automation", "Attribution reporting"],
-  "proofLabel": "Case-study breakdown",
-  "proofUrl": "https://github.com/AR10Dev"
+  "title": "Marketing Funnel Optimization",
+  "category": "Growth",
+  "summary": "Reworked landing page flow, messaging hierarchy, and lifecycle triggers using experiment-backed copy and UX.",
+  "impact": "Lifted conversion rate from 2.1% to 4.9% across high-intent traffic.",
+  "timeframe": "2025",
+  "stack": ["A/B Testing", "GA4", "HubSpot", "Copy Engineering"],
+  "proofUrl": "https://github.com/AR10Dev",
+  "proofLabel": "See growth artifacts"
 }

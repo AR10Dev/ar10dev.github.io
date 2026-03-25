@@ -1,6 +1,8 @@
 {
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
-    //"types": ["@astrojs/client"],
     "baseUrl": "./src",
     "target": "ESNext",
     "module": "ESNext",
@@ -15,8 +17,10 @@
     "verbatimModuleSyntax": true,
     "paths": {
       "@components/*": ["components/*"],
-      "@solid-components/*": ["components/solid/*"],
-      "@markdown-components/*": ["components/markdown/*"]
+      "@layouts/*": ["layouts/*"],
+      "@lib/*": ["lib/*"],
+      "@assets/*": ["assets/*"],
+      "@solid-components/*": ["components/solid/*"]
     }
   }
 }

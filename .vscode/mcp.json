@@ -8,11 +8,7 @@
     "filesystem": {
       "type": "stdio",
       "command": "bunx",
-      "args": [
-        "-y", 
-        "@modelcontextprotocol/server-filesystem", 
-        "/workspaces"
-      ]
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/workspaces"]
     },
     "typescript-lsp": {
       "type": "stdio",

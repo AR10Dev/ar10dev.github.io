@@ -4,26 +4,23 @@
  */
 export const setupRevealObserver = (): (() => void) => {
   const revealNodes = document.querySelectorAll<HTMLElement>("[data-reveal]");
+  const revealRoot = document.querySelector<HTMLElement>("#main-content");
 
   if (revealNodes.length === 0) {
     return () => {};
   }
 
   const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
+    (entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
+        entry.target.classList.toggle("is-visible", entry.isIntersecting);
       });
     },
     {
-      rootMargin: "0px 0px -12% 0px",
-      threshold: 0.16,
-    }
+      root: revealRoot,
+      rootMargin: "-8% 0px -8% 0px",
+      threshold: 0.22,
+    },
   );
 
   revealNodes.forEach((node) => {
@@ -37,7 +34,7 @@ export const setupRevealObserver = (): (() => void) => {
  * Sets up event tracking for elements with [data-track] attribute.
  */
 export const setupTracking = (
-  trackEvent: (eventName: string, payload: Record<string, unknown>) => void
+  trackEvent: (eventName: string, payload: Record<string, unknown>) => void,
 ): (() => void) => {
   const trackables = document.querySelectorAll<HTMLElement>("[data-track]");
   const cleanupFns: Array<() => void> = [];
@@ -59,6 +56,6 @@ export const setupTracking = (
   });
 
   return () => {
-    cleanupFns.forEach((cleanupFn) => cleanupFn());
+    cleanupFns.forEach((cleanupFn) => void cleanupFn());
   };
 };

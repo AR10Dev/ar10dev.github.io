@@ -1,77 +1,390 @@
 ---
+import { getCollection, getEntry } from "astro:content";
+import {
+  BUTTON_CLASSES,
+  CONTAINER_CLASSES,
+  FORM_CLASSES,
+  TYPOGRAPHY_CLASSES,
+} from "@lib/constants";
 import { SEO } from "astro-seo";
 import "../styles/global.css";
 
-import About from "@components/About.astro";
-import Contact from "@components/Contact.astro";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
-import Portfolio from "@components/Portfolio.astro";
-import Testimonials from "@components/Testimonials.astro";
-import Type from "@components/Type.astro";
+import SocialLinks from "@components/SocialLinks.astro";
+import FeatureCard from "@components/ui/FeatureCard.astro";
+import FormField from "@components/ui/FormField.astro";
+import Typer from "@solid-components/Typer";
 
-const title = `Avaab Razzaq - AI-Driven Growth Engineer`;
-const description = `I build intelligent AI systems and the marketing engines that scale them.`;
+const headerBackground =
+  "bg-[var(--surface-elevated)]/90 backdrop-blur supports-[backdrop-filter]:bg-[var(--surface-elevated)]/75 border-b border-[var(--border-strong)]";
+
+// Use centralized class constants
+const kickerClass = TYPOGRAPHY_CLASSES.kicker;
+const titleClass = TYPOGRAPHY_CLASSES.title;
+const copyClass = TYPOGRAPHY_CLASSES.body;
+const primaryButtonClass = `${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`;
+const secondaryButtonClass = `${BUTTON_CLASSES.base} ${BUTTON_CLASSES.secondary}`;
+const leadInputClass = FORM_CLASSES.input;
+
+const homepageEntry = await getEntry("site", "homepage");
+if (!homepageEntry) {
+  throw new Error("Missing content entry: site/homepage.json");
+}
+
+const homepage = homepageEntry.data;
+
+const portfolioItems = (await getCollection("portfolio")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const siteUrl = "https://ar10dev.github.io";
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
+const linkedInUrl = "https://www.linkedin.com/in/ar10dev";
+const rolePhrases = [
+  "an AI Growth Engineer.",
+  "an Automations Architect.",
+  "a Full-Stack Web Developer.",
+  "an SEO and Marketing Strategist.",
+];
+const socialLinks = [
+  {
+    kind: "linkedin" as const,
+    href: linkedInUrl,
+    label: "LinkedIn",
+    trackId: "open_linkedin_hero",
+  },
+  {
+    kind: "github" as const,
+    href: homepage.githubUrl,
+    label: "GitHub",
+    trackId: "open_github_hero",
+  },
+];
+
+const heroFeatures = [
+  {
+    title: "Full-Stack Apps",
+    body: "Modern, fast websites and apps built with modern frameworks and tools.",
+  },
+  {
+    title: "AI Automations",
+    body: "Custom LLM integrations, chatbots, and internal workflows that remove manual bottlenecks.",
+  },
+  {
+    title: "SEO Growth",
+    body: "Technical SEO and marketing systems built to capture demand and convert qualified traffic.",
+  },
+];
+
+const serviceItems = [
+  {
+    title: "AI Integrations and Automation",
+    body: "Stop doing manual work. I build secure internal tools and custom ChatGPT-style interfaces connected to your private business data.",
+  },
+  {
+    title: "High-Performance Web Apps",
+    body: "Slow websites lose money. I develop blazing-fast, secure web applications using modern frameworks like Astro and SolidJS.",
+  },
+  {
+    title: "SEO and Growth Engines",
+    body: "Traffic is useless without conversion. I build programmatic SEO engines and lead-generation funnels that turn visitors into paying customers.",
+  },
+];
+
+// Enhanced structured data with additional context
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}#person`,
+      name: "Avaab Razzaq",
+      alternateName: "AR10Dev",
+      jobTitle: "AI-Driven Growth Engineer",
+      url: siteUrl,
+      image: ogImage,
+      sameAs: [homepage.githubUrl, linkedInUrl],
+      knowsAbout: [
+        "AI workflow automation",
+        "Prompt engineering",
+        "Full-stack development",
+        "Conversion optimization",
+        "Growth marketing",
+        "Technical SEO",
+      ],
+      worksFor: {
+        "@type": "Organization",
+        name: "Independent Consultant",
+      },
+      hasCredential: [],
+      offers: [
+        {
+          "@type": "Offer",
+          name: "AI Integrations and Automation",
+          description:
+            "Custom LLM integrations and workflow automation services",
+        },
+        {
+          "@type": "Offer",
+          name: "Full-Stack Web Development",
+          description:
+            "Modern web applications with Astro, SolidJS, and cloud infrastructure",
+        },
+        {
+          "@type": "Offer",
+          name: "SEO and Growth Strategy",
+          description: "Technical SEO and programmatic marketing systems",
+        },
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}#website`,
+      name: homepage.brandTitle,
+      url: siteUrl,
+      description: homepage.metaDescription,
+      inLanguage: "en-US",
+      publisher: {
+        "@id": `${siteUrl}#person`,
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: siteUrl,
+        },
+      ],
+    },
+  ],
+};
 ---
 
-<html lang="en" class="scroll-smooth" style="background: radial-gradient(circle at 12% 15%, var(--bg-mesh-a), transparent 40%), radial-gradient(circle at 86% 28%, var(--bg-mesh-b), transparent 42%), var(--bg-canvas); background-attachment: fixed;">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
     />
+    <meta name="description" content={homepage.metaDescription} />
+    <meta name="keywords" content="AI, growth engineering, full-stack development, SEO, automation, web apps" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Avaab Razzaq" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <SEO {title} {description} />
-    <meta name="theme-color" content="#000000" />
-  </head>
-  <body class="site-shell select-none">
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <SEO title={homepage.brandTitle} description={homepage.metaDescription} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={homepage.brandTitle} />
+    <meta property="og:description" content={homepage.metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={homepage.brandTitle} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={homepage.brandTitle} />
+    <meta name="twitter:description" content={homepage.metaDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="theme-color" content="#0e2a47" />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
     <script is:inline>
-      // Initialize theme immediately to prevent flash
-      const storedTheme = localStorage?.getItem?.("theme");
-      if (storedTheme === "dark" || (!storedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-        document.documentElement.classList.add("dark");
-      }
+      document.documentElement.classList.add("js");
     </script>
-    <Header background="bg-[color-mix(in_srgb,var(--surface-elevated)_92%,transparent)]" />
-    <section
-      id="hero"
-      class="relative min-h-screen grid items-center justify-center pt-24 pb-12 px-4"
-    >
-      <div class="max-w-screen-lg mx-auto text-center xl:max-w-screen-xl">
-        <p class="text-[var(--accent-strong)] font-semibold mb-4 text-lg">AI-Driven Growth Engineer</p>
-        <h1 class="font-bold text-6xl md:text-7xl mb-4 text-[var(--text-strong)]">Avaab Razzaq</h1>
-        <h3 class="text-2xl md:text-3xl font-semibold text-[var(--text-muted)] mb-8">
-          I'm a <Type />
-        </h3>
-        <p class="text-base md:text-lg text-[var(--text-muted)] max-w-2xl mx-auto mb-8">
-          I combine agent design, full-stack product engineering, and conversion-focused marketing to help teams launch faster and grow smarter.
-        </p>
-        <div class="flex gap-4 justify-center flex-wrap">
-          <a 
-            href="https://cal.com/ar10dev"
-            class="px-8 py-3 bg-[var(--accent-strong)] text-[var(--accent-contrast)] font-semibold rounded-lg hover:opacity-90 transition-all"
-          >
-            Book a Strategy Call
-          </a>
-          <a 
-            href="#work"
-            class="px-8 py-3 border-2 border-[var(--accent-strong)] text-[var(--accent-strong)] font-semibold rounded-lg hover:bg-[var(--accent-strong)] hover:text-[var(--accent-contrast)] transition-all"
-          >
-            Explore Case Studies
-          </a>
+  </head>
+  <body class="site-shell">
+    <a href="#main-content" class="absolute left-4 top-[-100%] z-[200] rounded-[0.6rem] border border-[var(--border-strong)] bg-[var(--surface-panel)] px-[0.85rem] py-[0.55rem] font-bold text-[var(--text-strong)] focus-visible:top-[0.8rem]">Skip to main content</a>
+    <Header background={headerBackground} />
+
+    <main id="main-content" tabindex="-1">
+      <section id="home" class="slide-section home-slide section-size-home relative overflow-hidden" aria-labelledby="hero-title">
+        <div class="home-stack mx-auto w-full max-w-screen-xl px-6">
+          <div class="w-full">
+            <div>
+              <p class={kickerClass}>{homepage.kicker}</p>
+              <h1 id="hero-title" class={TYPOGRAPHY_CLASSES.heroTitle}>
+                Avaab Razzaq
+              </h1>
+              <p class={TYPOGRAPHY_CLASSES.subheading}>
+                <span class="typing-fallback">I am an AI Growth Engineer.</span>
+                <span class="typing-live" aria-hidden="true">
+                  I am <Typer text={rolePhrases} cursor loop typingSpeed={90} backspaceSpeed={80} typingPause={1300} client:load />
+                </span>
+                <span class="sr-only">
+                  I am an AI Growth Engineer. I am an Automations Architect. I am a Full-Stack Web Developer. I am an SEO and Marketing Strategist.
+                </span>
+              </p>
+              <p class={`mt-6 w-full text-pretty ${copyClass}`}>
+                {homepage.heroLead}
+              </p>
+              <div class="mt-10 flex flex-wrap gap-4">
+                <a href="#contact" class={primaryButtonClass} data-track="cta_hero_primary">Book a Discovery Call</a>
+                <a href="#work" class={secondaryButtonClass} data-track="cta_hero_secondary">See Case Studies</a>
+              </div>
+              <SocialLinks links={socialLinks} variant="icon" className="mt-[clamp(0.95rem,2.2vh,1.45rem)] gap-[0.62rem]" />
+            </div>
+          </div>
+          <div class="mt-10 grid gap-4 md:grid-cols-3">
+            {heroFeatures.map((feature) => (
+              <FeatureCard title={feature.title} body={feature.body} titleTag="p" />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-    <About />
-    <Portfolio />
-    <Testimonials />
-    <Contact />
+      </section>
+
+      <section id="services" class="slide-section pb-8" aria-labelledby="services-title">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <div class={`rounded-[var(--card-radius)] border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-5 shadow-[var(--card-shadow)] md:p-7`}>
+            <h2 id="services-title" class={`${titleClass} text-[var(--card-heading)]`}>Services and Solutions</h2>
+            <p class={`mt-4 max-w-3xl ${copyClass}`}>
+              I help businesses build scalable web apps, integrate AI to save time, and drive aggressive growth through technical SEO.
+            </p>
+            <div class="mt-8 grid gap-5 lg:grid-cols-3">
+              {serviceItems.map((service) => (
+                <FeatureCard
+                  title={service.title}
+                  body={service.body}
+                  titleClassName="text-[1.06rem]"
+                  bodyClassName="text-[0.95rem]"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="slide-section work-slide section-size-work" aria-labelledby="work-title">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <h2 id="work-title" class={titleClass}>Proof-of-Concept Builds</h2>
+            <a
+              class="text-sm font-semibold uppercase tracking-[0.1em] text-[var(--accent-strong)]"
+              href={homepage.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="open_github_architecture"
+              aria-label="View GitHub architecture (opens in new tab)"
+            >
+              View GitHub architecture
+            </a>
+          </div>
+          <p class={`mt-4 max-w-3xl ${copyClass}`}>
+            No client history required. These projects are engineered demos that show exactly what I can build and deploy for your business right now.
+          </p>
+          <div class="mt-8 grid auto-rows-fr grid-cols-[repeat(auto-fit,minmax(min(100%,19.5rem),1fr))] gap-6">
+            {portfolioItems.map((item) => (
+              <article class="flex h-full min-h-[clamp(18rem,34vh,22rem)] flex-col gap-[0.28rem] rounded-[var(--card-radius)] border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-[1.35rem] shadow-[var(--card-shadow)]" itemscope itemtype="https://schema.org/SoftwareApplication">
+                <p class="m-0 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[var(--card-label)]" itemprop="applicationCategory">{item.data.category}</p>
+                <h3 class="mt-[0.42rem] font-['Sora','Segoe_UI',sans-serif] text-[1.25rem] font-bold leading-[1.35] text-[var(--card-heading)]" itemprop="name">{item.data.title}</h3>
+                <p class="mt-[0.58rem] text-[0.67rem] font-bold uppercase tracking-[0.16em] text-[var(--card-label)]">What This Solves</p>
+                <p class="text-[0.93rem] leading-[1.62] text-[var(--card-body)]">This PoC demonstrates a practical workflow for teams that need {item.data.category.toLowerCase()} execution without hiring a large dev team.</p>
+                <p class="mt-[0.58rem] text-[0.67rem] font-bold uppercase tracking-[0.16em] text-[var(--card-label)]">How It Is Built</p>
+                <p class="text-[0.82rem] leading-[1.55] text-[var(--card-body)]">Built with {item.data.stack.join(" | ")} and structured for production-ready extension.</p>
+                <p class="mt-[0.58rem] text-[0.67rem] font-bold uppercase tracking-[0.16em] text-[var(--card-label)]">What You Can Deploy</p>
+                <p class="text-[0.92rem] font-semibold leading-[1.5] text-[var(--card-label)]">A launch-ready foundation that can be adapted to your stack, data model, and growth goals.</p>
+                <a
+                  href={item.data.proofUrl}
+                  class="mt-auto inline-block pt-[0.95rem] text-[0.8rem] font-bold uppercase tracking-[0.06em] text-[var(--card-label)] hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-track={`open_proof_${item.id}`}
+                  aria-label={`View ${item.data.title} - ${item.data.proofLabel} (opens in new tab)`}
+                >
+                  {item.data.proofLabel}
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="slide-section pt-10 pb-20" aria-labelledby="contact-title">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <div class={`rounded-[var(--card-radius)] border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-[clamp(1.4rem,2.6vw,2.3rem)] shadow-[var(--card-shadow)]`}>
+            <div class="grid items-start gap-[clamp(1.25rem,2.3vw,2rem)] min-[980px]:grid-cols-[1.1fr_0.9fr]">
+              <div class="max-w-[38rem]">
+                <p class={kickerClass}>Clear next step</p>
+                <h2 id="contact-title" class={`mt-4 text-[var(--card-heading)] ${titleClass}`}>Need a partner who can ship and scale?</h2>
+                <p class={`mt-4 max-w-xl ${copyClass}`}>
+                  Share your product and growth goals, and I will propose a focused roadmap for automation, engineering, and conversion optimization.
+                </p>
+                <ul class="mt-6 list-inside list-disc space-y-1 text-[var(--card-body)]" aria-label="Engagement trust signals">
+                  <li>{homepage.responseTime}</li>
+                  <li>Timezone: {homepage.timezone}</li>
+                  <li>Location: {homepage.location}</li>
+                  <li>{homepage.availability}</li>
+                </ul>
+                <div class="mt-8 flex flex-wrap items-center gap-4">
+                  <a class={primaryButtonClass} href={`mailto:${homepage.contactEmail}`} data-track="cta_contact_email">Contact me</a>
+                  <a
+                    class={secondaryButtonClass}
+                    href={homepage.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track="cta_booking_link"
+                    aria-label="Book a calendar slot (opens in new tab)"
+                  >
+                    Book a calendar slot
+                  </a>
+                  <a
+                    class={secondaryButtonClass}
+                    href={linkedInUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track="open_linkedin_profile"
+                    aria-label="Open LinkedIn profile (opens in new tab)"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+              <div class="rounded-[1rem] border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-[clamp(1rem,2vw,1.4rem)]">
+                <p class={`${kickerClass} text-[0.68rem] tracking-[0.2em]`}>Project intake</p>
+                <form class="mt-4" method="POST" data-track="submit_lead_form" name="lead-capture">
+                  <input type="hidden" name="form-name" value="lead-capture" />
+                  <div class="grid gap-3 md:grid-cols-2">
+                    <FormField label="Name">
+                      <input class={leadInputClass} type="text" name="name" required aria-required="true" />
+                    </FormField>
+                    <FormField label="Email">
+                      <input class={leadInputClass} type="email" name="email" required aria-required="true" />
+                    </FormField>
+                  </div>
+                  <FormField label="What do you need help with?" className="mt-3">
+                    <select class={leadInputClass} name="projectType" required aria-required="true">
+                      <option value="">Select one...</option>
+                      <option value="ai-app">Need an AI App built</option>
+                      <option value="seo-growth">Need SEO growth</option>
+                      <option value="fullstack-product">Need a Full-Stack product</option>
+                      <option value="automation">Need workflow automation</option>
+                    </select>
+                  </FormField>
+                  <FormField label="Project brief" className="mt-3">
+                    <textarea class={leadInputClass} name="message" rows={4} required aria-required="true"></textarea>
+                  </FormField>
+                  <button class={`${primaryButtonClass} mt-4 w-full`} type="submit">Send project inquiry</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <Footer />
     <script>
       import "../scripts/homepage";
-      import "../scripts/scroll-reveal";
     </script>
+
+
   </body>
 </html>

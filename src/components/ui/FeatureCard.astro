@@ -1,0 +1,30 @@
+---
+import { CARD_CLASSES } from "@lib/constants";
+
+interface Props {
+  title: string;
+  body: string;
+  titleTag?: "h3" | "p";
+  className?: string;
+  titleClassName?: string;
+  bodyClassName?: string;
+}
+
+const {
+  title,
+  body,
+  titleTag = "h3",
+  className = "",
+  titleClassName = "text-[1.08rem]",
+  bodyClassName = "text-[0.95rem]",
+} = Astro.props as Props;
+
+const TitleTag = titleTag;
+---
+
+<article class={`flex flex-col gap-2 ${CARD_CLASSES.base} ${CARD_CLASSES.compact} ${className}`.trim()}>
+  <TitleTag class={`m-0 font-['Sora','Segoe_UI',sans-serif] font-bold leading-[1.35] text-[var(--card-heading)] ${titleClassName}`.trim()}>
+    {title}
+  </TitleTag>
+  <p class={`m-0 leading-[1.62] text-[var(--card-body)] ${bodyClassName}`.trim()}>{body}</p>
+</article>

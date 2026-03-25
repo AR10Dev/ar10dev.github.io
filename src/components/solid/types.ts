@@ -1,10 +1,8 @@
-import type { JSX } from "solid-js";
 export type TypewriterDirection = "forward" | "backward";
 
 export interface TyperProps {
   // Styling
   className?: string; // The outer class that wraps all the text.
-  style?: JSX.CSSProperties; // An optional style object to pass directly to the outer span.
   cursorClassName?: string; // A className that is passed to the cursor
 
   // Common general parameters

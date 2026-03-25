@@ -1,13 +1,34 @@
-<footer class="border-t" style="border-color: var(--border-strong); background: var(--surface-elevated); color: var(--text-muted); padding: 2rem 0;">
+---
+import SocialLinks from "@components/SocialLinks.astro";
+
+const currentYear = new Date().getFullYear();
+const socialLinks = [
+  {
+    kind: "linkedin" as const,
+    href: "https://www.linkedin.com/in/ar10dev",
+    label: "LinkedIn",
+  },
+  {
+    kind: "github" as const,
+    href: "https://github.com/AR10Dev",
+    label: "GitHub",
+  },
+];
+---
+
+<footer class="border-t border-[var(--border-strong)] bg-[var(--surface-elevated)] py-8 text-[var(--text-muted)]">
   <div class="mx-auto grid max-w-screen-xl gap-2 px-6 text-center">
-    <p class="text-sm">Copyright © 2026 Avaab Razzaq All rights reserved</p>
     <p class="text-sm">
-    Made with ❤️ by <a
-      class="font-bold transition-colors duration-200"
-      href="https://github.com/AR10Dev"
-      style="color: var(--accent-strong);"
-      >Avaab Razzaq (AR10Dev)
-    </a>
+      Copyright &copy; {currentYear} <span class="font-semibold">Avaab Razzaq</span>. All rights reserved.
+    </p>
+    <SocialLinks links={socialLinks} variant="text" className="justify-center" />
+    <p class="text-sm">
+      Made by <a
+        class="font-bold text-[var(--accent-strong)] transition-colors duration-200 hover:underline"
+        href="https://github.com/AR10Dev"
+        rel="me"
+        >Avaab Razzaq (AR10Dev)
+      </a>
     </p>
   </div>
 </footer>

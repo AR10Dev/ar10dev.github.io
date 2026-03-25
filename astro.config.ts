@@ -1,13 +1,19 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import solid from "@astrojs/solid-js";
+import tailwindcss from "@tailwindcss/vite";
 import AstroPWA from "@vite-pwa/astro";
 import { defineConfig } from "astro/config";
 import robotsTxt from "astro-robots-txt";
 
+const tailwindPlugin = tailwindcss() as unknown as never;
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://ar10dev.github.io/", // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
+  vite: {
+    plugins: [tailwindPlugin],
+  },
   integrations: [
     solid(),
     mdx(),

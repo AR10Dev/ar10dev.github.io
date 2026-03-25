@@ -1,16 +1,13 @@
 {
   "brandTitle": "Avaab Razzaq | AI-Driven Growth Engineer",
-  "metaDescription": "I build intelligent AI systems and the marketing engines that scale them.",
-  "kicker": "AI-Driven Growth Engineer",
-  "heroHeadline": "I build intelligent AI systems and the marketing engines that scale them.",
-  "heroLead": "I combine agent design, full-stack product engineering, and conversion-focused marketing to help teams launch faster and grow smarter.",
-  "primaryCtaLabel": "Book a strategy call",
-  "secondaryCtaLabel": "Explore case studies",
+  "metaDescription": "I build AI-powered workflows, full-stack products, and growth systems that increase conversion and operational speed.",
+  "kicker": "AI strategy x product execution",
+  "heroLead": "From prompt architecture to production engineering and conversion optimization, I help teams launch faster and scale with confidence.",
   "githubUrl": "https://github.com/AR10Dev",
-  "bookingUrl": "https://cal.com/ar10dev",
+  "responseTime": "Typical response time: under 24 hours",
+  "timezone": "ET (UTC-5/UTC-4)",
+  "location": "Miami, Florida",
+  "availability": "Available for freelance and advisory engagements",
   "contactEmail": "hello@ar10.dev",
-  "timezone": "Pakistan Standard Time (UTC+5)",
-  "responseTime": "Replies within 24 hours on business days",
-  "location": "Pakistan",
-  "availability": "Open for consulting and product partnerships"
+  "bookingUrl": "https://cal.com/ar10dev"
 }

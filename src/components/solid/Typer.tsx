@@ -24,9 +24,8 @@ import type { TyperProps, TypewriterDirection } from "./types";
  * />
  * ```
  */
-const Typer: Component = ({
+const Typer: Component<TyperProps> = ({
   className,
-  style,
   cursorClassName = "cursor",
   text,
   loop,
@@ -55,43 +54,49 @@ const Typer: Component = ({
   const [finished, setFinished] = createSignal(false);
   // Variable for when the typewriter is paused
   const [paused, setPaused] = createSignal(false);
+  let timerId: number | undefined;
+
+  const scheduleNextTick = (delay: number) => {
+    timerId = window.setTimeout(() => {
+      if (finished()) {
+        return;
+      }
+
+      if (paused()) {
+        setPaused(false);
+        scheduleNextTick(
+          direction() === "forward" ? backspacePause : typingPause,
+        );
+        return;
+      }
+
+      typewrite();
+      scheduleNextTick(
+        direction() === "forward" ? typingSpeed : backspaceSpeed,
+      );
+    }, delay);
+  };
 
   onMount(() => {
-    // Initialize the current line
-    setCurrentLine(typeof text === "string" ? text : text[0]);
-    // Run the typing time loop with or without a start delay
-    if (startDelay) {
-      setTimeout(() => {
-        timeLoop(typingSpeed);
-      }, startDelay);
-    } else {
-      timeLoop(typingSpeed);
+    const initialLine = typeof text === "string" ? text : (text[0] ?? "");
+    setCurrentLine(initialLine);
+
+    // If no text is provided, avoid running an empty loop.
+    if (!initialLine) {
+      setFinished(true);
+      return;
     }
+
+    scheduleNextTick(startDelay ?? typingSpeed);
   });
 
   onCleanup(() => {
     // Cleanup component to end the loop when it is unmounted
     setFinished(true);
-  });
-
-  /**
-   * Loop that runs continuously or until the typewrite is finished.
-   * @param {number} intervalTime - The time of each timeout interval.
-   */
-  function timeLoop(intervalTime: number) {
-    if (!finished()) {
-      // Run timeout interval unless the animation is finished
-      setTimeout(() => {
-        if (paused()) {
-          setPaused(false); // Ensure next interval is not paused
-          timeLoop(direction() === "forward" ? backspacePause : typingPause);
-        } else {
-          typewrite();
-          timeLoop(direction() === "forward" ? typingSpeed : backspaceSpeed);
-        }
-      }, intervalTime);
+    if (timerId !== undefined) {
+      window.clearTimeout(timerId);
     }
-  }
+  });
 
   /**
    * Run a single typing animation, forwards or backwards
@@ -154,8 +159,9 @@ const Typer: Component = ({
           setCurrentLine(text[0]);
         } else {
           // Move to the next line...
-          setCurrentLineIndex(currentLineIndex() + 1);
-          setCurrentLine(text[currentLineIndex()]);
+          const nextLineIndex = currentLineIndex() + 1;
+          setCurrentLineIndex(nextLineIndex);
+          setCurrentLine(text[nextLineIndex]);
         }
       }
       // We are at the beginning so we need to change direction, and switch lines if using multiple lines
@@ -171,7 +177,7 @@ const Typer: Component = ({
   }
 
   return (
-    <span class={className} style={style}>
+    <span class={className}>
       {currentText()}
       <Show when={cursor && !finished()}>
         <span class={cursorClassName}>|</span>

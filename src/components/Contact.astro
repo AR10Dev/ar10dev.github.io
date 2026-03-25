@@ -1,76 +1,63 @@
 ---
-interface HomepageConfig {
-  contactEmail: string;
-  timezone: string;
-  responseTime: string;
-  location: string;
-  availability: string;
-  bookingUrl: string;
-  githubUrl: string;
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  homepage: CollectionEntry<"site">["data"];
 }
 
-const config: HomepageConfig = {
-  contactEmail: "hello@ar10.dev",
-  timezone: "Pakistan Standard Time (UTC+5)",
-  responseTime: "Replies within 24 hours on business days",
-  location: "Pakistan",
-  availability: "Open for consulting and product partnerships",
-  bookingUrl: "https://cal.com/ar10dev",
-  githubUrl: "https://github.com/AR10Dev",
-};
+const { homepage } = Astro.props as Props;
 ---
 
-<section id="contact" class="min-h-screen relative flex items-center justify-center py-16 px-4">
-  <div class="max-w-screen-lg mx-auto xl:max-w-screen-xl w-full">
-    <h2 class="text-4xl font-bold text-center mb-8" style="color: var(--text-strong);">Get in Touch</h2>
-    <p class="text-center text-lg max-w-2xl mx-auto mb-12" style="color: var(--text-muted);">
+<section id="contact" data-reveal="up">
+  <div class="section-content max-w-screen-lg mx-auto xl:max-w-screen-xl w-full">
+    <p class="mx-auto mb-6 max-w-2xl text-center text-lg text-[var(--text-muted)]">
       Let's talk about how I can help with your next project. Whether it's building intelligent AI systems or scaling your growth.
     </p>
 
-    <div class="grid gap-8 md:grid-cols-2 mb-12">
-      <div class="rounded-lg p-8" style="background: var(--surface-elevated); border: 1px solid var(--border-strong);">
-        <h3 class="text-xl font-semibold mb-4" style="color: var(--text-strong);">Quick Info</h3>
+    <div class="mb-6 grid gap-4 md:grid-cols-2">
+      <div class="rounded-lg border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_80%,transparent)] p-6 shadow-[0_10px_26px_rgba(0,0,0,0.2)] backdrop-blur-sm">
+        <h3 class="mb-4 text-xl font-semibold text-[var(--text-strong)]">Quick Info</h3>
         <div class="space-y-4">
           <div>
-            <p class="text-sm" style="color: var(--accent-strong);">Location</p>
-            <p class="text-base font-medium" style="color: var(--text-strong);">{config.location}</p>
+            <p class="text-sm text-[var(--accent-strong)]">Location</p>
+            <p class="text-base font-medium text-[var(--text-strong)]">{homepage.location}</p>
           </div>
           <div>
-            <p class="text-sm" style="color: var(--accent-strong);">Timezone</p>
-            <p class="text-base font-medium" style="color: var(--text-strong);">{config.timezone}</p>
+            <p class="text-sm text-[var(--accent-strong)]">Timezone</p>
+            <p class="text-base font-medium text-[var(--text-strong)]">{homepage.timezone}</p>
           </div>
           <div>
-            <p class="text-sm" style="color: var(--accent-strong);">Response Time</p>
-            <p class="text-base font-medium" style="color: var(--text-strong);">{config.responseTime}</p>
+            <p class="text-sm text-[var(--accent-strong)]">Response Time</p>
+            <p class="text-base font-medium text-[var(--text-strong)]">{homepage.responseTime}</p>
           </div>
         </div>
       </div>
 
-      <div class="rounded-lg p-8" style="background: color-mix(in srgb, var(--surface-elevated) 95%, var(--accent-strong)); border: 1px solid var(--border-strong);">
-        <h3 class="text-xl font-semibold mb-4" style="color: var(--text-strong);">Availability</h3>
-        <p class="text-base mb-6" style="color: var(--text-muted);">{config.availability}</p>
+      <div class="rounded-lg border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_80%,transparent)] p-6 shadow-[0_10px_26px_rgba(0,0,0,0.2)] backdrop-blur-sm">
+        <h3 class="mb-4 text-xl font-semibold text-[var(--text-strong)]">Availability</h3>
+        <p class="mb-6 text-base text-[var(--text-muted)]">{homepage.availability}</p>
         <a
-          href={config.bookingUrl}
-          class="inline-block font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition-all"
-          style="background: var(--accent-strong); color: var(--accent-contrast);"
+          href={homepage.bookingUrl}
+          data-track="cta_booking_link"
+          class="inline-block rounded-lg bg-[var(--accent-strong)] px-6 py-3 font-semibold text-[var(--accent-contrast)] transition-all hover:opacity-90"
         >
           Book a Strategy Call
         </a>
       </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
+    <div class="flex flex-wrap items-center justify-center gap-3 sm:flex-row">
       <a
-        href={`mailto:${config.contactEmail}`}
-        class="px-6 py-3 font-semibold rounded-lg transition-all"
-        style="background: var(--surface-elevated); color: var(--text-strong); border: 1px solid var(--border-strong);"
+        href={`mailto:${homepage.contactEmail}`}
+        data-track="cta_contact_email"
+        class="rounded-lg border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_80%,transparent)] px-6 py-3 font-semibold text-[var(--text-strong)] shadow-[0_8px_18px_rgba(0,0,0,0.16)] backdrop-blur-sm transition-all"
       >
-        Email: {config.contactEmail}
+        Email: {homepage.contactEmail}
       </a>
       <a
-        href={config.githubUrl}
-        class="px-6 py-3 font-semibold rounded-lg transition-all"
-        style="background: var(--surface-panel); color: var(--text-strong); border: 1px solid var(--border-strong);"
+        href={homepage.githubUrl}
+        data-track="open_github_profile"
+        class="rounded-lg border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_88%,transparent)] px-6 py-3 font-semibold text-[var(--text-strong)] shadow-[0_8px_18px_rgba(0,0,0,0.16)] backdrop-blur-sm transition-all"
       >
         GitHub
       </a>

@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "description": "AR10Dev Github Page",
-  "main": "src/pages/index.astro",
   "author": "AR10Dev",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
+    "check": "astro check",
     "preview": "astro preview",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
@@ -20,16 +20,14 @@
     "@astrojs/sitemap": "3.7.1",
     "@astrojs/solid-js": "6.0.1",
     "@biomejs/biome": "2.4.8",
-    "@tailwindcss/postcss": "4.2.2",
+    "@tailwindcss/typography": "0.5.16",
+    "@tailwindcss/vite": "4.2.2",
     "@vite-pwa/astro": "1.2.0",
     "astro-robots-txt": "1.0.0",
     "astro-seo": "1.1.0",
-    "autoprefixer": "10.4.14",
     "cspell": "9.7.0",
-    "postcss": "8.5.8",
     "tailwindcss": "4.2.2",
-    "typescript": "6.0.2",
-    "vite": "8.0.1"
+    "typescript": "6.0.2"
   },
   "dependencies": {
     "astro": "6.0.8",
