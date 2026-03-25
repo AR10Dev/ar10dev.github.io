@@ -1,4 +1,4 @@
-name: pages-build-deployment
+name: Deploy to GitHub Pages
 on:
   push:
     branches:
@@ -18,27 +18,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v4
+      - name: Checkout your repository using git
+        uses: actions/checkout@v5
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
-
-      - name: Build 🔧
-        run: bun run build
-
-      - name: Upload Pages Artifact 🚀
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist/
+      - name: Install, build, and upload your site
+        uses: withastro/action@v5
 
   deploy:
     needs: build
@@ -47,6 +31,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages 🚀
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
