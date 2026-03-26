@@ -1,29 +1,41 @@
 /**
- * Sets up intersection observer for reveal animations.
+ * Sets up intersection observer for reveal - animations removed.
  * Elements with [data-reveal] attribute will have 'is-visible' class added when they come into view.
+ * Elements with [data-reveal-list] will trigger class additions on their children.
  */
 export const setupRevealObserver = (): (() => void) => {
   const revealNodes = document.querySelectorAll<HTMLElement>("[data-reveal]");
+  const revealListNodes = document.querySelectorAll<HTMLElement>("[data-reveal-list]");
   const revealRoot = document.querySelector<HTMLElement>("#main-content");
 
-  if (revealNodes.length === 0) {
+  if (revealNodes.length === 0 && revealListNodes.length === 0) {
     return () => {};
   }
+
+  const observerOptions = {
+    root: revealRoot,
+    rootMargin: "-8% 0px -8% 0px",
+    threshold: 0.15,
+  };
 
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         entry.target.classList.toggle("is-visible", entry.isIntersecting);
+        
+        if (entry.isIntersecting && entry.target.getAttribute("data-reveal-list")) {
+          entry.target.classList.add("is-visible");
+        }
       });
     },
-    {
-      root: revealRoot,
-      rootMargin: "-8% 0px -8% 0px",
-      threshold: 0.22,
-    },
+    observerOptions,
   );
 
   revealNodes.forEach((node) => {
+    revealObserver.observe(node);
+  });
+
+  revealListNodes.forEach((node) => {
     revealObserver.observe(node);
   });
 

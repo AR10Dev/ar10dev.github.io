@@ -183,12 +183,12 @@ const Navbar: Component<NavbarProps> = (props) => {
   });
 
   const baseClass =
-    "inline-flex items-center justify-center rounded-[0.65rem] border border-transparent px-[0.7rem] py-[0.42rem] text-[0.73rem] tracking-[0.06em] text-[var(--text-muted)] transition-[color,border-color,background] duration-200 hover:border-[var(--border-strong)] hover:bg-[color-mix(in_srgb,var(--surface-panel)_76%,transparent)] hover:text-[var(--text-strong)]";
+    "inline-flex items-center justify-center rounded-[0.65rem] border border-transparent px-[0.7rem] py-[0.42rem] text-[0.73rem] tracking-[0.06em] text-[var(--text-muted)] hover:border-[var(--border-strong)] hover:bg-[color-mix(in_srgb,var(--surface-panel)_76%,transparent)] hover:text-[var(--text-strong)]";
   const activeClass =
     "text-[var(--accent-contrast)] border-[color-mix(in_srgb,var(--accent-strong)_70%,var(--border-strong))] bg-[color-mix(in_srgb,var(--accent-strong)_86%,#10243d)] shadow-[0_0_0_1px_color-mix(in_srgb,var(--accent-strong)_55%,transparent)]";
 
   return (
-    <ul class="ml-auto flex h-full items-center justify-end gap-1 rounded-xl border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_84%,transparent)] px-1 py-1 font-bold uppercase shadow-[0_10px_24px_rgba(15,23,42,0.08)] transition-colors duration-300">
+    <ul class="ml-auto flex h-full items-center justify-end gap-1 rounded-xl border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_84%,transparent)] px-1 py-1 font-bold uppercase shadow-[0_10px_24px_rgba(15,23,42,0.08)]">
       <For each={props.links}>
         {(link) => (
           <li>

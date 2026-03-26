@@ -46,6 +46,7 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
 
   if (mainContent && slides.length > 0) {
     let isSlideAnimating = false;
+    let currentSlideIndex = 0;
 
     const findNearestSlideIndex = (): number => {
       const center = mainContent.scrollTop + mainContent.clientHeight / 2;
@@ -80,6 +81,8 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
       }
 
       isSlideAnimating = true;
+      currentSlideIndex = clampedIndex;
+      
       targetSlide.scrollIntoView({ behavior: "smooth", block: "start" });
 
       window.setTimeout(() => {
