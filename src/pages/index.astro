@@ -243,21 +243,19 @@ const structuredData = {
 
       <section id="services" class="slide-section pb-8" aria-labelledby="services-title">
         <div class={CONTAINER_CLASSES.horizontal}>
-          <div class={`rounded-[var(--card-radius)] border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-5 shadow-[var(--card-shadow)] md:p-7`}>
-            <h2 id="services-title" class={`${titleClass} text-[var(--card-heading)]`}>Services and Solutions</h2>
-            <p class={`mt-4 max-w-3xl ${copyClass}`}>
-              I help businesses build scalable web apps, integrate AI to save time, and drive aggressive growth through technical SEO.
-            </p>
-            <div class="mt-8 grid gap-5 lg:grid-cols-3">
-              {serviceItems.map((service) => (
-                <FeatureCard
-                  title={service.title}
-                  body={service.body}
-                  titleClassName="text-[1.06rem]"
-                  bodyClassName="text-[0.95rem]"
-                />
-              ))}
-            </div>
+          <h2 id="services-title" class={titleClass}>Services and Solutions</h2>
+          <p class={`mt-4 max-w-3xl ${copyClass}`}>
+            I help businesses build scalable web apps, integrate AI to save time, and drive aggressive growth through technical SEO.
+          </p>
+          <div class="mt-8 grid gap-5 lg:grid-cols-3">
+            {serviceItems.map((service) => (
+              <FeatureCard
+                title={service.title}
+                body={service.body}
+                titleClassName="text-[1.06rem]"
+                bodyClassName="text-[0.95rem]"
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -309,45 +307,44 @@ const structuredData = {
 
       <section id="contact" class="slide-section pt-10 pb-20" aria-labelledby="contact-title">
         <div class={CONTAINER_CLASSES.horizontal}>
-          <div class={`rounded-[var(--card-radius)] border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-[clamp(1.4rem,2.6vw,2.3rem)] shadow-[var(--card-shadow)]`}>
-            <div class="grid items-start gap-[clamp(1.25rem,2.3vw,2rem)] min-[980px]:grid-cols-[1.1fr_0.9fr]">
-              <div class="max-w-[38rem]">
-                <p class={kickerClass}>Clear next step</p>
-                <h2 id="contact-title" class={`mt-4 text-[var(--card-heading)] ${titleClass}`}>Need a partner who can ship and scale?</h2>
-                <p class={`mt-4 max-w-xl ${copyClass}`}>
-                  Share your product and growth goals, and I will propose a focused roadmap for automation, engineering, and conversion optimization.
-                </p>
-                <ul class="mt-6 list-inside list-disc space-y-1 text-[var(--card-body)]" aria-label="Engagement trust signals">
-                  <li>{homepage.responseTime}</li>
-                  <li>Timezone: {homepage.timezone}</li>
-                  <li>Location: {homepage.location}</li>
-                  <li>{homepage.availability}</li>
-                </ul>
-                <div class="mt-8 flex flex-wrap items-center gap-4">
-                  <a class={primaryButtonClass} href={`mailto:${homepage.contactEmail}`} data-track="cta_contact_email">Contact me</a>
-                  <a
-                    class={secondaryButtonClass}
-                    href={homepage.bookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-track="cta_booking_link"
-                    aria-label="Book a calendar slot (opens in new tab)"
-                  >
-                    Book a calendar slot
-                  </a>
-                  <a
-                    class={secondaryButtonClass}
-                    href={linkedInUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-track="open_linkedin_profile"
-                    aria-label="Open LinkedIn profile (opens in new tab)"
-                  >
-                    LinkedIn
-                  </a>
-                </div>
+          <div class="grid items-start gap-[clamp(1.25rem,2.3vw,2rem)] min-[980px]:grid-cols-[1.1fr_0.9fr]">
+            <div class="max-w-[38rem]">
+              <p class={kickerClass}>Clear next step</p>
+              <h2 id="contact-title" class={`mt-4 ${titleClass}`}>Need a partner who can ship and scale?</h2>
+              <p class={`mt-4 max-w-xl ${copyClass}`}>
+                Share your product and growth goals, and I will propose a focused roadmap for automation, engineering, and conversion optimization.
+              </p>
+              <ul class="mt-6 list-inside list-disc space-y-1 text-[var(--card-body)]" aria-label="Engagement trust signals">
+                <li>{homepage.responseTime}</li>
+                <li>Timezone: {homepage.timezone}</li>
+                <li>Location: {homepage.location}</li>
+                <li>{homepage.availability}</li>
+              </ul>
+              <div class="mt-8 flex flex-wrap items-center gap-4">
+                <a class={primaryButtonClass} href={`mailto:${homepage.contactEmail}`} data-track="cta_contact_email">Contact me</a>
+                <a
+                  class={secondaryButtonClass}
+                  href={homepage.bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-track="cta_booking_link"
+                  aria-label="Book a calendar slot (opens in new tab)"
+                >
+                  Book a calendar slot
+                </a>
+                <a
+                  class={secondaryButtonClass}
+                  href={linkedInUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-track="open_linkedin_profile"
+                  aria-label="Open LinkedIn profile (opens in new tab)"
+                >
+                  LinkedIn
+                </a>
               </div>
-              <div class="rounded-[1rem] border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-[clamp(1rem,2vw,1.4rem)]">
+            </div>
+            <div class="rounded-[1rem] border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-[clamp(1rem,2vw,1.4rem)]">
                 <p class={`${kickerClass} text-[0.68rem] tracking-[0.2em]`}>Project intake</p>
                 <form class="mt-4" method="POST" data-track="submit_lead_form" name="lead-capture">
                   <input type="hidden" name="form-name" value="lead-capture" />
@@ -373,7 +370,6 @@ const structuredData = {
                   </FormField>
                   <button class={`${primaryButtonClass} mt-4 w-full`} type="submit">Send project inquiry</button>
                 </form>
-              </div>
             </div>
           </div>
         </div>
