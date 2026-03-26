@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { CARD_CLASSES, TYPOGRAPHY_CLASSES, LINK_CLASSES, CONTAINER_CLASSES } from "@lib/constants";
 
 interface Props {
   homepage: CollectionEntry<"site">["data"];
@@ -9,37 +10,37 @@ const { homepage } = Astro.props as Props;
 ---
 
 <section id="contact" data-reveal="up">
-  <div class="section-content max-w-screen-lg mx-auto xl:max-w-screen-xl w-full">
+  <div class={CONTAINER_CLASSES.sectionLg}>
     <p class="mx-auto mb-6 max-w-2xl text-center text-lg text-[var(--text-muted)]">
       Let's talk about how I can help with your next project. Whether it's building intelligent AI systems or scaling your growth.
     </p>
 
     <div class="mb-6 grid gap-4 md:grid-cols-2">
-      <div class="rounded-lg border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_80%,transparent)] p-6 shadow-[0_10px_26px_rgba(0,0,0,0.2)] backdrop-blur-sm">
-        <h3 class="mb-4 text-xl font-semibold text-[var(--text-strong)]">Quick Info</h3>
+      <div class={`${CARD_CLASSES.glass} p-6`}>
+        <h3 class={`mb-4 ${TYPOGRAPHY_CLASSES.cardTitle}`}>Quick Info</h3>
         <div class="space-y-4">
           <div>
-            <p class="text-sm text-[var(--accent-strong)]">Location</p>
-            <p class="text-base font-medium text-[var(--text-strong)]">{homepage.location}</p>
+            <p class={TYPOGRAPHY_CLASSES.label}>Location</p>
+            <p class={TYPOGRAPHY_CLASSES.cardBody}>{homepage.location}</p>
           </div>
           <div>
-            <p class="text-sm text-[var(--accent-strong)]">Timezone</p>
-            <p class="text-base font-medium text-[var(--text-strong)]">{homepage.timezone}</p>
+            <p class={TYPOGRAPHY_CLASSES.label}>Timezone</p>
+            <p class={TYPOGRAPHY_CLASSES.cardBody}>{homepage.timezone}</p>
           </div>
           <div>
-            <p class="text-sm text-[var(--accent-strong)]">Response Time</p>
-            <p class="text-base font-medium text-[var(--text-strong)]">{homepage.responseTime}</p>
+            <p class={TYPOGRAPHY_CLASSES.label}>Response Time</p>
+            <p class={TYPOGRAPHY_CLASSES.cardBody}>{homepage.responseTime}</p>
           </div>
         </div>
       </div>
 
-      <div class="rounded-lg border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_80%,transparent)] p-6 shadow-[0_10px_26px_rgba(0,0,0,0.2)] backdrop-blur-sm">
-        <h3 class="mb-4 text-xl font-semibold text-[var(--text-strong)]">Availability</h3>
-        <p class="mb-6 text-base text-[var(--text-muted)]">{homepage.availability}</p>
+      <div class={`${CARD_CLASSES.glass} p-6`}>
+        <h3 class={`mb-4 ${TYPOGRAPHY_CLASSES.cardTitle}`}>Availability</h3>
+        <p class={`mb-6 ${TYPOGRAPHY_CLASSES.body}`}>{homepage.availability}</p>
         <a
           href={homepage.bookingUrl}
           data-track="cta_booking_link"
-          class="inline-block rounded-lg bg-[var(--accent-strong)] px-6 py-3 font-semibold text-[var(--accent-contrast)] hover:opacity-90"
+          class={LINK_CLASSES.ctaButton}
         >
           Book a Strategy Call
         </a>
@@ -50,14 +51,14 @@ const { homepage } = Astro.props as Props;
       <a
         href={`mailto:${homepage.contactEmail}`}
         data-track="cta_contact_email"
-        class="rounded-lg border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_80%,transparent)] px-6 py-3 font-semibold text-[var(--text-strong)] shadow-[0_8px_18px_rgba(0,0,0,0.16)] backdrop-blur-sm"
+        class={`${CARD_CLASSES.glass} px-6 py-3 font-semibold text-[var(--text-strong)]`}
       >
         Email: {homepage.contactEmail}
       </a>
       <a
         href={homepage.githubUrl}
         data-track="open_github_profile"
-        class="rounded-lg border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_88%,transparent)] px-6 py-3 font-semibold text-[var(--text-strong)] shadow-[0_8px_18px_rgba(0,0,0,0.16)] backdrop-blur-sm"
+        class={`${CARD_CLASSES.glassVariant} px-6 py-3 font-semibold text-[var(--text-strong)]`}
       >
         GitHub
       </a>

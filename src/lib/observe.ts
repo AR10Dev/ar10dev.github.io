@@ -12,7 +12,7 @@ export const setupRevealObserver = (): (() => void) => {
     return () => {};
   }
 
-  const observerOptions = {
+  const observerOptions: IntersectionObserverInit = {
     root: revealRoot,
     rootMargin: "-8% 0px -8% 0px",
     threshold: 0.15,
@@ -31,13 +31,9 @@ export const setupRevealObserver = (): (() => void) => {
     observerOptions,
   );
 
-  revealNodes.forEach((node) => {
-    revealObserver.observe(node);
-  });
-
-  revealListNodes.forEach((node) => {
-    revealObserver.observe(node);
-  });
+  // Combine all nodes to observe
+  const allNodes = [...revealNodes, ...revealListNodes];
+  allNodes.forEach((node) => revealObserver.observe(node));
 
   return () => revealObserver.disconnect();
 };

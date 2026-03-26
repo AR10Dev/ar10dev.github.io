@@ -5,6 +5,8 @@ import {
   CONTAINER_CLASSES,
   FORM_CLASSES,
   TYPOGRAPHY_CLASSES,
+  LAYOUT_CLASSES,
+  TYPING_CLASSES,
 } from "@lib/constants";
 import { SEO } from "astro-seo";
 import "../styles/global.css";
@@ -201,13 +203,14 @@ const structuredData = {
       document.documentElement.classList.add("js");
     </script>
   </head>
-  <body class="site-shell">
+  <body class="m-0 min-h-screen overflow-hidden site-shell">
     <a href="#main-content" class="absolute left-4 top-[-100%] z-[200] rounded-[0.6rem] border border-[var(--border-strong)] bg-[var(--surface-panel)] px-[0.85rem] py-[0.55rem] font-bold text-[var(--text-strong)] focus-visible:top-[0.8rem]">Skip to main content</a>
+    <div aria-hidden="true" class={LAYOUT_CLASSES.siteBg}></div>
     <Header background={headerBackground} />
 
-    <main id="main-content" tabindex="-1">
-      <section id="home" class="slide-section home-slide section-size-home relative overflow-hidden" aria-labelledby="hero-title">
-        <div class="home-stack mx-auto w-full max-w-screen-xl px-6">
+    <main id="main-content" class={LAYOUT_CLASSES.mainContent} tabindex="-1">
+      <section id="home" class={`${LAYOUT_CLASSES.slideSection} ${LAYOUT_CLASSES.homeSlide} ${LAYOUT_CLASSES.sectionSizeHome} relative overflow-hidden`} aria-labelledby="hero-title">
+        <div class={`${LAYOUT_CLASSES.homeStack} mx-auto w-full max-w-screen-xl px-6`}>
           <div class="w-full">
             <div>
               <p class={kickerClass}>{homepage.kicker}</p>
@@ -215,9 +218,9 @@ const structuredData = {
                 Avaab Razzaq
               </h1>
               <p class={TYPOGRAPHY_CLASSES.subheading}>
-                <span class="typing-fallback">I am an AI Growth Engineer.</span>
-                <span class="typing-live" aria-hidden="true">
-                  I am <Typer text={rolePhrases} cursor loop typingSpeed={90} backspaceSpeed={80} typingPause={1300} client:load />
+                <span class={TYPING_CLASSES.fallback}>I am an AI Growth Engineer.</span>
+                <span class={TYPING_CLASSES.live} aria-hidden="true">
+                  I am <Typer text={rolePhrases} cursor cursorClassName={TYPING_CLASSES.cursor} loop typingSpeed={90} backspaceSpeed={80} typingPause={1300} client:load />
                 </span>
                 <span class="sr-only">
                   I am an AI Growth Engineer. I am an Automations Architect. I am a Full-Stack Web Developer. I am an SEO and Marketing Strategist.
@@ -241,7 +244,7 @@ const structuredData = {
         </div>
       </section>
 
-      <section id="services" class="slide-section pb-8" aria-labelledby="services-title">
+      <section id="services" class={`${LAYOUT_CLASSES.slideSection} pb-8`} aria-labelledby="services-title">
         <div class={CONTAINER_CLASSES.horizontal}>
           <h2 id="services-title" class={titleClass}>Services and Solutions</h2>
           <p class={`mt-4 max-w-3xl ${copyClass}`}>
@@ -260,7 +263,7 @@ const structuredData = {
         </div>
       </section>
 
-      <section id="work" class="slide-section work-slide section-size-work" aria-labelledby="work-title">
+      <section id="work" class={`${LAYOUT_CLASSES.slideSection} work-slide ${LAYOUT_CLASSES.sectionSizeWork}`} aria-labelledby="work-title">
         <div class={CONTAINER_CLASSES.horizontal}>
           <div class="flex flex-wrap items-end justify-between gap-4">
             <h2 id="work-title" class={titleClass}>Proof-of-Concept Builds</h2>
@@ -305,7 +308,7 @@ const structuredData = {
         </div>
       </section>
 
-      <section id="contact" class="slide-section pt-10 pb-20" aria-labelledby="contact-title">
+      <section id="contact" class={`${LAYOUT_CLASSES.slideSection} pt-10 pb-20`} aria-labelledby="contact-title">
         <div class={CONTAINER_CLASSES.horizontal}>
           <div class="grid items-start gap-[clamp(1.25rem,2.3vw,2rem)] min-[980px]:grid-cols-[1.1fr_0.9fr]">
             <div class="max-w-[38rem]">
