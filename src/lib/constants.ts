@@ -5,20 +5,22 @@
 
 export const TYPOGRAPHY_CLASSES = {
   kicker:
-    "text-[0.75rem] font-bold uppercase tracking-[0.22em] text-[var(--accent-strong)]",
+    "text-[0.75rem] font-bold uppercase tracking-[0.22em] text-[var(--accent-strong)] leading-[1.4]",
   title:
-    "font-['Sora','Segoe_UI',sans-serif] text-[clamp(1.7rem,3vw,2.35rem)] leading-[1.15] tracking-[-0.02em]",
+    "font-['Sora',-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-[clamp(1.7rem,3vw,2.35rem)] leading-[1.2] tracking-[-0.02em] font-bold",
   heroTitle:
-    "mt-4 text-balance font-['Sora','Segoe_UI',sans-serif] text-[clamp(2.1rem,5vw,4.3rem)] leading-[1.06] tracking-[-0.03em]",
-  subheading: "text-2xl font-semibold text-[var(--text-strong)] md:text-3xl",
-  body: "text-[clamp(1rem,2vw,1.2rem)] leading-[1.7] text-[var(--text-muted)]",
-  label: "text-sm text-[var(--accent-strong)]",
-  labelXs: "text-xs font-semibold text-[var(--accent-strong)]",
-  cardTitle: "text-xl font-semibold text-[var(--text-strong)]",
-  cardTitleBold: "text-xl font-bold leading-tight text-[var(--text-strong)]",
-  cardBody: "text-base font-medium text-[var(--text-strong)]",
-  cardBodySm: "text-sm text-[var(--text-muted)]",
-  cardBodyXs: "text-xs text-[var(--text-muted)]",
+    "mt-4 text-balance font-['Sora',-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-[clamp(2.1rem,5vw,4.3rem)] leading-[1.08] tracking-[-0.03em] font-extrabold",
+  subheading: "text-2xl font-semibold text-[var(--text-strong)] md:text-3xl leading-[1.3] tracking-[-0.015em]",
+  sectionTitle: "font-['Sora',-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-[clamp(1.5rem,2.5vw,2rem)] leading-[1.25] tracking-[-0.02em] font-bold",
+  body: "text-[clamp(1rem,2vw,1.15rem)] leading-[1.75] text-[var(--text-muted)] font-normal",
+  label: "text-sm text-[var(--accent-strong)] font-semibold leading-[1.5]",
+  labelXs: "text-xs font-semibold text-[var(--accent-strong)] leading-[1.4] tracking-[0.02em]",
+  cardTitle: "text-xl font-semibold text-[var(--text-strong)] leading-[1.3] tracking-[-0.01em]",
+  cardTitleBold: "text-xl font-bold leading-[1.25] text-[var(--text-strong)] tracking-[-0.01em]",
+  cardText: "text-base font-normal text-[var(--text-muted)] leading-[1.65]",
+  cardBody: "text-base font-normal text-[var(--text-strong)] leading-[1.65]",
+  cardBodySm: "text-sm text-[var(--text-muted)] leading-[1.6]",
+  cardBodyXs: "text-xs text-[var(--text-muted)] leading-[1.5]",
 };
 
 export const BUTTON_CLASSES = {

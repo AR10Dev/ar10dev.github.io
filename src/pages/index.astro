@@ -183,6 +183,7 @@ const structuredData = {
     <link rel="canonical" href={canonicalUrl} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
     <SEO title={homepage.brandTitle} description={homepage.metaDescription} />
 
     <meta property="og:type" content="website" />
@@ -281,9 +282,9 @@ const structuredData = {
           <p class={`mt-4 max-w-3xl ${copyClass}`}>
             No client history required. These projects are engineered demos that show exactly what I can build and deploy for your business right now.
           </p>
-          <div class="mt-8 grid auto-rows-fr grid-cols-[repeat(auto-fit,minmax(min(100%,19.5rem),1fr))] gap-6">
+          <div class="mt-8 flex gap-6 overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory" style="scrollbar-width: thin;">
             {portfolioItems.map((item) => (
-              <article class="flex h-full min-h-[clamp(18rem,34vh,22rem)] flex-col gap-[0.28rem] rounded-[var(--card-radius)] border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-[1.35rem] shadow-[var(--card-shadow)]" itemscope itemtype="https://schema.org/SoftwareApplication">
+              <article class="flex h-full min-h-[clamp(18rem,34vh,22rem)] min-w-[clamp(19.5rem,calc(33.333%-1rem),24rem)] max-w-[clamp(19.5rem,calc(33.333%-1rem),24rem)] flex-shrink-0 snap-start flex-col gap-[0.28rem] rounded-[var(--card-radius)] border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-[1.35rem] shadow-[var(--card-shadow)]" itemscope itemtype="https://schema.org/SoftwareApplication">
                 <p class="m-0 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[var(--card-label)]" itemprop="applicationCategory">{item.data.category}</p>
                 <h3 class="mt-[0.42rem] font-['Sora','Segoe_UI',sans-serif] text-[1.25rem] font-bold leading-[1.35] text-[var(--card-heading)]" itemprop="name">{item.data.title}</h3>
                 <p class="mt-[0.58rem] text-[0.67rem] font-bold uppercase tracking-[0.16em] text-[var(--card-label)]">What This Solves</p>

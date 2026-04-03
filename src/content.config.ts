@@ -34,7 +34,28 @@ const portfolioCollection = defineCollection({
   }),
 });
 
+const blogCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/blog" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    publishDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    author: z.string().default("Avaab Razzaq"),
+    image: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }).optional(),
+    tags: z.array(z.string()).default([]),
+    category: z.enum(["AI", "Marketing", "Development", "Growth", "Analytics", "Tutorial"]),
+    draft: z.boolean().default(false),
+    featured: z.boolean().default(false),
+    readingTime: z.number().optional(),
+  }),
+});
+
 export const collections = {
   site: siteCollection,
   portfolio: portfolioCollection,
+  blog: blogCollection,
 };

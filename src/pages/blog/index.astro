@@ -1,0 +1,143 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@layouts/Layout.astro';
+import { TYPOGRAPHY_CLASSES, CARD_CLASSES, CONTAINER_CLASSES } from '@lib/constants';
+
+const title = 'Blog | Avaab Razzaq';
+const description = 'Insights on AI automation, growth engineering, full-stack development, and marketing optimization strategies.';
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+// Get all published blog posts, sorted by publish date (newest first)
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+const sortedPosts = allPosts.sort((a, b) => 
+  b.data.publishDate.getTime() - a.data.publishDate.getTime()
+);
+
+// Get unique tags and categories
+const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags))];
+const allCategories = [...new Set(sortedPosts.map(post => post.data.category))];
+
+// Format date helper
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
+
+// Calculate reading time if not provided
+function getReadingTime(content: string): number {
+  const wordsPerMinute = 200;
+  const wordCount = content.split(/\s+/).length;
+  return Math.ceil(wordCount / wordsPerMinute);
+}
+---
+
+<Layout 
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogType="website"
+>
+  <div class="min-h-screen bg-[var(--bg-canvas)] py-20 px-6">
+    <div class={`${CONTAINER_CLASSES.sectionLg} mx-auto`}>
+      
+      <!-- Header -->
+      <header class="mb-16 text-center">
+        <h1 class={TYPOGRAPHY_CLASSES.heroTitle}>
+          Blog
+        </h1>
+        <p class={`${TYPOGRAPHY_CLASSES.subheading} mt-4 max-w-2xl mx-auto`}>
+          Insights on AI automation, growth engineering, and building products that scale
+        </p>
+      </header>
+
+      <!-- Categories Filter (Optional for future) -->
+      <!-- <div class="mb-12 flex flex-wrap gap-3 justify-center">
+        {allCategories.map(category => (
+          <button class="px-4 py-2 rounded-full bg-[var(--surface-panel)] text-[var(--text-base)] border border-[var(--border-base)] hover:border-[var(--accent-strong)] transition-colors">
+            {category}
+          </button>
+        ))}
+      </div> -->
+
+      <!-- Blog Posts Grid -->
+      {sortedPosts.length === 0 ? (
+        <div class="text-center py-20">
+          <p class={TYPOGRAPHY_CLASSES.body}>
+            No blog posts yet. Check back soon for insights on AI, growth engineering, and more!
+          </p>
+        </div>
+      ) : (
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {sortedPosts.map((post) => (
+            <article class={`${CARD_CLASSES.glass} group`}>
+              <a href={`/blog/${post.id}/`} class="block">
+                
+                {/* Post Image */}
+                {post.data.image && (
+                  <div class="mb-4 overflow-hidden rounded-lg aspect-video bg-[var(--surface-strong)]">
+                    <img 
+                      src={post.data.image.src} 
+                      alt={post.data.image.alt}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+
+                {/* Category Badge */}
+                <div class="mb-3">
+                  <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-[var(--accent-alpha)] text-[var(--accent-strong)] border border-[var(--accent-strong)]">
+                    {post.data.category}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h2 class={`${TYPOGRAPHY_CLASSES.cardTitle} mb-3 group-hover:text-[var(--accent-strong)] transition-colors`}>
+                  {post.data.title}
+                </h2>
+
+                {/* Description */}
+                <p class={`${TYPOGRAPHY_CLASSES.cardText} mb-4`}>
+                  {post.data.description}
+                </p>
+
+                {/* Meta Info */}
+                <div class="flex items-center justify-between text-sm text-[var(--text-base)]">
+                  <time datetime={post.data.publishDate.toISOString()}>
+                    {formatDate(post.data.publishDate)}
+                  </time>
+                  {post.data.readingTime && (
+                    <span>{post.data.readingTime} min read</span>
+                  )}
+                </div>
+
+                {/* Tags */}
+                {post.data.tags.length > 0 && (
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    {post.data.tags.slice(0, 3).map(tag => (
+                      <span class="text-xs px-2 py-1 rounded bg-[var(--surface-strong)] text-[var(--text-base)]">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </a>
+            </article>
+          ))}
+        </div>
+      )}
+
+      <!-- Featured Posts Section (Optional for future) -->
+      <!-- <section class="mt-20">
+        <h2 class={`${TYPOGRAPHY_CLASSES.sectionTitle} mb-8`}>Featured Articles</h2>
+      </section> -->
+
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,247 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '@layouts/Layout.astro';
+import { TYPOGRAPHY_CLASSES } from '@lib/constants';
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog', ({ data }) => {
+    return data.draft !== true;
+  });
+  
+  return blogPosts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+
+const title = `${post.data.title} | Avaab Razzaq`;
+const description = post.data.description;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+// Format date helper
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
+
+// Calculate reading time if not in frontmatter
+const readingTime = post.data.readingTime || (() => {
+  const wordsPerMinute = 200;
+  const content = post.body;
+  const wordCount = content.split(/\s+/).length;
+  return Math.ceil(wordCount / wordsPerMinute);
+})();
+
+// Structured data for blog post
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "author": {
+    "@type": "Person",
+    "name": post.data.author,
+    "url": "https://ar10dev.github.io"
+  },
+  "datePublished": post.data.publishDate.toISOString(),
+  ...(post.data.updatedDate && { "dateModified": post.data.updatedDate.toISOString() }),
+  ...(post.data.image && {
+    "image": {
+      "@type": "ImageObject",
+      "url": post.data.image.src,
+      "caption": post.data.image.alt
+    }
+  }),
+  "publisher": {
+    "@type": "Person",
+    "name": "Avaab Razzaq"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  },
+  "keywords": post.data.tags.join(", "),
+  "articleSection": post.data.category
+};
+---
+
+<Layout 
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogType="article"
+  ogImage={post.data.image?.src}
+>
+  <article class="min-h-screen bg-[var(--bg-canvas)] py-20 px-6">
+    <div class="mx-auto max-w-3xl">
+      
+      <!-- Back to Blog Link -->
+      <a 
+        href="/blog/" 
+        class="inline-flex items-center gap-2 text-[var(--accent-strong)] hover:underline mb-8 group"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Blog
+      </a>
+
+      <!-- Article Header -->
+      <header class="mb-12">
+        <!-- Category Badge -->
+        <div class="mb-4">
+          <span class="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-[var(--accent-alpha)] text-[var(--accent-strong)] border border-[var(--accent-strong)]">
+            {post.data.category}
+          </span>
+        </div>
+
+        <!-- Title -->
+        <h1 class={`${TYPOGRAPHY_CLASSES.heroTitle} mb-6`}>
+          {post.data.title}
+        </h1>
+
+        <!-- Description -->
+        <p class={`${TYPOGRAPHY_CLASSES.subheading} mb-8`}>
+          {post.data.description}
+        </p>
+
+        <!-- Meta Info -->
+        <div class="flex flex-wrap items-center gap-4 text-sm text-[var(--text-base)] border-t border-b border-[var(--border-base)] py-4">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>{post.data.author}</span>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <time datetime={post.data.publishDate.toISOString()}>
+              {formatDate(post.data.publishDate)}
+            </time>
+          </div>
+
+          {post.data.updatedDate && (
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              <span>Updated {formatDate(post.data.updatedDate)}</span>
+            </div>
+          )}
+
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>{readingTime} min read</span>
+          </div>
+        </div>
+
+        <!-- Featured Image -->
+        {post.data.image && (
+          <div class="mt-8 overflow-hidden rounded-lg aspect-video bg-[var(--surface-strong)]">
+            <img 
+              src={post.data.image.src} 
+              alt={post.data.image.alt}
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+        )}
+      </header>
+
+      <!-- Table of Contents (if headings exist) -->
+      {headings.length > 0 && (
+        <aside class="mb-12 p-6 rounded-lg bg-[var(--surface-panel)] border border-[var(--border-base)]">
+          <h2 class="text-lg font-bold text-[var(--text-strong)] mb-4">Table of Contents</h2>
+          <nav>
+            <ul class="space-y-2">
+              {headings.map((heading) => (
+                <li style={`margin-left: ${(heading.depth - 1) * 1}rem`}>
+                  <a 
+                    href={`#${heading.slug}`}
+                    class="text-[var(--text-base)] hover:text-[var(--accent-strong)] transition-colors"
+                  >
+                    {heading.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </aside>
+      )}
+
+      <!-- Article Content -->
+      <div class="prose prose-invert prose-lg max-w-none
+        prose-headings:text-[var(--text-strong)] prose-headings:font-bold prose-headings:scroll-mt-20
+        prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+        prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+        prose-p:text-[var(--text-base)] prose-p:leading-relaxed prose-p:mb-6
+        prose-a:text-[var(--accent-strong)] prose-a:no-underline hover:prose-a:underline
+        prose-strong:text-[var(--text-strong)] prose-strong:font-semibold
+        prose-code:text-[var(--accent-strong)] prose-code:bg-[var(--surface-strong)] prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-[''] prose-code:after:content-['']
+        prose-pre:bg-[var(--surface-strong)] prose-pre:border prose-pre:border-[var(--border-base)] prose-pre:rounded-lg
+        prose-ul:text-[var(--text-base)] prose-ul:mb-6
+        prose-ol:text-[var(--text-base)] prose-ol:mb-6
+        prose-li:mb-2
+        prose-blockquote:border-l-4 prose-blockquote:border-[var(--accent-strong)] prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-[var(--text-base)]
+        prose-img:rounded-lg prose-img:shadow-lg
+      ">
+        <Content />
+      </div>
+
+      <!-- Tags -->
+      {post.data.tags.length > 0 && (
+        <div class="mt-12 pt-8 border-t border-[var(--border-base)]">
+          <h3 class="text-sm font-semibold text-[var(--text-base)] mb-4">Tags:</h3>
+          <div class="flex flex-wrap gap-2">
+            {post.data.tags.map(tag => (
+              <span class="px-3 py-1 text-sm rounded-full bg-[var(--surface-panel)] text-[var(--text-base)] border border-[var(--border-base)]">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Share & CTA Section -->
+      <div class="mt-16 p-8 rounded-lg bg-[var(--surface-panel)] border border-[var(--border-base)] text-center">
+        <h3 class={`${TYPOGRAPHY_CLASSES.sectionTitle} mb-4`}>
+          Found this helpful?
+        </h3>
+        <p class={`${TYPOGRAPHY_CLASSES.body} mb-6`}>
+          Let's work together on your next project. I specialize in AI automation, growth engineering, and full-stack development.
+        </p>
+        <a 
+          href="/#contact" 
+          class="inline-block px-6 py-3 rounded-lg bg-[var(--accent-strong)] text-white font-semibold hover:bg-[var(--accent-base)] transition-colors"
+        >
+          Get in Touch
+        </a>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+</Layout>
