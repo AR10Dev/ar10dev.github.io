@@ -5,11 +5,10 @@
  * Validates that all pages have proper SEO elements
  */
 
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const distDir = "./dist";
-const siteUrl = "https://avaabrazzaq.com";
 
 // Colors for console output
 const colors = {
@@ -43,7 +42,9 @@ function findHtmlFiles(dir, fileList = []) {
 
 function validateHtmlFile(filePath) {
   const content = readFileSync(filePath, "utf-8");
-  const relativePath = filePath.replace(distDir, "").replace("/index.html", "/");
+  const relativePath = filePath
+    .replace(distDir, "")
+    .replace("/index.html", "/");
   const issues = [];
   const warnings = [];
 
@@ -58,9 +59,7 @@ function validateHtmlFile(filePath) {
   }
 
   // Check for meta description
-  const descMatch = content.match(
-    /<meta name="description" content="([^"]+)"/,
-  );
+  const descMatch = content.match(/<meta name="description" content="([^"]+)"/);
   if (!descMatch) {
     issues.push("Missing meta description");
   } else if (descMatch[1].length < 120 || descMatch[1].length > 160) {
@@ -256,13 +255,16 @@ function main() {
   }
 
   // Summary
-  log("\n" + "=".repeat(50), "blue");
+  log(`\n${"=".repeat(50)}`, "blue");
   log("📊 Summary", "blue");
   log("=".repeat(50), "blue");
   log(`Total pages validated: ${htmlFiles.length}`, "blue");
   log(`Pages with issues: ${pagesWithIssues.length}`, "yellow");
   log(`Total issues: ${totalIssues}`, totalIssues > 0 ? "red" : "green");
-  log(`Total warnings: ${totalWarnings}`, totalWarnings > 0 ? "yellow" : "green");
+  log(
+    `Total warnings: ${totalWarnings}`,
+    totalWarnings > 0 ? "yellow" : "green",
+  );
 
   if (totalIssues === 0 && totalWarnings === 0) {
     log("\n✅ All pages pass SEO validation!", "green");

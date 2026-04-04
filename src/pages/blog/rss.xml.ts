@@ -1,16 +1,16 @@
-import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
+import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
   const siteUrl = "https://avaabrazzaq.com";
-  
+
   const blogPosts = await getCollection("blog", ({ data }) => {
     return data.draft !== true;
   });
 
   const sortedPosts = blogPosts.sort(
-    (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
+    (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
   );
 
   return rss({
