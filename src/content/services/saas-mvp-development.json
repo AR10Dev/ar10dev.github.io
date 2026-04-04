@@ -1,0 +1,83 @@
+{
+  "slug": "saas-mvp-development",
+  "title": "SaaS MVP Development Services",
+  "metaTitle": "SaaS MVP Development Services | Build Your Product Fast - Miami, FL",
+  "metaDescription": "Launch your SaaS MVP in weeks, not months. Full-stack development with authentication, payments, and core features. Expert MVP development in Miami, Florida.",
+  "heroTitle": "SaaS MVP Development Services",
+  "heroSubtitle": "Go from idea to launched product in 4-8 weeks with a production-ready MVP.",
+  "introduction": "I help founders and product teams build SaaS MVPs fast. Using modern frameworks and proven patterns, I deliver working products with authentication, payments, and your core features—ready to acquire customers and validate your business model.",
+  "benefits": [
+    {
+      "title": "Launch in Weeks",
+      "description": "Skip months of development with a focused MVP scope. Get to market fast, learn from real users, and iterate based on data."
+    },
+    {
+      "title": "Production-Ready Code",
+      "description": "No throw-away prototypes. I build with TypeScript, proper architecture, and testing so your MVP can scale into your full product."
+    },
+    {
+      "title": "Full Stack Included",
+      "description": "Authentication, payments, database, API, and frontend—everything you need to launch. No coordinating multiple vendors."
+    }
+  ],
+  "services": [
+    {
+      "name": "MVP Scoping & Planning",
+      "description": "Define the smallest viable product that validates your hypothesis. Cut scope ruthlessly to accelerate time-to-market.",
+      "icon": "audit"
+    },
+    {
+      "name": "Full-Stack Development",
+      "description": "Build your complete application—frontend, backend, database, authentication, and integrations—using modern, maintainable tech.",
+      "icon": "app"
+    },
+    {
+      "name": "Payments & Subscriptions",
+      "description": "Integrate Stripe for subscriptions, one-time payments, usage-based billing, or custom pricing models.",
+      "icon": "cart"
+    },
+    {
+      "name": "Launch & Handoff",
+      "description": "Deploy to production, set up monitoring, and document everything so your team can continue development independently.",
+      "icon": "integration"
+    }
+  ],
+  "technologies": [
+    "TypeScript",
+    "Next.js",
+    "React",
+    "Node.js",
+    "PostgreSQL",
+    "Prisma",
+    "Stripe",
+    "Clerk",
+    "Vercel"
+  ],
+  "cta": {
+    "title": "Ready to Build Your MVP?",
+    "description": "Let's scope your MVP and create a realistic timeline to get your product in users' hands.",
+    "buttonText": "Start MVP Project",
+    "buttonLink": "/contact/"
+  },
+  "faqs": [
+    {
+      "question": "How long does MVP development take?",
+      "answer": "Most MVPs take 4-8 weeks depending on complexity. Simple products (auth, CRUD, basic features) can launch in 4 weeks. More complex MVPs with integrations, custom workflows, or real-time features take 6-8 weeks. I always scope before committing to timelines."
+    },
+    {
+      "question": "What's included in an MVP?",
+      "answer": "A typical MVP includes: user authentication (signup, login, password reset), core product features (your unique value proposition), payment integration (Stripe), basic admin dashboard, responsive web design, deployment to production, and documentation. We scope based on YOUR validation needs."
+    },
+    {
+      "question": "Can the MVP code scale into a full product?",
+      "answer": "Yes. I build MVPs with clean architecture, TypeScript, proper database design, and testing foundations. The goal is validating your business quickly, but the code is designed to evolve—not be thrown away. Many clients continue building on their MVP codebase for years."
+    },
+    {
+      "question": "What happens after MVP launch?",
+      "answer": "After launch, you'll have several options: I can continue development on a retainer, hand off to your internal team with documentation and knowledge transfer, or you can use the codebase with future contractors. The MVP is yours—I ensure you're not dependent on me."
+    }
+  ],
+  "parentService": "web-development",
+  "relatedServices": ["astro-development"],
+  "relatedBlogPosts": ["building-mvp-4-weeks-technical-guide"]
+}

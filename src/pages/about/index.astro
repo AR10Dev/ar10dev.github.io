@@ -1,10 +1,15 @@
 ---
 import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { BUTTON_CLASSES, CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+import {
+  BUTTON_CLASSES,
+  CONTAINER_CLASSES,
+  TYPOGRAPHY_CLASSES,
+} from "@lib/constants";
 
 const title = "About Avaab Razzaq | AI Growth Engineer - Miami, Florida";
-const description = "Learn about Avaab Razzaq, a certified AI Growth Engineer based in Miami, Florida. Expert in AI automation, full-stack development, and SEO strategy serving clients across the United States.";
+const description =
+  "Learn about Avaab Razzaq, a certified AI Growth Engineer based in Miami, Florida. Expert in AI automation, full-stack development, and SEO strategy serving clients across the United States.";
 
 const siteUrl = "https://ar10dev.github.io";
 const canonicalUrl = new URL("/about/", siteUrl).toString();
@@ -12,27 +17,49 @@ const canonicalUrl = new URL("/about/", siteUrl).toString();
 const credentials = [
   {
     name: "AI & Machine Learning",
-    description: "Expert in LLM integration, prompt engineering, and building production AI systems",
+    description:
+      "Expert in LLM integration, prompt engineering, and building production AI systems",
     icon: "ai",
   },
   {
     name: "Full-Stack Development",
-    description: "Proficient in modern web technologies including TypeScript, React, Node.js, and cloud infrastructure",
+    description:
+      "Proficient in modern web technologies including TypeScript, React, Node.js, and cloud infrastructure",
     icon: "code",
   },
   {
     name: "SEO & Growth Marketing",
-    description: "Technical SEO specialist with experience in programmatic content and conversion optimization",
+    description:
+      "Technical SEO specialist with experience in programmatic content and conversion optimization",
     icon: "growth",
   },
 ];
 
 const skills = {
-  frontend: ["TypeScript", "React", "SolidJS", "Astro", "TailwindCSS", "Next.js"],
+  frontend: [
+    "TypeScript",
+    "React",
+    "SolidJS",
+    "Astro",
+    "TailwindCSS",
+    "Next.js",
+  ],
   backend: ["Node.js", "Python", "PostgreSQL", "Redis", "GraphQL", "REST APIs"],
-  ai: ["OpenAI API", "Anthropic Claude", "LangChain", "Vector Databases", "Prompt Engineering"],
+  ai: [
+    "OpenAI API",
+    "Anthropic Claude",
+    "LangChain",
+    "Vector Databases",
+    "Prompt Engineering",
+  ],
   infrastructure: ["Vercel", "Cloudflare", "AWS", "Docker", "CI/CD"],
-  seo: ["Technical SEO", "Core Web Vitals", "Structured Data", "GA4", "Search Console"],
+  seo: [
+    "Technical SEO",
+    "Core Web Vitals",
+    "Structured Data",
+    "GA4",
+    "Search Console",
+  ],
 };
 
 const structuredData = {
@@ -45,10 +72,7 @@ const structuredData = {
   description: description,
   url: siteUrl,
   image: new URL("/og-ai-growth-engineer.svg", siteUrl).toString(),
-  sameAs: [
-    "https://github.com/AR10Dev",
-    "https://www.linkedin.com/in/ar10dev",
-  ],
+  sameAs: ["https://github.com/AR10Dev", "https://www.linkedin.com/in/ar10dev"],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Miami",
@@ -82,7 +106,8 @@ const structuredData = {
     itemOffered: {
       "@type": "Service",
       name: "AI Growth Engineering Services",
-      description: "AI automation, full-stack development, and SEO growth services",
+      description:
+        "AI automation, full-stack development, and SEO growth services",
     },
   },
 };

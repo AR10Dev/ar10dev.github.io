@@ -42,11 +42,43 @@
       "icon": "document"
     }
   ],
-  "technologies": ["OpenAI API", "Anthropic Claude", "LangChain", "TypeScript", "Python", "Vector Databases", "Supabase", "PostgreSQL"],
+  "technologies": [
+    "OpenAI API",
+    "Anthropic Claude",
+    "LangChain",
+    "TypeScript",
+    "Python",
+    "Vector Databases",
+    "Supabase",
+    "PostgreSQL"
+  ],
   "cta": {
     "title": "Ready to Automate Your Business?",
     "description": "Book a free discovery call to discuss how AI automation can transform your operations.",
     "buttonText": "Schedule a Call",
     "buttonLink": "/contact/"
-  }
+  },
+  "faqs": [
+    {
+      "question": "What business processes can AI automate?",
+      "answer": "AI can automate virtually any repetitive, rules-based process: lead qualification and scoring, customer support responses, data entry and CRM enrichment, document processing and extraction, email sequences and follow-ups, reporting and analytics, content generation, and scheduling. If a task follows patterns and rules, AI can likely handle it."
+    },
+    {
+      "question": "Is my business data safe with AI automation?",
+      "answer": "Yes. I prioritize data security in every implementation. Options include on-premise deployment, private cloud hosting, encrypted data handling, and API configurations that prevent your data from being used for model training. Your sensitive information stays within your control."
+    },
+    {
+      "question": "How long does it take to implement AI automation?",
+      "answer": "Simple automations can go live in 1-2 weeks. Complex systems with multiple integrations typically take 4-8 weeks. I always start with a pilot project to prove ROI before scaling to larger implementations."
+    },
+    {
+      "question": "What's the typical ROI of AI automation?",
+      "answer": "Most businesses see 3-10x ROI within the first year. Common results include 60-80% reduction in manual task time, 90%+ accuracy improvements, 24/7 availability, and the ability to scale operations without proportional headcount increases."
+    }
+  ],
+  "relatedServices": [
+    "ai-workflow-automation",
+    "ai-chatbot-development",
+    "llm-integration"
+  ]
 }

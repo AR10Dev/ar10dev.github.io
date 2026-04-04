@@ -1,0 +1,88 @@
+{
+  "slug": "mobile-app-development",
+  "title": "Mobile App Development",
+  "metaTitle": "Mobile App Development Services | Flutter & iOS Apps - Miami, FL",
+  "metaDescription": "Build cross-platform mobile apps with Flutter or native iOS development. Fast, beautiful, production-ready apps for startups and businesses in Miami, Florida.",
+  "heroTitle": "Mobile App Development Services",
+  "heroSubtitle": "Ship beautiful, high-performance mobile apps faster with Flutter cross-platform development or native iOS.",
+  "introduction": "I build mobile applications that users love. Whether you need a cross-platform app with Flutter to reach both iOS and Android simultaneously, or a polished native iOS experience, I deliver production-ready apps with clean architecture, smooth performance, and intuitive UX.",
+  "benefits": [
+    {
+      "title": "One Codebase, Two Platforms",
+      "description": "Flutter apps run on iOS and Android from a single codebase—cutting development time and cost by 40-60% compared to building native apps separately."
+    },
+    {
+      "title": "Native Performance",
+      "description": "Flutter compiles to native ARM code, delivering 60fps animations and instant responsiveness that feels truly native on both platforms."
+    },
+    {
+      "title": "Faster Time to Market",
+      "description": "Hot reload during development and single codebase deployment mean you launch faster and iterate quicker based on user feedback."
+    }
+  ],
+  "services": [
+    {
+      "name": "Flutter Cross-Platform Apps",
+      "description": "Build once, deploy everywhere. Cross-platform apps for iOS and Android with native performance and a single codebase.",
+      "icon": "app"
+    },
+    {
+      "name": "Native iOS Development",
+      "description": "Pure Swift iOS apps for when you need deep platform integration, maximum performance, or iOS-exclusive features.",
+      "icon": "landing"
+    },
+    {
+      "name": "MVP Mobile Apps",
+      "description": "Launch your mobile MVP in 4-8 weeks with core features, authentication, and backend integration—ready to validate with real users.",
+      "icon": "scale"
+    },
+    {
+      "name": "App Store Optimization",
+      "description": "Prepare your app for launch with App Store optimization, screenshots, metadata, and submission guidance for approval.",
+      "icon": "audit"
+    }
+  ],
+  "technologies": [
+    "Flutter",
+    "Dart",
+    "Swift",
+    "SwiftUI",
+    "Firebase",
+    "Supabase",
+    "REST APIs",
+    "GraphQL",
+    "Provider",
+    "Riverpod"
+  ],
+  "cta": {
+    "title": "Ready to Build Your Mobile App?",
+    "description": "Let's discuss your app idea and create a development plan that gets you to market fast.",
+    "buttonText": "Start App Project",
+    "buttonLink": "/contact/"
+  },
+  "faqs": [
+    {
+      "question": "Should I choose Flutter or native iOS development?",
+      "answer": "Choose Flutter if you need both iOS and Android, want faster development, or have budget constraints. Choose native iOS if you need deep Apple ecosystem integration (HealthKit, ARKit, complex animations), have iOS-only requirements, or your app demands absolute peak performance. For most business apps, Flutter delivers excellent results at lower cost."
+    },
+    {
+      "question": "How long does mobile app development take?",
+      "answer": "Timeline depends on complexity. Simple apps (auth, CRUD, basic features): 4-6 weeks. Medium complexity (payments, real-time features, integrations): 8-12 weeks. Complex apps (offline sync, advanced animations, multiple integrations): 12-16+ weeks. I provide detailed estimates after understanding your requirements."
+    },
+    {
+      "question": "Can Flutter apps really match native performance?",
+      "answer": "Yes, for the vast majority of apps. Flutter compiles to native ARM code and renders at 60fps. Apps like Google Pay, BMW, and Alibaba use Flutter in production. The only exceptions are apps requiring deep platform-specific features or bleeding-edge iOS capabilities not yet exposed to Flutter."
+    },
+    {
+      "question": "Do you handle App Store submission?",
+      "answer": "Yes. I handle the entire submission process: App Store Connect setup, screenshots and metadata, privacy policy requirements, and responding to review feedback. I also advise on common rejection reasons so your app approves on the first submission."
+    },
+    {
+      "question": "What about ongoing maintenance after launch?",
+      "answer": "I offer maintenance retainers covering bug fixes, OS compatibility updates, feature additions, and performance monitoring. I can also hand off to your team with documentation and knowledge transfer if you prefer to maintain internally."
+    }
+  ],
+  "parentService": "web-development",
+  "relatedServices": ["saas-mvp-development", "astro-development"],
+  "relatedBlogPosts": []
+}

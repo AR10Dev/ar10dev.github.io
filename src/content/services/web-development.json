@@ -42,11 +42,40 @@
       "icon": "api"
     }
   ],
-  "technologies": ["Astro", "React", "SolidJS", "TypeScript", "Node.js", "PostgreSQL", "TailwindCSS", "Vercel", "Cloudflare"],
+  "technologies": [
+    "Astro",
+    "React",
+    "SolidJS",
+    "TypeScript",
+    "Node.js",
+    "PostgreSQL",
+    "TailwindCSS",
+    "Vercel",
+    "Cloudflare"
+  ],
   "cta": {
     "title": "Ready to Build Your Web Application?",
     "description": "Let's discuss your project requirements and create something exceptional together.",
     "buttonText": "Start Your Project",
     "buttonLink": "/contact/"
-  }
+  },
+  "faqs": [
+    {
+      "question": "What technologies do you use for web development?",
+      "answer": "I specialize in modern, high-performance stacks: Astro and Next.js for frontend/SSG, React and SolidJS for interactive components, TypeScript everywhere, Node.js and PostgreSQL for backend, TailwindCSS for styling. I choose technologies based on your specific needs—not dogma."
+    },
+    {
+      "question": "How long does web development take?",
+      "answer": "Timeline depends on scope. Landing pages: 1-2 weeks. Marketing sites: 2-4 weeks. Custom web applications: 4-12 weeks. SaaS MVPs: 4-8 weeks. I provide detailed estimates after understanding your requirements and always define clear milestones."
+    },
+    {
+      "question": "Do you provide ongoing maintenance?",
+      "answer": "Yes. I offer maintenance retainers covering security updates, performance monitoring, bug fixes, and feature additions. I also provide thorough documentation and handoff so your team can maintain the project independently if preferred."
+    },
+    {
+      "question": "Why is website performance important?",
+      "answer": "Performance directly impacts business outcomes. Every 100ms of latency costs 1% in conversions. Google uses Core Web Vitals as a ranking factor. Mobile users abandon sites that take longer than 3 seconds to load. Fast sites rank better, convert better, and provide better user experience."
+    }
+  ],
+  "relatedServices": ["astro-development", "saas-mvp-development"]
 }

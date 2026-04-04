@@ -9,9 +9,9 @@ import {
 } from "@lib/constants";
 import "../styles/global.css";
 
-import BaseLayout from "@layouts/BaseLayout.astro";
 import SocialLinks from "@components/SocialLinks.astro";
 import FormField from "@components/ui/FormField.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import Typer from "@solid-components/Typer";
 
 const kickerClass = TYPOGRAPHY_CLASSES.kicker;
@@ -28,9 +28,9 @@ if (!homepageEntry) {
 
 const homepage = homepageEntry.data;
 
-const portfolioItems = (await getCollection("portfolio")).sort(
-  (a, b) => a.data.order - b.data.order,
-).slice(0, 3);
+const portfolioItems = (await getCollection("portfolio"))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
 
 const siteUrl = "https://ar10dev.github.io";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
@@ -130,13 +130,15 @@ const structuredData = {
         {
           "@type": "Offer",
           name: "AI Integrations and Automation",
-          description: "Custom LLM integrations and workflow automation services",
+          description:
+            "Custom LLM integrations and workflow automation services",
           url: `${siteUrl}/services/ai-automation/`,
         },
         {
           "@type": "Offer",
           name: "Full-Stack Web Development",
-          description: "Modern web applications with Astro, SolidJS, and cloud infrastructure",
+          description:
+            "Modern web applications with Astro, SolidJS, and cloud infrastructure",
           url: `${siteUrl}/services/web-development/`,
         },
         {

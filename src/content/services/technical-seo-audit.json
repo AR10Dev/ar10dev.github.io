@@ -1,0 +1,81 @@
+{
+  "slug": "technical-seo-audit",
+  "title": "Technical SEO Audit Services",
+  "metaTitle": "Technical SEO Audit Services | Site Performance & Indexing Analysis - Miami, FL",
+  "metaDescription": "Comprehensive technical SEO audits covering Core Web Vitals, crawlability, indexing, and structured data. Expert SEO analysis in Miami, Florida.",
+  "heroTitle": "Technical SEO Audit Services",
+  "heroSubtitle": "Uncover the technical issues killing your search rankings and get a clear roadmap to fix them.",
+  "introduction": "I conduct deep technical SEO audits that go beyond surface-level checks. From Core Web Vitals and JavaScript rendering to crawl budget optimization and log file analysis, I identify the specific technical barriers preventing your site from ranking—and provide actionable fixes prioritized by impact.",
+  "benefits": [
+    {
+      "title": "Find Hidden Issues",
+      "description": "Discover technical problems that free tools miss—JavaScript rendering issues, crawl budget waste, indexing anomalies, and internal linking gaps."
+    },
+    {
+      "title": "Prioritized Action Plan",
+      "description": "Get a clear roadmap with issues ranked by SEO impact and implementation effort, so you fix what matters most first."
+    },
+    {
+      "title": "Measurable Results",
+      "description": "Track improvements in crawl efficiency, indexing, Core Web Vitals, and ultimately rankings and organic traffic."
+    }
+  ],
+  "services": [
+    {
+      "name": "Core Web Vitals Analysis",
+      "description": "Deep dive into LCP, FID, CLS, and INP metrics with specific recommendations for improving page experience signals.",
+      "icon": "analytics"
+    },
+    {
+      "name": "Crawlability & Indexing Audit",
+      "description": "Analyze robots.txt, sitemaps, canonical tags, and crawl patterns to ensure Google can find and index your important pages.",
+      "icon": "audit"
+    },
+    {
+      "name": "JavaScript SEO Review",
+      "description": "Test how search engines render your JavaScript content and identify client-side rendering issues hurting indexing.",
+      "icon": "app"
+    },
+    {
+      "name": "Structured Data Validation",
+      "description": "Audit and optimize Schema.org markup for rich snippets, knowledge panels, and enhanced SERP features.",
+      "icon": "document"
+    }
+  ],
+  "technologies": [
+    "Screaming Frog",
+    "Google Search Console",
+    "Chrome DevTools",
+    "Lighthouse",
+    "Ahrefs",
+    "Sitebulb",
+    "Log File Analyzers"
+  ],
+  "cta": {
+    "title": "Get Your Technical SEO Audit",
+    "description": "Discover what's holding your site back from ranking. I'll identify issues and provide a prioritized fix roadmap.",
+    "buttonText": "Request SEO Audit",
+    "buttonLink": "/contact/"
+  },
+  "faqs": [
+    {
+      "question": "What does a technical SEO audit include?",
+      "answer": "A comprehensive audit covers: site architecture and URL structure, crawlability and indexing status, Core Web Vitals and page speed, mobile usability, JavaScript rendering, structured data markup, internal linking analysis, HTTP status codes and redirects, XML sitemaps and robots.txt, duplicate content issues, and security (HTTPS, safe browsing)."
+    },
+    {
+      "question": "How is this different from free SEO tools?",
+      "answer": "Free tools like Google Search Console and Lighthouse catch obvious issues. My audits go deeper—analyzing log files to see actual crawl behavior, testing JavaScript rendering, identifying crawl budget waste, and correlating technical issues with ranking data. I also prioritize findings by actual SEO impact, not just tool severity ratings."
+    },
+    {
+      "question": "How long does a technical SEO audit take?",
+      "answer": "A thorough audit typically takes 1-2 weeks depending on site size and complexity. Small sites (under 1,000 pages) are faster; enterprise sites with JavaScript frameworks, multiple subdomains, or international targeting require more analysis time."
+    },
+    {
+      "question": "Will you implement the fixes or just provide recommendations?",
+      "answer": "I deliver a detailed audit report with prioritized recommendations. I can also implement fixes directly—either as a separate engagement or as part of an ongoing technical SEO retainer. Many clients prefer the audit-first approach to understand scope before committing to implementation."
+    }
+  ],
+  "parentService": "seo-growth",
+  "relatedServices": ["programmatic-seo", "conversion-optimization"],
+  "relatedBlogPosts": ["complete-technical-seo-audit-checklist-2025"]
+}

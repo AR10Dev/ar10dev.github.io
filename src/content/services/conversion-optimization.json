@@ -1,0 +1,82 @@
+{
+  "slug": "conversion-optimization",
+  "title": "Conversion Rate Optimization Services",
+  "metaTitle": "Conversion Rate Optimization Services | CRO & A/B Testing - Miami, FL",
+  "metaDescription": "Increase conversions with data-driven CRO services. A/B testing, landing page optimization, and funnel analysis. Expert CRO consulting in Miami, Florida.",
+  "heroTitle": "Conversion Rate Optimization Services",
+  "heroSubtitle": "Turn more visitors into customers with systematic testing and data-driven optimization.",
+  "introduction": "I help businesses maximize revenue from existing traffic through rigorous conversion rate optimization. Using A/B testing, funnel analysis, and behavioral data, I identify exactly where you're losing conversions and implement changes that measurably increase your bottom line.",
+  "benefits": [
+    {
+      "title": "More Revenue, Same Traffic",
+      "description": "A 20% conversion rate increase means 20% more customers without spending more on ads. CRO is the highest-ROI marketing investment."
+    },
+    {
+      "title": "Data Over Opinions",
+      "description": "Stop guessing what works. Every change is tested and validated with statistical significance before full rollout."
+    },
+    {
+      "title": "Compound Growth",
+      "description": "Small wins stack up. A series of 5-10% improvements across your funnel can double conversions over time."
+    }
+  ],
+  "services": [
+    {
+      "name": "Conversion Audit",
+      "description": "Comprehensive analysis of your funnel using analytics, heatmaps, session recordings, and user research to identify conversion blockers.",
+      "icon": "audit"
+    },
+    {
+      "name": "A/B Testing Programs",
+      "description": "Design and run statistically rigorous A/B tests on headlines, CTAs, layouts, pricing, and other conversion-impacting elements.",
+      "icon": "scale"
+    },
+    {
+      "name": "Landing Page Optimization",
+      "description": "Redesign and optimize landing pages for specific campaigns, audiences, and conversion goals—backed by testing data.",
+      "icon": "landing"
+    },
+    {
+      "name": "Funnel Analysis",
+      "description": "Map your entire customer journey, identify drop-off points, and implement targeted optimizations at each stage.",
+      "icon": "analytics"
+    }
+  ],
+  "technologies": [
+    "Google Optimize",
+    "Optimizely",
+    "VWO",
+    "Hotjar",
+    "FullStory",
+    "Google Analytics 4",
+    "Mixpanel",
+    "Amplitude"
+  ],
+  "cta": {
+    "title": "Ready to Increase Conversions?",
+    "description": "Get a free conversion audit and discover quick wins that can boost your conversion rate this quarter.",
+    "buttonText": "Get Conversion Audit",
+    "buttonLink": "/contact/"
+  },
+  "faqs": [
+    {
+      "question": "What conversion rate should I expect?",
+      "answer": "It depends on your industry and traffic source. E-commerce averages 2-3%, SaaS free trials 3-5%, lead gen forms 5-15%. More important than benchmarks is YOUR improvement trajectory. A well-run CRO program typically improves conversions 20-50% in the first year through systematic testing."
+    },
+    {
+      "question": "How long do A/B tests need to run?",
+      "answer": "Tests need enough data for statistical significance—typically 2-4 weeks depending on your traffic volume. Running tests too short leads to false positives; too long wastes time. I calculate required sample sizes upfront and set clear stopping rules for every test."
+    },
+    {
+      "question": "What if my traffic is too low for A/B testing?",
+      "answer": "Low-traffic sites can still do CRO effectively. I use qualitative research methods (user testing, surveys, heatmaps) to identify issues, then implement best-practice changes. For testing, I focus on high-impact elements with large expected effect sizes that require smaller sample sizes to detect."
+    },
+    {
+      "question": "How do you prioritize what to test?",
+      "answer": "I use a framework balancing potential impact (based on funnel analysis), confidence (based on research and best practices), and effort (implementation complexity). High-traffic pages with clear problems get tested first. I also look for 'quick wins'—changes with strong evidence that can ship without testing."
+    }
+  ],
+  "parentService": "seo-growth",
+  "relatedServices": ["technical-seo-audit", "programmatic-seo"],
+  "relatedBlogPosts": ["ab-testing-best-practices-improve-conversions"]
+}

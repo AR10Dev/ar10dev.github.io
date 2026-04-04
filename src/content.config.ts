@@ -33,14 +33,14 @@ const servicesCollection = defineCollection({
       z.object({
         title: z.string(),
         description: z.string(),
-      })
+      }),
     ),
     services: z.array(
       z.object({
         name: z.string(),
         description: z.string(),
         icon: z.string(),
-      })
+      }),
     ),
     technologies: z.array(z.string()),
     cta: z.object({
@@ -49,6 +49,17 @@ const servicesCollection = defineCollection({
       buttonText: z.string(),
       buttonLink: z.string(),
     }),
+    faqs: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        }),
+      )
+      .optional(),
+    parentService: z.string().optional(),
+    relatedServices: z.array(z.string()).optional(),
+    relatedBlogPosts: z.array(z.string()).optional(),
   }),
 });
 
@@ -93,6 +104,7 @@ const blogCollection = defineCollection({
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),
     readingTime: z.number().optional(),
+    relatedService: z.string().optional(),
   }),
 });
 

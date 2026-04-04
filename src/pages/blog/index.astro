@@ -2,11 +2,7 @@
 import { getCollection } from "astro:content";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import {
-  CARD_CLASSES,
-  CONTAINER_CLASSES,
-  TYPOGRAPHY_CLASSES,
-} from "@lib/constants";
+import { CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
 
 const title = "Blog | Avaab Razzaq - AI Growth Engineer";
 const description =
@@ -68,12 +64,11 @@ function formatDate(date: Date): string {
       ) : (
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {sortedPosts.map((post) => (
-            <article class={`${CARD_CLASSES.glass} group`}>
-              <a href={`/blog/${post.id}/`} class="block">
+            <article class="group relative flex flex-col rounded-2xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl">
                 
                 {/* Post Image */}
                 {post.data.image && (
-                  <div class="mb-4 overflow-hidden rounded-lg aspect-video bg-[var(--surface-strong)]">
+                  <div class="mb-6 overflow-hidden rounded-lg aspect-video bg-[var(--surface-strong)]">
                     <img 
                       src={post.data.image.src} 
                       alt={post.data.image.alt}
@@ -91,17 +86,30 @@ function formatDate(date: Date): string {
                 </div>
 
                 {/* Title */}
-                <h2 class={`${TYPOGRAPHY_CLASSES.cardTitle} mb-3 group-hover:text-[var(--accent-strong)] transition-colors`}>
-                  {post.data.title}
+                <h2 class={`${TYPOGRAPHY_CLASSES.cardTitleBold} mb-3`}>
+                  <a href={`/blog/${post.id}/`} class="after:absolute after:inset-0 hover:text-[var(--accent-strong)] transition-colors">
+                    {post.data.title}
+                  </a>
                 </h2>
 
                 {/* Description */}
-                <p class={`${TYPOGRAPHY_CLASSES.cardText} mb-4`}>
+                <p class={`${TYPOGRAPHY_CLASSES.cardText} mb-6 flex-grow`}>
                   {post.data.description}
                 </p>
 
+                {/* Tags */}
+                {post.data.tags.length > 0 && (
+                  <div class="mb-6 flex flex-wrap gap-2">
+                    {post.data.tags.slice(0, 3).map(tag => (
+                      <span class="rounded-full bg-[var(--surface-elevated)] px-3 py-1 text-xs font-medium text-[var(--text-muted)]">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
                 {/* Meta Info */}
-                <div class="flex items-center justify-between text-sm text-[var(--text-base)]">
+                <div class="flex items-center justify-between text-sm text-[var(--text-muted)]">
                   <time datetime={post.data.publishDate.toISOString()}>
                     {formatDate(post.data.publishDate)}
                   </time>
@@ -109,19 +117,7 @@ function formatDate(date: Date): string {
                     <span>{post.data.readingTime} min read</span>
                   )}
                 </div>
-
-                {/* Tags */}
-                {post.data.tags.length > 0 && (
-                  <div class="mt-4 flex flex-wrap gap-2">
-                    {post.data.tags.slice(0, 3).map(tag => (
-                      <span class="text-xs px-2 py-1 rounded bg-[var(--surface-strong)] text-[var(--text-base)]">
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </a>
-            </article>
+              </article>
           ))}
         </div>
       )}

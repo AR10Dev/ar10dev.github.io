@@ -2,10 +2,15 @@
 import { getCollection } from "astro:content";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { BUTTON_CLASSES, CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+import {
+  BUTTON_CLASSES,
+  CONTAINER_CLASSES,
+  TYPOGRAPHY_CLASSES,
+} from "@lib/constants";
 
 const title = "Portfolio & Case Studies | Avaab Razzaq - AI Growth Engineer";
-const description = "Explore proof-of-concept builds and case studies in AI automation, full-stack development, and SEO growth. Work samples from a Miami-based engineer serving clients across the US.";
+const description =
+  "Explore proof-of-concept builds and case studies in AI automation, full-stack development, and SEO growth. Work samples from a Miami-based engineer serving clients across the US.";
 
 const siteUrl = "https://ar10dev.github.io";
 const canonicalUrl = new URL("/portfolio/", siteUrl).toString();
@@ -43,11 +48,11 @@ const structuredData = {
 };
 
 const categoryColors: Record<string, string> = {
-  "Automation": "bg-purple-500/10 text-purple-600 border-purple-500/20",
-  "Development": "bg-blue-500/10 text-blue-600 border-blue-500/20",
-  "SEO": "bg-green-500/10 text-green-600 border-green-500/20",
-  "Marketing": "bg-orange-500/10 text-orange-600 border-orange-500/20",
-  "Analytics": "bg-cyan-500/10 text-cyan-600 border-cyan-500/20",
+  Automation: "bg-purple-500/10 text-purple-600 border-purple-500/20",
+  Development: "bg-blue-500/10 text-blue-600 border-blue-500/20",
+  SEO: "bg-green-500/10 text-green-600 border-green-500/20",
+  Marketing: "bg-orange-500/10 text-orange-600 border-orange-500/20",
+  Analytics: "bg-cyan-500/10 text-cyan-600 border-cyan-500/20",
 };
 ---
 

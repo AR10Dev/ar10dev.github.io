@@ -2,7 +2,11 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { BUTTON_CLASSES, CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+import {
+  BUTTON_CLASSES,
+  CONTAINER_CLASSES,
+  TYPOGRAPHY_CLASSES,
+} from "@lib/constants";
 
 export async function getStaticPaths() {
   const portfolioItems = await getCollection("portfolio");

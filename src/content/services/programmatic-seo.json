@@ -1,0 +1,82 @@
+{
+  "slug": "programmatic-seo",
+  "title": "Programmatic SEO Services",
+  "metaTitle": "Programmatic SEO Services | Scalable Content Generation - Miami, FL",
+  "metaDescription": "Build automated content systems that generate thousands of SEO-optimized pages. Programmatic SEO services for scalable organic growth in Miami, Florida.",
+  "heroTitle": "Programmatic SEO Services",
+  "heroSubtitle": "Generate thousands of targeted pages automatically and capture long-tail search traffic at scale.",
+  "introduction": "I build programmatic SEO systems that create hundreds or thousands of optimized pages from your data. Whether you have a product catalog, location database, or any structured dataset, I turn it into a traffic-generating machine that captures long-tail keywords your competitors can't target manually.",
+  "benefits": [
+    {
+      "title": "Capture Long-Tail Keywords",
+      "description": "Target thousands of specific search queries that manual content creation can't scale to reach—compound search volumes add up fast."
+    },
+    {
+      "title": "Data-Driven Content",
+      "description": "Generate unique, valuable pages from your existing data—product specs, locations, comparisons—not thin AI-generated filler."
+    },
+    {
+      "title": "Competitive Moat",
+      "description": "Once built, programmatic SEO systems are hard for competitors to replicate. The infrastructure and data combination creates lasting advantage."
+    }
+  ],
+  "services": [
+    {
+      "name": "Content Template System",
+      "description": "Design modular page templates that combine structured data with dynamic content to create unique, valuable pages at scale.",
+      "icon": "scale"
+    },
+    {
+      "name": "Data Pipeline Development",
+      "description": "Build automated pipelines that pull, transform, and enrich data from your sources into SEO-ready page content.",
+      "icon": "workflow"
+    },
+    {
+      "name": "Internal Linking Architecture",
+      "description": "Design intelligent internal linking structures that distribute authority across programmatic pages and help users navigate.",
+      "icon": "integration"
+    },
+    {
+      "name": "Quality Control Systems",
+      "description": "Implement validation and quality checks to ensure programmatic pages meet content standards and avoid thin content penalties.",
+      "icon": "audit"
+    }
+  ],
+  "technologies": [
+    "Astro",
+    "Next.js",
+    "PostgreSQL",
+    "Python",
+    "OpenAI API",
+    "Google Sheets API",
+    "Airtable",
+    "Headless CMS"
+  ],
+  "cta": {
+    "title": "Ready to Scale Your SEO?",
+    "description": "Let's explore how programmatic SEO can capture search traffic your competitors are leaving on the table.",
+    "buttonText": "Discuss Programmatic SEO",
+    "buttonLink": "/contact/"
+  },
+  "faqs": [
+    {
+      "question": "What is programmatic SEO?",
+      "answer": "Programmatic SEO creates large numbers of pages automatically from structured data—product catalogs, location databases, comparison matrices, etc. Instead of writing each page manually, you build templates and data pipelines that generate unique, optimized pages at scale. Examples include Zapier's app integration pages, Yelp's location pages, and NerdWallet's comparison pages."
+    },
+    {
+      "question": "Won't Google penalize auto-generated content?",
+      "answer": "Google penalizes thin, low-quality auto-generated content. Programmatic SEO done right creates genuinely useful pages with unique data, proper structure, and real value for users. The key is combining templates with rich data sources and quality controls—not spinning the same generic content across thousands of pages."
+    },
+    {
+      "question": "What data do I need for programmatic SEO?",
+      "answer": "You need structured data with enough unique attributes to create differentiated pages. Common sources include: product catalogs with specifications, location databases, comparison matrices, user-generated data, API integrations, and industry datasets. If you have data that answers specific search queries, programmatic SEO can work."
+    },
+    {
+      "question": "How many pages can programmatic SEO create?",
+      "answer": "Technically unlimited, but the right number depends on your data quality and search demand. Some projects generate hundreds of pages; others create tens of thousands. I help you identify the sweet spot where each page targets real search volume and provides genuine value—quality matters more than quantity."
+    }
+  ],
+  "parentService": "seo-growth",
+  "relatedServices": ["technical-seo-audit", "conversion-optimization"],
+  "relatedBlogPosts": ["how-programmatic-seo-generates-10x-traffic"]
+}

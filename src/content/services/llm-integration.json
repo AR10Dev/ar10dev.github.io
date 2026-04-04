@@ -1,0 +1,83 @@
+{
+  "slug": "llm-integration",
+  "title": "LLM Integration & API Consulting",
+  "metaTitle": "LLM Integration Consulting | OpenAI & Claude API Implementation - Miami, FL",
+  "metaDescription": "Expert LLM integration services. Connect OpenAI, Anthropic Claude, and open-source models to your applications. API consulting in Miami, Florida.",
+  "heroTitle": "LLM Integration & API Consulting",
+  "heroSubtitle": "Connect the power of large language models to your existing tools, databases, and workflows.",
+  "introduction": "I help businesses integrate LLMs into their existing systems—whether you need OpenAI's GPT models, Anthropic's Claude, or open-source alternatives. From API architecture to production deployment, I handle the technical complexity so you can focus on the business value.",
+  "benefits": [
+    {
+      "title": "Right Model for the Job",
+      "description": "Not all LLMs are equal. I help you choose between GPT-4, Claude, Llama, and others based on your specific use case, budget, and requirements."
+    },
+    {
+      "title": "Production-Ready Architecture",
+      "description": "Move beyond prototypes with proper error handling, rate limiting, caching, fallbacks, and monitoring built from day one."
+    },
+    {
+      "title": "Cost Optimization",
+      "description": "Smart prompt engineering, model selection, and caching strategies that reduce API costs by 40-70% without sacrificing quality."
+    }
+  ],
+  "services": [
+    {
+      "name": "API Architecture Design",
+      "description": "Design scalable LLM integration patterns with proper error handling, retry logic, rate limiting, and fallback strategies.",
+      "icon": "api"
+    },
+    {
+      "name": "Model Selection Consulting",
+      "description": "Evaluate GPT-4, Claude, Llama, Mistral, and other models for your specific use case—balancing capability, cost, and latency.",
+      "icon": "audit"
+    },
+    {
+      "name": "RAG Implementation",
+      "description": "Build Retrieval-Augmented Generation systems that ground LLM responses in your proprietary data for accurate, verifiable answers.",
+      "icon": "document"
+    },
+    {
+      "name": "Fine-Tuning & Optimization",
+      "description": "Custom model fine-tuning and prompt optimization to improve quality, reduce latency, and lower costs for your specific use case.",
+      "icon": "scale"
+    }
+  ],
+  "technologies": [
+    "OpenAI API",
+    "Anthropic Claude",
+    "Llama",
+    "Mistral",
+    "LangChain",
+    "LlamaIndex",
+    "Pinecone",
+    "Weaviate",
+    "PostgreSQL pgvector"
+  ],
+  "cta": {
+    "title": "Ready to Integrate LLMs?",
+    "description": "Let's discuss your use case and design an LLM integration that scales with your business.",
+    "buttonText": "Schedule LLM Consultation",
+    "buttonLink": "/contact/"
+  },
+  "faqs": [
+    {
+      "question": "Should I use OpenAI, Anthropic, or open-source models?",
+      "answer": "It depends on your use case. OpenAI GPT-4 excels at general tasks and coding. Claude is better for long documents and nuanced analysis. Open-source models (Llama, Mistral) offer cost savings and data privacy but require more infrastructure. I help you evaluate trade-offs and often recommend hybrid approaches."
+    },
+    {
+      "question": "What is RAG and do I need it?",
+      "answer": "RAG (Retrieval-Augmented Generation) connects LLMs to your proprietary data—documents, databases, knowledge bases. Instead of relying on the model's training data, RAG retrieves relevant information and includes it in the prompt. You need RAG if you want accurate answers about YOUR specific business data."
+    },
+    {
+      "question": "How do you handle API costs at scale?",
+      "answer": "I implement multiple cost optimization strategies: intelligent caching to avoid redundant API calls, prompt compression techniques, smaller models for simple tasks, batching requests, and async processing. Most projects see 40-70% cost reduction compared to naive implementations."
+    },
+    {
+      "question": "Can you work with our existing application?",
+      "answer": "Yes. I integrate LLMs into existing codebases regardless of tech stack. Whether you're running Node.js, Python, Java, or .NET, I design clean API interfaces that connect to your application without major refactoring."
+    }
+  ],
+  "parentService": "ai-automation",
+  "relatedServices": ["ai-chatbot-development", "ai-workflow-automation"],
+  "relatedBlogPosts": ["openai-vs-anthropic-which-llm-for-business"]
+}

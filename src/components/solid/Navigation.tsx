@@ -38,14 +38,15 @@ const Navigation: Component<NavigationProps> = (props) => {
 
   const baseClass =
     "inline-flex items-center justify-center rounded-[0.65rem] border border-transparent px-[0.85rem] py-[0.5rem] text-[0.78rem] font-semibold tracking-[0.04em] text-[var(--text-muted)] transition-all duration-200 hover:border-[var(--border-strong)] hover:bg-[color-mix(in_srgb,var(--surface-panel)_76%,transparent)] hover:text-[var(--text-strong)]";
-  
+
   const activeClass =
     "!text-white border-[color-mix(in_srgb,var(--accent-strong)_70%,var(--border-strong))] bg-[color-mix(in_srgb,var(--accent-strong)_86%,#10243d)] shadow-[0_0_0_1px_color-mix(in_srgb,var(--accent-strong)_55%,transparent)]";
 
   const mobileBaseClass =
     "block w-full px-4 py-3 text-left text-base font-semibold text-[var(--text-muted)] transition-colors hover:bg-[var(--surface-elevated)] hover:text-[var(--text-strong)]";
-  
-  const mobileActiveClass = "!text-[var(--accent-strong)] bg-[var(--surface-elevated)]";
+
+  const mobileActiveClass =
+    "!text-[var(--accent-strong)] bg-[var(--surface-elevated)]";
 
   return (
     <nav class="flex items-center" aria-label="Main navigation">
@@ -78,14 +79,34 @@ const Navigation: Component<NavigationProps> = (props) => {
         <Show
           when={isOpen()}
           fallback={
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-label="Menu"
+            >
               <line x1="3" y1="6" x2="21" y2="6" />
               <line x1="3" y1="12" x2="21" y2="12" />
               <line x1="3" y1="18" x2="21" y2="18" />
             </svg>
           }
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-label="Close menu"
+          >
             <line x1="18" y1="6" x2="6" y2="18" />
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
@@ -94,12 +115,11 @@ const Navigation: Component<NavigationProps> = (props) => {
 
       {/* Mobile Menu Overlay */}
       <Show when={isOpen()}>
-        <div
+        <button
+          type="button"
           class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
           onClick={() => setIsOpen(false)}
           onKeyDown={handleKeyDown}
-          role="button"
-          tabIndex={-1}
           aria-label="Close menu"
         />
         <div
@@ -110,14 +130,26 @@ const Navigation: Component<NavigationProps> = (props) => {
           aria-label="Mobile navigation menu"
         >
           <div class="flex items-center justify-between border-b border-[var(--border-strong)] p-4">
-            <span class="text-lg font-bold text-[var(--text-strong)]">Menu</span>
+            <span class="text-lg font-bold text-[var(--text-strong)]">
+              Menu
+            </span>
             <button
               type="button"
               class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-[var(--text-muted)] hover:bg-[var(--surface-panel)] hover:text-[var(--text-strong)]"
               onClick={() => setIsOpen(false)}
               aria-label="Close menu"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-label="Close menu"
+              >
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>

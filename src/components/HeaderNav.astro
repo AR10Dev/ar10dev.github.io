@@ -2,15 +2,16 @@
 import { Image } from "astro:assets";
 import logo from "@assets/logo.png";
 import { ICON_BUTTON_CLASSES } from "@lib/constants";
-import Navigation from "@solid-components/Navigation";
 import type { NavLink } from "@solid-components/Navigation";
+import Navigation from "@solid-components/Navigation";
 
 export interface Props {
   background?: string;
   currentPath?: string;
 }
 
-const { background = "", currentPath = Astro.url.pathname } = Astro.props as Props;
+const { background = "", currentPath = Astro.url.pathname } =
+  Astro.props as Props;
 
 const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
@@ -21,7 +22,9 @@ const navLinks: NavLink[] = [
   { label: "Contact", href: "/contact/" },
 ];
 
-const headerBackground = background || "bg-[var(--surface-elevated)]/90 backdrop-blur supports-[backdrop-filter]:bg-[var(--surface-elevated)]/75 border-b border-[var(--border-strong)]";
+const headerBackground =
+  background ||
+  "bg-[var(--surface-elevated)]/90 backdrop-blur supports-[backdrop-filter]:bg-[var(--surface-elevated)]/75 border-b border-[var(--border-strong)]";
 ---
 
 <header class={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-300 ${headerBackground}`}>

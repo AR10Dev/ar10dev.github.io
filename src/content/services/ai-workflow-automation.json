@@ -1,0 +1,82 @@
+{
+  "slug": "ai-workflow-automation",
+  "title": "AI Workflow Automation Services",
+  "metaTitle": "AI Workflow Automation Services | Automate Business Processes - Miami, FL",
+  "metaDescription": "Transform your business with AI workflow automation. Automate lead qualification, CRM enrichment, email sequences, and reporting. Expert services in Miami, Florida.",
+  "heroTitle": "AI Workflow Automation Services",
+  "heroSubtitle": "Eliminate manual bottlenecks and scale your operations with intelligent automation that works 24/7.",
+  "introduction": "I build AI-powered workflow systems that automate your most time-consuming business processes. From lead qualification to document processing, these systems handle repetitive tasks with human-level accuracy while you focus on growth.",
+  "benefits": [
+    {
+      "title": "Save 20+ Hours Per Week",
+      "description": "Automate lead qualification, data entry, follow-ups, and reporting tasks that drain your team's productivity."
+    },
+    {
+      "title": "Zero Manual Errors",
+      "description": "AI systems execute consistently every time—no missed follow-ups, no data entry mistakes, no dropped balls."
+    },
+    {
+      "title": "Scale Without Hiring",
+      "description": "Handle 10x the volume without adding headcount. Your AI workflows grow with your business."
+    }
+  ],
+  "services": [
+    {
+      "name": "Lead Qualification Automation",
+      "description": "AI agents that score, qualify, and route leads based on your criteria—automatically enriching CRM data and triggering personalized follow-ups.",
+      "icon": "workflow"
+    },
+    {
+      "name": "Email Sequence Automation",
+      "description": "Intelligent email workflows that adapt messaging based on recipient behavior, engagement signals, and AI-generated personalization.",
+      "icon": "chat"
+    },
+    {
+      "name": "Document Processing Pipelines",
+      "description": "Extract data from contracts, invoices, and forms automatically. Route, categorize, and process documents with AI accuracy.",
+      "icon": "document"
+    },
+    {
+      "name": "Multi-Agent Orchestration",
+      "description": "Complex workflows using multiple AI agents working together—each specialized for different tasks in your process.",
+      "icon": "integration"
+    }
+  ],
+  "technologies": [
+    "n8n",
+    "Make",
+    "Zapier",
+    "OpenAI API",
+    "LangChain",
+    "Python",
+    "TypeScript",
+    "PostgreSQL"
+  ],
+  "cta": {
+    "title": "Ready to Automate Your Workflows?",
+    "description": "Let's identify the processes costing you the most time and build AI systems that handle them automatically.",
+    "buttonText": "Get Automation Audit",
+    "buttonLink": "/contact/"
+  },
+  "faqs": [
+    {
+      "question": "What types of workflows can be automated with AI?",
+      "answer": "Almost any repetitive business process can be automated: lead qualification and scoring, email follow-ups, data entry and CRM enrichment, document processing, customer support triage, reporting and analytics, social media management, and invoice processing. If it involves rules and repetition, AI can likely handle it."
+    },
+    {
+      "question": "How long does it take to implement AI workflow automation?",
+      "answer": "Simple automations can be deployed in 1-2 weeks. Complex multi-step workflows with AI decision-making typically take 3-6 weeks. I always start with a quick-win automation to demonstrate ROI before tackling larger systems."
+    },
+    {
+      "question": "Will AI automation replace my team members?",
+      "answer": "AI workflow automation augments your team, not replaces it. It handles repetitive tasks so your people can focus on high-value work—strategy, relationships, and creative problem-solving. Most clients redeploy saved time to growth activities."
+    },
+    {
+      "question": "What's the ROI of AI workflow automation?",
+      "answer": "Typical ROI includes 20-40 hours saved per week per workflow, 90%+ reduction in manual errors, 3-5x faster processing times, and the ability to scale operations without proportional headcount increases. Most projects pay for themselves within 2-3 months."
+    }
+  ],
+  "parentService": "ai-automation",
+  "relatedServices": ["ai-chatbot-development", "llm-integration"],
+  "relatedBlogPosts": ["how-to-automate-lead-qualification-with-ai"]
+}

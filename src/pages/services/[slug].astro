@@ -2,7 +2,11 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { BUTTON_CLASSES, CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+import {
+  BUTTON_CLASSES,
+  CONTAINER_CLASSES,
+  TYPOGRAPHY_CLASSES,
+} from "@lib/constants";
 
 export async function getStaticPaths() {
   const services = await getCollection("services");
@@ -18,33 +22,61 @@ interface Props {
 
 const { service } = Astro.props;
 const siteUrl = "https://ar10dev.github.io";
-const canonicalUrl = new URL(`/services/${service.data.slug}/`, siteUrl).toString();
+const canonicalUrl = new URL(
+  `/services/${service.data.slug}/`,
+  siteUrl,
+).toString();
 
+// Build structured data array with Service schema
+const structuredDataArray: Record<string, unknown>[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${siteUrl}/services/${service.data.slug}/#service`,
+    name: service.data.title,
+    description: service.data.introduction,
+    url: canonicalUrl,
+    provider: {
+      "@type": "Person",
+      name: "Avaab Razzaq",
+      jobTitle: "AI Growth Engineer",
+      url: siteUrl,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Miami",
+        addressRegion: "Florida",
+        addressCountry: "US",
+      },
+    },
+    areaServed: [
+      { "@type": "City", name: "Miami" },
+      { "@type": "State", name: "Florida" },
+      { "@type": "Country", name: "United States" },
+    ],
+    serviceType: service.data.services.map((s) => s.name),
+  },
+];
+
+// Add FAQPage schema if FAQs exist
+if (service.data.faqs && service.data.faqs.length > 0) {
+  structuredDataArray.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: service.data.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  });
+}
+
+// Combine into a single graph for cleaner output
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": `${siteUrl}/services/${service.data.slug}/#service`,
-  name: service.data.title,
-  description: service.data.introduction,
-  url: canonicalUrl,
-  provider: {
-    "@type": "Person",
-    name: "Avaab Razzaq",
-    jobTitle: "AI Growth Engineer",
-    url: siteUrl,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Miami",
-      addressRegion: "Florida",
-      addressCountry: "US",
-    },
-  },
-  areaServed: [
-    { "@type": "City", name: "Miami" },
-    { "@type": "State", name: "Florida" },
-    { "@type": "Country", name: "United States" },
-  ],
-  serviceType: service.data.services.map((s) => s.name),
+  "@graph": structuredDataArray.map(({ "@context": _, ...rest }) => rest),
 };
 
 const serviceIcons: Record<string, string> = {
@@ -61,6 +93,14 @@ const serviceIcons: Record<string, string> = {
   conversion: `<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>`,
   analytics: `<svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 21H3V3"/><path d="M18 9l-5 6-4-4-3 4"/></svg>`,
 };
+
+// Get related services for internal linking
+const allServices = await getCollection("services");
+const relatedServices = service.data.relatedServices
+  ? allServices.filter((s) =>
+      service.data.relatedServices?.includes(s.data.slug),
+    )
+  : [];
 ---
 
 <BaseLayout title={service.data.metaTitle} description={service.data.metaDescription} canonicalUrl={canonicalUrl} structuredData={structuredData}>
@@ -143,6 +183,57 @@ const serviceIcons: Record<string, string> = {
         </div>
       </div>
     </section>
+
+    {/* FAQ Section */}
+    {service.data.faqs && service.data.faqs.length > 0 && (
+      <section class="bg-[var(--surface-elevated)] py-16">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Frequently Asked Questions</h2>
+          <div class="mx-auto mt-12 max-w-3xl space-y-6">
+            {service.data.faqs.map((faq) => (
+              <details class="group rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] shadow-[var(--card-shadow)]">
+                <summary class="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-[var(--text-strong)] [&::-webkit-details-marker]:hidden">
+                  {faq.question}
+                  <svg class="h-5 w-5 flex-shrink-0 text-[var(--accent-strong)] transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </summary>
+                <div class="border-t border-[var(--card-uniform-border)] px-6 pb-6 pt-4">
+                  <p class="text-[var(--text-muted)] leading-relaxed">{faq.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* Related Services */}
+    {relatedServices.length > 0 && (
+      <section class="py-16">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Services</h2>
+          <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {relatedServices.map((related) => (
+              <a 
+                href={`/services/${related.data.slug}/`}
+                class="group rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-lg"
+              >
+                <h3 class="text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors">
+                  {related.data.title}
+                </h3>
+                <p class="mt-2 text-sm text-[var(--text-muted)] line-clamp-2">
+                  {related.data.heroSubtitle}
+                </p>
+                <span class="mt-4 inline-flex items-center text-sm font-semibold text-[var(--accent-strong)]">
+                  Learn more →
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     {/* CTA Section */}
     <section class="bg-[var(--surface-elevated)] py-16">

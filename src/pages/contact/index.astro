@@ -3,7 +3,12 @@ import { getEntry } from "astro:content";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import FormField from "@components/ui/FormField.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { BUTTON_CLASSES, CONTAINER_CLASSES, FORM_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+import {
+  BUTTON_CLASSES,
+  CONTAINER_CLASSES,
+  FORM_CLASSES,
+  TYPOGRAPHY_CLASSES,
+} from "@lib/constants";
 
 const homepageEntry = await getEntry("site", "homepage");
 if (!homepageEntry) {
@@ -13,7 +18,8 @@ if (!homepageEntry) {
 const homepage = homepageEntry.data;
 
 const title = "Contact Avaab Razzaq | AI Growth Engineer - Miami, Florida";
-const description = "Get in touch with Avaab Razzaq for AI automation, web development, and SEO services. Based in Miami, Florida, serving clients across the United States. Fast response guaranteed.";
+const description =
+  "Get in touch with Avaab Razzaq for AI automation, web development, and SEO services. Based in Miami, Florida, serving clients across the United States. Fast response guaranteed.";
 
 const siteUrl = "https://ar10dev.github.io";
 const canonicalUrl = new URL("/contact/", siteUrl).toString();

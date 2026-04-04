@@ -42,11 +42,42 @@
       "icon": "analytics"
     }
   ],
-  "technologies": ["Google Search Console", "Google Analytics 4", "Ahrefs", "Screaming Frog", "Hotjar", "Optimizely", "BigQuery"],
+  "technologies": [
+    "Google Search Console",
+    "Google Analytics 4",
+    "Ahrefs",
+    "Screaming Frog",
+    "Hotjar",
+    "Optimizely",
+    "BigQuery"
+  ],
   "cta": {
     "title": "Ready to Grow Your Business?",
     "description": "Get a free SEO audit and discover opportunities to increase your organic traffic and conversions.",
     "buttonText": "Get Free Audit",
     "buttonLink": "/contact/"
-  }
+  },
+  "faqs": [
+    {
+      "question": "How long does SEO take to show results?",
+      "answer": "SEO is a medium-term investment. Technical fixes can improve indexing within weeks. Content and authority building typically show measurable traffic gains in 3-6 months. Sustainable, compounding results emerge over 6-12 months. I provide monthly reporting so you see progress throughout."
+    },
+    {
+      "question": "What's the difference between technical SEO and content SEO?",
+      "answer": "Technical SEO ensures search engines can crawl, index, and understand your site—Core Web Vitals, site structure, schema markup, etc. Content SEO focuses on what you publish—keyword targeting, content quality, topical authority. You need both: technical SEO is the foundation, content SEO builds on it."
+    },
+    {
+      "question": "Can you guarantee rankings?",
+      "answer": "No reputable SEO professional guarantees specific rankings—Google's algorithm has too many variables. What I guarantee is implementing proven best practices, transparent reporting, and continuous optimization based on data. My track record shows consistent traffic growth across clients."
+    },
+    {
+      "question": "How do you measure SEO success?",
+      "answer": "I track metrics that matter for business outcomes: organic traffic growth, keyword ranking improvements, conversion rates from organic traffic, revenue attribution, and technical health scores. Monthly reports show progress across all these dimensions with clear trend analysis."
+    }
+  ],
+  "relatedServices": [
+    "technical-seo-audit",
+    "programmatic-seo",
+    "conversion-optimization"
+  ]
 }

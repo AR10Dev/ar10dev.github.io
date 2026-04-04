@@ -2,31 +2,65 @@
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { TYPOGRAPHY_CLASSES, BUTTON_CLASSES, CONTAINER_CLASSES } from "@lib/constants";
+import {
+  BUTTON_CLASSES,
+  CONTAINER_CLASSES,
+  TYPOGRAPHY_CLASSES,
+} from "@lib/constants";
 
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog", ({ data }) => {
     return data.draft !== true;
   });
+  const services = await getCollection("services");
 
-  return blogPosts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+  return blogPosts.map((post) => {
+    // Find related service based on relatedService field or category mapping
+    let relatedService = null;
+    if (post.data.relatedService) {
+      relatedService = services.find(
+        (s) => s.data.slug === post.data.relatedService,
+      );
+    }
+
+    // If no explicit relatedService, try to match by category
+    if (!relatedService) {
+      const categoryServiceMap: Record<string, string> = {
+        AI: "ai-automation",
+        Marketing: "seo-growth",
+        Development: "web-development",
+        Growth: "seo-growth",
+        Analytics: "conversion-optimization",
+        Tutorial: "web-development",
+      };
+      const mappedSlug = categoryServiceMap[post.data.category];
+      if (mappedSlug) {
+        relatedService = services.find((s) => s.data.slug === mappedSlug);
+      }
+    }
+
+    return {
+      params: { slug: post.id },
+      props: { post, relatedService },
+    };
+  });
 }
 
 interface Props {
   post: CollectionEntry<"blog">;
+  relatedService: CollectionEntry<"services"> | null;
 }
 
-const { post } = Astro.props;
+const { post, relatedService } = Astro.props;
 const { Content, headings } = await render(post);
 
 const siteUrl = "https://ar10dev.github.io";
 const title = `${post.data.title} | Blog - Avaab Razzaq`;
 const description = post.data.description;
 const canonicalUrl = new URL(`/blog/${post.id}/`, siteUrl).toString();
-const ogImage = post.data.image?.src ?? new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
+const ogImage =
+  post.data.image?.src ??
+  new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
 
 // Format date helper
 function formatDate(date: Date): string {
@@ -197,21 +231,7 @@ const structuredData = {
       )}
 
       <!-- Article Content -->
-      <div class="prose prose-invert prose-lg max-w-none
-        prose-headings:text-[var(--text-strong)] prose-headings:font-bold prose-headings:scroll-mt-20
-        prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-        prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-        prose-p:text-[var(--text-base)] prose-p:leading-relaxed prose-p:mb-6
-        prose-a:text-[var(--accent-strong)] prose-a:no-underline hover:prose-a:underline
-        prose-strong:text-[var(--text-strong)] prose-strong:font-semibold
-        prose-code:text-[var(--accent-strong)] prose-code:bg-[var(--surface-strong)] prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-[''] prose-code:after:content-['']
-        prose-pre:bg-[var(--surface-strong)] prose-pre:border prose-pre:border-[var(--border-base)] prose-pre:rounded-lg
-        prose-ul:text-[var(--text-base)] prose-ul:mb-6
-        prose-ol:text-[var(--text-base)] prose-ol:mb-6
-        prose-li:mb-2
-        prose-blockquote:border-l-4 prose-blockquote:border-[var(--accent-strong)] prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-[var(--text-base)]
-        prose-img:rounded-lg prose-img:shadow-lg
-      ">
+      <div class="prose-blog">
         <Content />
       </div>
 
@@ -229,12 +249,47 @@ const structuredData = {
         </div>
       )}
 
-      <!-- Share & CTA Section -->
-      <div class="mt-16 p-8 rounded-lg bg-[var(--surface-panel)] border border-[var(--border-base)] text-center">
+      <!-- Related Service Section -->
+      {relatedService && (
+        <div class="mt-12 pt-8 border-t border-[var(--border-base)]">
+          <h3 class="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-4">Related Service</h3>
+          <a 
+            href={`/services/${relatedService.data.slug}/`}
+            class="block rounded-2xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl group"
+          >
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--accent-strong)] flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors mb-2">
+                  {relatedService.data.title}
+                </h4>
+                <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-3">
+                  {relatedService.data.metaDescription}
+                </p>
+                <span class="inline-flex items-center gap-2 text-sm font-medium text-[var(--accent-strong)]">
+                  Learn more
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform" aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      )}
+
+      <!-- Found This Helpful CTA -->
+      <div class="mt-12 p-8 rounded-2xl bg-[var(--surface-panel)] border border-[var(--border-base)] text-center">
         <h3 class={`${TYPOGRAPHY_CLASSES.sectionTitle} mb-4`}>
           Found this helpful?
         </h3>
-        <p class={`${TYPOGRAPHY_CLASSES.body} mb-6`}>
+        <p class={`${TYPOGRAPHY_CLASSES.body} mb-6 max-w-lg mx-auto`}>
           Let's work together on your next project. I specialize in AI automation, growth engineering, and full-stack development.
         </p>
         <a 
