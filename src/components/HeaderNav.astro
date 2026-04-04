@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import logo from "@assets/logo.png";
+import { ICON_BUTTON_CLASSES } from "@lib/constants";
+import Navigation from "@solid-components/Navigation";
+import type { NavLink } from "@solid-components/Navigation";
+
+export interface Props {
+  background?: string;
+  currentPath?: string;
+}
+
+const { background = "", currentPath = Astro.url.pathname } = Astro.props as Props;
+
+const navLinks: NavLink[] = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services/" },
+  { label: "Portfolio", href: "/portfolio/" },
+  { label: "About", href: "/about/" },
+  { label: "Blog", href: "/blog/" },
+  { label: "Contact", href: "/contact/" },
+];
+
+const headerBackground = background || "bg-[var(--surface-elevated)]/90 backdrop-blur supports-[backdrop-filter]:bg-[var(--surface-elevated)]/75 border-b border-[var(--border-strong)]";
+---
+
+<header class={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-300 ${headerBackground}`}>
+  <div class="mx-auto flex max-w-screen-lg items-center gap-3 px-4 py-3 xl:max-w-screen-xl">
+    <a href="/" class="flex-none" aria-label="Avaab Razzaq - Home">
+      <Image 
+        src={logo}
+        alt="Avaab Razzaq - AI Growth Engineer" 
+        width={56}
+        height={56}
+        loading="eager"
+        decoding="async"
+        format="webp"
+        class="h-14 w-14"
+      />
+    </a>
+    
+    <div class="ml-auto flex items-center gap-3">
+      <Navigation links={navLinks} currentPath={currentPath} client:load />
+      
+      <button
+        id="theme-toggle"
+        type="button"
+        class={`${ICON_BUTTON_CLASSES.base} ${ICON_BUTTON_CLASSES.elevated}`}
+        aria-pressed="false"
+        aria-label="Toggle color theme"
+        title="Switch theme"
+      >
+        <span class="sr-only">Toggle color theme</span>
+        <svg
+          data-theme-icon="moon"
+          viewBox="0 0 24 24"
+          width="18"
+          height="18"
+          aria-hidden="true"
+          fill="currentColor"
+        >
+          <path d="M21 14.41A8.98 8.98 0 0 1 9.59 3 9 9 0 1 0 21 14.41Z" />
+        </svg>
+        <svg
+          data-theme-icon="sun"
+          class="hidden"
+          viewBox="0 0 24 24"
+          width="18"
+          height="18"
+          aria-hidden="true"
+          fill="currentColor"
+        >
+          <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 19a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Zm10-9a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1ZM5 12a1 1 0 0 1-1 1H3a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm13.07 7.07a1 1 0 0 1-1.41 0l-.71-.7a1 1 0 1 1 1.41-1.42l.71.71a1 1 0 0 1 0 1.41ZM8.05 8.05a1 1 0 0 1-1.41 0l-.71-.71a1 1 0 1 1 1.41-1.41l.71.7a1 1 0 0 1 0 1.42Zm10.02-2.12a1 1 0 0 1 0 1.41l-.71.71a1 1 0 1 1-1.41-1.41l.71-.71a1 1 0 0 1 1.41 0ZM8.05 15.95a1 1 0 0 1 0 1.41l-.71.7a1 1 0 1 1-1.41-1.41l.71-.71a1 1 0 0 1 1.41 0Z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

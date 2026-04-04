@@ -1,0 +1,52 @@
+{
+  "slug": "ai-automation",
+  "title": "AI & Automation Services",
+  "metaTitle": "AI Automation & Workflow Solutions | Avaab Razzaq - Miami, FL",
+  "metaDescription": "Expert AI automation services in Miami, Florida. Custom ChatGPT integrations, workflow automation, and LLM solutions for businesses across the United States.",
+  "heroTitle": "AI & Automation Solutions",
+  "heroSubtitle": "Stop doing manual work. I build intelligent systems that automate repetitive tasks and unlock growth.",
+  "introduction": "I help businesses leverage AI to eliminate bottlenecks, reduce operational costs, and scale faster. From custom ChatGPT-style interfaces to multi-agent workflow automation, I deliver solutions that transform how you work.",
+  "benefits": [
+    {
+      "title": "Save 60%+ on Manual Operations",
+      "description": "Automate lead qualification, data entry, customer support, and reporting workflows."
+    },
+    {
+      "title": "Secure & Private AI",
+      "description": "Deploy AI connected to your private business data—no sensitive information leaves your infrastructure."
+    },
+    {
+      "title": "Production-Ready Systems",
+      "description": "Built for reliability with proper error handling, monitoring, and scalability from day one."
+    }
+  ],
+  "services": [
+    {
+      "name": "Custom AI Assistants",
+      "description": "ChatGPT-style interfaces trained on your business data for customer support, sales, and internal operations.",
+      "icon": "chat"
+    },
+    {
+      "name": "Workflow Automation",
+      "description": "Multi-agent systems that handle lead qualification, CRM enrichment, email sequences, and reporting.",
+      "icon": "workflow"
+    },
+    {
+      "name": "LLM Integration",
+      "description": "Connect OpenAI, Anthropic, or open-source models to your existing tools and databases.",
+      "icon": "integration"
+    },
+    {
+      "name": "Document Processing",
+      "description": "Extract, summarize, and analyze documents automatically with AI-powered processing pipelines.",
+      "icon": "document"
+    }
+  ],
+  "technologies": ["OpenAI API", "Anthropic Claude", "LangChain", "TypeScript", "Python", "Vector Databases", "Supabase", "PostgreSQL"],
+  "cta": {
+    "title": "Ready to Automate Your Business?",
+    "description": "Book a free discovery call to discuss how AI automation can transform your operations.",
+    "buttonText": "Schedule a Call",
+    "buttonLink": "/contact/"
+  }
+}

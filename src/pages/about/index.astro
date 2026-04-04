@@ -1,0 +1,246 @@
+---
+import Breadcrumb from "@components/Breadcrumb.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { BUTTON_CLASSES, CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+
+const title = "About Avaab Razzaq | AI Growth Engineer - Miami, Florida";
+const description = "Learn about Avaab Razzaq, a certified AI Growth Engineer based in Miami, Florida. Expert in AI automation, full-stack development, and SEO strategy serving clients across the United States.";
+
+const siteUrl = "https://ar10dev.github.io";
+const canonicalUrl = new URL("/about/", siteUrl).toString();
+
+const credentials = [
+  {
+    name: "AI & Machine Learning",
+    description: "Expert in LLM integration, prompt engineering, and building production AI systems",
+    icon: "ai",
+  },
+  {
+    name: "Full-Stack Development",
+    description: "Proficient in modern web technologies including TypeScript, React, Node.js, and cloud infrastructure",
+    icon: "code",
+  },
+  {
+    name: "SEO & Growth Marketing",
+    description: "Technical SEO specialist with experience in programmatic content and conversion optimization",
+    icon: "growth",
+  },
+];
+
+const skills = {
+  frontend: ["TypeScript", "React", "SolidJS", "Astro", "TailwindCSS", "Next.js"],
+  backend: ["Node.js", "Python", "PostgreSQL", "Redis", "GraphQL", "REST APIs"],
+  ai: ["OpenAI API", "Anthropic Claude", "LangChain", "Vector Databases", "Prompt Engineering"],
+  infrastructure: ["Vercel", "Cloudflare", "AWS", "Docker", "CI/CD"],
+  seo: ["Technical SEO", "Core Web Vitals", "Structured Data", "GA4", "Search Console"],
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${siteUrl}#person`,
+  name: "Avaab Razzaq",
+  alternateName: "AR10Dev",
+  jobTitle: "AI Growth Engineer",
+  description: description,
+  url: siteUrl,
+  image: new URL("/og-ai-growth-engineer.svg", siteUrl).toString(),
+  sameAs: [
+    "https://github.com/AR10Dev",
+    "https://www.linkedin.com/in/ar10dev",
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Miami",
+    addressRegion: "Florida",
+    addressCountry: "US",
+  },
+  knowsAbout: [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Full-Stack Development",
+    "Web Development",
+    "Search Engine Optimization",
+    "Growth Marketing",
+    "Workflow Automation",
+    "TypeScript",
+    "React",
+    "Node.js",
+  ],
+  hasCredential: credentials.map((cred) => ({
+    "@type": "EducationalOccupationalCredential",
+    credentialCategory: "Professional Expertise",
+    name: cred.name,
+    description: cred.description,
+  })),
+  worksFor: {
+    "@type": "Organization",
+    name: "Independent Consultant",
+  },
+  offers: {
+    "@type": "Offer",
+    itemOffered: {
+      "@type": "Service",
+      name: "AI Growth Engineering Services",
+      description: "AI automation, full-stack development, and SEO growth services",
+    },
+  },
+};
+
+const icons: Record<string, string> = {
+  ai: `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>`,
+  code: `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  growth: `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>`,
+};
+---
+
+<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} structuredData={structuredData}>
+  <div class="min-h-screen">
+    {/* Hero Section */}
+    <section class="bg-[var(--surface-elevated)] py-16 md:py-24">
+      <div class={CONTAINER_CLASSES.horizontal}>
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} class="mb-8" />
+        
+        <div class="grid items-center gap-12 md:grid-cols-2">
+          <div>
+            <p class={TYPOGRAPHY_CLASSES.kicker}>About Me</p>
+            <h1 class={`mt-3 ${TYPOGRAPHY_CLASSES.heroTitle}`}>Avaab Razzaq</h1>
+            <p class={`mt-2 text-xl font-semibold text-[var(--accent-strong)]`}>AI Growth Engineer</p>
+            <p class={`mt-6 ${TYPOGRAPHY_CLASSES.body}`}>
+              I help businesses leverage AI to automate operations, build high-performance web applications, 
+              and drive sustainable growth through technical SEO. Based in <strong>Miami, Florida</strong>, 
+              I work with clients across the <strong>United States</strong>.
+            </p>
+            <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>
+              My approach combines deep technical expertise with a relentless focus on business outcomes. 
+              I don't just build technology—I build systems that generate measurable ROI.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="/contact/" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}>
+                Work With Me
+              </a>
+              <a href="/portfolio/" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.secondary}`}>
+                View My Work
+              </a>
+            </div>
+          </div>
+          
+          <div class="flex justify-center">
+            <div class="relative">
+              <div class="h-72 w-72 rounded-full bg-gradient-to-br from-[var(--accent-strong)] to-[#1e40af] opacity-20 blur-3xl"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="rounded-2xl border border-[var(--border-strong)] bg-[var(--surface-panel)] p-8 shadow-2xl">
+                  <div class="text-center">
+                    <div class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+                      <svg class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                      </svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-[var(--text-strong)]">Avaab Razzaq</h2>
+                    <p class="text-sm text-[var(--text-muted)]">Miami, Florida</p>
+                    <div class="mt-4 flex justify-center gap-3">
+                      <a href="https://linkedin.com/in/ar10dev" target="_blank" rel="noopener noreferrer" class="rounded-lg border border-[var(--border-strong)] p-2 text-[var(--text-muted)] hover:border-[var(--accent-strong)] hover:text-[var(--accent-strong)]" aria-label="LinkedIn Profile">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                      </a>
+                      <a href="https://github.com/AR10Dev" target="_blank" rel="noopener noreferrer" class="rounded-lg border border-[var(--border-strong)] p-2 text-[var(--text-muted)] hover:border-[var(--accent-strong)] hover:text-[var(--accent-strong)]" aria-label="GitHub Profile">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Expertise Section */}
+    <section class="py-16">
+      <div class={CONTAINER_CLASSES.horizontal}>
+        <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Areas of Expertise</h2>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          {credentials.map((cred) => (
+            <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)]">
+              <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]" set:html={icons[cred.icon]} />
+              <h3 class="text-lg font-bold text-[var(--text-strong)]">{cred.name}</h3>
+              <p class="mt-3 text-[var(--text-muted)]">{cred.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Skills Section */}
+    <section class="bg-[var(--surface-elevated)] py-16">
+      <div class={CONTAINER_CLASSES.horizontal}>
+        <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Technical Skills</h2>
+        <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {Object.entries(skills).map(([category, items]) => (
+            <div>
+              <h3 class="mb-4 text-sm font-bold uppercase tracking-wider text-[var(--accent-strong)]">
+                {category.replace(/([A-Z])/g, ' $1').trim()}
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                {items.map((skill) => (
+                  <span class="rounded-full border border-[var(--border-strong)] bg-[var(--surface-panel)] px-3 py-1.5 text-sm text-[var(--text-strong)]">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Values Section */}
+    <section class="py-16">
+      <div class={CONTAINER_CLASSES.horizontal}>
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>How I Work</h2>
+          <div class="mt-10 grid gap-8 text-left md:grid-cols-2">
+            <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+              <h3 class="text-lg font-bold text-[var(--text-strong)]">Results-Focused</h3>
+              <p class="mt-2 text-[var(--text-muted)]">Every project starts with clear success metrics. I measure my work by the business outcomes it generates, not lines of code.</p>
+            </div>
+            <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+              <h3 class="text-lg font-bold text-[var(--text-strong)]">Clear Communication</h3>
+              <p class="mt-2 text-[var(--text-muted)]">You'll always know what I'm working on, what's blocking progress, and when to expect deliverables. No surprises.</p>
+            </div>
+            <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+              <h3 class="text-lg font-bold text-[var(--text-strong)]">Production-Ready Code</h3>
+              <p class="mt-2 text-[var(--text-muted)]">I deliver code that's tested, documented, and ready for scale. You won't need to rebuild it in six months.</p>
+            </div>
+            <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+              <h3 class="text-lg font-bold text-[var(--text-strong)]">Long-Term Partnership</h3>
+              <p class="mt-2 text-[var(--text-muted)]">I'm not here for quick projects and ghost. I build relationships and support my clients as their needs evolve.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* CTA Section */}
+    <section class="bg-[var(--surface-elevated)] py-16">
+      <div class={CONTAINER_CLASSES.horizontal}>
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>Ready to Work Together?</h2>
+          <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>
+            Whether you need AI automation, a high-performance web app, or SEO strategy, 
+            I'm here to help you achieve your goals.
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a href="/contact/" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}>
+              Get in Touch
+            </a>
+            <a href="/services/" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.secondary}`}>
+              View Services
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

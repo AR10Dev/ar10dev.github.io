@@ -1,0 +1,216 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Breadcrumb from "@components/Breadcrumb.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { BUTTON_CLASSES, CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+
+export async function getStaticPaths() {
+  const portfolioItems = await getCollection("portfolio");
+  return portfolioItems.map((item) => ({
+    params: { slug: item.id },
+    props: { item },
+  }));
+}
+
+interface Props {
+  item: CollectionEntry<"portfolio">;
+}
+
+const { item } = Astro.props;
+const siteUrl = "https://ar10dev.github.io";
+const canonicalUrl = new URL(`/portfolio/${item.id}/`, siteUrl).toString();
+
+const title = `${item.data.title} | Portfolio - Avaab Razzaq`;
+const description = `${item.data.summary} Built with ${item.data.stack.join(", ")}.`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": `${siteUrl}/portfolio/${item.id}/#application`,
+  name: item.data.title,
+  applicationCategory: item.data.category,
+  description: item.data.summary,
+  url: canonicalUrl,
+  operatingSystem: "Web",
+  author: {
+    "@type": "Person",
+    name: "Avaab Razzaq",
+    url: siteUrl,
+  },
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/InStock",
+    priceCurrency: "USD",
+    price: "0",
+    description: "Custom implementation available",
+  },
+};
+
+const relatedItems = (await getCollection("portfolio"))
+  .filter((p) => p.id !== item.id && p.data.category === item.data.category)
+  .slice(0, 2);
+---
+
+<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} structuredData={structuredData}>
+  <article class="min-h-screen">
+    {/* Hero Section */}
+    <section class="bg-[var(--surface-elevated)] py-16 md:py-24">
+      <div class={CONTAINER_CLASSES.horizontal}>
+        <Breadcrumb items={[
+          { label: "Home", href: "/" },
+          { label: "Portfolio", href: "/portfolio/" },
+          { label: item.data.title }
+        ]} class="mb-8" />
+        
+        <div class="max-w-4xl">
+          <div class="mb-4 flex flex-wrap items-center gap-3">
+            <span class="rounded-full border border-[var(--accent-strong)]/20 bg-[var(--accent-strong)]/10 px-4 py-1.5 text-sm font-semibold text-[var(--accent-strong)]">
+              {item.data.category}
+            </span>
+            <span class="text-sm text-[var(--text-muted)]">{item.data.timeframe}</span>
+          </div>
+          
+          <h1 class={TYPOGRAPHY_CLASSES.heroTitle}>{item.data.title}</h1>
+          <p class={`mt-6 ${TYPOGRAPHY_CLASSES.subheading}`}>{item.data.summary}</p>
+          
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a 
+              href={item.data.proofUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}
+              aria-label={`${item.data.proofLabel} (opens in new tab)`}
+            >
+              {item.data.proofLabel}
+              <svg class="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
+            <a href="/contact/" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.secondary}`}>
+              Discuss Similar Project
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Details Section */}
+    <section class="py-16">
+      <div class={CONTAINER_CLASSES.horizontal}>
+        <div class="grid gap-12 lg:grid-cols-3">
+          {/* Main Content */}
+          <div class="lg:col-span-2">
+            <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>What This Solves</h2>
+            <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>
+              This proof-of-concept demonstrates a practical workflow for teams that need {item.data.category.toLowerCase()} 
+              execution without hiring a large development team. It's designed to be production-ready while remaining 
+              flexible enough to adapt to your specific business requirements.
+            </p>
+
+            <h2 class={`mt-12 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Impact & Results</h2>
+            <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>{item.data.impact}</p>
+
+            <h2 class={`mt-12 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>How It's Built</h2>
+            <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>
+              Built with {item.data.stack.join(", ")} and structured for production-ready extension. 
+              The architecture prioritizes maintainability, scalability, and developer experience.
+            </p>
+
+            <h2 class={`mt-12 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>What You Can Deploy</h2>
+            <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>
+              A launch-ready foundation that can be adapted to your stack, data model, and growth goals. 
+              This isn't just a demo—it's a starting point for real business implementation.
+            </p>
+          </div>
+
+          {/* Sidebar */}
+          <div class="lg:col-span-1">
+            <div class="sticky top-28 rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+              <h3 class="text-sm font-bold uppercase tracking-wider text-[var(--accent-strong)]">
+                Project Details
+              </h3>
+              
+              <dl class="mt-6 space-y-4">
+                <div>
+                  <dt class="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">Category</dt>
+                  <dd class="mt-1 text-[var(--text-strong)]">{item.data.category}</dd>
+                </div>
+                <div>
+                  <dt class="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">Timeframe</dt>
+                  <dd class="mt-1 text-[var(--text-strong)]">{item.data.timeframe}</dd>
+                </div>
+                <div>
+                  <dt class="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">Tech Stack</dt>
+                  <dd class="mt-2 flex flex-wrap gap-1.5">
+                    {item.data.stack.map((tech) => (
+                      <span class="rounded-full border border-[var(--border-strong)] bg-[var(--surface-elevated)] px-2.5 py-1 text-xs text-[var(--text-strong)]">
+                        {tech}
+                      </span>
+                    ))}
+                  </dd>
+                </div>
+              </dl>
+
+              <div class="mt-8 border-t border-[var(--border-strong)] pt-6">
+                <a 
+                  href={item.data.proofUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--accent-strong)] px-4 py-3 text-sm font-bold text-white hover:opacity-90"
+                >
+                  {item.data.proofLabel}
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Related Projects */}
+    {relatedItems.length > 0 && (
+      <section class="bg-[var(--surface-elevated)] py-16">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Projects</h2>
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            {relatedItems.map((related) => (
+              <a 
+                href={`/portfolio/${related.id}/`}
+                class="group rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl"
+              >
+                <span class="text-xs font-semibold text-[var(--accent-strong)]">{related.data.category}</span>
+                <h3 class="mt-2 text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)]">
+                  {related.data.title}
+                </h3>
+                <p class="mt-2 text-sm text-[var(--text-muted)]">{related.data.summary}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* CTA Section */}
+    <section class="py-16">
+      <div class={CONTAINER_CLASSES.horizontal}>
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>Want Something Similar?</h2>
+          <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>
+            I can build a custom solution tailored to your specific business needs. 
+            Let's discuss how this approach can work for you.
+          </p>
+          <a href="/contact/" class={`mt-8 ${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}>
+            Start a Conversation
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

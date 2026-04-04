@@ -1,19 +1,19 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "@layouts/Layout.astro";
+import Breadcrumb from "@components/Breadcrumb.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import {
   CARD_CLASSES,
   CONTAINER_CLASSES,
   TYPOGRAPHY_CLASSES,
 } from "@lib/constants";
 
-const title = "Blog | Avaab Razzaq";
+const title = "Blog | Avaab Razzaq - AI Growth Engineer";
 const description =
-  "Insights on AI automation, growth engineering, full-stack development, and marketing optimization strategies.";
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
-const ogImage = new URL("/og-ai-growth-engineer.svg", Astro.site).toString();
-const headerBackground =
-  "bg-[var(--surface-elevated)]/90 backdrop-blur supports-[backdrop-filter]:bg-[var(--surface-elevated)]/75 border-b border-[var(--border-strong)]";
+  "Insights on AI automation, growth engineering, full-stack development, and marketing optimization strategies. Expert articles from a Miami-based consultant.";
+const siteUrl = "https://ar10dev.github.io";
+const canonicalUrl = new URL("/blog/", siteUrl).toString();
+const ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
 
 // Get all published blog posts, sorted by publish date (newest first)
 const allPosts = await getCollection("blog", ({ data }) => {
@@ -34,15 +34,10 @@ function formatDate(date: Date): string {
 }
 ---
 
-<Layout 
-  pageTitle={title}
-  pageDescription={description}
-  canonicalUrl={canonicalUrl}
-  ogImage={ogImage}
-  headerBackground={headerBackground}
->
-  <div class="min-h-screen bg-[var(--bg-canvas)] py-20 px-6">
-    <div class={`${CONTAINER_CLASSES.sectionLg} mx-auto`}>
+<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage}>
+  <div class="min-h-screen py-12">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} class="mb-8" />
       
       <!-- Header -->
       <header class="mb-16 text-center">
@@ -138,4 +133,4 @@ function formatDate(date: Date): string {
 
     </div>
   </div>
-</Layout>
+</BaseLayout>

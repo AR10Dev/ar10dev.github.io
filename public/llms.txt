@@ -1,0 +1,41 @@
+# Avaab Razzaq - AI Growth Engineer
+
+> AI-powered workflows, full-stack products, and growth systems for businesses.
+
+This website belongs to Avaab Razzaq, an AI Growth Engineer based in Miami, Florida, serving clients across the United States.
+
+## Services Offered
+
+### AI & Automation
+Custom AI solutions including ChatGPT-style interfaces, workflow automation, LLM integrations, and document processing systems. Technologies: OpenAI API, Anthropic Claude, LangChain, TypeScript, Python.
+
+### Full-Stack Web Development
+High-performance web applications built with modern frameworks. Technologies: Astro, React, SolidJS, TypeScript, Node.js, PostgreSQL, TailwindCSS.
+
+### SEO & Growth Marketing
+Technical SEO audits, programmatic SEO, conversion rate optimization, and analytics. Tools: Google Search Console, GA4, Ahrefs, Screaming Frog.
+
+## Contact Information
+
+- Location: Miami, Florida, USA
+- Email: itsavaab@gmail.com
+- Booking: https://cal.com/avaabrazzaq
+- LinkedIn: https://linkedin.com/in/ar10dev
+- GitHub: https://github.com/AR10Dev
+
+## Service Areas
+
+Primary: Miami, Florida
+Extended: All United States (remote work)
+
+## Page Structure
+
+- / - Homepage with overview
+- /services/ - All services overview
+- /services/ai-automation/ - AI & Automation service details
+- /services/web-development/ - Web Development service details
+- /services/seo-growth/ - SEO & Growth service details
+- /about/ - About Avaab Razzaq, credentials, expertise
+- /portfolio/ - Portfolio and case studies
+- /blog/ - Articles and insights
+- /contact/ - Contact form and information

@@ -1,7 +1,8 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
-import Layout from "@layouts/Layout.astro";
-import { TYPOGRAPHY_CLASSES } from "@lib/constants";
+import Breadcrumb from "@components/Breadcrumb.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { TYPOGRAPHY_CLASSES, BUTTON_CLASSES, CONTAINER_CLASSES } from "@lib/constants";
 
 export async function getStaticPaths() {
   const blogPosts = await getCollection("blog", ({ data }) => {
@@ -21,14 +22,11 @@ interface Props {
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
 
-const title = `${post.data.title} | Avaab Razzaq`;
+const siteUrl = "https://ar10dev.github.io";
+const title = `${post.data.title} | Blog - Avaab Razzaq`;
 const description = post.data.description;
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
-const ogImage =
-  post.data.image?.src ??
-  new URL("/og-ai-growth-engineer.svg", Astro.site).toString();
-const headerBackground =
-  "bg-[var(--surface-elevated)]/90 backdrop-blur supports-[backdrop-filter]:bg-[var(--surface-elevated)]/75 border-b border-[var(--border-strong)]";
+const canonicalUrl = new URL(`/blog/${post.id}/`, siteUrl).toString();
+const ogImage = post.data.image?.src ?? new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
 
 // Format date helper
 function formatDate(date: Date): string {
@@ -49,7 +47,6 @@ const readingTime =
     return Math.ceil(wordCount / wordsPerMinute);
   })();
 
-// Structured data for blog post
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -58,7 +55,7 @@ const structuredData = {
   author: {
     "@type": "Person",
     name: post.data.author,
-    url: "https://ar10dev.github.io",
+    url: siteUrl,
   },
   datePublished: post.data.publishDate.toISOString(),
   ...(post.data.updatedDate && {
@@ -84,16 +81,15 @@ const structuredData = {
 };
 ---
 
-<Layout 
-  pageTitle={title}
-  pageDescription={description}
-  canonicalUrl={canonicalUrl}
-  ogImage={ogImage}
-  headerBackground={headerBackground}
-  structuredData={structuredData}
->
-  <article class="min-h-screen bg-[var(--bg-canvas)] py-20 px-6">
-    <div class="mx-auto max-w-3xl">
+<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage} structuredData={structuredData}>
+  <article class="min-h-screen py-12">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="mx-auto max-w-3xl">
+        <Breadcrumb items={[
+          { label: "Home", href: "/" },
+          { label: "Blog", href: "/blog/" },
+          { label: post.data.title }
+        ]} class="mb-8" />
       
       <!-- Back to Blog Link -->
       <a 
@@ -242,13 +238,14 @@ const structuredData = {
           Let's work together on your next project. I specialize in AI automation, growth engineering, and full-stack development.
         </p>
         <a 
-          href="/#contact" 
-          class="inline-block px-6 py-3 rounded-lg bg-[var(--accent-strong)] text-white font-semibold hover:bg-[var(--accent-base)] transition-colors"
+          href="/contact/" 
+          class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}
         >
           Get in Touch
         </a>
       </div>
 
+      </div>
     </div>
   </article>
-</Layout>
+</BaseLayout>

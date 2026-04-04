@@ -1,0 +1,52 @@
+{
+  "slug": "web-development",
+  "title": "Full-Stack Web Development",
+  "metaTitle": "Full-Stack Web Development Services | Avaab Razzaq - Miami, FL",
+  "metaDescription": "Professional full-stack web development in Miami, Florida. Fast, modern web applications using Astro, React, SolidJS, and Node.js. Serving clients nationwide.",
+  "heroTitle": "Full-Stack Web Development",
+  "heroSubtitle": "Modern, blazing-fast web applications built with the latest frameworks and best practices.",
+  "introduction": "Slow websites lose customers. I build high-performance web applications that load instantly, convert visitors, and scale effortlessly. From landing pages to complex SaaS platforms, I deliver production-ready code that works.",
+  "benefits": [
+    {
+      "title": "Lightning-Fast Performance",
+      "description": "Sub-second load times with modern frameworks like Astro that ship minimal JavaScript to the browser."
+    },
+    {
+      "title": "SEO-First Architecture",
+      "description": "Built-in technical SEO from day one—proper meta tags, semantic HTML, structured data, and Core Web Vitals optimization."
+    },
+    {
+      "title": "Scalable & Maintainable",
+      "description": "Clean code architecture with TypeScript, comprehensive testing, and documentation that grows with your business."
+    }
+  ],
+  "services": [
+    {
+      "name": "Custom Web Applications",
+      "description": "Full-stack applications with modern frontends (React, SolidJS, Astro) and robust backends (Node.js, PostgreSQL).",
+      "icon": "app"
+    },
+    {
+      "name": "Landing Pages & Marketing Sites",
+      "description": "High-converting marketing websites optimized for speed, SEO, and lead generation.",
+      "icon": "landing"
+    },
+    {
+      "name": "E-commerce Solutions",
+      "description": "Custom e-commerce experiences with payment integration, inventory management, and conversion optimization.",
+      "icon": "cart"
+    },
+    {
+      "name": "API Development",
+      "description": "RESTful and GraphQL APIs designed for performance, security, and developer experience.",
+      "icon": "api"
+    }
+  ],
+  "technologies": ["Astro", "React", "SolidJS", "TypeScript", "Node.js", "PostgreSQL", "TailwindCSS", "Vercel", "Cloudflare"],
+  "cta": {
+    "title": "Ready to Build Your Web Application?",
+    "description": "Let's discuss your project requirements and create something exceptional together.",
+    "buttonText": "Start Your Project",
+    "buttonLink": "/contact/"
+  }
+}

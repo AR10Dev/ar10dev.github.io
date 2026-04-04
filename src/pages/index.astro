@@ -4,24 +4,16 @@ import {
   BUTTON_CLASSES,
   CONTAINER_CLASSES,
   FORM_CLASSES,
-  LAYOUT_CLASSES,
   TYPING_CLASSES,
   TYPOGRAPHY_CLASSES,
 } from "@lib/constants";
-import { SEO } from "astro-seo";
 import "../styles/global.css";
 
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import SocialLinks from "@components/SocialLinks.astro";
-import FeatureCard from "@components/ui/FeatureCard.astro";
 import FormField from "@components/ui/FormField.astro";
 import Typer from "@solid-components/Typer";
 
-const headerBackground =
-  "bg-[var(--surface-elevated)]/90 backdrop-blur supports-[backdrop-filter]:bg-[var(--surface-elevated)]/75 border-b border-[var(--border-strong)]";
-
-// Use centralized class constants
 const kickerClass = TYPOGRAPHY_CLASSES.kicker;
 const titleClass = TYPOGRAPHY_CLASSES.title;
 const copyClass = TYPOGRAPHY_CLASSES.body;
@@ -38,18 +30,20 @@ const homepage = homepageEntry.data;
 
 const portfolioItems = (await getCollection("portfolio")).sort(
   (a, b) => a.data.order - b.data.order,
-);
+).slice(0, 3);
 
 const siteUrl = "https://ar10dev.github.io";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
 const linkedInUrl = "https://www.linkedin.com/in/ar10dev";
+
 const rolePhrases = [
   "an AI Growth Engineer.",
   "an Automations Architect.",
   "a Full-Stack Web Developer.",
   "an SEO and Marketing Strategist.",
 ];
+
 const socialLinks = [
   {
     kind: "linkedin" as const,
@@ -68,15 +62,18 @@ const socialLinks = [
 const heroFeatures = [
   {
     title: "Full-Stack Apps",
-    body: "Modern, fast websites and apps built with modern frameworks and tools.",
+    body: "Modern, fast websites and apps built with cutting-edge frameworks.",
+    href: "/services/web-development/",
   },
   {
     title: "AI Automations",
-    body: "Custom LLM integrations, chatbots, and internal workflows that remove manual bottlenecks.",
+    body: "Custom LLM integrations and workflows that remove manual bottlenecks.",
+    href: "/services/ai-automation/",
   },
   {
     title: "SEO Growth",
-    body: "Technical SEO and marketing systems built to capture demand and convert qualified traffic.",
+    body: "Technical SEO systems built to capture demand and convert traffic.",
+    href: "/services/seo-growth/",
   },
 ];
 
@@ -84,18 +81,21 @@ const serviceItems = [
   {
     title: "AI Integrations and Automation",
     body: "Stop doing manual work. I build secure internal tools and custom ChatGPT-style interfaces connected to your private business data.",
+    href: "/services/ai-automation/",
   },
   {
     title: "High-Performance Web Apps",
     body: "Slow websites lose money. I develop blazing-fast, secure web applications using modern frameworks like Astro and SolidJS.",
+    href: "/services/web-development/",
   },
   {
     title: "SEO and Growth Engines",
     body: "Traffic is useless without conversion. I build programmatic SEO engines and lead-generation funnels that turn visitors into paying customers.",
+    href: "/services/seo-growth/",
   },
 ];
 
-// Enhanced structured data with additional context
+// Enhanced structured data with local business info for SEO
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -108,6 +108,12 @@ const structuredData = {
       url: siteUrl,
       image: ogImage,
       sameAs: [homepage.githubUrl, linkedInUrl],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Miami",
+        addressRegion: "Florida",
+        addressCountry: "US",
+      },
       knowsAbout: [
         "AI workflow automation",
         "Prompt engineering",
@@ -120,26 +126,59 @@ const structuredData = {
         "@type": "Organization",
         name: "Independent Consultant",
       },
-      hasCredential: [],
       offers: [
         {
           "@type": "Offer",
           name: "AI Integrations and Automation",
-          description:
-            "Custom LLM integrations and workflow automation services",
+          description: "Custom LLM integrations and workflow automation services",
+          url: `${siteUrl}/services/ai-automation/`,
         },
         {
           "@type": "Offer",
           name: "Full-Stack Web Development",
-          description:
-            "Modern web applications with Astro, SolidJS, and cloud infrastructure",
+          description: "Modern web applications with Astro, SolidJS, and cloud infrastructure",
+          url: `${siteUrl}/services/web-development/`,
         },
         {
           "@type": "Offer",
           name: "SEO and Growth Strategy",
           description: "Technical SEO and programmatic marketing systems",
+          url: `${siteUrl}/services/seo-growth/`,
         },
       ],
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}#business`,
+      name: "Avaab Razzaq - AI Growth Engineer",
+      description: homepage.metaDescription,
+      url: siteUrl,
+      telephone: "",
+      email: homepage.contactEmail,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Miami",
+        addressRegion: "Florida",
+        postalCode: "",
+        addressCountry: "US",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 25.7617,
+        longitude: -80.1918,
+      },
+      areaServed: [
+        { "@type": "City", name: "Miami" },
+        { "@type": "State", name: "Florida" },
+        { "@type": "Country", name: "United States" },
+      ],
+      priceRange: "$$",
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "18:00",
+      },
     },
     {
       "@type": "WebSite",
@@ -167,52 +206,19 @@ const structuredData = {
 };
 ---
 
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
-    />
-    <meta name="description" content={homepage.metaDescription} />
-    <meta name="keywords" content="AI, growth engineering, full-stack development, SEO, automation, web apps" />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="Avaab Razzaq" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="canonical" href={canonicalUrl} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
-    <SEO title={homepage.brandTitle} description={homepage.metaDescription} />
+<BaseLayout 
+  title={homepage.brandTitle} 
+  description={homepage.metaDescription}
+  canonicalUrl={canonicalUrl}
+  ogImage={ogImage}
+  structuredData={structuredData}
+>
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={homepage.brandTitle} />
-    <meta property="og:description" content={homepage.metaDescription} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content={homepage.brandTitle} />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={homepage.brandTitle} />
-    <meta name="twitter:description" content={homepage.metaDescription} />
-    <meta name="twitter:image" content={ogImage} />
-
-    <meta name="theme-color" content="#0e2a47" />
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
-    <script is:inline>
-      document.documentElement.classList.add("js");
-    </script>
-  </head>
-  <body class="m-0 min-h-screen overflow-hidden site-shell">
-    <a href="#main-content" class="absolute left-4 top-[-100%] z-[200] rounded-[0.6rem] border border-[var(--border-strong)] bg-[var(--surface-panel)] px-[0.85rem] py-[0.55rem] font-bold text-[var(--text-strong)] focus-visible:top-[0.8rem]">Skip to main content</a>
-    <div aria-hidden="true" class={LAYOUT_CLASSES.siteBg}></div>
-    <Header background={headerBackground} />
-
-    <main id="main-content" class={LAYOUT_CLASSES.mainContent} tabindex="-1">
-      <section id="home" class={`${LAYOUT_CLASSES.slideSection} ${LAYOUT_CLASSES.homeSlide} ${LAYOUT_CLASSES.sectionSizeHome} relative overflow-hidden`} aria-labelledby="hero-title">
-        <div class={`${LAYOUT_CLASSES.homeStack} mx-auto w-full max-w-screen-xl px-6`}>
-          <div class="w-full">
+    <main id="main-content" class="scroll-smooth" tabindex="-1">
+      {/* Hero Section */}
+      <section id="home" class="min-h-[90vh] flex items-center py-20" aria-labelledby="hero-title">
+        <div class="mx-auto w-full max-w-screen-xl px-6">
+          <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <p class={kickerClass}>{homepage.kicker}</p>
               <h1 id="hero-title" class={TYPOGRAPHY_CLASSES.heroTitle}>
@@ -230,78 +236,81 @@ const structuredData = {
               <p class={`mt-6 w-full text-pretty ${copyClass}`}>
                 {homepage.heroLead}
               </p>
+              <p class="mt-3 text-sm text-[var(--text-muted)]">
+                Based in <strong class="text-[var(--text-strong)]">Miami, Florida</strong> • Serving clients across the <strong class="text-[var(--text-strong)]">United States</strong>
+              </p>
               <div class="mt-10 flex flex-wrap gap-4">
-                <a href="#contact" class={primaryButtonClass} data-track="cta_hero_primary">Book a Discovery Call</a>
-                <a href="#work" class={secondaryButtonClass} data-track="cta_hero_secondary">See Case Studies</a>
+                <a href="/contact/" class={primaryButtonClass} data-track="cta_hero_primary">Book a Discovery Call</a>
+                <a href="/portfolio/" class={secondaryButtonClass} data-track="cta_hero_secondary">See My Work</a>
               </div>
-              <SocialLinks links={socialLinks} variant="icon" className="mt-[clamp(0.95rem,2.2vh,1.45rem)] gap-[0.62rem]" />
+              <SocialLinks links={socialLinks} variant="icon" className="mt-6 gap-3" />
+            </div>
+            
+            <div class="grid gap-4 md:grid-cols-1">
+              {heroFeatures.map((feature) => (
+                <a href={feature.href} class="group block rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:border-[var(--accent-strong)]/30">
+                  <h3 class="font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors">{feature.title}</h3>
+                  <p class="mt-2 text-sm text-[var(--text-muted)]">{feature.body}</p>
+                </a>
+              ))}
             </div>
           </div>
-          <div class="mt-10 grid gap-4 md:grid-cols-3">
-            {heroFeatures.map((feature) => (
-              <FeatureCard title={feature.title} body={feature.body} titleTag="p" />
-            ))}
-          </div>
         </div>
       </section>
 
-      <section id="services" class={`${LAYOUT_CLASSES.slideSection} pb-8`} aria-labelledby="services-title">
+      {/* Services Section */}
+      <section id="services" class="py-20 bg-[var(--surface-elevated)]" aria-labelledby="services-title">
         <div class={CONTAINER_CLASSES.horizontal}>
-          <h2 id="services-title" class={titleClass}>Services and Solutions</h2>
-          <p class={`mt-4 max-w-3xl ${copyClass}`}>
-            I help businesses build scalable web apps, integrate AI to save time, and drive aggressive growth through technical SEO.
-          </p>
-          <div class="mt-8 grid gap-5 lg:grid-cols-3">
+          <div class="text-center mb-12">
+            <p class={kickerClass}>What I Do</p>
+            <h2 id="services-title" class={`mt-3 ${titleClass}`}>Services and Solutions</h2>
+            <p class={`mt-4 max-w-3xl mx-auto ${copyClass}`}>
+              I help businesses build scalable web apps, integrate AI to save time, and drive aggressive growth through technical SEO.
+            </p>
+          </div>
+          <div class="grid gap-6 lg:grid-cols-3">
             {serviceItems.map((service) => (
-              <FeatureCard
-                title={service.title}
-                body={service.body}
-                titleClassName="text-[1.06rem]"
-                bodyClassName="text-[0.95rem]"
-              />
+              <a href={service.href} class="group flex flex-col rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl">
+                <h3 class="text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors">{service.title}</h3>
+                <p class="mt-3 text-[var(--text-muted)] flex-grow">{service.body}</p>
+                <span class="mt-4 text-sm font-semibold text-[var(--accent-strong)]">Learn more →</span>
+              </a>
             ))}
+          </div>
+          <div class="mt-10 text-center">
+            <a href="/services/" class={secondaryButtonClass}>View All Services</a>
           </div>
         </div>
       </section>
 
-      <section id="work" class={`${LAYOUT_CLASSES.slideSection} work-slide ${LAYOUT_CLASSES.sectionSizeWork}`} aria-labelledby="work-title">
+      {/* Portfolio Section */}
+      <section id="work" class="py-20" aria-labelledby="work-title">
         <div class={CONTAINER_CLASSES.horizontal}>
-          <div class="flex flex-wrap items-end justify-between gap-4">
-            <h2 id="work-title" class={titleClass}>Proof-of-Concept Builds</h2>
-            <a
-              class="text-sm font-semibold uppercase tracking-[0.1em] text-[var(--accent-strong)]"
-              href={homepage.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-track="open_github_architecture"
-              aria-label="View GitHub architecture (opens in new tab)"
-            >
-              View GitHub architecture
-            </a>
+          <div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+            <div>
+              <p class={kickerClass}>My Work</p>
+              <h2 id="work-title" class={`mt-3 ${titleClass}`}>Featured Projects</h2>
+              <p class={`mt-4 max-w-2xl ${copyClass}`}>
+                Proof-of-concept builds that show what I can deliver for your business.
+              </p>
+            </div>
+            <a href="/portfolio/" class={secondaryButtonClass}>View All Projects</a>
           </div>
-          <p class={`mt-4 max-w-3xl ${copyClass}`}>
-            No client history required. These projects are engineered demos that show exactly what I can build and deploy for your business right now.
-          </p>
-          <div class="mt-8 flex gap-6 overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory" style="scrollbar-width: thin;">
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {portfolioItems.map((item) => (
-              <article class="flex h-full min-h-[clamp(18rem,34vh,22rem)] min-w-[clamp(19.5rem,calc(33.333%-1rem),24rem)] max-w-[clamp(19.5rem,calc(33.333%-1rem),24rem)] flex-shrink-0 snap-start flex-col gap-[0.28rem] rounded-[var(--card-radius)] border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-[1.35rem] shadow-[var(--card-shadow)]" itemscope itemtype="https://schema.org/SoftwareApplication">
-                <p class="m-0 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[var(--card-label)]" itemprop="applicationCategory">{item.data.category}</p>
-                <h3 class="mt-[0.42rem] font-['Sora','Segoe_UI',sans-serif] text-[1.25rem] font-bold leading-[1.35] text-[var(--card-heading)]" itemprop="name">{item.data.title}</h3>
-                <p class="mt-[0.58rem] text-[0.67rem] font-bold uppercase tracking-[0.16em] text-[var(--card-label)]">What This Solves</p>
-                <p class="text-[0.93rem] leading-[1.62] text-[var(--card-body)]">This PoC demonstrates a practical workflow for teams that need {item.data.category.toLowerCase()} execution without hiring a large dev team.</p>
-                <p class="mt-[0.58rem] text-[0.67rem] font-bold uppercase tracking-[0.16em] text-[var(--card-label)]">How It Is Built</p>
-                <p class="text-[0.82rem] leading-[1.55] text-[var(--card-body)]">Built with {item.data.stack.join(" | ")} and structured for production-ready extension.</p>
-                <p class="mt-[0.58rem] text-[0.67rem] font-bold uppercase tracking-[0.16em] text-[var(--card-label)]">What You Can Deploy</p>
-                <p class="text-[0.92rem] font-semibold leading-[1.5] text-[var(--card-label)]">A launch-ready foundation that can be adapted to your stack, data model, and growth goals.</p>
-                <a
-                  href={item.data.proofUrl}
-                  class="mt-auto inline-block pt-[0.95rem] text-[0.8rem] font-bold uppercase tracking-[0.06em] text-[var(--card-label)] hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-track={`open_proof_${item.id}`}
-                  aria-label={`View ${item.data.title} - ${item.data.proofLabel} (opens in new tab)`}
-                >
-                  {item.data.proofLabel}
+              <article class="group flex flex-col rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl" itemscope itemtype="https://schema.org/SoftwareApplication">
+                <p class="text-xs font-bold uppercase tracking-widest text-[var(--accent-strong)]" itemprop="applicationCategory">{item.data.category}</p>
+                <h3 class="mt-2 text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors" itemprop="name">
+                  <a href={`/portfolio/${item.id}/`}>{item.data.title}</a>
+                </h3>
+                <p class="mt-3 text-sm text-[var(--text-muted)] flex-grow">{item.data.summary}</p>
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                  {item.data.stack.slice(0, 3).map((tech) => (
+                    <span class="rounded bg-[var(--surface-elevated)] px-2 py-0.5 text-xs text-[var(--text-muted)]">{tech}</span>
+                  ))}
+                </div>
+                <a href={`/portfolio/${item.id}/`} class="mt-4 text-sm font-semibold text-[var(--accent-strong)] hover:underline">
+                  View details →
                 </a>
               </article>
             ))}
@@ -309,82 +318,71 @@ const structuredData = {
         </div>
       </section>
 
-      <section id="contact" class={`${LAYOUT_CLASSES.slideSection} pt-10 pb-20`} aria-labelledby="contact-title">
+      {/* Contact CTA Section */}
+      <section id="contact" class="py-20 bg-[var(--surface-elevated)]" aria-labelledby="contact-title">
         <div class={CONTAINER_CLASSES.horizontal}>
-          <div class="grid items-start gap-[clamp(1.25rem,2.3vw,2rem)] min-[980px]:grid-cols-[1.1fr_0.9fr]">
-            <div class="max-w-[38rem]">
-              <p class={kickerClass}>Clear next step</p>
-              <h2 id="contact-title" class={`mt-4 ${titleClass}`}>Need a partner who can ship and scale?</h2>
-              <p class={`mt-4 max-w-xl ${copyClass}`}>
+          <div class="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <p class={kickerClass}>Let's Talk</p>
+              <h2 id="contact-title" class={`mt-3 ${titleClass}`}>Ready to Transform Your Business?</h2>
+              <p class={`mt-4 ${copyClass}`}>
                 Share your product and growth goals, and I will propose a focused roadmap for automation, engineering, and conversion optimization.
               </p>
-              <ul class="mt-6 list-inside list-disc space-y-1 text-[var(--card-body)]" aria-label="Engagement trust signals">
-                <li>{homepage.responseTime}</li>
-                <li>Timezone: {homepage.timezone}</li>
-                <li>Location: {homepage.location}</li>
-                <li>{homepage.availability}</li>
+              <ul class="mt-6 space-y-2 text-[var(--text-muted)]" aria-label="Engagement trust signals">
+                <li class="flex items-center gap-2">
+                  <svg class="h-5 w-5 text-[var(--accent-strong)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  {homepage.responseTime}
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="h-5 w-5 text-[var(--accent-strong)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Timezone: {homepage.timezone}
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="h-5 w-5 text-[var(--accent-strong)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Location: {homepage.location}
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="h-5 w-5 text-[var(--accent-strong)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  {homepage.availability}
+                </li>
               </ul>
-              <div class="mt-8 flex flex-wrap items-center gap-4">
-                <a class={primaryButtonClass} href={`mailto:${homepage.contactEmail}`} data-track="cta_contact_email">Contact me</a>
-                <a
-                  class={secondaryButtonClass}
-                  href={homepage.bookingUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-track="cta_booking_link"
-                  aria-label="Book a calendar slot (opens in new tab)"
-                >
-                  Book a calendar slot
-                </a>
-                <a
-                  class={secondaryButtonClass}
-                  href={linkedInUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-track="open_linkedin_profile"
-                  aria-label="Open LinkedIn profile (opens in new tab)"
-                >
-                  LinkedIn
+              <div class="mt-8 flex flex-wrap gap-4">
+                <a class={primaryButtonClass} href="/contact/" data-track="cta_contact_page">Get in Touch</a>
+                <a class={secondaryButtonClass} href={homepage.bookingUrl} target="_blank" rel="noopener noreferrer" data-track="cta_booking_link">
+                  Book a Calendar Slot
                 </a>
               </div>
             </div>
-            <div class="rounded-[1rem] border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-[clamp(1rem,2vw,1.4rem)]">
-                <p class={`${kickerClass} text-[0.68rem] tracking-[0.2em]`}>Project intake</p>
-                <form class="mt-4" method="POST" data-track="submit_lead_form" name="lead-capture">
-                  <input type="hidden" name="form-name" value="lead-capture" />
-                  <div class="grid gap-3 md:grid-cols-2">
-                    <FormField label="Name">
-                      <input class={leadInputClass} type="text" name="name" required aria-required="true" />
-                    </FormField>
-                    <FormField label="Email">
-                      <input class={leadInputClass} type="email" name="email" required aria-required="true" />
-                    </FormField>
-                  </div>
-                  <FormField label="What do you need help with?" className="mt-3">
-                    <select class={leadInputClass} name="projectType" required aria-required="true">
-                      <option value="">Select one...</option>
-                      <option value="ai-app">Need an AI App built</option>
-                      <option value="seo-growth">Need SEO growth</option>
-                      <option value="fullstack-product">Need a Full-Stack product</option>
-                      <option value="automation">Need workflow automation</option>
-                    </select>
+            
+            <div class="rounded-2xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)]">
+              <p class={`${kickerClass} text-xs`}>Quick Inquiry</p>
+              <form class="mt-6" method="POST" name="homepage-lead" action="/contact/">
+                <input type="hidden" name="form-name" value="homepage-lead" />
+                <div class="grid gap-4 md:grid-cols-2">
+                  <FormField label="Name">
+                    <input class={leadInputClass} type="text" name="name" required aria-required="true" placeholder="John Doe" />
                   </FormField>
-                  <FormField label="Project brief" className="mt-3">
-                    <textarea class={leadInputClass} name="message" rows={4} required aria-required="true"></textarea>
+                  <FormField label="Email">
+                    <input class={leadInputClass} type="email" name="email" required aria-required="true" placeholder="john@example.com" />
                   </FormField>
-                  <button class={`${primaryButtonClass} mt-4 w-full`} type="submit">Send project inquiry</button>
-                </form>
+                </div>
+                <FormField label="What do you need help with?" className="mt-4">
+                  <select class={leadInputClass} name="projectType" required aria-required="true">
+                    <option value="">Select one...</option>
+                    <option value="ai-automation">AI & Automation</option>
+                    <option value="web-development">Web Development</option>
+                    <option value="seo-growth">SEO & Growth</option>
+                    <option value="other">Other</option>
+                  </select>
+                </FormField>
+                <FormField label="Tell me about your project" className="mt-4">
+                  <textarea class={leadInputClass} name="message" rows={3} required aria-required="true" placeholder="Brief description of your goals..."></textarea>
+                </FormField>
+                <button class={`${primaryButtonClass} mt-6 w-full`} type="submit">Send Inquiry</button>
+              </form>
             </div>
           </div>
         </div>
       </section>
     </main>
-
-    <Footer />
-    <script>
-      import "../scripts/homepage";
-    </script>
-
-
-  </body>
-</html>
+</BaseLayout>

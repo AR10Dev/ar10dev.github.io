@@ -1,0 +1,116 @@
+---
+import { getCollection } from "astro:content";
+import Breadcrumb from "@components/Breadcrumb.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { BUTTON_CLASSES, CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+
+const title = "Professional Services | Avaab Razzaq - AI Growth Engineer";
+const description = "Expert AI automation, full-stack web development, and SEO growth services. Serving clients in Miami, Florida and across the United States.";
+
+const services = await getCollection("services");
+
+const siteUrl = "https://ar10dev.github.io";
+const canonicalUrl = new URL("/services/", siteUrl).toString();
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${siteUrl}#services`,
+  name: "Avaab Razzaq - AI Growth Engineer",
+  description: description,
+  url: canonicalUrl,
+  areaServed: [
+    { "@type": "City", name: "Miami", containedInPlace: { "@type": "State", name: "Florida" } },
+    { "@type": "Country", name: "United States" }
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Professional Services",
+    itemListElement: services.map((service, index) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.data.title,
+        description: service.data.introduction,
+      },
+      position: index + 1,
+    })),
+  },
+  provider: {
+    "@type": "Person",
+    name: "Avaab Razzaq",
+    url: siteUrl,
+  },
+};
+
+const serviceIcons: Record<string, string> = {
+  "ai-automation": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>`,
+  "web-development": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+  "seo-growth": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>`,
+};
+---
+
+<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} structuredData={structuredData}>
+  <div class="min-h-screen py-12">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} class="mb-8" />
+      
+      <header class="mb-16 text-center">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>What I Do</p>
+        <h1 class={`mt-3 ${TYPOGRAPHY_CLASSES.heroTitle}`}>Professional Services</h1>
+        <p class={`mt-6 mx-auto max-w-3xl ${TYPOGRAPHY_CLASSES.body}`}>
+          I help businesses build scalable web applications, automate workflows with AI, 
+          and drive growth through technical SEO. Based in Miami, Florida, serving clients nationwide.
+        </p>
+      </header>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => (
+          <article class="group relative flex flex-col rounded-2xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl">
+            <div class="mb-6 text-[var(--accent-strong)]" set:html={serviceIcons[service.data.slug] || serviceIcons["ai-automation"]} />
+            
+            <h2 class={`${TYPOGRAPHY_CLASSES.cardTitleBold} mb-3`}>
+              <a href={`/services/${service.data.slug}/`} class="after:absolute after:inset-0">
+                {service.data.title}
+              </a>
+            </h2>
+            
+            <p class={`${TYPOGRAPHY_CLASSES.cardText} mb-6 flex-grow`}>
+              {service.data.heroSubtitle}
+            </p>
+
+            <div class="mb-6 flex flex-wrap gap-2">
+              {service.data.technologies.slice(0, 4).map((tech) => (
+                <span class="rounded-full bg-[var(--surface-elevated)] px-3 py-1 text-xs font-medium text-[var(--text-muted)]">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-semibold text-[var(--accent-strong)] group-hover:underline">
+                Learn more →
+              </span>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <section class="mt-20 rounded-2xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-10 text-center shadow-[var(--card-shadow)]">
+        <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>Ready to Transform Your Business?</h2>
+        <p class={`mt-4 mx-auto max-w-2xl ${TYPOGRAPHY_CLASSES.body}`}>
+          Whether you need AI automation, a high-performance web app, or SEO strategy, 
+          I'm here to help you achieve your goals.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a href="/contact/" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}>
+            Schedule a Discovery Call
+          </a>
+          <a href="/portfolio/" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.secondary}`}>
+            View My Work
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

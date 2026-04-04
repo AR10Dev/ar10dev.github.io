@@ -19,6 +19,39 @@ const siteCollection = defineCollection({
   }),
 });
 
+const servicesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/services" }),
+  schema: z.object({
+    slug: z.string(),
+    title: z.string(),
+    metaTitle: z.string(),
+    metaDescription: z.string(),
+    heroTitle: z.string(),
+    heroSubtitle: z.string(),
+    introduction: z.string(),
+    benefits: z.array(
+      z.object({
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+    services: z.array(
+      z.object({
+        name: z.string(),
+        description: z.string(),
+        icon: z.string(),
+      })
+    ),
+    technologies: z.array(z.string()),
+    cta: z.object({
+      title: z.string(),
+      description: z.string(),
+      buttonText: z.string(),
+      buttonLink: z.string(),
+    }),
+  }),
+});
+
 const portfolioCollection = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/portfolio" }),
   schema: z.object({
@@ -65,6 +98,7 @@ const blogCollection = defineCollection({
 
 export const collections = {
   site: siteCollection,
+  services: servicesCollection,
   portfolio: portfolioCollection,
   blog: blogCollection,
 };

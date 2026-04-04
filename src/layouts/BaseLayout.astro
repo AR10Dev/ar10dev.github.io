@@ -1,0 +1,116 @@
+---
+import FooterNav from "@components/FooterNav.astro";
+import HeaderNav from "@components/HeaderNav.astro";
+import { SEO } from "astro-seo";
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  structuredData?: Record<string, unknown>;
+  noIndex?: boolean;
+}
+
+const siteUrl = "https://ar10dev.github.io";
+const {
+  title,
+  description,
+  canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString(),
+  ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString(),
+  structuredData,
+  noIndex = false,
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Avaab Razzaq" />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    {!noIndex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
+    
+    {/* Geo-targeting for local SEO */}
+    <meta name="geo.region" content="US-FL" />
+    <meta name="geo.placename" content="Miami" />
+    <meta name="geo.position" content="25.7617;-80.1918" />
+    <meta name="ICBM" content="25.7617, -80.1918" />
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    
+    {/* Preconnect to external resources */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    
+    <SEO title={title} description={description} />
+
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:site_name" content="Avaab Razzaq - AI Growth Engineer" />
+    <meta property="og:locale" content="en_US" />
+
+    {/* Twitter/X Card */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="theme-color" content="#0e2a47" />
+
+    {structuredData && (
+      <script
+        is:inline
+        type="application/ld+json"
+        set:html={JSON.stringify(structuredData)}
+      />
+    )}
+
+    <script is:inline>
+      (() => {
+        try {
+          const storedTheme = localStorage.getItem("theme");
+          const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const shouldUseDark = storedTheme === null ? systemPrefersDark : storedTheme === "dark";
+          document.documentElement.classList.toggle("dark", shouldUseDark);
+          document.documentElement.classList.add("js");
+        } catch {
+          // Ignore localStorage restrictions
+        }
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen bg-transparent text-[var(--text-strong)]">
+    <div aria-hidden="true" class="fixed inset-0 -z-10 pointer-events-none site-bg"></div>
+    
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:border focus:border-[var(--border-strong)] focus:bg-[var(--surface-panel)] focus:px-4 focus:py-2 focus:font-bold focus:text-[var(--text-strong)]">
+      Skip to main content
+    </a>
+
+    <HeaderNav currentPath={currentPath} />
+
+    <main id="main-content" class="pt-20" tabindex="-1">
+      <slot />
+    </main>
+
+    <FooterNav />
+
+    <script>
+      import "../scripts/homepage.ts";
+    </script>
+  </body>
+</html>

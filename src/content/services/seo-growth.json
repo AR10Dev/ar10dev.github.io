@@ -1,0 +1,52 @@
+{
+  "slug": "seo-growth",
+  "title": "SEO & Growth Marketing",
+  "metaTitle": "SEO & Growth Marketing Services | Avaab Razzaq - Miami, FL",
+  "metaDescription": "Technical SEO and growth marketing services in Miami, Florida. Programmatic SEO, conversion optimization, and data-driven marketing for US businesses.",
+  "heroTitle": "SEO & Growth Marketing",
+  "heroSubtitle": "Traffic without conversion is useless. I build growth systems that capture demand and turn visitors into paying customers.",
+  "introduction": "I combine technical SEO expertise with data-driven marketing strategies to drive sustainable growth. From programmatic SEO engines that scale content automatically to conversion funnels that maximize revenue, I help businesses dominate their market.",
+  "benefits": [
+    {
+      "title": "Organic Traffic That Converts",
+      "description": "Technical SEO combined with conversion optimization to turn search traffic into revenue."
+    },
+    {
+      "title": "Programmatic SEO at Scale",
+      "description": "Automated content systems that create thousands of optimized pages targeting long-tail keywords."
+    },
+    {
+      "title": "Data-Driven Decisions",
+      "description": "Analytics and tracking infrastructure that reveals exactly what's working and what needs improvement."
+    }
+  ],
+  "services": [
+    {
+      "name": "Technical SEO Audits",
+      "description": "Comprehensive site audits covering Core Web Vitals, crawlability, indexing, and structured data optimization.",
+      "icon": "audit"
+    },
+    {
+      "name": "Programmatic SEO",
+      "description": "Automated content generation systems that create thousands of SEO-optimized pages at scale.",
+      "icon": "scale"
+    },
+    {
+      "name": "Conversion Rate Optimization",
+      "description": "A/B testing, funnel optimization, and UX improvements to maximize revenue from existing traffic.",
+      "icon": "conversion"
+    },
+    {
+      "name": "Analytics & Reporting",
+      "description": "Custom dashboards and tracking setup to measure what matters and make data-driven decisions.",
+      "icon": "analytics"
+    }
+  ],
+  "technologies": ["Google Search Console", "Google Analytics 4", "Ahrefs", "Screaming Frog", "Hotjar", "Optimizely", "BigQuery"],
+  "cta": {
+    "title": "Ready to Grow Your Business?",
+    "description": "Get a free SEO audit and discover opportunities to increase your organic traffic and conversions.",
+    "buttonText": "Get Free Audit",
+    "buttonLink": "/contact/"
+  }
+}
