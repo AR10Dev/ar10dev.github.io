@@ -7,11 +7,13 @@ const socialLinks = [
     kind: "linkedin" as const,
     href: "https://www.linkedin.com/in/ar10dev",
     label: "LinkedIn",
+    trackId: "footer_text_linkedin",
   },
   {
     kind: "github" as const,
     href: "https://github.com/AR10Dev",
     label: "GitHub",
+    trackId: "footer_text_github",
   },
 ];
 ---
@@ -26,6 +28,7 @@ const socialLinks = [
       Made by <a
         class="font-bold text-[var(--accent-strong)] hover:underline"
         href="https://github.com/AR10Dev"
+        data-track="footer_text_made_by"
         rel="me"
         >Avaab Razzaq (AR10Dev)
       </a>

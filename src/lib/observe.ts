@@ -57,8 +57,16 @@ export const setupTracking = (
           ? node.href
           : (node.textContent ?? "").trim();
 
+      const destinationUrl =
+        node instanceof HTMLAnchorElement ? node.href : undefined;
+
+      const ctaLocation = node.getAttribute("data-track-location") ?? undefined;
+
       trackEvent(node.getAttribute("data-track") ?? "interaction_click", {
         label,
+        destination_url: destinationUrl,
+        cta_location: ctaLocation,
+        interaction_type: "click",
       });
     };
 

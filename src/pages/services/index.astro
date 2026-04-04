@@ -113,7 +113,11 @@ const serviceIcons: Record<string, string> = {
             <div class="mb-6 text-[var(--accent-strong)]" set:html={serviceIcons[service.data.slug] || serviceIcons["ai-automation"]} />
             
             <h2 class={`${TYPOGRAPHY_CLASSES.cardTitleBold} mb-3`}>
-              <a href={`/services/${service.data.slug}/`} class="after:absolute after:inset-0">
+              <a
+                href={`/services/${service.data.slug}/`}
+                data-track={`open_service_detail_${service.data.slug}`}
+                class="after:absolute after:inset-0"
+              >
                 {service.data.title}
               </a>
             </h2>
@@ -146,10 +150,10 @@ const serviceIcons: Record<string, string> = {
           I'm here to help you achieve your goals.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
-          <a href="/contact/" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}>
+          <a href="/contact/" data-track="services_cta_discovery_call" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}>
             Schedule a Discovery Call
           </a>
-          <a href="/portfolio/" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.secondary}`}>
+          <a href="/portfolio/" data-track="services_cta_view_work" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.secondary}`}>
             View My Work
           </a>
         </div>

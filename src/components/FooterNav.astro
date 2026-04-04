@@ -8,25 +8,47 @@ const socialLinks = [
     kind: "linkedin" as const,
     href: "https://www.linkedin.com/in/ar10dev",
     label: "LinkedIn",
+    trackId: "footer_open_linkedin",
   },
   {
     kind: "github" as const,
     href: "https://github.com/AR10Dev",
     label: "GitHub",
+    trackId: "footer_open_github",
   },
 ];
 
 const footerLinks = {
   services: [
-    { label: "AI & Automation", href: "/services/ai-automation/" },
-    { label: "Web Development", href: "/services/web-development/" },
-    { label: "SEO & Growth", href: "/services/seo-growth/" },
+    {
+      label: "AI & Automation",
+      href: "/services/ai-automation/",
+      trackId: "footer_service_ai_automation",
+    },
+    {
+      label: "Web Development",
+      href: "/services/web-development/",
+      trackId: "footer_service_web_development",
+    },
+    {
+      label: "SEO & Growth",
+      href: "/services/seo-growth/",
+      trackId: "footer_service_seo_growth",
+    },
   ],
   company: [
-    { label: "About", href: "/about/" },
-    { label: "Portfolio", href: "/portfolio/" },
-    { label: "Blog", href: "/blog/" },
-    { label: "Contact", href: "/contact/" },
+    { label: "About", href: "/about/", trackId: "footer_company_about" },
+    {
+      label: "Portfolio",
+      href: "/portfolio/",
+      trackId: "footer_company_portfolio",
+    },
+    { label: "Blog", href: "/blog/", trackId: "footer_company_blog" },
+    {
+      label: "Contact",
+      href: "/contact/",
+      trackId: "footer_company_contact",
+    },
   ],
 };
 
@@ -42,7 +64,7 @@ const contactInfo = {
     <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
       {/* Brand Column */}
       <div class="lg:col-span-1">
-        <a href="/" class="text-xl font-bold text-[var(--text-strong)]">
+        <a href="/" class="text-xl font-bold text-[var(--text-strong)]" data-track="footer_brand_home">
           Avaab Razzaq
         </a>
         <p class="mt-3 text-sm text-[var(--text-muted)] leading-relaxed">
@@ -61,6 +83,7 @@ const contactInfo = {
             <li>
               <a 
                 href={link.href} 
+                data-track={link.trackId}
                 class="text-sm text-[var(--text-muted)] hover:text-[var(--accent-strong)] transition-colors"
               >
                 {link.label}
@@ -80,6 +103,7 @@ const contactInfo = {
             <li>
               <a 
                 href={link.href} 
+                data-track={link.trackId}
                 class="text-sm text-[var(--text-muted)] hover:text-[var(--accent-strong)] transition-colors"
               >
                 {link.label}
@@ -114,13 +138,14 @@ const contactInfo = {
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
               <polyline points="22,6 12,13 2,6"/>
             </svg>
-            <a href={`mailto:${contactInfo.email}`} class="hover:text-[var(--accent-strong)] transition-colors">
+            <a href={`mailto:${contactInfo.email}`} data-track="footer_contact_email" class="hover:text-[var(--accent-strong)] transition-colors">
               {contactInfo.email}
             </a>
           </li>
         </ul>
         <a 
           href="/contact/" 
+          data-track="footer_contact_cta"
           class="mt-5 inline-flex items-center gap-2 rounded-lg bg-[linear-gradient(120deg,#db7a38,#b05422)] px-4 py-2 text-sm font-bold text-white shadow-md hover:shadow-lg transition-shadow"
         >
           Get in Touch

@@ -14,10 +14,54 @@ const { id } = Astro.props;
 ></script>
 
 <script is:inline type="text/partytown" define:vars={{ id }}>
+  const deniedConsent = {
+    ad_storage: "denied",
+    analytics_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  };
+  const grantedConsent = {
+    ad_storage: "granted",
+    analytics_storage: "granted",
+    ad_user_data: "granted",
+    ad_personalization: "granted",
+  };
+  let hasConfiguredAnalytics = false;
+
+  const applyConsent = (consent) => {
+    if (consent === "granted") {
+      window.gtag("consent", "update", grantedConsent);
+
+      if (!hasConfiguredAnalytics) {
+        window.gtag("config", id);
+        hasConfiguredAnalytics = true;
+      }
+
+      return;
+    }
+
+    window.gtag("consent", "update", deniedConsent);
+  };
+
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () {
     dataLayer.push(arguments);
   };
+
   window.gtag('js', new Date());
-  window.gtag('config', id);
+  window.gtag("consent", "default", {
+    ...deniedConsent,
+    wait_for_update: 500,
+  });
+
+  applyConsent("denied");
+
+  window.addEventListener("analytics:consent", (event) => {
+    const consent =
+      event instanceof CustomEvent && event.detail?.consent === "granted"
+        ? "granted"
+        : "denied";
+
+    applyConsent(consent);
+  });
 </script>

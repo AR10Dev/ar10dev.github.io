@@ -1,4 +1,5 @@
 ---
+import AnalyticsConsent from "@components/AnalyticsConsent.astro";
 import FooterNav from "@components/FooterNav.astro";
 import GoogleAnalytics from "@components/GoogleAnalytics.astro";
 import HeaderNav from "@components/HeaderNav.astro";
@@ -28,6 +29,7 @@ const {
 const defaultKeywords =
   "AI Growth Engineer, AI Automation, Full-Stack Developer, SEO Expert, Miami Florida, Web Development, LLM Integration, Workflow Automation";
 const finalKeywords = keywords || defaultKeywords;
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim();
 
 const currentPath = Astro.url.pathname;
 ---
@@ -37,8 +39,12 @@ const currentPath = Astro.url.pathname;
   <head>
     <meta charset="UTF-8" />
     
-    <!-- Google Analytics -->
-    <GoogleAnalytics id="G-LKVQYYL9XZ" />
+    {import.meta.env.PROD && gaMeasurementId && (
+      <>
+        <!-- Google Analytics -->
+        <GoogleAnalytics id={gaMeasurementId} />
+      </>
+    )}
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="description" content={description} />
@@ -120,6 +126,8 @@ const currentPath = Astro.url.pathname;
     </main>
 
     <FooterNav />
+
+    {import.meta.env.PROD && gaMeasurementId && <AnalyticsConsent />}
 
     <script>
       import "../scripts/homepage.ts";

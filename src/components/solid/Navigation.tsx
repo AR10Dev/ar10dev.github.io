@@ -48,6 +48,12 @@ const Navigation: Component<NavigationProps> = (props) => {
   const mobileActiveClass =
     "!text-[var(--accent-strong)] bg-[var(--surface-elevated)]";
 
+  const toTrackToken = (value: string): string =>
+    value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "_")
+      .replace(/^_+|_+$/g, "");
+
   return (
     <nav class="flex items-center" aria-label="Main navigation">
       {/* Desktop Navigation */}
@@ -58,6 +64,7 @@ const Navigation: Component<NavigationProps> = (props) => {
               <a
                 class={`${baseClass} ${isActive(link.href) ? activeClass : ""}`}
                 href={link.href}
+                data-track={`nav_desktop_${toTrackToken(link.label)}`}
                 aria-current={isActive(link.href) ? "page" : undefined}
               >
                 {link.label}
@@ -162,6 +169,7 @@ const Navigation: Component<NavigationProps> = (props) => {
                   <a
                     class={`${mobileBaseClass} ${isActive(link.href) ? mobileActiveClass : ""}`}
                     href={link.href}
+                    data-track={`nav_mobile_${toTrackToken(link.label)}`}
                     onClick={() => setIsOpen(false)}
                     aria-current={isActive(link.href) ? "page" : undefined}
                   >
@@ -175,6 +183,7 @@ const Navigation: Component<NavigationProps> = (props) => {
             <a
               href="/contact/"
               class="block w-full rounded-lg bg-[linear-gradient(120deg,#db7a38,#b05422)] px-4 py-3 text-center font-bold text-white shadow-lg"
+              data-track="nav_mobile_contact_cta"
               onClick={() => setIsOpen(false)}
             >
               Get in Touch
