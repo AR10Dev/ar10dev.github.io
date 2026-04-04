@@ -5,7 +5,8 @@
  */
 export const setupRevealObserver = (): (() => void) => {
   const revealNodes = document.querySelectorAll<HTMLElement>("[data-reveal]");
-  const revealListNodes = document.querySelectorAll<HTMLElement>("[data-reveal-list]");
+  const revealListNodes =
+    document.querySelectorAll<HTMLElement>("[data-reveal-list]");
   const revealRoot = document.querySelector<HTMLElement>("#main-content");
 
   if (revealNodes.length === 0 && revealListNodes.length === 0) {
@@ -18,22 +19,24 @@ export const setupRevealObserver = (): (() => void) => {
     threshold: 0.15,
   };
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle("is-visible", entry.isIntersecting);
-        
-        if (entry.isIntersecting && entry.target.getAttribute("data-reveal-list")) {
-          entry.target.classList.add("is-visible");
-        }
-      });
-    },
-    observerOptions,
-  );
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle("is-visible", entry.isIntersecting);
+
+      if (
+        entry.isIntersecting &&
+        entry.target.getAttribute("data-reveal-list")
+      ) {
+        entry.target.classList.add("is-visible");
+      }
+    });
+  }, observerOptions);
 
   // Combine all nodes to observe
   const allNodes = [...revealNodes, ...revealListNodes];
-  allNodes.forEach((node) => revealObserver.observe(node));
+  allNodes.forEach((node) => {
+    revealObserver.observe(node);
+  });
 
   return () => revealObserver.disconnect();
 };

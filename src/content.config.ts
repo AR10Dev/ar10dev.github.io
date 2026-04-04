@@ -9,13 +9,13 @@ const siteCollection = defineCollection({
     metaDescription: z.string(),
     kicker: z.string(),
     heroLead: z.string(),
-    githubUrl: z.string().url(),
+    githubUrl: z.url(),
     responseTime: z.string(),
     timezone: z.string(),
     location: z.string(),
     availability: z.string(),
-    contactEmail: z.string().email(),
-    bookingUrl: z.string().url(),
+    contactEmail: z.email(),
+    bookingUrl: z.url(),
   }),
 });
 
@@ -29,7 +29,7 @@ const portfolioCollection = defineCollection({
     impact: z.string(),
     timeframe: z.string(),
     stack: z.array(z.string()),
-    proofUrl: z.string().url(),
+    proofUrl: z.url(),
     proofLabel: z.string(),
   }),
 });
@@ -42,12 +42,21 @@ const blogCollection = defineCollection({
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     author: z.string().default("Avaab Razzaq"),
-    image: z.object({
-      src: z.string(),
-      alt: z.string(),
-    }).optional(),
+    image: z
+      .object({
+        src: z.string(),
+        alt: z.string(),
+      })
+      .optional(),
     tags: z.array(z.string()).default([]),
-    category: z.enum(["AI", "Marketing", "Development", "Growth", "Analytics", "Tutorial"]),
+    category: z.enum([
+      "AI",
+      "Marketing",
+      "Development",
+      "Growth",
+      "Analytics",
+      "Tutorial",
+    ]),
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),
     readingTime: z.number().optional(),

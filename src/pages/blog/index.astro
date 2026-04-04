@@ -1,47 +1,45 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '@layouts/Layout.astro';
-import { TYPOGRAPHY_CLASSES, CARD_CLASSES, CONTAINER_CLASSES } from '@lib/constants';
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import {
+  CARD_CLASSES,
+  CONTAINER_CLASSES,
+  TYPOGRAPHY_CLASSES,
+} from "@lib/constants";
 
-const title = 'Blog | Avaab Razzaq';
-const description = 'Insights on AI automation, growth engineering, full-stack development, and marketing optimization strategies.';
+const title = "Blog | Avaab Razzaq";
+const description =
+  "Insights on AI automation, growth engineering, full-stack development, and marketing optimization strategies.";
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL("/og-ai-growth-engineer.svg", Astro.site).toString();
+const headerBackground =
+  "bg-[var(--surface-elevated)]/90 backdrop-blur supports-[backdrop-filter]:bg-[var(--surface-elevated)]/75 border-b border-[var(--border-strong)]";
 
 // Get all published blog posts, sorted by publish date (newest first)
-const allPosts = await getCollection('blog', ({ data }) => {
+const allPosts = await getCollection("blog", ({ data }) => {
   return data.draft !== true;
 });
 
-const sortedPosts = allPosts.sort((a, b) => 
-  b.data.publishDate.getTime() - a.data.publishDate.getTime()
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
 );
-
-// Get unique tags and categories
-const allTags = [...new Set(sortedPosts.flatMap(post => post.data.tags))];
-const allCategories = [...new Set(sortedPosts.map(post => post.data.category))];
 
 // Format date helper
 function formatDate(date: Date): string {
-  return new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   }).format(date);
-}
-
-// Calculate reading time if not provided
-function getReadingTime(content: string): number {
-  const wordsPerMinute = 200;
-  const wordCount = content.split(/\s+/).length;
-  return Math.ceil(wordCount / wordsPerMinute);
 }
 ---
 
 <Layout 
-  title={title}
-  description={description}
+  pageTitle={title}
+  pageDescription={description}
   canonicalUrl={canonicalUrl}
-  ogType="website"
+  ogImage={ogImage}
+  headerBackground={headerBackground}
 >
   <div class="min-h-screen bg-[var(--bg-canvas)] py-20 px-6">
     <div class={`${CONTAINER_CLASSES.sectionLg} mx-auto`}>

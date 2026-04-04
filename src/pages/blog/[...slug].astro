@@ -1,86 +1,96 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
-import Layout from '@layouts/Layout.astro';
-import { TYPOGRAPHY_CLASSES } from '@lib/constants';
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import { TYPOGRAPHY_CLASSES } from "@lib/constants";
 
 export async function getStaticPaths() {
-  const blogPosts = await getCollection('blog', ({ data }) => {
+  const blogPosts = await getCollection("blog", ({ data }) => {
     return data.draft !== true;
   });
-  
-  return blogPosts.map(post => ({
+
+  return blogPosts.map((post) => ({
     params: { slug: post.id },
     props: { post },
   }));
 }
 
 interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<"blog">;
 }
 
 const { post } = Astro.props;
-const { Content, headings } = await post.render();
+const { Content, headings } = await render(post);
 
 const title = `${post.data.title} | Avaab Razzaq`;
 const description = post.data.description;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage =
+  post.data.image?.src ??
+  new URL("/og-ai-growth-engineer.svg", Astro.site).toString();
+const headerBackground =
+  "bg-[var(--surface-elevated)]/90 backdrop-blur supports-[backdrop-filter]:bg-[var(--surface-elevated)]/75 border-b border-[var(--border-strong)]";
 
 // Format date helper
 function formatDate(date: Date): string {
-  return new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   }).format(date);
 }
 
 // Calculate reading time if not in frontmatter
-const readingTime = post.data.readingTime || (() => {
-  const wordsPerMinute = 200;
-  const content = post.body;
-  const wordCount = content.split(/\s+/).length;
-  return Math.ceil(wordCount / wordsPerMinute);
-})();
+const readingTime =
+  post.data.readingTime ||
+  (() => {
+    const wordsPerMinute = 200;
+    const content = post.body ?? "";
+    const wordCount = content.split(/\s+/).length;
+    return Math.ceil(wordCount / wordsPerMinute);
+  })();
 
 // Structured data for blog post
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": post.data.title,
-  "description": post.data.description,
-  "author": {
+  headline: post.data.title,
+  description: post.data.description,
+  author: {
     "@type": "Person",
-    "name": post.data.author,
-    "url": "https://ar10dev.github.io"
+    name: post.data.author,
+    url: "https://ar10dev.github.io",
   },
-  "datePublished": post.data.publishDate.toISOString(),
-  ...(post.data.updatedDate && { "dateModified": post.data.updatedDate.toISOString() }),
-  ...(post.data.image && {
-    "image": {
-      "@type": "ImageObject",
-      "url": post.data.image.src,
-      "caption": post.data.image.alt
-    }
+  datePublished: post.data.publishDate.toISOString(),
+  ...(post.data.updatedDate && {
+    dateModified: post.data.updatedDate.toISOString(),
   }),
-  "publisher": {
+  ...(post.data.image && {
+    image: {
+      "@type": "ImageObject",
+      url: post.data.image.src,
+      caption: post.data.image.alt,
+    },
+  }),
+  publisher: {
     "@type": "Person",
-    "name": "Avaab Razzaq"
+    name: "Avaab Razzaq",
   },
-  "mainEntityOfPage": {
+  mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": canonicalUrl
+    "@id": canonicalUrl,
   },
-  "keywords": post.data.tags.join(", "),
-  "articleSection": post.data.category
+  keywords: post.data.tags.join(", "),
+  articleSection: post.data.category,
 };
 ---
 
 <Layout 
-  title={title}
-  description={description}
+  pageTitle={title}
+  pageDescription={description}
   canonicalUrl={canonicalUrl}
-  ogType="article"
-  ogImage={post.data.image?.src}
+  ogImage={ogImage}
+  headerBackground={headerBackground}
+  structuredData={structuredData}
 >
   <article class="min-h-screen bg-[var(--bg-canvas)] py-20 px-6">
     <div class="mx-auto max-w-3xl">
@@ -175,7 +185,7 @@ const structuredData = {
           <h2 class="text-lg font-bold text-[var(--text-strong)] mb-4">Table of Contents</h2>
           <nav>
             <ul class="space-y-2">
-              {headings.map((heading) => (
+              {headings.map((heading: { depth: number; slug: string; text: string }) => (
                 <li style={`margin-left: ${(heading.depth - 1) * 1}rem`}>
                   <a 
                     href={`#${heading.slug}`}
@@ -241,7 +251,4 @@ const structuredData = {
 
     </div>
   </article>
-
-  <!-- Structured Data -->
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
 </Layout>

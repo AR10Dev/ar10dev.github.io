@@ -5,7 +5,13 @@
   "summary": "Built comprehensive content strategy combining SEO research, thought leadership articles, case studies, and email nurture sequences to drive organic acquisition.",
   "impact": "Increased organic traffic by 425%, generated 180+ qualified leads/month, achieved #1-3 rankings for 12 target keywords.",
   "timeframe": "2024-2025",
-  "stack": ["SEO", "Content Strategy", "Ahrefs", "WordPress", "Email Marketing"],
+  "stack": [
+    "SEO",
+    "Content Strategy",
+    "Ahrefs",
+    "WordPress",
+    "Email Marketing"
+  ],
   "proofUrl": "https://github.com/AR10Dev",
   "proofLabel": "See content results"
 }

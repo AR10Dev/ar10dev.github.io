@@ -5,7 +5,13 @@
   "summary": "Developed and executed multi-platform social media strategy with data-driven content calendar, engagement tactics, and influencer partnerships.",
   "impact": "Grew combined following by 340% in 6 months, achieved 8.2% avg. engagement rate vs. 2.1% industry baseline.",
   "timeframe": "2024-2025",
-  "stack": ["Meta Business Suite", "LinkedIn Analytics", "Buffer", "Canva", "Instagram Growth"],
+  "stack": [
+    "Meta Business Suite",
+    "LinkedIn Analytics",
+    "Buffer",
+    "Canva",
+    "Instagram Growth"
+  ],
   "proofUrl": "https://github.com/AR10Dev",
   "proofLabel": "View growth metrics"
 }

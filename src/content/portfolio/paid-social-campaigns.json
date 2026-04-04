@@ -5,7 +5,13 @@
   "summary": "Managed $45K+ monthly ad spend across Meta, LinkedIn, and Twitter with audience segmentation, creative testing, and conversion optimization.",
   "impact": "Achieved 3.2x ROAS, reduced CAC by 58%, scaled spend 4x while maintaining profitability targets.",
   "timeframe": "2024-2025",
-  "stack": ["Meta Ads", "LinkedIn Campaign Manager", "Google Analytics", "Looker Studio", "A/B Testing"],
+  "stack": [
+    "Meta Ads",
+    "LinkedIn Campaign Manager",
+    "Google Analytics",
+    "Looker Studio",
+    "A/B Testing"
+  ],
   "proofUrl": "https://github.com/AR10Dev",
   "proofLabel": "View campaign data"
 }
