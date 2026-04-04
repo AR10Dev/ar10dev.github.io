@@ -1,9 +1,10 @@
-# Robots.txt for ar10dev.github.io
+# Robots.txt for avaabrazzaq.com
 # AI Growth Engineer - Avaab Razzaq
 
 # General crawlers
 User-agent: *
 Allow: /
+Allow: /blog/
 Disallow: /api/
 Disallow: /_astro/
 Disallow: /404
@@ -14,6 +15,7 @@ Crawl-delay: 1
 # Google-specific directives
 User-agent: Googlebot
 Allow: /
+Allow: /blog/
 Crawl-delay: 0
 
 User-agent: Googlebot-Image
@@ -25,29 +27,45 @@ Allow: /blog/
 # Bing
 User-agent: Bingbot
 Allow: /
+Allow: /blog/
 Crawl-delay: 1
 
-# AI/LLM crawlers - Allow for AI indexing
+# AI/LLM crawlers - Allow for AI indexing (including blog posts)
 User-agent: GPTBot
 Allow: /
+Allow: /blog/
 
 User-agent: ChatGPT-User
 Allow: /
+Allow: /blog/
 
 User-agent: Claude-Web
 Allow: /
+Allow: /blog/
 
 User-agent: Anthropic-AI
 Allow: /
+Allow: /blog/
 
 User-agent: PerplexityBot
 Allow: /
+Allow: /blog/
 
 User-agent: Applebot
 Allow: /
+Allow: /blog/
 
 User-agent: Applebot-Extended
 Allow: /
+Allow: /blog/
+
+User-agent: Google-Extended
+Allow: /
+Allow: /blog/
+
+User-agent: cohere-ai
+Allow: /
+Allow: /blog/
 
 # Social media crawlers
 User-agent: facebookexternalhit
@@ -63,7 +81,7 @@ User-agent: Slackbot
 Allow: /
 
 # Sitemaps
-Sitemap: https://ar10dev.github.io/sitemap-index.xml
+Sitemap: https://avaabrazzaq.com/sitemap-index.xml
 
 # LLM-friendly content
-# See /llms.txt for AI assistant context
+# See /llms.txt for AI assistant context and blog post index

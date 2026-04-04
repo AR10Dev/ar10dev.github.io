@@ -32,7 +32,7 @@ const portfolioItems = (await getCollection("portfolio"))
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 3);
 
-const siteUrl = "https://ar10dev.github.io";
+const siteUrl = "https://avaabrazzaq.com";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
 const linkedInUrl = "https://www.linkedin.com/in/ar10dev";

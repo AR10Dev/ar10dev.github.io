@@ -62,7 +62,7 @@ Tools: Google Search Console, Google Analytics 4, Ahrefs, Screaming Frog, Hotjar
 - Booking: https://cal.com/avaabrazzaq
 - LinkedIn: https://linkedin.com/in/ar10dev
 - GitHub: https://github.com/AR10Dev
-- Website: https://ar10dev.github.io
+- Website: https://avaabrazzaq.com
 - Response Time: Under 24 hours
 - Timezone: Eastern Time (ET)
 
@@ -104,6 +104,48 @@ Availability: Freelance and advisory engagements
 - Programmatic SEO techniques
 - MVP development guides
 - Conversion optimization strategies
+
+### Blog Posts
+
+#### Building Custom ChatGPT-Style Interfaces for Business
+URL: /blog/building-custom-chatgpt-interfaces-for-business/
+Description: A practical guide to building custom AI chatbots trained on your business data—from architecture decisions to deployment strategies.
+Topics: AI, chatbot, GPT, customer-support, development
+
+#### How to Automate Lead Qualification with AI
+URL: /blog/how-to-automate-lead-qualification-with-ai/
+Description: Learn how to build AI-powered lead qualification systems that score, route, and nurture leads automatically—saving 20+ hours per week while improving conversion rates.
+Topics: AI, automation, lead-generation, sales, workflow
+
+#### OpenAI vs Anthropic: Which LLM is Right for Your Business?
+URL: /blog/openai-vs-anthropic-which-llm-for-business/
+Description: A practical comparison of OpenAI GPT-4 and Anthropic Claude for business applications—covering capabilities, costs, use cases, and implementation considerations.
+Topics: AI, LLM, OpenAI, Anthropic, comparison
+
+#### Complete Technical SEO Audit Checklist for 2025
+URL: /blog/complete-technical-seo-audit-checklist-2025/
+Description: A comprehensive checklist for technical SEO audits covering Core Web Vitals, crawlability, indexing, structured data, and more—with actionable fixes for each issue.
+Topics: SEO, technical-SEO, audit, Core-Web-Vitals, checklist
+
+#### How Programmatic SEO Generates 10x More Traffic
+URL: /blog/how-programmatic-seo-generates-10x-traffic/
+Description: Learn how programmatic SEO creates thousands of targeted pages from structured data—capturing long-tail search traffic your competitors can't reach manually.
+Topics: SEO, programmatic-SEO, content-strategy, automation, growth
+
+#### A/B Testing Best Practices That Actually Improve Conversions
+URL: /blog/ab-testing-best-practices-improve-conversions/
+Description: Move beyond random testing with a systematic A/B testing framework—including hypothesis formation, statistical rigor, and common mistakes that waste time.
+Topics: CRO, A/B testing, conversion-optimization, analytics, growth
+
+#### Building an MVP in 4 Weeks: A Technical Guide
+URL: /blog/building-mvp-4-weeks-technical-guide/
+Description: A practical guide to shipping your SaaS MVP fast—from scoping and tech stack to launch day, with lessons learned from building multiple successful MVPs.
+Topics: MVP, SaaS, startup, development, product
+
+#### Why Astro is the Best Framework for Marketing Sites
+URL: /blog/why-astro-best-framework-marketing-sites/
+Description: A technical comparison of Astro vs Next.js, Gatsby, and other frameworks for marketing websites—covering performance, DX, and SEO capabilities.
+Topics: Astro, web-development, performance, SEO, frameworks
 
 ## Technologies & Tools
 

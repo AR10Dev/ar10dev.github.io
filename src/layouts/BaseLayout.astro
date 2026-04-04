@@ -1,7 +1,6 @@
 ---
 import FooterNav from "@components/FooterNav.astro";
 import HeaderNav from "@components/HeaderNav.astro";
-import { SEO } from "astro-seo";
 import "../styles/global.css";
 
 export interface Props {
@@ -14,7 +13,7 @@ export interface Props {
   keywords?: string;
 }
 
-const siteUrl = "https://ar10dev.github.io";
+const siteUrl = "https://avaabrazzaq.com";
 const {
   title,
   description,
@@ -25,7 +24,8 @@ const {
   keywords,
 } = Astro.props;
 
-const defaultKeywords = "AI Growth Engineer, AI Automation, Full-Stack Developer, SEO Expert, Miami Florida, Web Development, LLM Integration, Workflow Automation";
+const defaultKeywords =
+  "AI Growth Engineer, AI Automation, Full-Stack Developer, SEO Expert, Miami Florida, Web Development, LLM Integration, Workflow Automation";
 const finalKeywords = keywords || defaultKeywords;
 
 const currentPath = Astro.url.pathname;
@@ -51,13 +51,15 @@ const currentPath = Astro.url.pathname;
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Avaab Razzaq Blog RSS Feed" href="/blog/rss.xml" />
     
     {/* Preconnect to external resources */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
     
-    <SEO title={title} description={description} />
+    <title>{title}</title>
+    <meta name="keywords" content={finalKeywords} />
 
     {/* Open Graph */}
     <meta property="og:type" content="website" />

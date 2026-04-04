@@ -54,7 +54,7 @@ interface Props {
 const { post, relatedService } = Astro.props;
 const { Content, headings } = await render(post);
 
-const siteUrl = "https://ar10dev.github.io";
+const siteUrl = "https://avaabrazzaq.com";
 const title = `${post.data.title} | Blog - Avaab Razzaq`;
 const description = post.data.description;
 const canonicalUrl = new URL(`/blog/${post.id}/`, siteUrl).toString();
