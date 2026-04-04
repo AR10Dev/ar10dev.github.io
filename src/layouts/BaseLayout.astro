@@ -29,7 +29,9 @@ const {
 const defaultKeywords =
   "AI Growth Engineer, AI Automation, Full-Stack Developer, SEO Expert, Miami Florida, Web Development, LLM Integration, Workflow Automation";
 const finalKeywords = keywords || defaultKeywords;
-const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim();
+const gaMeasurementId =
+  import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() || "G-LKVQYYL9XZ";
+const shouldLoadAnalytics = import.meta.env.PROD && gaMeasurementId.length > 0;
 
 const currentPath = Astro.url.pathname;
 ---
@@ -39,7 +41,7 @@ const currentPath = Astro.url.pathname;
   <head>
     <meta charset="UTF-8" />
     
-    {import.meta.env.PROD && gaMeasurementId && (
+    {shouldLoadAnalytics && (
       <>
         <!-- Google Analytics -->
         <GoogleAnalytics id={gaMeasurementId} />
@@ -127,7 +129,7 @@ const currentPath = Astro.url.pathname;
 
     <FooterNav />
 
-    {import.meta.env.PROD && gaMeasurementId && <AnalyticsConsent />}
+    {shouldLoadAnalytics && <AnalyticsConsent />}
 
     <script>
       import "../scripts/homepage.ts";
