@@ -1,5 +1,6 @@
 ---
 import Footer from "@components/Footer.astro";
+import GoogleAnalytics from "@components/GoogleAnalytics.astro";
 import Header from "@components/Header.astro";
 import { SKIP_LINK_CLASSES } from "@lib/constants";
 import "../styles/global.css";
@@ -26,6 +27,10 @@ const {
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Google Analytics -->
+    <GoogleAnalytics id="G-LKVQYYL9XZ" />
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0"

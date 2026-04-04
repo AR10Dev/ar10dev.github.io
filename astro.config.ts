@@ -1,4 +1,5 @@
 import mdx from "@astrojs/mdx";
+import partytown from "@astrojs/partytown";
 import sitemap, { ChangeFreqEnum } from "@astrojs/sitemap";
 import solid from "@astrojs/solid-js";
 import tailwindcss from "@tailwindcss/vite";
@@ -16,6 +17,11 @@ export default defineConfig({
   integrations: [
     solid(),
     mdx(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
     sitemap({
       serialize(item) {
         // Enhanced sitemap with priority and changefreq

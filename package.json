@@ -28,7 +28,8 @@
     "typescript": "6.0.2"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.18",
+    "@astrojs/partytown": "2.1.6",
+    "@astrojs/rss": "4.0.18",
     "astro": "6.0.8",
     "solid-js": "1.9.11"
   }
