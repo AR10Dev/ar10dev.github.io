@@ -1,0 +1,16 @@
+{
+  "name": "ar10dev.github.io",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node",
+  "features": {
+    "ghcr.io/devcontainers/features/bun": {}
+  },
+  "postCreateCommand": "bun install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "biomejs.biome"
+      ]
+    }
+  }
+}
