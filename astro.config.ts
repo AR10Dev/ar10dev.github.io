@@ -10,7 +10,7 @@ const tailwindPlugin = tailwindcss() as unknown as never;
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://ar10dev.github.io/", // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
+  site: "https://avaabrazzaq.com/", // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
   vite: {
     plugins: [tailwindPlugin],
   },

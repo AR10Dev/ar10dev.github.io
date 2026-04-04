@@ -11,6 +11,7 @@ export interface Props {
   ogImage?: string;
   structuredData?: Record<string, unknown>;
   noIndex?: boolean;
+  keywords?: string;
 }
 
 const siteUrl = "https://ar10dev.github.io";
@@ -21,7 +22,11 @@ const {
   ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString(),
   structuredData,
   noIndex = false,
+  keywords,
 } = Astro.props;
+
+const defaultKeywords = "AI Growth Engineer, AI Automation, Full-Stack Developer, SEO Expert, Miami Florida, Web Development, LLM Integration, Workflow Automation";
+const finalKeywords = keywords || defaultKeywords;
 
 const currentPath = Astro.url.pathname;
 ---

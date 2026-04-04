@@ -4,38 +4,140 @@
 
 This website belongs to Avaab Razzaq, an AI Growth Engineer based in Miami, Florida, serving clients across the United States.
 
+## Keywords
+AI Growth Engineer, AI Automation Specialist, Full-Stack Web Developer, SEO Expert, LLM Integration, ChatGPT Integration, Workflow Automation, Miami Web Developer, Florida AI Consultant, Technical SEO Consultant, React Developer, Astro Framework Expert, SolidJS Developer, Programmatic SEO, Conversion Rate Optimization
+
+## About Avaab Razzaq
+Avaab Razzaq (also known as AR10Dev) is an AI Growth Engineer combining artificial intelligence expertise with full-stack development and SEO strategy. Based in Miami, Florida, he helps businesses automate operations, build high-performance web applications, and drive sustainable organic growth.
+
+### Expertise Areas
+- Artificial Intelligence & Machine Learning
+- Large Language Model (LLM) Integration
+- Prompt Engineering & AI Assistants
+- Full-Stack Web Development
+- Search Engine Optimization (SEO)
+- Growth Marketing & Analytics
+- Workflow Automation
+
 ## Services Offered
 
-### AI & Automation
-Custom AI solutions including ChatGPT-style interfaces, workflow automation, LLM integrations, and document processing systems. Technologies: OpenAI API, Anthropic Claude, LangChain, TypeScript, Python.
+### AI & Automation Services
+Custom AI solutions for business operations including:
+- ChatGPT-style AI assistants trained on business data
+- Multi-agent workflow automation systems
+- LLM integrations (OpenAI GPT-4, Anthropic Claude, open-source models)
+- Document processing and analysis pipelines
+- Lead qualification and CRM automation
+- Customer support automation
+
+Technologies: OpenAI API, Anthropic Claude API, LangChain, LangGraph, TypeScript, Python, Vector Databases (Pinecone, Weaviate), Supabase, PostgreSQL
 
 ### Full-Stack Web Development
-High-performance web applications built with modern frameworks. Technologies: Astro, React, SolidJS, TypeScript, Node.js, PostgreSQL, TailwindCSS.
+High-performance web applications built with modern frameworks:
+- Custom web applications (SaaS, portals, dashboards)
+- Landing pages and marketing websites
+- E-commerce solutions
+- API development (REST, GraphQL)
+- Mobile app development (React Native)
+- SaaS MVP development
+
+Technologies: Astro, React, SolidJS, Next.js, TypeScript, Node.js, PostgreSQL, TailwindCSS, Vercel, Cloudflare Workers
 
 ### SEO & Growth Marketing
-Technical SEO audits, programmatic SEO, conversion rate optimization, and analytics. Tools: Google Search Console, GA4, Ahrefs, Screaming Frog.
+Technical SEO and data-driven marketing services:
+- Technical SEO audits and Core Web Vitals optimization
+- Programmatic SEO (automated content at scale)
+- Conversion rate optimization (CRO)
+- Analytics setup and custom dashboards
+- A/B testing implementation
+- Marketing automation
+
+Tools: Google Search Console, Google Analytics 4, Ahrefs, Screaming Frog, Hotjar, Optimizely, BigQuery
 
 ## Contact Information
 
+- Name: Avaab Razzaq
 - Location: Miami, Florida, USA
 - Email: itsavaab@gmail.com
 - Booking: https://cal.com/avaabrazzaq
 - LinkedIn: https://linkedin.com/in/ar10dev
 - GitHub: https://github.com/AR10Dev
+- Website: https://ar10dev.github.io
+- Response Time: Under 24 hours
+- Timezone: Eastern Time (ET)
 
 ## Service Areas
 
-Primary: Miami, Florida
-Extended: All United States (remote work)
+Primary Location: Miami, Florida
+Service Coverage: United States (nationwide remote work)
+Availability: Freelance and advisory engagements
 
-## Page Structure
+## Site Structure
 
-- / - Homepage with overview
-- /services/ - All services overview
-- /services/ai-automation/ - AI & Automation service details
-- /services/web-development/ - Web Development service details
-- /services/seo-growth/ - SEO & Growth service details
-- /about/ - About Avaab Razzaq, credentials, expertise
-- /portfolio/ - Portfolio and case studies
-- /blog/ - Articles and insights
-- /contact/ - Contact form and information
+### Main Pages
+- / - Homepage with overview of services and expertise
+- /services/ - Complete list of professional services
+- /about/ - About Avaab Razzaq, credentials, and expertise
+- /portfolio/ - Portfolio items and case studies
+- /blog/ - Technical articles and insights
+- /contact/ - Contact form and booking information
+
+### Service Detail Pages
+- /services/ai-automation/ - AI & Automation solutions
+- /services/web-development/ - Full-Stack Web Development
+- /services/seo-growth/ - SEO & Growth Marketing
+- /services/ai-chatbot-development/ - AI Chatbot Development
+- /services/ai-workflow-automation/ - AI Workflow Automation
+- /services/llm-integration/ - LLM Integration Services
+- /services/technical-seo-audit/ - Technical SEO Audits
+- /services/programmatic-seo/ - Programmatic SEO
+- /services/conversion-optimization/ - Conversion Rate Optimization
+- /services/astro-development/ - Astro Framework Development
+- /services/saas-mvp-development/ - SaaS MVP Development
+- /services/mobile-app-development/ - Mobile App Development
+
+### Blog Topics
+- AI and automation best practices
+- LLM integration guides (OpenAI, Anthropic)
+- Technical SEO checklists and strategies
+- Web development frameworks (Astro, React)
+- Programmatic SEO techniques
+- MVP development guides
+- Conversion optimization strategies
+
+## Technologies & Tools
+
+### Programming Languages
+TypeScript, JavaScript, Python, SQL
+
+### Frontend Frameworks
+Astro, React, SolidJS, Next.js, TailwindCSS
+
+### Backend Technologies
+Node.js, PostgreSQL, Redis, GraphQL, REST APIs
+
+### AI & ML
+OpenAI API (GPT-4, GPT-4o), Anthropic Claude, LangChain, Vector Databases, Prompt Engineering
+
+### Infrastructure
+Vercel, Cloudflare, AWS, Docker, CI/CD
+
+### SEO & Analytics
+Google Search Console, GA4, Ahrefs, Screaming Frog, Core Web Vitals
+
+## Frequently Asked Questions
+
+Q: What services does Avaab Razzaq offer?
+A: AI automation, full-stack web development, and SEO/growth marketing services for businesses across the United States.
+
+Q: Where is Avaab Razzaq based?
+A: Miami, Florida, USA. Services are provided remotely to clients nationwide.
+
+Q: How can I contact Avaab Razzaq?
+A: Email itsavaab@gmail.com or book a call at cal.com/avaabrazzaq
+
+Q: What AI technologies does Avaab work with?
+A: OpenAI GPT-4, Anthropic Claude, LangChain, vector databases, and custom LLM integrations.
+
+Q: What web frameworks does Avaab specialize in?
+A: Astro, React, SolidJS, Next.js, and Node.js with TypeScript.

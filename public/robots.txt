@@ -1,0 +1,69 @@
+# Robots.txt for ar10dev.github.io
+# AI Growth Engineer - Avaab Razzaq
+
+# General crawlers
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /404
+
+# Crawl delay for politeness
+Crawl-delay: 1
+
+# Google-specific directives
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /blog/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# AI/LLM crawlers - Allow for AI indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+# Sitemaps
+Sitemap: https://ar10dev.github.io/sitemap-index.xml
+
+# LLM-friendly content
+# See /llms.txt for AI assistant context
