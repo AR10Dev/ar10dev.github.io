@@ -61,7 +61,8 @@ const currentPath = Astro.url.pathname;
     <meta name="ICBM" content="25.7617, -80.1918" />
     
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title="Avaab Razzaq Blog RSS Feed" href="/blog/rss.xml" />
@@ -81,6 +82,8 @@ const currentPath = Astro.url.pathname;
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:alt" content={title} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Avaab Razzaq - AI Growth Engineer" />
     <meta property="og:locale" content="en_US" />
 

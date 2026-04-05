@@ -11,6 +11,7 @@ const tailwindPlugin = tailwindcss() as unknown as never;
 // https://astro.build/config
 export default defineConfig({
   site: "https://avaabrazzaq.com/", // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
+  trailingSlash: "always", // Consistent URL format - all URLs end with /
   vite: {
     plugins: [tailwindPlugin],
   },
