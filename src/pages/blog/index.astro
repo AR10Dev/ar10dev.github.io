@@ -4,9 +4,9 @@ import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
 
-const title = "Blog | Avaab Razzaq - AI Growth Engineer";
+const title = "Blog | Avaab Razzaq - AI Growth Engineer in Miami, Florida";
 const description =
-  "Insights on AI automation, growth engineering, full-stack development, and marketing optimization strategies. Expert articles from a Miami-based consultant.";
+  "Insights on AI automation, technical SEO, web apps development, and growth engineering strategies by Avaab Razzaq, AI Growth Engineer in Miami, Florida.";
 const siteUrl = "https://avaabrazzaq.com";
 const canonicalUrl = new URL("/blog/", siteUrl).toString();
 const ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
@@ -37,11 +37,12 @@ function formatDate(date: Date): string {
       
       <!-- Header -->
       <header class="mb-16 text-center">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>Avaab Razzaq - AI Growth Engineer</p>
         <h1 class={TYPOGRAPHY_CLASSES.heroTitle}>
-          Blog
+          Web Apps, AI Automation & Technical SEO Blog
         </h1>
         <p class={`${TYPOGRAPHY_CLASSES.subheading} mt-4 max-w-2xl mx-auto`}>
-          Insights on AI automation, growth engineering, and building products that scale
+          Insights on AI automation, technical SEO strategies, web apps development, and growth engineering from Avaab Razzaq, an AI growth engineer based in Miami, Florida. Learn how to build products that scale and drive measurable business growth.
         </p>
       </header>
 

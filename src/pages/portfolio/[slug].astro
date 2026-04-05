@@ -106,26 +106,28 @@ const relatedItems = (await getCollection("portfolio"))
         <div class="grid gap-12 lg:grid-cols-3">
           {/* Main Content */}
           <div class="lg:col-span-2">
-            <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>What This Solves</h2>
+            <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>Project Overview</h2>
             <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>
-              This proof-of-concept demonstrates a practical workflow for teams that need {item.data.category.toLowerCase()} 
-              execution without hiring a large development team. It's designed to be production-ready while remaining 
-              flexible enough to adapt to your specific business requirements.
+              {item.data.description}
+            </p>
+
+            <h2 class={`mt-12 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>The Challenge</h2>
+            <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>
+              {item.data.challenge}
+            </p>
+
+            <h2 class={`mt-12 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>The Solution</h2>
+            <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>
+              {item.data.solution}
             </p>
 
             <h2 class={`mt-12 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Impact & Results</h2>
             <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>{item.data.impact}</p>
 
-            <h2 class={`mt-12 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>How It's Built</h2>
+            <h2 class={`mt-12 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Technical Implementation</h2>
             <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>
               Built with {item.data.stack.join(", ")} and structured for production-ready extension. 
               The architecture prioritizes maintainability, scalability, and developer experience.
-            </p>
-
-            <h2 class={`mt-12 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>What You Can Deploy</h2>
-            <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>
-              A launch-ready foundation that can be adapted to your stack, data model, and growth goals. 
-              This isn't just a demo—it's a starting point for real business implementation.
             </p>
           </div>
 

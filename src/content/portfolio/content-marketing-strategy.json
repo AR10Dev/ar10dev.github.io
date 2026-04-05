@@ -3,7 +3,10 @@
   "title": "Content Marketing & SEO Strategy",
   "category": "Marketing",
   "summary": "Built comprehensive content strategy combining SEO research, thought leadership articles, case studies, and email nurture sequences to drive organic acquisition.",
-  "impact": "Increased organic traffic by 425%, generated 180+ qualified leads/month, achieved #1-3 rankings for 12 target keywords.",
+  "description": "A full-funnel content marketing engine designed to capture organic search traffic, nurture prospects through educational content, and convert readers into qualified leads. The strategy encompassed keyword research and topic clustering, long-form pillar content creation, supporting article networks, downloadable lead magnets, and automated email sequences. Every piece of content was optimized for both search engines and human readers, balancing SEO best practices with genuine value delivery.",
+  "challenge": "The client relied heavily on paid acquisition, making customer acquisition costs unsustainable as they scaled. Organic traffic was minimal despite having a blog, and existing content wasn't ranking for any meaningful keywords. They needed a content strategy that would build a sustainable organic acquisition channel while establishing industry authority.",
+  "solution": "Conducted comprehensive keyword research to identify high-intent, achievable ranking opportunities. Developed content pillars around core service offerings with supporting topic clusters. Created in-depth guides and case studies optimized for featured snippets and long-tail queries. Built lead magnet system with gated resources that captured email addresses. Implemented email nurture sequences that educated prospects and drove conversions. Established regular publishing cadence with quality standards.",
+  "impact": "Increased organic traffic by 425%, generated 180+ qualified leads per month through content alone. Achieved #1-3 rankings for 12 target keywords including several high-commercial-intent terms. Reduced blended CAC by 34% as organic became a significant acquisition channel. Content library became a sales enablement asset, shortening sales cycles.",
   "timeframe": "2024-2025",
   "stack": [
     "SEO",

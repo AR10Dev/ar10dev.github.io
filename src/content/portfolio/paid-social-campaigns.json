@@ -3,7 +3,10 @@
   "title": "Paid Social Media Campaigns",
   "category": "Marketing",
   "summary": "Managed $45K+ monthly ad spend across Meta, LinkedIn, and Twitter with audience segmentation, creative testing, and conversion optimization.",
-  "impact": "Achieved 3.2x ROAS, reduced CAC by 58%, scaled spend 4x while maintaining profitability targets.",
+  "description": "A data-driven paid social advertising program spanning multiple platforms, each optimized for its unique strengths in the marketing funnel. The campaign architecture included prospecting campaigns for cold audiences, retargeting sequences for warm prospects, and conversion campaigns for bottom-funnel leads. Rigorous creative testing methodology ensured continuous performance improvement while maintaining brand consistency across all touchpoints.",
+  "challenge": "Previous paid social efforts had produced inconsistent results with ROAS fluctuating wildly month to month. Ad creative was being reused across platforms without optimization, targeting was broad and inefficient, and there was no systematic approach to scaling successful campaigns. The client needed predictable, profitable paid social performance to complement organic efforts.",
+  "solution": "Rebuilt campaign architecture from the ground up with platform-specific strategies. Developed detailed audience segments based on customer data analysis and lookalike modeling. Implemented systematic creative testing framework with weekly iterations on copy, visuals, and formats. Built custom attribution model to understand true campaign impact beyond last-click. Created automated rules for budget allocation based on real-time performance signals.",
+  "impact": "Achieved 3.2x ROAS consistently across all platforms. Reduced CAC by 58% through improved targeting and creative optimization. Successfully scaled monthly spend 4x while maintaining profitability targets. LinkedIn campaigns became primary source of enterprise leads. Meta campaigns achieved 2.8% CTR, significantly above industry benchmarks.",
   "timeframe": "2024-2025",
   "stack": [
     "Meta Ads",
