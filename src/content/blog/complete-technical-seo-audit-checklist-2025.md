@@ -9,6 +9,21 @@ draft: false
 featured: true
 readingTime: 12
 relatedService: technical-seo-audit
+howTo:
+  totalTime: "PT2H"
+  steps:
+    - name: "Audit Core Web Vitals"
+      text: "Check LCP, CLS, and INP metrics using PageSpeed Insights. Identify and fix render-blocking resources, optimize images, and improve server response time."
+    - name: "Evaluate Crawlability"
+      text: "Review robots.txt configuration, check for crawl errors in Search Console, and ensure important pages are accessible to search engines."
+    - name: "Check Indexing Status"
+      text: "Use site: operator and Search Console to verify indexed pages. Check for noindex tags, canonical issues, and duplicate content."
+    - name: "Review URL Structure"
+      text: "Ensure clean, descriptive URLs with proper hierarchy. Check for redirect chains, 404 errors, and URL parameter handling."
+    - name: "Validate Structured Data"
+      text: "Test all schema markup using Google's Rich Results Test. Ensure proper implementation of BreadcrumbList, Article, FAQ, and other relevant types."
+    - name: "Assess Mobile Experience"
+      text: "Test mobile rendering, tap target sizes, viewport configuration, and mobile-specific Core Web Vitals."
 ---
 
 A technical SEO audit reveals the issues preventing your site from ranking—and gives you a prioritized roadmap to fix them. This checklist covers everything you need to evaluate, from Core Web Vitals to JavaScript rendering.

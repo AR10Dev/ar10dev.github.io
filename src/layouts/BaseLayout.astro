@@ -10,9 +10,13 @@ export interface Props {
   description: string;
   canonicalUrl?: string;
   ogImage?: string;
+  ogType?: "website" | "article" | "profile";
   structuredData?: Record<string, unknown>;
   noIndex?: boolean;
   keywords?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
 }
 
 const siteUrl = "https://avaabrazzaq.com";
@@ -21,9 +25,13 @@ const {
   description,
   canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString(),
   ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString(),
+  ogType = "website",
   structuredData,
   noIndex = false,
   keywords,
+  publishedTime,
+  modifiedTime,
+  author = "Avaab Razzaq",
 } = Astro.props;
 
 const defaultKeywords =
@@ -70,13 +78,17 @@ const currentPath = Astro.url.pathname;
     {/* Preconnect to external resources */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cal.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://github.com" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
     
     <title>{title}</title>
     <meta name="keywords" content={finalKeywords} />
 
     {/* Open Graph */}
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
@@ -86,6 +98,17 @@ const currentPath = Astro.url.pathname;
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Avaab Razzaq - AI Growth Engineer" />
     <meta property="og:locale" content="en_US" />
+    
+    {/* Article-specific Open Graph tags */}
+    {ogType === "article" && publishedTime && (
+      <meta property="article:published_time" content={publishedTime} />
+    )}
+    {ogType === "article" && modifiedTime && (
+      <meta property="article:modified_time" content={modifiedTime} />
+    )}
+    {ogType === "article" && (
+      <meta property="article:author" content={author} />
+    )}
 
     {/* Twitter/X Card */}
     <meta name="twitter:card" content="summary_large_image" />

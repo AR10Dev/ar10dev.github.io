@@ -13,6 +13,7 @@ export async function getStaticPaths() {
     return data.draft !== true;
   });
   const services = await getCollection("services");
+  const portfolio = await getCollection("portfolio");
 
   return blogPosts.map((post) => {
     // Find related service based on relatedService field or category mapping
@@ -39,9 +40,30 @@ export async function getStaticPaths() {
       }
     }
 
+    // Find related blog posts (same category, exclude current)
+    const relatedPosts = blogPosts
+      .filter((p) => p.id !== post.id && p.data.category === post.data.category)
+      .slice(0, 3);
+
+    // Find related portfolio items by category mapping
+    const categoryPortfolioMap: Record<string, string> = {
+      AI: "AI Automation",
+      Development: "Web Development",
+      Marketing: "Marketing",
+      Growth: "Marketing",
+      Analytics: "AI Automation",
+      Tutorial: "Web Development",
+    };
+    const portfolioCategory = categoryPortfolioMap[post.data.category];
+    const relatedPortfolio = portfolioCategory
+      ? portfolio
+          .filter((p) => p.data.category === portfolioCategory)
+          .slice(0, 2)
+      : [];
+
     return {
       params: { slug: post.id },
-      props: { post, relatedService },
+      props: { post, relatedService, relatedPosts, relatedPortfolio },
     };
   });
 }
@@ -49,9 +71,11 @@ export async function getStaticPaths() {
 interface Props {
   post: CollectionEntry<"blog">;
   relatedService: CollectionEntry<"services"> | null;
+  relatedPosts: CollectionEntry<"blog">[];
+  relatedPortfolio: CollectionEntry<"portfolio">[];
 }
 
-const { post, relatedService } = Astro.props;
+const { post, relatedService, relatedPosts, relatedPortfolio } = Astro.props;
 const { Content, headings } = await render(post);
 
 const siteUrl = "https://avaabrazzaq.com";
@@ -72,50 +96,121 @@ function formatDate(date: Date): string {
 }
 
 // Calculate reading time if not in frontmatter
+const wordCount = (post.body ?? "").split(/\s+/).filter(Boolean).length;
 const readingTime =
-  post.data.readingTime ||
-  (() => {
-    const wordsPerMinute = 200;
-    const content = post.body ?? "";
-    const wordCount = content.split(/\s+/).length;
-    return Math.ceil(wordCount / wordsPerMinute);
-  })();
+  post.data.readingTime || Math.ceil(wordCount / 200);
+
+// Build the structured data graph
+const structuredDataGraph: Record<string, unknown>[] = [
+  {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    url: siteUrl,
+    name: "Avaab Razzaq - AI Growth Engineer",
+    description:
+      "AI Growth Engineer specializing in web apps, AI automation, and technical SEO",
+    publisher: { "@id": `${siteUrl}/#person` },
+  },
+  {
+    "@type": "WebPage",
+    "@id": canonicalUrl,
+    url: canonicalUrl,
+    name: title,
+    description: description,
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Blog",
+          item: `${siteUrl}/blog/`,
+        },
+        { "@type": "ListItem", position: 3, name: post.data.title },
+      ],
+    },
+  },
+  {
+    "@type": "Person",
+    "@id": `${siteUrl}/#person`,
+    name: "Avaab Razzaq",
+    url: siteUrl,
+    jobTitle: "AI Growth Engineer",
+    sameAs: [
+      "https://github.com/AR10Dev",
+      "https://linkedin.com/in/avaabrazzaq",
+    ],
+  },
+  {
+    "@type": "BlogPosting",
+    "@id": `${canonicalUrl}#article`,
+    headline: post.data.title,
+    description: post.data.description,
+    author: { "@id": `${siteUrl}/#person` },
+    publisher: { "@id": `${siteUrl}/#person` },
+    datePublished: post.data.publishDate.toISOString(),
+    ...(post.data.updatedDate && {
+      dateModified: post.data.updatedDate.toISOString(),
+    }),
+    ...(post.data.image && {
+      image: {
+        "@type": "ImageObject",
+        url: post.data.image.src,
+        caption: post.data.image.alt,
+      },
+    }),
+    mainEntityOfPage: { "@id": canonicalUrl },
+    keywords: post.data.tags.join(", "),
+    articleSection: post.data.category,
+    inLanguage: "en-US",
+    wordCount: wordCount,
+    timeRequired: `PT${readingTime}M`,
+  },
+];
+
+// Add HowTo schema if present in frontmatter
+if (post.data.howTo?.steps && post.data.howTo.steps.length > 0) {
+  structuredDataGraph.push({
+    "@type": "HowTo",
+    "@id": `${canonicalUrl}#howto`,
+    name: post.data.title,
+    description: post.data.description,
+    ...(post.data.howTo.totalTime && { totalTime: post.data.howTo.totalTime }),
+    ...(post.data.howTo.estimatedCost && {
+      estimatedCost: {
+        "@type": "MonetaryAmount",
+        currency: "USD",
+        value: post.data.howTo.estimatedCost,
+      },
+    }),
+    step: post.data.howTo.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  });
+}
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: post.data.title,
-  description: post.data.description,
-  author: {
-    "@type": "Person",
-    name: post.data.author,
-    url: siteUrl,
-  },
-  datePublished: post.data.publishDate.toISOString(),
-  ...(post.data.updatedDate && {
-    dateModified: post.data.updatedDate.toISOString(),
-  }),
-  ...(post.data.image && {
-    image: {
-      "@type": "ImageObject",
-      url: post.data.image.src,
-      caption: post.data.image.alt,
-    },
-  }),
-  publisher: {
-    "@type": "Person",
-    name: "Avaab Razzaq",
-  },
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": canonicalUrl,
-  },
-  keywords: post.data.tags.join(", "),
-  articleSection: post.data.category,
+  "@graph": structuredDataGraph,
 };
 ---
 
-<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage} structuredData={structuredData}>
+<BaseLayout 
+  title={title} 
+  description={description} 
+  canonicalUrl={canonicalUrl} 
+  ogImage={ogImage} 
+  ogType="article"
+  publishedTime={post.data.publishDate.toISOString()}
+  modifiedTime={post.data.updatedDate?.toISOString()}
+  author={post.data.author}
+  structuredData={structuredData}
+>
   <article class="min-h-screen py-12">
     <div class={CONTAINER_CLASSES.horizontal}>
       <div class="mx-auto max-w-3xl">
@@ -204,6 +299,10 @@ const structuredData = {
               alt={post.data.image.alt}
               class="w-full h-full object-cover"
               loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              width="1200"
+              height="630"
             />
           </div>
         )}
@@ -281,6 +380,47 @@ const structuredData = {
               </div>
             </div>
           </a>
+        </div>
+      )}
+
+      <!-- Related Blog Posts -->
+      {relatedPosts.length > 0 && (
+        <div class="mt-12 pt-8 border-t border-[var(--border-base)]">
+          <h3 class="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-6">Related Articles</h3>
+          <div class="grid gap-4 md:grid-cols-3">
+            {relatedPosts.map((relatedPost) => (
+              <a 
+                href={`/blog/${relatedPost.id}/`}
+                class="block rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-4 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md group"
+              >
+                <p class="text-xs font-semibold text-[var(--accent-strong)] uppercase tracking-wide mb-2">{relatedPost.data.category}</p>
+                <h4 class="text-sm font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors line-clamp-2">
+                  {relatedPost.data.title}
+                </h4>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Related Portfolio Items -->
+      {relatedPortfolio.length > 0 && (
+        <div class="mt-8 pt-8 border-t border-[var(--border-base)]">
+          <h3 class="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-6">Related Projects</h3>
+          <div class="grid gap-4 md:grid-cols-2">
+            {relatedPortfolio.map((item) => (
+              <a 
+                href={`/portfolio/${item.id}/`}
+                class="block rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-4 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md group"
+              >
+                <p class="text-xs font-semibold text-[var(--accent-strong)] uppercase tracking-wide mb-2">{item.data.category}</p>
+                <h4 class="text-sm font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors">
+                  {item.data.title}
+                </h4>
+                <p class="text-xs text-[var(--text-muted)] mt-1 line-clamp-2">{item.data.summary}</p>
+              </a>
+            ))}
+          </div>
         </div>
       )}
 

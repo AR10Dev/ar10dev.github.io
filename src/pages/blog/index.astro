@@ -4,12 +4,12 @@ import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
 
-const title = "Blog | Avaab Razzaq - AI Growth Engineer in Miami, Florida";
+const title = "Blog | Avaab Razzaq - AI Growth Engineer";
 const description =
-  "Insights on AI automation, technical SEO, web apps development, and growth engineering strategies by Avaab Razzaq, AI Growth Engineer in Miami, Florida.";
+  "Insights on AI automation, technical SEO, web apps, and growth engineering strategies by Avaab Razzaq.";
 const siteUrl = "https://avaabrazzaq.com";
 const canonicalUrl = new URL("/blog/", siteUrl).toString();
-const ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
+const ogImage = new URL("/og-blog.png", siteUrl).toString();
 
 // Get all published blog posts, sorted by publish date (newest first)
 const allPosts = await getCollection("blog", ({ data }) => {
@@ -28,9 +28,50 @@ function formatDate(date: Date): string {
     day: "numeric",
   }).format(date);
 }
+
+// Structured data for blog listing page
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Avaab Razzaq - AI Growth Engineer",
+      description:
+        "AI Growth Engineer specializing in web apps, AI automation, and technical SEO",
+      publisher: { "@id": `${siteUrl}/#person` },
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": canonicalUrl,
+      url: canonicalUrl,
+      name: title,
+      description: description,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      about: {
+        "@type": "Blog",
+        name: "Avaab Razzaq Blog",
+        description:
+          "Insights on AI automation, technical SEO, and growth engineering",
+      },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      name: "Avaab Razzaq",
+      url: siteUrl,
+      jobTitle: "AI Growth Engineer",
+      sameAs: [
+        "https://github.com/AR10Dev",
+        "https://linkedin.com/in/avaabrazzaq",
+      ],
+    },
+  ],
+};
 ---
 
-<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage}>
+<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage} structuredData={structuredData}>
   <div class="min-h-screen py-12">
     <div class={CONTAINER_CLASSES.horizontal}>
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} class="mb-8" />
@@ -42,7 +83,7 @@ function formatDate(date: Date): string {
           Web Apps, AI Automation & Technical SEO Blog
         </h1>
         <p class={`${TYPOGRAPHY_CLASSES.subheading} mt-4 max-w-2xl mx-auto`}>
-          Insights on AI automation, technical SEO strategies, web apps development, and growth engineering from Avaab Razzaq, an AI growth engineer based in Miami, Florida. Learn how to build products that scale and drive measurable business growth.
+          Insights on AI automation, technical SEO strategies, web apps development, and growth engineering. Learn how to build products that scale and drive measurable business growth.
         </p>
       </header>
 

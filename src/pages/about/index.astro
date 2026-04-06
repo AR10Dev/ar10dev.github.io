@@ -8,9 +8,9 @@ import {
 } from "@lib/constants";
 
 const title =
-  "About Avaab Razzaq | AI Growth Engineer in Miami, Florida - Web Apps & Technical SEO Expert";
+  "About Avaab Razzaq | AI Growth Engineer - Web Apps & Technical SEO";
 const description =
-  "Avaab Razzaq is an AI Growth Engineer based in Miami, Florida specializing in web apps, AI automation, and technical SEO. Serving businesses across the United States with growth engineering solutions.";
+  "Learn about Avaab Razzaq, AI Growth Engineer specializing in web apps, AI automation, and technical SEO. Delivering growth engineering solutions across the United States.";
 
 const siteUrl = "https://avaabrazzaq.com";
 const canonicalUrl = new URL("/about/", siteUrl).toString();
@@ -65,52 +65,77 @@ const skills = {
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": `${siteUrl}#person`,
-  name: "Avaab Razzaq",
-  alternateName: "AR10Dev",
-  jobTitle: "AI Growth Engineer",
-  description: description,
-  url: siteUrl,
-  image: new URL("/og-ai-growth-engineer.svg", siteUrl).toString(),
-  sameAs: ["https://github.com/AR10Dev", "https://www.linkedin.com/in/ar10dev"],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Miami",
-    addressRegion: "Florida",
-    addressCountry: "US",
-  },
-  knowsAbout: [
-    "Artificial Intelligence",
-    "Machine Learning",
-    "Full-Stack Development",
-    "Web Development",
-    "Search Engine Optimization",
-    "Growth Marketing",
-    "Workflow Automation",
-    "TypeScript",
-    "React",
-    "Node.js",
-  ],
-  hasCredential: credentials.map((cred) => ({
-    "@type": "EducationalOccupationalCredential",
-    credentialCategory: "Professional Expertise",
-    name: cred.name,
-    description: cred.description,
-  })),
-  worksFor: {
-    "@type": "Organization",
-    name: "Independent Consultant",
-  },
-  offers: {
-    "@type": "Offer",
-    itemOffered: {
-      "@type": "Service",
-      name: "AI Growth Engineering Services",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Avaab Razzaq - AI Growth Engineer",
       description:
-        "AI automation, full-stack development, and SEO growth services",
+        "AI Growth Engineer specializing in web apps, AI automation, and technical SEO",
+      publisher: { "@id": `${siteUrl}/#person` },
     },
-  },
+    {
+      "@type": "AboutPage",
+      "@id": canonicalUrl,
+      url: canonicalUrl,
+      name: title,
+      description: description,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      mainEntity: { "@id": `${siteUrl}/#person` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      name: "Avaab Razzaq",
+      alternateName: "AR10Dev",
+      jobTitle: "AI Growth Engineer",
+      description: description,
+      url: siteUrl,
+      image: new URL("/og-ai-growth-engineer.svg", siteUrl).toString(),
+      sameAs: [
+        "https://github.com/AR10Dev",
+        "https://linkedin.com/in/avaabrazzaq",
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Miami",
+        addressRegion: "Florida",
+        addressCountry: "US",
+      },
+      knowsAbout: [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Full-Stack Development",
+        "Web Development",
+        "Search Engine Optimization",
+        "Growth Marketing",
+        "Workflow Automation",
+        "TypeScript",
+        "React",
+        "Node.js",
+      ],
+      hasCredential: credentials.map((cred) => ({
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Professional Expertise",
+        name: cred.name,
+        description: cred.description,
+      })),
+      worksFor: {
+        "@type": "Organization",
+        name: "Independent Consultant",
+      },
+      offers: {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "AI Growth Engineering Services",
+          description:
+            "AI automation, full-stack development, and SEO growth services",
+        },
+      },
+    },
+  ],
 };
 
 const icons: Record<string, string> = {
@@ -120,7 +145,7 @@ const icons: Record<string, string> = {
 };
 ---
 
-<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} structuredData={structuredData}>
+<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage="https://avaabrazzaq.com/og-about.png" structuredData={structuredData}>
   <div class="min-h-screen">
     {/* Hero Section */}
     <section class="bg-[var(--surface-elevated)] py-16 md:py-24">

@@ -18,44 +18,65 @@ if (!homepageEntry) {
 const homepage = homepageEntry.data;
 
 const title =
-  "Contact Avaab Razzaq | AI Growth Engineer in Miami, Florida - Web Apps & Technical SEO";
+  "Contact Avaab Razzaq | AI Growth Engineer - Web Apps & Technical SEO";
 const description =
-  "Contact Avaab Razzaq, AI Growth Engineer in Miami, Florida for web apps, AI automation, and technical SEO services. Fast response guaranteed. Serving clients across the United States.";
+  "Contact Avaab Razzaq for web apps, AI automation, and technical SEO services. Fast response guaranteed. Based in Miami, Florida, serving clients across the United States.";
 
 const siteUrl = "https://avaabrazzaq.com";
 const canonicalUrl = new URL("/contact/", siteUrl).toString();
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "@id": `${siteUrl}/contact/#page`,
-  name: "Contact Avaab Razzaq",
-  description: description,
-  url: canonicalUrl,
-  mainEntity: {
-    "@type": "Person",
-    name: "Avaab Razzaq",
-    email: homepage.contactEmail,
-    url: siteUrl,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Miami",
-      addressRegion: "Florida",
-      addressCountry: "US",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Avaab Razzaq - AI Growth Engineer",
+      description:
+        "AI Growth Engineer specializing in web apps, AI automation, and technical SEO",
+      publisher: { "@id": `${siteUrl}/#person` },
     },
-    areaServed: [
-      { "@type": "City", name: "Miami" },
-      { "@type": "State", name: "Florida" },
-      { "@type": "Country", name: "United States" },
-    ],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer service",
+    {
+      "@type": "ContactPage",
+      "@id": canonicalUrl,
+      url: canonicalUrl,
+      name: "Contact Avaab Razzaq",
+      description: description,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      mainEntity: { "@id": `${siteUrl}/#person` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      name: "Avaab Razzaq",
       email: homepage.contactEmail,
-      areaServed: "US",
-      availableLanguage: "English",
+      url: siteUrl,
+      jobTitle: "AI Growth Engineer",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Miami",
+        addressRegion: "Florida",
+        addressCountry: "US",
+      },
+      areaServed: [
+        { "@type": "City", name: "Miami" },
+        { "@type": "State", name: "Florida" },
+        { "@type": "Country", name: "United States" },
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        email: homepage.contactEmail,
+        areaServed: "US",
+        availableLanguage: "English",
+      },
+      sameAs: [
+        "https://github.com/AR10Dev",
+        "https://linkedin.com/in/avaabrazzaq",
+      ],
     },
-  },
+  ],
 };
 
 const contactMethods = [
@@ -85,7 +106,7 @@ const contactMethods = [
 const leadInputClass = FORM_CLASSES.input;
 ---
 
-<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} structuredData={structuredData}>
+<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage="https://avaabrazzaq.com/og-contact.png" structuredData={structuredData}>
   <div class="min-h-screen py-12">
     <div class={CONTAINER_CLASSES.horizontal}>
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} class="mb-8" />

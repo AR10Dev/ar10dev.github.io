@@ -9,9 +9,9 @@ import {
 } from "@lib/constants";
 
 const title =
-  "AI Growth Engineer Services | Avaab Razzaq - Miami, Florida - Web Apps & Technical SEO";
+  "AI Growth Engineer Services | Avaab Razzaq - Web Apps & Technical SEO";
 const description =
-  "Avaab Razzaq offers AI growth engineer services including web apps development, AI automation, and technical SEO. Based in Miami, Florida, serving clients across the United States.";
+  "Expert AI automation, web apps development, and technical SEO services by Avaab Razzaq. Transform your business with growth engineering solutions.";
 
 const allServices = await getCollection("services");
 
@@ -45,37 +45,56 @@ const canonicalUrl = new URL("/services/", siteUrl).toString();
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": `${siteUrl}#services`,
-  name: "Avaab Razzaq - AI Growth Engineer",
-  description: description,
-  url: canonicalUrl,
-  areaServed: [
+  "@graph": [
     {
-      "@type": "City",
-      name: "Miami",
-      containedInPlace: { "@type": "State", name: "Florida" },
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Avaab Razzaq - AI Growth Engineer",
+      description:
+        "AI Growth Engineer specializing in web apps, AI automation, and technical SEO",
+      publisher: { "@id": `${siteUrl}/#person` },
     },
-    { "@type": "Country", name: "United States" },
-  ],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Professional Services",
-    itemListElement: services.map((service, index) => ({
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: service.data.title,
-        description: service.data.introduction,
+    {
+      "@type": "CollectionPage",
+      "@id": canonicalUrl,
+      url: canonicalUrl,
+      name: title,
+      description: description,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      about: {
+        "@type": "ProfessionalService",
+        "@id": `${siteUrl}/#services`,
+        name: "AI Growth Engineering Services",
+        provider: { "@id": `${siteUrl}/#person` },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Professional Services",
+          itemListElement: services.map((service, index) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: service.data.title,
+              description: service.data.introduction,
+              url: `${siteUrl}/services/${service.data.slug}/`,
+            },
+            position: index + 1,
+          })),
+        },
       },
-      position: index + 1,
-    })),
-  },
-  provider: {
-    "@type": "Person",
-    name: "Avaab Razzaq",
-    url: siteUrl,
-  },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      name: "Avaab Razzaq",
+      url: siteUrl,
+      jobTitle: "AI Growth Engineer",
+      sameAs: [
+        "https://github.com/AR10Dev",
+        "https://linkedin.com/in/avaabrazzaq",
+      ],
+    },
+  ],
 };
 
 const serviceIcons: Record<string, string> = {
@@ -94,7 +113,7 @@ const serviceIcons: Record<string, string> = {
 };
 ---
 
-<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} structuredData={structuredData}>
+<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage="https://avaabrazzaq.com/og-services.png" structuredData={structuredData}>
   <div class="min-h-screen py-12">
     <div class={CONTAINER_CLASSES.horizontal}>
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} class="mb-8" />

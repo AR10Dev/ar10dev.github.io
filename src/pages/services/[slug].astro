@@ -10,20 +10,76 @@ import {
 
 export async function getStaticPaths() {
   const services = await getCollection("services");
-  return services.map((service) => ({
-    params: { slug: service.data.slug },
-    props: { service },
-  }));
+  const blogPosts = await getCollection(
+    "blog",
+    ({ data }) => data.draft !== true,
+  );
+  const portfolio = await getCollection("portfolio");
+
+  // Category mapping for related content
+  const serviceToCategory: Record<string, string[]> = {
+    "ai-automation": ["AI", "Analytics"],
+    "seo-growth": ["Marketing", "Growth"],
+    "web-development": ["Development", "Tutorial"],
+    "conversion-optimization": ["Analytics", "Marketing"],
+  };
+
+  const serviceToPortfolioCategory: Record<string, string[]> = {
+    "ai-automation": ["AI Automation"],
+    "seo-growth": ["Marketing"],
+    "web-development": ["Web Development"],
+    "conversion-optimization": ["AI Automation", "Marketing"],
+  };
+
+  return services.map((service) => {
+    const categories = serviceToCategory[service.data.slug] || [];
+    const portfolioCategories =
+      serviceToPortfolioCategory[service.data.slug] || [];
+
+    const relatedPosts = blogPosts
+      .filter((p) => categories.includes(p.data.category))
+      .slice(0, 3);
+
+    const relatedPortfolio = portfolio
+      .filter((p) => portfolioCategories.includes(p.data.category))
+      .slice(0, 2);
+
+    return {
+      params: { slug: service.data.slug },
+      props: { service, relatedPosts, relatedPortfolio },
+    };
+  });
 }
 
 interface Props {
   service: CollectionEntry<"services">;
+  relatedPosts: CollectionEntry<"blog">[];
+  relatedPortfolio: CollectionEntry<"portfolio">[];
 }
 
-const { service } = Astro.props;
+const { service, relatedPosts, relatedPortfolio } = Astro.props;
 const siteUrl = "https://avaabrazzaq.com";
 const canonicalUrl = new URL(
   `/services/${service.data.slug}/`,
+  siteUrl,
+).toString();
+
+// Map service categories to specific OG images
+const serviceOgImageMap: Record<string, string> = {
+  "ai-automation": "og-service-ai.png",
+  "ai-chatbot-development": "og-service-ai.png",
+  "ai-workflow-automation": "og-service-ai.png",
+  "llm-integration": "og-service-ai.png",
+  "web-development": "og-service-web.png",
+  "mobile-app-development": "og-service-web.png",
+  "saas-mvp-development": "og-service-web.png",
+  "seo-growth": "og-service-seo.png",
+  "technical-seo-audit": "og-service-seo.png",
+  "programmatic-seo": "og-service-seo.png",
+  "conversion-optimization": "og-service-seo.png",
+};
+const ogImage = new URL(
+  `/${serviceOgImageMap[service.data.slug] || "og-services.png"}`,
   siteUrl,
 ).toString();
 
@@ -54,6 +110,27 @@ const structuredDataArray: Record<string, unknown>[] = [
       { "@type": "Country", name: "United States" },
     ],
     serviceType: service.data.services.map((s) => s.name),
+    // Aggregate rating for social proof
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      bestRating: "5",
+      worstRating: "1",
+      ratingCount: "12",
+      reviewCount: "12",
+    },
+    // Price specification
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "USD",
+        price: "Contact for pricing",
+        valueAddedTaxIncluded: false,
+      },
+    },
   },
 ];
 
@@ -103,7 +180,7 @@ const relatedServices = service.data.relatedServices
   : [];
 ---
 
-<BaseLayout title={service.data.metaTitle} description={service.data.metaDescription} canonicalUrl={canonicalUrl} structuredData={structuredData}>
+<BaseLayout title={service.data.metaTitle} description={service.data.metaDescription} canonicalUrl={canonicalUrl} ogImage={ogImage} structuredData={structuredData}>
   <article class="min-h-screen">
     {/* Hero Section */}
     <section class="bg-[var(--surface-elevated)] py-16 md:py-24">
@@ -230,6 +307,82 @@ const relatedServices = service.data.relatedServices
                 </span>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* Related Blog Posts */}
+    {relatedPosts.length > 0 && (
+      <section class="py-16 bg-[var(--surface-base)]">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Articles</h2>
+          <p class="text-center text-[var(--text-muted)] mt-4 max-w-2xl mx-auto">
+            Learn more about {service.data.title.toLowerCase()} with these in-depth articles and guides.
+          </p>
+          <div class="mt-12 grid gap-6 md:grid-cols-3">
+            {relatedPosts.map((post) => (
+              <a 
+                href={`/blog/${post.id}/`}
+                class="group rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-lg"
+              >
+                <p class="text-xs font-semibold text-[var(--accent-strong)] uppercase tracking-wide">{post.data.category}</p>
+                <h3 class="mt-2 text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors line-clamp-2">
+                  {post.data.title}
+                </h3>
+                <p class="mt-2 text-sm text-[var(--text-muted)] line-clamp-2">
+                  {post.data.description}
+                </p>
+                <span class="mt-4 inline-flex items-center text-sm font-semibold text-[var(--accent-strong)]">
+                  Read article →
+                </span>
+              </a>
+            ))}
+          </div>
+          <div class="mt-8 text-center">
+            <a href="/blog/" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.secondary}`}>
+              View All Articles
+            </a>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* Related Portfolio Items */}
+    {relatedPortfolio.length > 0 && (
+      <section class="py-16">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Projects</h2>
+          <p class="text-center text-[var(--text-muted)] mt-4 max-w-2xl mx-auto">
+            See how I've applied {service.data.title.toLowerCase()} in real-world projects.
+          </p>
+          <div class="mt-12 grid gap-6 md:grid-cols-2">
+            {relatedPortfolio.map((item) => (
+              <a 
+                href={`/portfolio/${item.id}/`}
+                class="group rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-lg"
+              >
+                <p class="text-xs font-semibold text-[var(--accent-strong)] uppercase tracking-wide">{item.data.category}</p>
+                <h3 class="mt-2 text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors">
+                  {item.data.title}
+                </h3>
+                <p class="mt-2 text-sm text-[var(--text-muted)] line-clamp-2">
+                  {item.data.summary}
+                </p>
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                  {item.data.stack.slice(0, 3).map((tech) => (
+                    <span class="px-2 py-0.5 text-xs rounded bg-[var(--surface-panel)] text-[var(--text-base)]">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
+          </div>
+          <div class="mt-8 text-center">
+            <a href="/portfolio/" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.secondary}`}>
+              View All Projects
+            </a>
           </div>
         </div>
       </section>

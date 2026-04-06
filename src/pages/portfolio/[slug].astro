@@ -10,17 +10,58 @@ import {
 
 export async function getStaticPaths() {
   const portfolioItems = await getCollection("portfolio");
-  return portfolioItems.map((item) => ({
-    params: { slug: item.id },
-    props: { item },
-  }));
+  const services = await getCollection("services");
+  const blogPosts = await getCollection(
+    "blog",
+    ({ data }) => data.draft !== true,
+  );
+
+  // Category mappings
+  const portfolioToServiceSlug: Record<string, string> = {
+    "AI Automation": "ai-automation",
+    "Web Development": "web-development",
+    Marketing: "seo-growth",
+  };
+
+  const portfolioToBlogCategory: Record<string, string[]> = {
+    "AI Automation": ["AI", "Analytics"],
+    "Web Development": ["Development", "Tutorial"],
+    Marketing: ["Marketing", "Growth"],
+  };
+
+  return portfolioItems.map((item) => {
+    // Find related service
+    const serviceSlug = portfolioToServiceSlug[item.data.category];
+    const relatedService = serviceSlug
+      ? services.find((s) => s.data.slug === serviceSlug)
+      : null;
+
+    // Find related blog posts
+    const blogCategories = portfolioToBlogCategory[item.data.category] || [];
+    const relatedPosts = blogPosts
+      .filter((p) => blogCategories.includes(p.data.category))
+      .slice(0, 3);
+
+    // Find related portfolio items (same category, different item)
+    const relatedPortfolio = portfolioItems
+      .filter((p) => p.id !== item.id && p.data.category === item.data.category)
+      .slice(0, 2);
+
+    return {
+      params: { slug: item.id },
+      props: { item, relatedService, relatedPosts, relatedPortfolio },
+    };
+  });
 }
 
 interface Props {
   item: CollectionEntry<"portfolio">;
+  relatedService: CollectionEntry<"services"> | null;
+  relatedPosts: CollectionEntry<"blog">[];
+  relatedPortfolio: CollectionEntry<"portfolio">[];
 }
 
-const { item } = Astro.props;
+const { item, relatedService, relatedPosts, relatedPortfolio } = Astro.props;
 const siteUrl = "https://avaabrazzaq.com";
 const canonicalUrl = new URL(`/portfolio/${item.id}/`, siteUrl).toString();
 
@@ -50,9 +91,8 @@ const structuredData = {
   },
 };
 
-const relatedItems = (await getCollection("portfolio"))
-  .filter((p) => p.id !== item.id && p.data.category === item.data.category)
-  .slice(0, 2);
+// Use the relatedPortfolio from props instead of fetching again
+const relatedItems = relatedPortfolio;
 ---
 
 <BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} structuredData={structuredData}>
@@ -196,6 +236,56 @@ const relatedItems = (await getCollection("portfolio"))
                   {related.data.title}
                 </h3>
                 <p class="mt-2 text-sm text-[var(--text-muted)]">{related.data.summary}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* Related Service */}
+    {relatedService && (
+      <section class="py-16">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Service</h2>
+          <div class="mt-10 mx-auto max-w-2xl">
+            <a 
+              href={`/services/${relatedService.data.slug}/`}
+              class="group block rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl"
+            >
+              <h3 class="text-xl font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors">
+                {relatedService.data.title}
+              </h3>
+              <p class="mt-3 text-[var(--text-muted)]">
+                {relatedService.data.heroSubtitle}
+              </p>
+              <span class="mt-4 inline-flex items-center text-sm font-semibold text-[var(--accent-strong)]">
+                Learn more about this service →
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* Related Blog Posts */}
+    {relatedPosts.length > 0 && (
+      <section class="bg-[var(--surface-elevated)] py-16">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Articles</h2>
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            {relatedPosts.map((post) => (
+              <a 
+                href={`/blog/${post.id}/`}
+                class="group rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl"
+              >
+                <span class="text-xs font-semibold text-[var(--accent-strong)] uppercase tracking-wide">{post.data.category}</span>
+                <h3 class="mt-2 text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors line-clamp-2">
+                  {post.data.title}
+                </h3>
+                <p class="mt-2 text-sm text-[var(--text-muted)] line-clamp-2">
+                  {post.data.description}
+                </p>
               </a>
             ))}
           </div>

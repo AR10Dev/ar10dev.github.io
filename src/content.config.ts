@@ -108,6 +108,19 @@ const blogCollection = defineCollection({
     featured: z.boolean().default(false),
     readingTime: z.number().optional(),
     relatedService: z.string().optional(),
+    // HowTo schema support for tutorial posts
+    howTo: z
+      .object({
+        totalTime: z.string().optional(), // e.g., "PT4W" for 4 weeks
+        estimatedCost: z.string().optional(),
+        steps: z.array(
+          z.object({
+            name: z.string(),
+            text: z.string(),
+          }),
+        ),
+      })
+      .optional(),
   }),
 });
 

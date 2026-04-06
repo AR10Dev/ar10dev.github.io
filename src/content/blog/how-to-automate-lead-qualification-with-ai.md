@@ -9,6 +9,19 @@ draft: false
 featured: true
 readingTime: 8
 relatedService: ai-workflow-automation
+howTo:
+  totalTime: "PT1W"
+  steps:
+    - name: "Map Your Qualification Criteria"
+      text: "Define what makes a qualified lead for your business. Include firmographic data, behavioral signals, and engagement metrics."
+    - name: "Set Up Data Enrichment"
+      text: "Connect lead enrichment tools to automatically gather company size, industry, tech stack, and contact information."
+    - name: "Build Your Scoring Model"
+      text: "Create a scoring system that weights different signals. Use AI to identify patterns in your historical converted leads."
+    - name: "Configure Routing Rules"
+      text: "Set up automated routing based on lead scores, territory, deal size, and availability. Integrate with your CRM."
+    - name: "Implement Nurture Sequences"
+      text: "Create automated follow-up sequences for different lead segments. Personalize messaging based on qualification data."
 ---
 
 Manual lead qualification is one of the biggest time sinks in sales operations. Your team spends hours reviewing form submissions, enriching data, and deciding which leads deserve immediate attention. Meanwhile, hot leads grow cold.

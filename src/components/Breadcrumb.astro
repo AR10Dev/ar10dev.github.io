@@ -27,21 +27,19 @@ const breadcrumbSchema = {
 ---
 
 <nav aria-label="Breadcrumb" class={`text-sm ${className}`}>
-  <ol class="flex flex-wrap items-center gap-1.5 text-[var(--text-muted)]" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <ol class="flex flex-wrap items-center gap-1.5 text-[var(--text-muted)]">
     {items.map((item, index) => (
-      <li class="flex items-center gap-1.5" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <li class="flex items-center gap-1.5">
         {item.href ? (
           <a 
             href={item.href} 
             class="hover:text-[var(--accent-strong)] transition-colors"
-            itemprop="item"
           >
-            <span itemprop="name">{item.label}</span>
+            {item.label}
           </a>
         ) : (
-          <span class="text-[var(--text-strong)] font-medium" itemprop="name">{item.label}</span>
+          <span class="text-[var(--text-strong)] font-medium">{item.label}</span>
         )}
-        <meta itemprop="position" content={String(index + 1)} />
         {index < items.length - 1 && (
           <span class="text-[var(--border-strong)]" aria-hidden="true">/</span>
         )}
