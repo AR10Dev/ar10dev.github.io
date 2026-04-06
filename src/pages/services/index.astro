@@ -15,20 +15,20 @@ const description =
 
 const allServices = await getCollection("services");
 
-// Order services by demand (most requested first)
+// Order services by market demand signal (highest to lowest)
 const serviceOrder = [
-  "web-development", // 1. Highest demand - general web dev
-  "mobile-app-development", // 2. High demand - mobile apps
-  "saas-mvp-development", // 3. High demand - startup MVPs
-  "ai-automation", // 4. Growing rapidly - AI services
-  "ai-chatbot-development", // 5. Hot topic - chatbots
-  "ai-workflow-automation", // 6. Business automation
-  "llm-integration", // 7. Technical AI integration
-  "seo-growth", // 8. SEO services
-  "technical-seo-audit", // 9. Technical SEO
-  "conversion-optimization", // 10. CRO
-  "programmatic-seo", // 11. Specialized SEO
-  "astro-development", // 12. Niche framework
+  "web-development",           // 1. Most searched — general web dev
+  "ai-automation",             // 2. Highest growth — AI automation
+  "saas-mvp-development",      // 3. High buyer intent — startup MVPs
+  "mobile-app-development",    // 4. Consistent demand — mobile
+  "ai-chatbot-development",    // 5. Hot market — AI chatbots
+  "ai-workflow-automation",    // 6. B2B automation demand
+  "llm-integration",           // 7. Technical buyers — LLM integration
+  "seo-growth",                // 8. Universal need — SEO
+  "technical-seo-audit",       // 9. Specific audit intent
+  "conversion-optimization",   // 10. Revenue-focused buyers
+  "programmatic-seo",          // 11. Technical SEO specialists
+  "astro-development",         // 12. Niche — framework-specific
 ];
 
 const services = allServices.sort((a, b) => {

@@ -1,0 +1,214 @@
+---
+import ServiceLayout from "@layouts/ServiceLayout.astro";
+import { CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+
+const faqs = [
+  {
+    question: "Won't Google penalize programmatic content?",
+    answer:
+      "Google penalizes thin, duplicate, unhelpful content — not programmatic content. I build systems with meaningful differentiation per page: unique data, local signals, structured info that's genuinely useful. Done right, programmatic SEO is what major players like Tripadvisor, Zapier, and G2 use to dominate search.",
+  },
+  {
+    question: "What kind of businesses benefit most from programmatic SEO?",
+    answer:
+      "Any business with structured, repeatable data: SaaS tools (integration pages, comparison pages), marketplaces, local services (city/service combinations), e-commerce (product variants), and directories.",
+  },
+  {
+    question: "How many pages can you generate?",
+    answer:
+      "Systems I build routinely generate 1,000–100,000+ pages depending on the data. The bottleneck is usually data quality and uniqueness strategy, not technical scale.",
+  },
+  {
+    question: "What's the timeline?",
+    answer:
+      "Audit + strategy: 1 week. Build: 2–4 weeks. Indexation ramp: 4–8 weeks. You typically start seeing ranking traction within 2–3 months.",
+  },
+];
+---
+
+<ServiceLayout
+  title="Programmatic SEO Services — Scale Content at Scale | Avaab Razzaq"
+  description="Programmatic SEO services that generate thousands of targeted landing pages automatically. I build data-driven content systems using Astro, PostgreSQL, and Python to capture long-tail search traffic."
+  heroHeadline="Capture Thousands of Keywords With Programmatic SEO"
+  heroSubheadline="I build programmatic SEO systems that generate thousands of targeted landing pages from structured data — capturing long-tail search traffic at scale, automatically."
+  ctaText="Book a Strategy Call"
+  ctaHref="/contact/"
+  serviceName="Programmatic SEO"
+  serviceDescription="Programmatic SEO services using Astro, PostgreSQL, and Python to generate thousands of targeted landing pages that capture long-tail search traffic at scale."
+  keywords={["programmatic SEO services", "programmatic SEO developer", "scale content SEO", "automated SEO content", "long-tail SEO strategy"]}
+  faqs={faqs}
+>
+  {/* Problem Section */}
+  <section class="py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>The Problem</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Manual Content Can't Capture Long-Tail Traffic</h2>
+        <div class={`mt-6 space-y-4 ${TYPOGRAPHY_CLASSES.body}`}>
+          <p>
+            There are categories of search intent that are impossible to capture with manual content creation. 
+            Location-based queries, comparison pages, integration pages, product-attribute combinations — 
+            there are thousands of these keyword variations and no team can manually write a page for each one.
+          </p>
+          <p>
+            Competitors with programmatic SEO systems are capturing this traffic while you're writing one blog post at a time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Solution Section */}
+  <section class="bg-[var(--surface-elevated)] py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>The Solution</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Data-Driven Page Generation at Scale</h2>
+        <div class={`mt-6 space-y-4 ${TYPOGRAPHY_CLASSES.body}`}>
+          <p>
+            I architect and build programmatic SEO systems: a structured data source (PostgreSQL, Airtable, or CSV), 
+            a template system in Astro or Next.js, and a generation pipeline that produces thousands of unique, indexed, 
+            conversion-optimized pages.
+          </p>
+          <p>
+            Each page is differentiated enough to avoid thin content penalties and optimized with proper schema, 
+            internal linking, and CTA structure.
+          </p>
+        </div>
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Data Architecture</h3>
+            <p class="mt-2 text-[var(--text-muted)]">PostgreSQL, Airtable, or CSV as your structured data source.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Template System</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Astro or Next.js templates that generate unique pages.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Uniqueness Strategy</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Meaningful differentiation to avoid thin content penalties.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Schema + Internal Linking</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Proper structured data and link architecture at scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* What's Included Section */}
+  <section class="py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>What's Included</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Full Programmatic SEO Build</h2>
+        <ul class="mt-8 space-y-4">
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Keyword Cluster + Programmatic Opportunity Audit</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Identify the keyword patterns that programmatic SEO can capture.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Data Source Architecture</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Design the database or data structure that powers your pages.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Page Template Design + Development</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Build conversion-optimized templates in Astro or Next.js.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Generation Pipeline Build</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Automated page generation from your data source.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Uniqueness Strategy</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Ensure each page is differentiated enough to avoid penalties.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Internal Linking Architecture</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Smart internal linking between programmatic pages.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Schema + Structured Data Injection</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Proper JSON-LD on every generated page.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Sitemap Generation + Indexation Strategy</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Get your pages discovered and indexed efficiently.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Search Console Monitoring Setup</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Track indexation and performance of your programmatic pages.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* Social Proof Placeholder */}
+  <section class="bg-[var(--surface-elevated)] py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="mx-auto max-w-2xl">
+        <blockquote class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)]">
+          <div class="flex gap-1 text-[var(--accent-strong)]">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="mt-4 text-lg italic text-[var(--text-strong)]">"[Client testimonial will go here]"</p>
+          <footer class="mt-4">
+            <p class="text-sm font-semibold text-[var(--text-strong)]">— Client Name</p>
+            <p class="text-sm text-[var(--text-muted)]">Title, Company</p>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
