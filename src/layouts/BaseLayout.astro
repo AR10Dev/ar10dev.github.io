@@ -20,10 +20,19 @@ export interface Props {
   readingTime?: string;
 }
 
-const siteUrl = "https://avaabrazzaq.com";
+const configuredSite = new URL(
+  Astro.site?.toString() ?? "https://avaabrazzaq.com",
+);
+configuredSite.protocol = "https:";
+
+const siteUrl = configuredSite.origin;
 
 const normalizeCanonicalUrl = (inputUrl: string) => {
   const parsedUrl = new URL(inputUrl, siteUrl);
+  parsedUrl.protocol = "https:";
+  parsedUrl.host = configuredSite.host;
+  parsedUrl.search = "";
+  parsedUrl.hash = "";
 
   if (!parsedUrl.pathname.endsWith("/") && !parsedUrl.pathname.includes(".")) {
     parsedUrl.pathname = `${parsedUrl.pathname}/`;

@@ -9,9 +9,9 @@ import {
 } from "@lib/constants";
 
 const title =
-  "AI Growth Engineer Services in Miami | Avaab Razzaq";
+  "AI Automation, Web & SEO Services in Miami | Avaab Razzaq";
 const description =
-  "Explore AI automation, web development, and technical SEO services by Avaab Razzaq in Miami, FL. Book a discovery call to accelerate growth today.";
+  "Explore AI automation, full-stack web and mobile development, and technical SEO services by Avaab Razzaq in Miami, built to improve conversions and growth.";
 
 const allServices = await getCollection("services");
 
@@ -41,7 +41,9 @@ const services = allServices.sort((a, b) => {
   return aOrder - bOrder;
 });
 
-const siteUrl = "https://avaabrazzaq.com";
+const siteUrl = new URL(
+  Astro.site?.toString() ?? "https://avaabrazzaq.com",
+).origin;
 const canonicalUrl = new URL("/services/", siteUrl).toString();
 
 const structuredData = {
@@ -182,6 +184,28 @@ const serviceIcons: Record<string, string> = {
           </article>
         ))}
       </div>
+
+      <section class="mt-16 rounded-2xl border border-[var(--card-uniform-border)] bg-[var(--surface-elevated)] p-8 shadow-[var(--card-shadow)]">
+        <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>Featured Implementation Deep Dives</h2>
+        <p class={`mt-4 max-w-3xl ${TYPOGRAPHY_CLASSES.body}`}>
+          Review how these services translate into measurable outcomes. These linked pages include process details,
+          technology choices, and performance metrics from real delivery work.
+        </p>
+        <div class="mt-8 grid gap-4 md:grid-cols-3">
+          <a href="/services/mobile-app-development/" class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-5 transition-colors hover:border-[var(--accent-strong)]/40">
+            <h3 class="font-bold text-[var(--text-strong)]">Mobile App Development Service</h3>
+            <p class="mt-2 text-sm text-[var(--text-muted)]">Flutter and native iOS/Android delivery process with launch support.</p>
+          </a>
+          <a href="/portfolio/ai-workflow-automation/" class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-5 transition-colors hover:border-[var(--accent-strong)]/40">
+            <h3 class="font-bold text-[var(--text-strong)]">AI Workflow Automation Case Study</h3>
+            <p class="mt-2 text-sm text-[var(--text-muted)]">Multi-agent lead routing and CRM enrichment with quantified efficiency gains.</p>
+          </a>
+          <a href="/portfolio/social-media-management/" class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-5 transition-colors hover:border-[var(--accent-strong)]/40">
+            <h3 class="font-bold text-[var(--text-strong)]">Social Media Growth Case Study</h3>
+            <p class="mt-2 text-sm text-[var(--text-muted)]">Cross-channel content operations with audience growth and lead attribution metrics.</p>
+          </a>
+        </div>
+      </section>
 
       <section class="mt-20 rounded-2xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-10 text-center shadow-[var(--card-shadow)]">
         <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>Hire an AI Growth Engineer in Miami, Florida</h2>

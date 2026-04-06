@@ -30,16 +30,18 @@ const homepage = homepageEntry.data;
 
 const portfolioItems = (await getCollection("portfolio"))
   .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 3);
+  .slice(0, 4);
 
-const siteUrl = "https://avaabrazzaq.com";
+const siteUrl = new URL(
+  Astro.site?.toString() ?? "https://avaabrazzaq.com",
+).origin;
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
 const linkedInUrl = "https://www.linkedin.com/in/ar10dev";
 const twitterUrl = "https://twitter.com/itsmeAvaab";
 const seoTitle = "AI Growth Engineer Services in Miami | Avaab Razzaq";
 const seoDescription =
-  "Hire Avaab Razzaq for AI automation, full-stack web development, and technical SEO in Miami, FL. Book a discovery call to accelerate growth.";
+  "Hire Avaab Razzaq, an AI Growth Engineer in Miami, for AI automation, full-stack development, and technical SEO systems that drive measurable revenue growth.";
 
 const rolePhrases = [
   "web apps that convert.",
@@ -101,6 +103,11 @@ const serviceItems = [
     title: "Full Stack Development",
     body: "Ship fast, scale smart. I build production-ready web and mobile applications using Astro, React, SolidJS, and modern AI-native architectures.",
     href: "/services/full-stack-web-development/",
+  },
+  {
+    title: "Mobile App Development",
+    body: "I design and ship Flutter and native iOS/Android apps with API integrations, analytics instrumentation, and app-store launch support.",
+    href: "/services/mobile-app-development/",
   },
 ];
 

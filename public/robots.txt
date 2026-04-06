@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Sitemap: https://avaabrazzaq.com/sitemap-index.xml
+Host: avaabrazzaq.com
 
 # Search engine crawlers
 User-agent: Googlebot
@@ -107,5 +109,3 @@ Allow: /
 
 User-agent: ProRataInc
 Allow: /
-
-Sitemap: https://avaabrazzaq.com/sitemap-index.xml

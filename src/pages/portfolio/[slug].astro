@@ -62,7 +62,9 @@ interface Props {
 }
 
 const { item, relatedService, relatedPosts, relatedPortfolio } = Astro.props;
-const siteUrl = "https://avaabrazzaq.com";
+const siteUrl = new URL(
+  Astro.site?.toString() ?? "https://avaabrazzaq.com",
+).origin;
 const canonicalUrl = new URL(`/portfolio/${item.id}/`, siteUrl).toString();
 
 const clampText = (value: string, maxLength: number) =>
@@ -70,11 +72,30 @@ const clampText = (value: string, maxLength: number) =>
     ? `${value.slice(0, maxLength - 3).trimEnd()}...`
     : value;
 
-const title = clampText(`${item.data.title} | Avaab Razzaq`, 60);
-const description = clampText(
-  `${item.data.summary} Case study by Avaab Razzaq covering implementation details and measurable outcomes using ${item.data.stack.slice(0, 3).join(", ")}.`,
+const seoOverrides: Record<string, { title: string; description: string }> = {
+  "ai-workflow-automation": {
+    title: "AI Workflow Automation Platform Case Study | Avaab Razzaq",
+    description:
+      "Case study of a multi-agent automation platform that reduced manual lead operations by 62%, cut response time to under 5 minutes, and improved CRM data quality.",
+  },
+  "social-media-management": {
+    title: "Social Media Growth Campaign Case Study | Avaab Razzaq",
+    description:
+      "Case study of a social growth campaign that increased audience size by 340%, sustained an 8.2% engagement rate, and turned LinkedIn into a qualified lead source.",
+  },
+};
+
+const fallbackTitle = clampText(
+  `${item.data.title} Case Study | Avaab Razzaq`,
+  60,
+);
+const fallbackDescription = clampText(
+  `${item.data.summary} Detailed case study covering challenge, process, stack, and measurable outcomes delivered by Avaab Razzaq for growth-focused teams.`,
   160,
 );
+
+const title = seoOverrides[item.id]?.title ?? fallbackTitle;
+const description = seoOverrides[item.id]?.description ?? fallbackDescription;
 
 const structuredData = {
   "@context": "https://schema.org",
