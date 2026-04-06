@@ -3,7 +3,7 @@ title: Why Astro is the Best Framework for Marketing Sites
 description: A technical comparison of Astro vs Next.js, Gatsby, and other frameworks for marketing websites—covering performance, DX, and SEO capabilities.
 publishDate: 2026-03-05
 author: Avaab Razzaq
-tags: [Astro, web-development, performance, SEO, frameworks]
+tags: [Astro, full-stack-web-development, performance, SEO, frameworks]
 category: Development
 draft: false
 featured: false

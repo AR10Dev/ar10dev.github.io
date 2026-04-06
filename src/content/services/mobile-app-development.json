@@ -82,7 +82,7 @@
       "answer": "I offer maintenance retainers covering bug fixes, OS compatibility updates, feature additions, and performance monitoring. I can also hand off to your team with documentation and knowledge transfer if you prefer to maintain internally."
     }
   ],
-  "parentService": "web-development",
+  "parentService": "full-stack-web-development",
   "relatedServices": [
     "saas-mvp-development",
     "astro-development"

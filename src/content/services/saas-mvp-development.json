@@ -77,10 +77,10 @@
       "answer": "After launch, you'll have several options: I can continue development on a retainer, hand off to your internal team with documentation and knowledge transfer, or you can use the codebase with future contractors. The MVP is yours—I ensure you're not dependent on me."
     }
   ],
-  "parentService": "web-development",
+  "parentService": "full-stack-web-development",
   "relatedServices": [
     "astro-development",
-    "web-development"
+    "full-stack-web-development"
   ],
   "relatedBlogPosts": [
     "building-mvp-4-weeks-technical-guide"

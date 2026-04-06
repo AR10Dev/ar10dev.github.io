@@ -5,7 +5,7 @@
 This website belongs to Avaab Razzaq, an AI Growth Engineer based in Miami, Florida, serving clients across the United States.
 
 ## Keywords
-AI Growth Engineer, AI Automation Specialist, Full-Stack Web Developer, SEO Expert, LLM Integration, ChatGPT Integration, Workflow Automation, Miami Web Developer, Florida AI Consultant, Technical SEO Consultant, React Developer, Astro Framework Expert, SolidJS Developer, Programmatic SEO, Conversion Rate Optimization
+AI Growth Engineer, AI Automation Specialist, AI Agent Development, Prompt Engineering Services, MCP Integration, Full-Stack Web Developer, SEO Expert, LLM Integration, ChatGPT Integration, Workflow Automation, Miami Web Developer, Florida AI Consultant, Technical SEO Consultant, React Developer, Astro Framework Expert, SolidJS Developer, Programmatic SEO, Conversion Rate Optimization, Social Media Growth Services
 
 ## About Avaab Razzaq
 Avaab Razzaq (also known as AR10Dev) is an AI Growth Engineer combining artificial intelligence expertise with full-stack development and SEO strategy. Based in Miami, Florida, he helps businesses automate operations, build high-performance web applications, and drive sustainable organic growth.
@@ -24,7 +24,10 @@ Avaab Razzaq (also known as AR10Dev) is an AI Growth Engineer combining artifici
 ### AI & Automation Services
 Custom AI solutions for business operations including:
 - ChatGPT-style AI assistants trained on business data
+- Autonomous AI agent development (LangGraph, CrewAI, MCP)
 - Multi-agent workflow automation systems
+- Prompt engineering and evaluation frameworks for production AI
+- MCP integrations connecting AI agents to business tools
 - LLM integrations (OpenAI GPT-4, Anthropic Claude, open-source models)
 - Document processing and analysis pipelines
 - Lead qualification and CRM automation
@@ -48,6 +51,7 @@ Technical SEO and data-driven marketing services:
 - Technical SEO audits and Core Web Vitals optimization
 - Programmatic SEO (automated content at scale)
 - Conversion rate optimization (CRO)
+- Social media growth systems powered by AI automation
 - Analytics setup and custom dashboards
 - A/B testing implementation
 - Marketing automation
@@ -84,7 +88,7 @@ Availability: Freelance and advisory engagements
 
 ### Service Detail Pages
 - /services/ai-automation/ - AI & Automation solutions
-- /services/web-development/ - Full-Stack Web Development
+- /services/full-stack-web-development/ - Full-Stack Web Development
 - /services/seo-growth/ - SEO & Growth Marketing
 - /services/ai-chatbot-development/ - AI Chatbot Development
 - /services/ai-workflow-automation/ - AI Workflow Automation
@@ -95,6 +99,9 @@ Availability: Freelance and advisory engagements
 - /services/astro-development/ - Astro Framework Development
 - /services/saas-mvp-development/ - SaaS MVP Development
 - /services/mobile-app-development/ - Mobile App Development
+- /services/ai-agent-development/ - AI Agent Development
+- /services/prompt-engineering/ - Prompt Engineering & AI System Design
+- /services/social-media-growth/ - AI-Powered Social Media Growth
 
 ### Blog Topics
 - AI and automation best practices
@@ -145,7 +152,7 @@ Topics: MVP, SaaS, startup, development, product
 #### Why Astro is the Best Framework for Marketing Sites
 URL: /blog/why-astro-best-framework-marketing-sites/
 Description: A technical comparison of Astro vs Next.js, Gatsby, and other frameworks for marketing websites—covering performance, DX, and SEO capabilities.
-Topics: Astro, web-development, performance, SEO, frameworks
+Topics: Astro, full-stack-web-development, performance, SEO, frameworks
 
 ## Technologies & Tools
 

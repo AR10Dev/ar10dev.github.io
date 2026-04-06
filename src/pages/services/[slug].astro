@@ -21,6 +21,7 @@ export async function getStaticPaths() {
     "saas-mvp-development",
     "seo-growth",
     "technical-seo-audit",
+    "full-stack-web-development",
   ]);
 
   const services = (await getCollection("services")).filter(
@@ -36,14 +37,14 @@ export async function getStaticPaths() {
   const serviceToCategory: Record<string, string[]> = {
     "ai-automation": ["AI", "Analytics"],
     "seo-growth": ["Marketing", "Growth"],
-    "web-development": ["Development", "Tutorial"],
+    "full-stack-web-development": ["Development", "Tutorial"],
     "conversion-optimization": ["Analytics", "Marketing"],
   };
 
   const serviceToPortfolioCategory: Record<string, string[]> = {
     "ai-automation": ["AI Automation"],
     "seo-growth": ["Marketing"],
-    "web-development": ["Web Development"],
+    "full-stack-web-development": ["Web Development"],
     "conversion-optimization": ["AI Automation", "Marketing"],
   };
 
@@ -86,7 +87,7 @@ const serviceOgImageMap: Record<string, string> = {
   "ai-chatbot-development": "og-service-ai.png",
   "ai-workflow-automation": "og-service-ai.png",
   "llm-integration": "og-service-ai.png",
-  "web-development": "og-service-web.png",
+  "full-stack-web-development": "og-service-web.png",
   "mobile-app-development": "og-service-web.png",
   "saas-mvp-development": "og-service-web.png",
   "seo-growth": "og-service-seo.png",
@@ -111,10 +112,20 @@ const structuredDataArray: Record<string, unknown>[] = [
     provider: {
       "@id": `${siteUrl}/#person`,
     },
-    areaServed: {
-      "@type": "Place",
-      name: "United States",
-    },
+    areaServed: [
+      {
+        "@type": "Country",
+        name: "United States",
+      },
+      {
+        "@type": "City",
+        name: "Miami",
+        containedInPlace: {
+          "@type": "State",
+          name: "Florida",
+        },
+      },
+    ],
     serviceType: service.data.services.map((s) => s.name),
     // Aggregate rating for social proof
     aggregateRating: {

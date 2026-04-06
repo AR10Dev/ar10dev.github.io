@@ -60,9 +60,15 @@ const structuredData = {
         addressCountry: "US",
       },
       areaServed: [
-        { "@type": "City", name: "Miami" },
-        { "@type": "State", name: "Florida" },
         { "@type": "Country", name: "United States" },
+        {
+          "@type": "City",
+          name: "Miami",
+          containedInPlace: {
+            "@type": "State",
+            name: "Florida",
+          },
+        },
       ],
       contactPoint: {
         "@type": "ContactPoint",
@@ -248,7 +254,7 @@ const leadInputClass = FORM_CLASSES.input;
                   <select class={leadInputClass} name="projectType" required aria-required="true">
                     <option value="">Select one...</option>
                     <option value="ai-automation">AI & Automation</option>
-                    <option value="web-development">Web Development</option>
+                    <option value="full-stack-web-development">Web Development</option>
                     <option value="seo-growth">SEO & Growth</option>
                     <option value="consulting">Consulting / Advisory</option>
                     <option value="other">Other</option>

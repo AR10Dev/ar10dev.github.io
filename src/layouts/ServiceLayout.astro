@@ -80,8 +80,8 @@ const serviceCrossLinks = [
     summary: "Connect AI systems to real business tools through MCP.",
   },
   {
-    slug: "fullstack-development",
-    href: "/services/fullstack-development/",
+    slug: "full-stack-web-development",
+    href: "/services/full-stack-web-development/",
     label: "Full-Stack Development",
     summary: "Build fast, scalable web products with modern frameworks.",
   },
@@ -102,6 +102,24 @@ const serviceCrossLinks = [
     href: "/services/llm-integration/",
     label: "LLM Integration",
     summary: "Integrate GPT and Claude into production workflows.",
+  },
+  {
+    slug: "ai-agent-development",
+    href: "/services/ai-agent-development/",
+    label: "AI Agent Development",
+    summary: "Build autonomous AI agents that plan, use tools, and complete complex tasks end-to-end.",
+  },
+  {
+    slug: "prompt-engineering",
+    href: "/services/prompt-engineering/",
+    label: "Prompt Engineering",
+    summary: "Design reliable system prompts and evaluation frameworks for production AI products.",
+  },
+  {
+    slug: "social-media-growth",
+    href: "/services/social-media-growth/",
+    label: "Social Media Growth",
+    summary: "AI-automated content pipelines and growth systems that build your audience on autopilot.",
   },
 ];
 
@@ -141,10 +159,20 @@ const structuredData = {
       provider: {
         "@id": `${siteUrl}/#person`,
       },
-      areaServed: {
-        "@type": "Place",
-        name: "United States",
-      },
+      areaServed: [
+        {
+          "@type": "Country",
+          name: "United States",
+        },
+        {
+          "@type": "City",
+          name: "Miami",
+          containedInPlace: {
+            "@type": "State",
+            name: "Florida",
+          },
+        },
+      ],
       url: canonicalUrl,
     },
     {

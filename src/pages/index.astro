@@ -72,7 +72,7 @@ const heroFeatures = [
   {
     title: "Full Stack Development",
     body: "Production-ready web and mobile applications built with Astro, React, SolidJS, and modern AI-native architectures.",
-    href: "/services/fullstack-development/",
+    href: "/services/full-stack-web-development/",
   },
   {
     title: "Technical SEO & GEO",
@@ -100,7 +100,7 @@ const serviceItems = [
   {
     title: "Full Stack Development",
     body: "Ship fast, scale smart. I build production-ready web and mobile applications using Astro, React, SolidJS, and modern AI-native architectures.",
-    href: "/services/fullstack-development/",
+    href: "/services/full-stack-web-development/",
   },
 ];
 
@@ -177,7 +177,7 @@ const structuredData = {
           name: "Full-Stack Web Development",
           description:
             "Modern web applications with Astro, SolidJS, and cloud infrastructure",
-          url: `${siteUrl}/services/web-development/`,
+          url: `${siteUrl}/services/full-stack-web-development/`,
         },
         {
           "@type": "Offer",
@@ -209,9 +209,15 @@ const structuredData = {
         longitude: -80.1918,
       },
       areaServed: [
-        { "@type": "City", name: "Miami" },
-        { "@type": "State", name: "Florida" },
         { "@type": "Country", name: "United States" },
+        {
+          "@type": "City",
+          name: "Miami",
+          containedInPlace: {
+            "@type": "State",
+            name: "Florida",
+          },
+        },
       ],
       priceRange: "$$",
       openingHoursSpecification: {
@@ -453,7 +459,7 @@ const structuredData = {
                   <select class={leadInputClass} name="projectType" required aria-required="true">
                     <option value="">Select one...</option>
                     <option value="ai-automation">AI & Automation</option>
-                    <option value="web-development">Web Development</option>
+                    <option value="full-stack-web-development">Web Development</option>
                     <option value="seo-growth">SEO & Growth</option>
                     <option value="other">Other</option>
                   </select>

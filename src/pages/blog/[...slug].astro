@@ -29,10 +29,10 @@ export async function getStaticPaths() {
       const categoryServiceMap: Record<string, string> = {
         AI: "ai-automation",
         Marketing: "seo-growth",
-        Development: "web-development",
+        Development: "full-stack-web-development",
         Growth: "seo-growth",
         Analytics: "conversion-optimization",
-        Tutorial: "web-development",
+        Tutorial: "full-stack-web-development",
       };
       const mappedSlug = categoryServiceMap[post.data.category];
       if (mappedSlug) {
