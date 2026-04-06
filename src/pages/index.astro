@@ -150,18 +150,16 @@ const structuredData = {
       ],
     },
     {
-      "@type": "LocalBusiness",
+      "@type": "ProfessionalService",
       "@id": `${siteUrl}#business`,
       name: "Avaab Razzaq - AI Growth Engineer",
       description: homepage.metaDescription,
       url: siteUrl,
-      telephone: "",
       email: homepage.contactEmail,
       address: {
         "@type": "PostalAddress",
         addressLocality: "Miami",
         addressRegion: "Florida",
-        postalCode: "",
         addressCountry: "US",
       },
       geo: {
@@ -183,6 +181,22 @@ const structuredData = {
       },
     },
     {
+      "@type": "Organization",
+      "@id": `${siteUrl}#organization`,
+      name: "Avaab Razzaq - AI Growth Engineer",
+      url: siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        "@id": `${siteUrl}#logo`,
+        url: `${siteUrl}/pwa-512x512.png`,
+        contentUrl: `${siteUrl}/pwa-512x512.png`,
+        width: 512,
+        height: 512,
+        caption: "Avaab Razzaq - AI Growth Engineer",
+      },
+      sameAs: [homepage.githubUrl, linkedInUrl],
+    },
+    {
       "@type": "WebSite",
       "@id": `${siteUrl}#website`,
       name: homepage.brandTitle,
@@ -190,7 +204,19 @@ const structuredData = {
       description: homepage.metaDescription,
       inLanguage: "en-US",
       publisher: {
-        "@id": `${siteUrl}#person`,
+        "@id": `${siteUrl}#organization`,
+      },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${siteUrl}/blog/?q={search_term_string}`,
+        },
+        "query-input": {
+          "@type": "PropertyValueSpecification",
+          valueRequired: true,
+          valueName: "search_term_string",
+        },
       },
     },
     {

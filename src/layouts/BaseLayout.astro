@@ -17,6 +17,7 @@ export interface Props {
   publishedTime?: string;
   modifiedTime?: string;
   author?: string;
+  readingTime?: string;
 }
 
 const siteUrl = "https://avaabrazzaq.com";
@@ -24,7 +25,7 @@ const {
   title,
   description,
   canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString(),
-  ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString(),
+  ogImage = new URL("/og-ai-growth-engineer.png", siteUrl).toString(),
   ogType = "website",
   structuredData,
   noIndex = false,
@@ -32,6 +33,7 @@ const {
   publishedTime,
   modifiedTime,
   author = "Avaab Razzaq",
+  readingTime,
 } = Astro.props;
 
 const defaultKeywords =
@@ -71,6 +73,7 @@ const currentPath = Astro.url.pathname;
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="msapplication-TileImage" content="/pwa-192x192.png" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title="Avaab Razzaq Blog RSS Feed" href="/blog/rss.xml" />
@@ -112,9 +115,23 @@ const currentPath = Astro.url.pathname;
 
     {/* Twitter/X Card */}
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@itsmeAvaab" />
+    <meta name="twitter:creator" content="@itsmeAvaab" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    {ogType === "article" && (
+      <>
+        <meta name="twitter:label1" content="Written by" />
+        <meta name="twitter:data1" content={author} />
+        {readingTime && (
+          <>
+            <meta name="twitter:label2" content="Est. reading time" />
+            <meta name="twitter:data2" content={readingTime} />
+          </>
+        )}
+      </>
+    )}
 
     <meta name="theme-color" content="#0e2a47" />
 

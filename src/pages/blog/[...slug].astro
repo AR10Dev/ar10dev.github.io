@@ -79,12 +79,13 @@ const { post, relatedService, relatedPosts, relatedPortfolio } = Astro.props;
 const { Content, headings } = await render(post);
 
 const siteUrl = "https://avaabrazzaq.com";
+const postUrl = new URL(`/blog/${post.id}/`, siteUrl).toString();
 const title = `${post.data.title} | Blog - Avaab Razzaq`;
 const description = post.data.description;
-const canonicalUrl = new URL(`/blog/${post.id}/`, siteUrl).toString();
+const canonicalUrl = postUrl;
 const ogImage =
   post.data.image?.src ??
-  new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
+  new URL("/og-ai-growth-engineer.png", siteUrl).toString();
 
 // Format date helper
 function formatDate(date: Date): string {
@@ -97,7 +98,8 @@ function formatDate(date: Date): string {
 
 // Calculate reading time if not in frontmatter
 const wordCount = (post.body ?? "").split(/\s+/).filter(Boolean).length;
-const readingTime = post.data.readingTime || Math.ceil(wordCount / 200);
+const readingTimeMinutes = post.data.readingTime || Math.ceil(wordCount / 200);
+const readingTimeString = `${readingTimeMinutes} ${readingTimeMinutes === 1 ? "minute" : "minutes"}`;
 
 // Build the structured data graph
 const structuredDataGraph: Record<string, unknown>[] = [
@@ -108,27 +110,21 @@ const structuredDataGraph: Record<string, unknown>[] = [
     name: "Avaab Razzaq - AI Growth Engineer",
     description:
       "AI Growth Engineer specializing in web apps, AI automation, and technical SEO",
-    publisher: { "@id": `${siteUrl}/#person` },
+    publisher: { "@id": `${siteUrl}/#organization` },
   },
   {
-    "@type": "WebPage",
-    "@id": canonicalUrl,
-    url: canonicalUrl,
-    name: title,
-    description: description,
-    isPartOf: { "@id": `${siteUrl}/#website` },
-    breadcrumb: {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Blog",
-          item: `${siteUrl}/blog/`,
-        },
-        { "@type": "ListItem", position: 3, name: post.data.title },
-      ],
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: "Avaab Razzaq - AI Growth Engineer",
+    url: siteUrl,
+    logo: {
+      "@type": "ImageObject",
+      "@id": `${siteUrl}/#logo`,
+      url: `${siteUrl}/pwa-512x512.png`,
+      contentUrl: `${siteUrl}/pwa-512x512.png`,
+      width: 512,
+      height: 512,
+      caption: "Avaab Razzaq - AI Growth Engineer",
     },
   },
   {
@@ -143,29 +139,51 @@ const structuredDataGraph: Record<string, unknown>[] = [
     ],
   },
   {
-    "@type": "BlogPosting",
-    "@id": `${canonicalUrl}#article`,
+    "@type": "Article",
+    "@id": `${postUrl}#article`,
+    isPartOf: { "@id": postUrl },
+    author: {
+      name: "Avaab Razzaq",
+      "@id": `${siteUrl}/#person`,
+    },
     headline: post.data.title,
-    description: post.data.description,
-    author: { "@id": `${siteUrl}/#person` },
-    publisher: { "@id": `${siteUrl}/#person` },
     datePublished: post.data.publishDate.toISOString(),
-    ...(post.data.updatedDate && {
-      dateModified: post.data.updatedDate.toISOString(),
-    }),
-    ...(post.data.image && {
-      image: {
-        "@type": "ImageObject",
-        url: post.data.image.src,
-        caption: post.data.image.alt,
-      },
-    }),
-    mainEntityOfPage: { "@id": canonicalUrl },
+    dateModified: (post.data.updatedDate ?? post.data.publishDate).toISOString(),
+    mainEntityOfPage: { "@id": postUrl },
+    wordCount: wordCount,
+    publisher: { "@id": `${siteUrl}/#organization` },
+    inLanguage: "en-US",
+    image: post.data.image?.src ?? `${siteUrl}/og-blog.png`,
     keywords: post.data.tags.join(", "),
     articleSection: post.data.category,
+    timeRequired: `PT${readingTimeMinutes}M`,
+  },
+  {
+    "@type": "WebPage",
+    "@id": postUrl,
+    url: postUrl,
+    name: post.data.title,
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    datePublished: post.data.publishDate.toISOString(),
+    dateModified: (post.data.updatedDate ?? post.data.publishDate).toISOString(),
+    description: post.data.description,
+    breadcrumb: { "@id": `${postUrl}#breadcrumb` },
     inLanguage: "en-US",
-    wordCount: wordCount,
-    timeRequired: `PT${readingTime}M`,
+    potentialAction: [
+      {
+        "@type": "ReadAction",
+        target: [postUrl],
+      },
+    ],
+  },
+  {
+    "@type": "BreadcrumbList",
+    "@id": `${postUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog/` },
+      { "@type": "ListItem", position: 3, name: post.data.title },
+    ],
   },
 ];
 
@@ -208,6 +226,7 @@ const structuredData = {
   publishedTime={post.data.publishDate.toISOString()}
   modifiedTime={post.data.updatedDate?.toISOString()}
   author={post.data.author}
+  readingTime={readingTimeString}
   structuredData={structuredData}
 >
   <article class="min-h-screen py-12">
@@ -286,7 +305,7 @@ const structuredData = {
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
-            <span>{readingTime} min read</span>
+            <span>{readingTimeMinutes} min read</span>
           </div>
         </div>
 
