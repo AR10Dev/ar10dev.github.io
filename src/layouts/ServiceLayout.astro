@@ -1,0 +1,301 @@
+---
+import { Image } from "astro:assets";
+import logo from "@assets/logo.png";
+import "../styles/global.css";
+import AnalyticsConsent from "@components/AnalyticsConsent.astro";
+import GoogleAnalytics from "@components/GoogleAnalytics.astro";
+import {
+  BUTTON_CLASSES,
+  CONTAINER_CLASSES,
+  TYPOGRAPHY_CLASSES,
+} from "@lib/constants";
+
+export interface Props {
+  title: string;
+  description: string;
+  heroHeadline: string;
+  heroSubheadline: string;
+  ctaText: string;
+  ctaHref?: string;
+  serviceName: string;
+  serviceDescription: string;
+  keywords?: string[];
+  ogImage?: string;
+  faqs?: { question: string; answer: string }[];
+  publishedTime?: string;
+  modifiedTime?: string;
+}
+
+const siteUrl = "https://avaabrazzaq.com";
+const currentYear = new Date().getFullYear();
+
+const {
+  title,
+  description,
+  heroHeadline,
+  heroSubheadline,
+  ctaText,
+  ctaHref = "/contact/",
+  serviceName,
+  serviceDescription,
+  keywords = [],
+  ogImage = new URL("/og-services.png", siteUrl).toString(),
+  faqs = [],
+  publishedTime,
+  modifiedTime,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const defaultKeywords =
+  "AI Growth Engineer, AI Automation, Full-Stack Developer, SEO Expert, Miami Florida, Web Development, LLM Integration, Workflow Automation";
+const finalKeywords =
+  keywords.length > 0 ? keywords.join(", ") : defaultKeywords;
+const gaMeasurementId =
+  import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() || "G-LKVQYYL9XZ";
+const shouldLoadAnalytics = import.meta.env.PROD && gaMeasurementId.length > 0;
+
+// Build structured data with Service schema and optional FAQPage
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${canonicalUrl}#service`,
+      name: serviceName,
+      description: serviceDescription,
+      provider: {
+        "@type": "Person",
+        "@id": `${siteUrl}#person`,
+        name: "Avaab Razzaq",
+        jobTitle: "AI Growth Engineer",
+        url: siteUrl,
+      },
+      areaServed: {
+        "@type": "Place",
+        name: "United States",
+      },
+      url: canonicalUrl,
+    },
+    ...(faqs && faqs.length > 0
+      ? [
+          {
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          },
+        ]
+      : []),
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    
+    {shouldLoadAnalytics && (
+      <>
+        <!-- Google Analytics -->
+        <GoogleAnalytics id={gaMeasurementId} />
+      </>
+    )}
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Avaab Razzaq" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    
+    {/* Geo-targeting for local SEO */}
+    <meta name="geo.region" content="US-FL" />
+    <meta name="geo.placename" content="Miami" />
+    <meta name="geo.position" content="25.7617;-80.1918" />
+    <meta name="ICBM" content="25.7617, -80.1918" />
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="msapplication-TileImage" content="/pwa-192x192.png" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    
+    {/* Preconnect to external resources */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cal.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    
+    <title>{title}</title>
+    <meta name="keywords" content={finalKeywords} />
+
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Avaab Razzaq - AI Growth Engineer" />
+    <meta property="og:locale" content="en_US" />
+    
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+
+    {/* Twitter/X Card */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@itsmeAvaab" />
+    <meta name="twitter:creator" content="@itsmeAvaab" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="theme-color" content="#0e2a47" />
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+
+    <script is:inline>
+      (() => {
+        try {
+          const storedTheme = localStorage.getItem("theme");
+          const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const shouldUseDark = storedTheme === null ? systemPrefersDark : storedTheme === "dark";
+          document.documentElement.classList.toggle("dark", shouldUseDark);
+          document.documentElement.classList.add("js");
+        } catch {
+          // Ignore localStorage restrictions
+        }
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen bg-transparent text-[var(--text-strong)]">
+    <div aria-hidden="true" class="fixed inset-0 -z-10 pointer-events-none site-bg"></div>
+    
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:border focus:border-[var(--border-strong)] focus:bg-[var(--surface-panel)] focus:px-4 focus:py-2 focus:font-bold focus:text-[var(--text-strong)]">
+      Skip to main content
+    </a>
+
+    {/* Minimal Header - Logo only with back link */}
+    <header class="fixed inset-x-0 top-0 z-50 w-full bg-[var(--surface-elevated)]/90 backdrop-blur supports-[backdrop-filter]:bg-[var(--surface-elevated)]/75 border-b border-[var(--border-strong)]">
+      <div class="mx-auto flex max-w-screen-xl items-center justify-between px-6 py-4">
+        <a href="/" class="flex-none" aria-label="Avaab Razzaq - Home">
+          <Image 
+            src={logo}
+            alt="Avaab Razzaq - AI Growth Engineer" 
+            width={48}
+            height={48}
+            loading="eager"
+            decoding="async"
+            format="webp"
+            class="h-12 w-12"
+          />
+        </a>
+        <a 
+          href="/" 
+          class="text-sm font-medium text-[var(--text-muted)] hover:text-[var(--accent-strong)] transition-colors"
+        >
+          ← Back to site
+        </a>
+      </div>
+    </header>
+
+    <main id="main-content" class="pt-20" tabindex="-1">
+      {/* Hero Section */}
+      <section class="bg-[var(--surface-elevated)] py-16 md:py-24">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <div class="max-w-4xl">
+            <h1 class={TYPOGRAPHY_CLASSES.heroTitle}>{heroHeadline}</h1>
+            <p class={`mt-6 ${TYPOGRAPHY_CLASSES.subheading}`}>{heroSubheadline}</p>
+            
+            <div class="mt-10 flex flex-wrap gap-4">
+              <a href={ctaHref} class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}>
+                {ctaText}
+              </a>
+              <a href="/#portfolio" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.secondary}`}>
+                See my work →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Page Content Slot */}
+      <slot />
+
+      {/* FAQ Section - Conditional */}
+      {faqs && faqs.length > 0 && (
+        <section class="bg-[var(--surface-elevated)] py-16">
+          <div class={CONTAINER_CLASSES.horizontal}>
+            <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Frequently Asked Questions</h2>
+            <div class="mx-auto mt-12 max-w-3xl space-y-4">
+              {faqs.map((faq) => (
+                <details class="group rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] shadow-[var(--card-shadow)]">
+                  <summary class="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-[var(--text-strong)] [&::-webkit-details-marker]:hidden">
+                    {faq.question}
+                    <svg class="h-5 w-5 flex-shrink-0 text-[var(--accent-strong)] transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                  </summary>
+                  <div class="border-t border-[var(--card-uniform-border)] px-6 pb-6 pt-4">
+                    <p class="text-[var(--text-muted)] leading-relaxed">{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Final CTA Banner */}
+      <section class="py-16">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>Ready to Get Started?</h2>
+            <p class="mt-4 text-[var(--text-muted)]">Free discovery call · No commitment</p>
+            <a href={ctaHref} class={`mt-8 ${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}>
+              {ctaText}
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {/* Minimal Footer */}
+    <footer class="border-t border-[var(--border-strong)] bg-[var(--surface-elevated)]">
+      <div class="mx-auto max-w-screen-xl px-6 py-8">
+        <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <p class="text-sm text-[var(--text-muted)]">
+            © {currentYear} <span class="font-semibold text-[var(--text-strong)]">Avaab Razzaq</span>. All rights reserved.
+          </p>
+          <div class="flex gap-6">
+            <a href="/privacy/" class="text-sm text-[var(--text-muted)] hover:text-[var(--accent-strong)] transition-colors">
+              Privacy
+            </a>
+            <a href="/contact/" class="text-sm text-[var(--text-muted)] hover:text-[var(--accent-strong)] transition-colors">
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    {shouldLoadAnalytics && <AnalyticsConsent />}
+
+    <script>
+      import "../scripts/homepage.ts";
+    </script>
+  </body>
+</html>

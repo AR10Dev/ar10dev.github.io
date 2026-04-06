@@ -148,7 +148,9 @@ const structuredDataGraph: Record<string, unknown>[] = [
     },
     headline: post.data.title,
     datePublished: post.data.publishDate.toISOString(),
-    dateModified: (post.data.updatedDate ?? post.data.publishDate).toISOString(),
+    dateModified: (
+      post.data.updatedDate ?? post.data.publishDate
+    ).toISOString(),
     mainEntityOfPage: { "@id": postUrl },
     wordCount: wordCount,
     publisher: { "@id": `${siteUrl}/#organization` },
@@ -165,7 +167,9 @@ const structuredDataGraph: Record<string, unknown>[] = [
     name: post.data.title,
     isPartOf: { "@id": `${siteUrl}/#website` },
     datePublished: post.data.publishDate.toISOString(),
-    dateModified: (post.data.updatedDate ?? post.data.publishDate).toISOString(),
+    dateModified: (
+      post.data.updatedDate ?? post.data.publishDate
+    ).toISOString(),
     description: post.data.description,
     breadcrumb: { "@id": `${postUrl}#breadcrumb` },
     inLanguage: "en-US",
@@ -181,7 +185,12 @@ const structuredDataGraph: Record<string, unknown>[] = [
     "@id": `${postUrl}#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog/` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${siteUrl}/blog/`,
+      },
       { "@type": "ListItem", position: 3, name: post.data.title },
     ],
   },

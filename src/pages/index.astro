@@ -61,37 +61,42 @@ const socialLinks = [
 
 const heroFeatures = [
   {
-    title: "High-Performance Web Apps",
-    body: "Modern, fast web apps built with cutting-edge frameworks like Astro, SolidJS, and React for maximum speed and user experience.",
-    href: "/services/web-development/",
-  },
-  {
-    title: "AI Growth Automation",
-    body: "Custom AI automation systems and LLM integrations that remove manual bottlenecks and accelerate your business growth.",
+    title: "AI Automation & MCP",
+    body: "Custom AI automation systems, n8n workflows, and Model Context Protocol integrations that connect your AI to real-world business actions.",
     href: "/services/ai-automation/",
   },
   {
-    title: "Technical SEO Growth",
-    body: "Technical SEO strategies and programmatic SEO systems built to capture demand and convert traffic into customers.",
-    href: "/services/seo-growth/",
+    title: "Full Stack Development",
+    body: "Production-ready web and mobile applications built with Astro, React, SolidJS, and modern AI-native architectures.",
+    href: "/services/fullstack-development/",
+  },
+  {
+    title: "Technical SEO & GEO",
+    body: "Technical SEO strategies combined with Generative Engine Optimization to rank on Google and get cited by AI systems.",
+    href: "/services/technical-seo/",
   },
 ];
 
 const serviceItems = [
   {
-    title: "AI Growth Automation Services",
-    body: "Stop doing manual work. I build secure internal tools and custom ChatGPT-style interfaces connected to your private business data. My AI automation solutions help businesses streamline operations and scale efficiently.",
+    title: "AI Automation Development",
+    body: "Stop doing manual work. I build n8n pipelines, Claude API integrations, and custom agentic workflows that automate repetitive tasks so your business runs while you sleep.",
     href: "/services/ai-automation/",
   },
   {
-    title: "Full-Stack Web Apps Development",
-    body: "Slow websites lose money. I develop blazing-fast, secure web apps using modern frameworks like Astro and SolidJS. Whether you need a marketing site, SaaS product, or mobile app, I deliver high-performance web applications that convert visitors into customers.",
-    href: "/services/web-development/",
+    title: "MCP Integration & Agentic AI",
+    body: "Connect your AI to the real world. I build Model Context Protocol servers so your AI agents can access databases, call APIs, and take real actions in your business systems.",
+    href: "/services/mcp-integration/",
   },
   {
-    title: "Technical SEO Growth Strategy",
-    body: "Traffic is useless without conversion. I build programmatic SEO engines, technical SEO audits, and lead-generation funnels that turn visitors into paying customers. My SEO growth strategies are designed for sustainable, long-term organic traffic increases.",
-    href: "/services/seo-growth/",
+    title: "Technical SEO & GEO",
+    body: "Rank on Google and get found by AI. I combine technical SEO with Generative Engine Optimization so you're visible in both traditional search and AI-powered answers.",
+    href: "/services/technical-seo/",
+  },
+  {
+    title: "Full Stack Development",
+    body: "Ship fast, scale smart. I build production-ready web and mobile applications using Astro, React, SolidJS, and modern AI-native architectures.",
+    href: "/services/fullstack-development/",
   },
 ];
 
@@ -296,12 +301,12 @@ const structuredData = {
               I help businesses build scalable web apps, implement AI automation to save time, and drive aggressive growth through technical SEO strategies. My solutions are designed for measurable business impact.
             </p>
           </div>
-          <div class="grid gap-6 lg:grid-cols-3">
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {serviceItems.map((service) => (
-              <a href={service.href} class="group flex flex-col rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl">
+              <a href={service.href} class="group flex flex-col rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl">
                 <h3 class="text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors">{service.title}</h3>
-                <p class="mt-3 text-[var(--text-muted)] flex-grow">{service.body}</p>
-                <span class="mt-4 text-sm font-semibold text-[var(--accent-strong)]">Learn more →</span>
+                <p class="mt-3 text-sm text-[var(--text-muted)] flex-grow">{service.body}</p>
+                <span class="mt-4 text-sm font-semibold text-[var(--accent-strong)]">Get started →</span>
               </a>
             ))}
           </div>

@@ -15,7 +15,19 @@ const { background = "", currentPath = Astro.url.pathname } =
 
 const navLinks: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services/" },
+  {
+    label: "Services",
+    href: "/services/",
+    children: [
+      { label: "AI Automation", href: "/services/ai-automation/" },
+      { label: "MCP Integration", href: "/services/mcp-integration/" },
+      { label: "Technical SEO & GEO", href: "/services/technical-seo/" },
+      {
+        label: "Full Stack Development",
+        href: "/services/fullstack-development/",
+      },
+    ],
+  },
   { label: "Portfolio", href: "/portfolio/" },
   { label: "About", href: "/about/" },
   { label: "Blog", href: "/blog/" },

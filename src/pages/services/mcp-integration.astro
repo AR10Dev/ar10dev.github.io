@@ -1,0 +1,181 @@
+---
+import ServiceLayout from "@layouts/ServiceLayout.astro";
+import { CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+
+const faqs = [
+  {
+    question: "What is MCP (Model Context Protocol)?",
+    answer:
+      "MCP is an open standard by Anthropic that lets AI models like Claude connect to external tools, databases, and APIs. Instead of a chatbot that only knows what's in its training data, MCP gives your AI real-time access to your business systems.",
+  },
+  {
+    question: "Do I need Claude specifically for MCP?",
+    answer:
+      "Claude has the best native MCP support, but the protocol is open and other models are adding support. I can advise on the best setup for your use case.",
+  },
+  {
+    question: "What can an MCP server actually do?",
+    answer:
+      "Examples include: reading and writing files, querying your database, calling your internal APIs, browsing the web, sending emails, updating CRMs — essentially giving your AI agent hands.",
+  },
+  {
+    question: "Is this different from regular API integration?",
+    answer:
+      "Yes. Standard API integrations are one-directional and manually coded for each use case. MCP creates a standardized interface so your AI can dynamically decide which tools to use based on context.",
+  },
+];
+---
+
+<ServiceLayout
+  title="MCP Developer for Hire — Model Context Protocol Integration | Avaab Razzaq"
+  description="Hire an expert MCP developer to build custom Model Context Protocol servers. Connect your AI agents to databases, APIs, and business systems with MCP integration."
+  heroHeadline="Connect Your AI to the Real World with MCP"
+  heroSubheadline="I build and integrate Model Context Protocol servers so your AI agents can read files, query databases, call APIs, and take real actions."
+  ctaText="Book a Free Discovery Call"
+  ctaHref="/contact/"
+  serviceName="MCP (Model Context Protocol) Development"
+  serviceDescription="Custom MCP server development and integration services for businesses looking to extend AI capabilities with real-world tool access, database connections, and API integrations using Anthropic's Model Context Protocol."
+  keywords={["MCP developer", "Model Context Protocol", "MCP integration", "Claude MCP", "agentic AI developer", "AI tool integration"]}
+  faqs={faqs}
+>
+  {/* Problem Section */}
+  <section class="py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>The Problem</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Your AI Is Stuck in a Sandbox</h2>
+        <div class={`mt-6 space-y-4 ${TYPOGRAPHY_CLASSES.body}`}>
+          <p>
+            You've seen what AI can do — but your AI assistant only knows what's in its training data. 
+            It can't access your customer database, read your internal docs, or take actions in your business systems.
+          </p>
+          <p>
+            There's a massive gap between a general-purpose chatbot and an AI that actually understands your business. 
+            Your data lives in CRMs, databases, spreadsheets, and internal APIs. Your AI can't see any of it.
+          </p>
+          <p>
+            Without real-time access to your systems, your AI is limited to generic responses. It can't check inventory, 
+            look up customer history, or execute the specific actions that would make it genuinely useful for your team.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Solution Section */}
+  <section class="bg-[var(--surface-elevated)] py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>The Solution</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>MCP Gives Your AI Superpowers</h2>
+        <div class={`mt-6 space-y-4 ${TYPOGRAPHY_CLASSES.body}`}>
+          <p>
+            Model Context Protocol (MCP) is Anthropic's open standard for connecting AI to external tools. 
+            It's the bridge between a chatbot and an AI agent that can actually do things in the real world.
+          </p>
+          <p>
+            I build custom MCP servers that give your AI secure, controlled access to your business systems. 
+            Your AI becomes an agent that understands your data and takes actions on your behalf.
+          </p>
+        </div>
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Custom MCP Servers</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Purpose-built servers that expose your specific tools, databases, and APIs to AI models.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Tool Definitions</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Clean, well-documented tool specifications that AI models can understand and use correctly.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Context Injection</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Dynamic context providers that give your AI real-time access to business data and state.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Claude Desktop Integration</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Full integration with Claude Desktop for seamless AI-powered workflows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* What's Included Section */}
+  <section class="py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>What's Included</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Complete MCP Implementation</h2>
+        <ul class="mt-8 space-y-4">
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Requirements Audit</h3>
+              <p class="mt-1 text-[var(--text-muted)]">We map your systems, tools, and use cases to determine the optimal MCP architecture.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">MCP Server Architecture</h3>
+              <p class="mt-1 text-[var(--text-muted)]">A secure, scalable design for your MCP implementation with clear tool definitions.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Build + Testing</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Complete development with comprehensive testing across edge cases and failure scenarios.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Claude/Agent Integration</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Full integration with Claude Desktop, custom agents, or your existing AI infrastructure.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Documentation</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Complete technical documentation for maintenance, extension, and team onboarding.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* Social Proof Placeholder */}
+  <section class="bg-[var(--surface-elevated)] py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="mx-auto max-w-2xl">
+        <blockquote class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)]">
+          <div class="flex gap-1 text-[var(--accent-strong)]">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="mt-4 text-lg italic text-[var(--text-strong)]">"[Client testimonial will go here]"</p>
+          <footer class="mt-4">
+            <p class="text-sm font-semibold text-[var(--text-strong)]">— Client Name</p>
+            <p class="text-sm text-[var(--text-muted)]">Title, Company</p>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

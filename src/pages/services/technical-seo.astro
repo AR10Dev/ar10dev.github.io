@@ -1,0 +1,197 @@
+---
+import ServiceLayout from "@layouts/ServiceLayout.astro";
+import { CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+
+const faqs = [
+  {
+    question: "What is GEO (Generative Engine Optimization)?",
+    answer:
+      "GEO is the practice of optimizing your content so AI systems like ChatGPT Search, Perplexity, and Google AI Overviews cite and reference your site. It's the emerging counterpart to traditional SEO.",
+  },
+  {
+    question: "My site already ranks okay — do I still need this?",
+    answer:
+      "Traditional rankings don't guarantee AI visibility. Many well-ranked sites are completely absent from AI-generated answers. A GEO audit checks both.",
+  },
+  {
+    question: "How long until I see results?",
+    answer:
+      "Technical fixes (structured data, site speed) often show improvements within 4–6 weeks. Content and GEO strategies typically take 2–4 months to compound.",
+  },
+  {
+    question: "Do you do ongoing SEO or just one-time audits?",
+    answer:
+      "Both. I offer one-time audits with a full action plan, or monthly retainers for ongoing optimization and reporting.",
+  },
+];
+---
+
+<ServiceLayout
+  title="Technical SEO & GEO Consultant for Hire | Avaab Razzaq"
+  description="Hire a technical SEO and GEO consultant who optimizes for both Google and AI search. Get found in traditional search results and AI-powered answers from ChatGPT, Perplexity, and Google AI Overviews."
+  heroHeadline="Rank on Google. Get Found by AI."
+  heroSubheadline="I combine technical SEO with Generative Engine Optimization (GEO) so your business gets found in both traditional search and AI-powered results like ChatGPT, Perplexity, and Google AI Overviews."
+  ctaText="Get a Free SEO Audit"
+  ctaHref="/contact/"
+  serviceName="Technical SEO and GEO Consulting"
+  serviceDescription="Technical SEO audits, Core Web Vitals optimization, structured data implementation, and Generative Engine Optimization (GEO) services for businesses looking to rank on Google and get cited by AI systems."
+  keywords={["technical SEO consultant", "GEO consultant", "generative engine optimization", "AI SEO", "structured data expert", "Core Web Vitals optimization"]}
+  faqs={faqs}
+>
+  {/* Problem Section */}
+  <section class="py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>The Problem</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Search Has Changed — Have You?</h2>
+        <div class={`mt-6 space-y-4 ${TYPOGRAPHY_CLASSES.body}`}>
+          <p>
+            Most businesses are still optimizing for 2020 SEO while the entire search landscape has shifted. 
+            Google's AI Overviews, ChatGPT Search, and Perplexity are changing how people find information — 
+            and most websites are completely invisible to these new discovery channels.
+          </p>
+          <p>
+            You might rank on page 1 for your target keywords, but when someone asks ChatGPT or Perplexity 
+            for a recommendation in your space, you're nowhere to be found. AI systems are becoming the 
+            new gatekeepers of discovery, and they have different criteria for what content they cite.
+          </p>
+          <p>
+            Meanwhile, basic technical SEO issues — slow sites, broken structured data, poor Core Web Vitals — 
+            continue to hurt your rankings in traditional search. You're losing on both fronts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Solution Section */}
+  <section class="bg-[var(--surface-elevated)] py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>The Solution</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>SEO + GEO: Win on All Fronts</h2>
+        <div class={`mt-6 space-y-4 ${TYPOGRAPHY_CLASSES.body}`}>
+          <p>
+            I combine technical SEO fundamentals with Generative Engine Optimization strategies. 
+            Your site gets optimized for Google's crawlers and ranking algorithms, while also being structured 
+            for AI systems to understand, cite, and recommend.
+          </p>
+        </div>
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Technical SEO Audits</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Comprehensive audits covering crawlability, indexation, site architecture, and technical issues.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Core Web Vitals Optimization</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Speed, responsiveness, and visual stability improvements that impact rankings and user experience.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Structured Data / JSON-LD</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Schema markup implementation for rich results, FAQ snippets, and AI-readable content structure.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">GEO & llms.txt Setup</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Optimization for AI citation, llms.txt implementation, and content structuring for generative engines.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Content Strategy</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Keyword research and content planning optimized for both traditional and AI-powered search.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Programmatic SEO</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Scalable page generation systems for capturing long-tail search demand at scale.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* What's Included Section */}
+  <section class="py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>What's Included</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Complete SEO & GEO Services</h2>
+        <ul class="mt-8 space-y-4">
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Full Technical Audit</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Comprehensive analysis of your site's technical SEO health with prioritized action items.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Structured Data Implementation</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Complete JSON-LD schema markup for your content types and business entity.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Site Speed Optimization</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Core Web Vitals improvements for faster loading and better user experience.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">GEO Readiness Check</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Audit of your site's visibility in AI search results with optimization recommendations.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Content Keyword Strategy</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Research-backed content roadmap for capturing search demand and AI citations.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Monthly Reporting</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Clear, actionable reports on ranking progress, traffic, and AI visibility metrics.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* Social Proof Placeholder */}
+  <section class="bg-[var(--surface-elevated)] py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="mx-auto max-w-2xl">
+        <blockquote class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)]">
+          <div class="flex gap-1 text-[var(--accent-strong)]">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="mt-4 text-lg italic text-[var(--text-strong)]">"[Client testimonial will go here]"</p>
+          <footer class="mt-4">
+            <p class="text-sm font-semibold text-[var(--text-strong)]">— Client Name</p>
+            <p class="text-sm text-[var(--text-muted)]">Title, Company</p>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

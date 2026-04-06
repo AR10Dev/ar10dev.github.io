@@ -5,6 +5,7 @@ export interface NavLink {
   label: string;
   href: string;
   isActive?: boolean;
+  children?: NavLink[];
 }
 
 interface NavigationProps {
@@ -14,12 +15,18 @@ interface NavigationProps {
 
 const Navigation: Component<NavigationProps> = (props) => {
   const [isOpen, setIsOpen] = createSignal(false);
+  const [openDropdown, setOpenDropdown] = createSignal<string | null>(null);
 
   const isActive = (href: string): boolean => {
     if (href === "/") {
       return props.currentPath === "/" || props.currentPath === "";
     }
     return props.currentPath.startsWith(href);
+  };
+
+  const hasActiveChild = (link: NavLink): boolean => {
+    if (!link.children) return false;
+    return link.children.some((child) => isActive(child.href));
   };
 
   onMount(() => {
@@ -60,15 +67,76 @@ const Navigation: Component<NavigationProps> = (props) => {
       <ul class="hidden md:flex items-center gap-1 rounded-xl border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_84%,transparent)] px-1.5 py-1 shadow-[0_10px_24px_rgba(15,23,42,0.08)]">
         <For each={props.links}>
           {(link) => (
-            <li>
-              <a
-                class={`${baseClass} ${isActive(link.href) ? activeClass : ""}`}
-                href={link.href}
-                data-track={`nav_desktop_${toTrackToken(link.label)}`}
-                aria-current={isActive(link.href) ? "page" : undefined}
+            <li class="relative">
+              <Show
+                when={link.children && link.children.length > 0}
+                fallback={
+                  <a
+                    class={`${baseClass} ${isActive(link.href) ? activeClass : ""}`}
+                    href={link.href}
+                    data-track={`nav_desktop_${toTrackToken(link.label)}`}
+                    aria-current={isActive(link.href) ? "page" : undefined}
+                  >
+                    {link.label}
+                  </a>
+                }
               >
-                {link.label}
-              </a>
+                <button
+                  type="button"
+                  class={`${baseClass} ${isActive(link.href) || hasActiveChild(link) ? activeClass : ""} gap-1`}
+                  onClick={() =>
+                    setOpenDropdown(
+                      openDropdown() === link.label ? null : link.label,
+                    )
+                  }
+                  onMouseEnter={() => setOpenDropdown(link.label)}
+                  aria-expanded={openDropdown() === link.label}
+                  aria-haspopup="true"
+                >
+                  {link.label}
+                  <svg
+                    class={`h-3.5 w-3.5 transition-transform ${openDropdown() === link.label ? "rotate-180" : ""}`}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+                <Show when={openDropdown() === link.label}>
+                  <div
+                    class="absolute left-0 top-full z-50 mt-1 min-w-[220px] rounded-xl border border-[var(--border-strong)] bg-[var(--surface-panel)] p-1.5 shadow-lg"
+                    onMouseLeave={() => setOpenDropdown(null)}
+                    role="menu"
+                  >
+                    <For each={link.children}>
+                      {(child) => (
+                        <a
+                          class="block rounded-lg px-4 py-2.5 text-sm font-medium text-[var(--text-muted)] transition-colors hover:bg-[var(--surface-elevated)] hover:text-[var(--text-strong)]"
+                          href={child.href}
+                          data-track={`nav_desktop_${toTrackToken(link.label)}_${toTrackToken(child.label)}`}
+                          onClick={() => setOpenDropdown(null)}
+                        >
+                          {child.label}
+                        </a>
+                      )}
+                    </For>
+                    <div class="my-1.5 border-t border-[var(--border-strong)]" />
+                    <a
+                      class="block rounded-lg px-4 py-2.5 text-sm font-semibold text-[var(--accent-strong)] transition-colors hover:bg-[var(--surface-elevated)]"
+                      href={link.href}
+                      data-track={`nav_desktop_${toTrackToken(link.label)}_all`}
+                      onClick={() => setOpenDropdown(null)}
+                    >
+                      View All Services →
+                    </a>
+                  </div>
+                </Show>
+              </Show>
             </li>
           )}
         </For>
@@ -162,19 +230,76 @@ const Navigation: Component<NavigationProps> = (props) => {
               </svg>
             </button>
           </div>
-          <ul class="py-2">
+          <ul class="py-2 overflow-y-auto max-h-[calc(100vh-180px)]">
             <For each={props.links}>
               {(link) => (
                 <li>
-                  <a
-                    class={`${mobileBaseClass} ${isActive(link.href) ? mobileActiveClass : ""}`}
-                    href={link.href}
-                    data-track={`nav_mobile_${toTrackToken(link.label)}`}
-                    onClick={() => setIsOpen(false)}
-                    aria-current={isActive(link.href) ? "page" : undefined}
+                  <Show
+                    when={link.children && link.children.length > 0}
+                    fallback={
+                      <a
+                        class={`${mobileBaseClass} ${isActive(link.href) ? mobileActiveClass : ""}`}
+                        href={link.href}
+                        data-track={`nav_mobile_${toTrackToken(link.label)}`}
+                        onClick={() => setIsOpen(false)}
+                        aria-current={isActive(link.href) ? "page" : undefined}
+                      >
+                        {link.label}
+                      </a>
+                    }
                   >
-                    {link.label}
-                  </a>
+                    <button
+                      type="button"
+                      class={`${mobileBaseClass} flex items-center justify-between ${isActive(link.href) || hasActiveChild(link) ? mobileActiveClass : ""}`}
+                      onClick={() =>
+                        setOpenDropdown(
+                          openDropdown() === link.label ? null : link.label,
+                        )
+                      }
+                    >
+                      {link.label}
+                      <svg
+                        class={`h-4 w-4 transition-transform ${openDropdown() === link.label ? "rotate-180" : ""}`}
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+                    <Show when={openDropdown() === link.label}>
+                      <ul class="bg-[var(--surface-panel)] border-t border-[var(--border-strong)]">
+                        <For each={link.children}>
+                          {(child) => (
+                            <li>
+                              <a
+                                class="block px-8 py-2.5 text-sm text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] hover:text-[var(--text-strong)]"
+                                href={child.href}
+                                data-track={`nav_mobile_${toTrackToken(link.label)}_${toTrackToken(child.label)}`}
+                                onClick={() => setIsOpen(false)}
+                              >
+                                {child.label}
+                              </a>
+                            </li>
+                          )}
+                        </For>
+                        <li>
+                          <a
+                            class="block px-8 py-2.5 text-sm font-semibold text-[var(--accent-strong)] hover:bg-[var(--surface-elevated)]"
+                            href={link.href}
+                            data-track={`nav_mobile_${toTrackToken(link.label)}_all`}
+                            onClick={() => setIsOpen(false)}
+                          >
+                            View All Services →
+                          </a>
+                        </li>
+                      </ul>
+                    </Show>
+                  </Show>
                 </li>
               )}
             </For>
