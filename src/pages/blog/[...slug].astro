@@ -97,8 +97,7 @@ function formatDate(date: Date): string {
 
 // Calculate reading time if not in frontmatter
 const wordCount = (post.body ?? "").split(/\s+/).filter(Boolean).length;
-const readingTime =
-  post.data.readingTime || Math.ceil(wordCount / 200);
+const readingTime = post.data.readingTime || Math.ceil(wordCount / 200);
 
 // Build the structured data graph
 const structuredDataGraph: Record<string, unknown>[] = [
