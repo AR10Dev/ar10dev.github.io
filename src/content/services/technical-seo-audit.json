@@ -1,8 +1,8 @@
 {
   "slug": "technical-seo-audit",
   "title": "Technical SEO Audit Services",
-  "metaTitle": "Technical SEO Audit Services | Site Performance & Indexing Analysis - Miami, FL",
-  "metaDescription": "Comprehensive technical SEO audits covering Core Web Vitals, crawlability, indexing, and structured data. Expert SEO analysis in Miami, Florida.",
+  "metaTitle": "Technical SEO Audit Services in Miami, FL | Avaab Razzaq",
+  "metaDescription": "Get a technical SEO audit in Miami, FL covering crawl issues, indexing, Core Web Vitals, and schema gaps. Book a discovery call with Avaab Razzaq.",
   "heroTitle": "Technical SEO Audit Services",
   "heroSubtitle": "Uncover the technical issues killing your search rankings and get a clear roadmap to fix them.",
   "introduction": "I conduct deep technical SEO audits that go beyond surface-level checks. From Core Web Vitals and JavaScript rendering to crawl budget optimization and log file analysis, I identify the specific technical barriers preventing your site from ranking—and provide actionable fixes prioritized by impact.",
@@ -76,6 +76,11 @@
     }
   ],
   "parentService": "seo-growth",
-  "relatedServices": ["programmatic-seo", "conversion-optimization"],
-  "relatedBlogPosts": ["complete-technical-seo-audit-checklist-2025"]
+  "relatedServices": [
+    "programmatic-seo",
+    "conversion-optimization"
+  ],
+  "relatedBlogPosts": [
+    "complete-technical-seo-audit-checklist-2025"
+  ]
 }

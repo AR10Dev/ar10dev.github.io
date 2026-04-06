@@ -1,0 +1,218 @@
+---
+import ServiceLayout from "@layouts/ServiceLayout.astro";
+import { CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+
+const faqs = [
+  {
+    question: "Is prompt engineering a real service, or can I just do it myself?",
+    answer:
+      "For simple use cases, yes — you can. For production AI systems where reliability, brand consistency, and safety matter, prompt engineering is the difference between a toy and a product. I've seen companies spend months debugging AI behavior that was a prompt design problem from day one.",
+  },
+  {
+    question: "What models do you design prompts for?",
+    answer:
+      "Claude (Anthropic), GPT-4o (OpenAI), and Gemini Pro primarily. Each model has different strengths, context handling, and instruction-following behaviors — I design for the specific model you're deploying.",
+  },
+  {
+    question: "What's a prompt evaluation framework?",
+    answer:
+      "A structured test suite that runs your prompt against representative inputs and scores outputs against expected criteria. It catches regressions when you update prompts, lets you compare two prompt versions objectively, and gives you confidence before deploying changes.",
+  },
+  {
+    question: "Do you handle prompt engineering for RAG systems specifically?",
+    answer:
+      "Yes. RAG prompt design is its own specialty — how you inject retrieved context, structure the question, handle no-result cases, and prevent the model from ignoring context are all critical and non-obvious. I optimize the full retrieval-to-response pipeline.",
+  },
+];
+---
+
+<ServiceLayout
+  title="Prompt Engineering & AI System Design | Avaab Razzaq"
+  description="Hire a prompt engineer to design production-grade AI systems. I build system prompts, evaluation frameworks, and prompt pipelines that make your AI reliable, consistent, and actually useful."
+  heroHeadline="Your AI Is Only As Good As Its Prompt Design"
+  heroSubheadline="I design production-grade system prompts, prompt pipelines, and evaluation frameworks that turn unpredictable AI outputs into reliable, consistent business tools."
+  ctaText="Book a Free Discovery Call"
+  ctaHref="/contact/"
+  serviceName="Prompt Engineering & AI System Design"
+  serviceDescription="Production-grade prompt engineering and AI system design. System prompts, evaluation frameworks, and prompt pipelines for businesses building with LLMs."
+  keywords={["prompt engineer for hire", "prompt engineering services", "AI system design", "LLM prompt optimization", "production prompt engineering"]}
+  faqs={faqs}
+>
+  {/* Problem Section */}
+  <section class="py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>The Problem</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Most AI Products Fail at the Prompt Layer</h2>
+        <div class={`mt-6 space-y-4 ${TYPOGRAPHY_CLASSES.body}`}>
+          <p>
+            Most businesses deploy AI features with prompts written in five minutes that were never tested, never evaluated, and break silently when the model updates or user input varies.
+          </p>
+          <p>
+            The result: hallucinations, off-brand responses, inconsistent outputs, and users who stop trusting the AI entirely. You built a great product around a foundation that was never designed to hold weight.
+          </p>
+          <p>
+            Prompt engineering is not writing clever instructions — it's a systems design discipline that determines whether your AI product works reliably in production or embarrasses your company.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Solution Section */}
+  <section class="bg-[var(--surface-elevated)] py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>The Solution</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>A Prompt System Built to Hold Up in Production</h2>
+        <div class={`mt-6 space-y-4 ${TYPOGRAPHY_CLASSES.body}`}>
+          <p>
+            I design prompt systems as production infrastructure: architecture, constraints, tests, and rollout workflows that keep AI behavior consistent as your product evolves.
+          </p>
+        </div>
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">System Prompt Architecture</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Complete prompt design: persona, instructions, output formatting, constraints, and guardrails — documented and version-controlled.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Evaluation Frameworks</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Test suites that score AI outputs against expected criteria and catch regressions before they reach users.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">RAG Prompt Optimization</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Context injection strategy, retrieval prompt design, and no-result handling for vector-search powered AI systems.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Chain-of-Thought Engineering</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Reasoning scaffolds and few-shot examples that improve model accuracy on complex, multi-step tasks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* What's Included Section */}
+  <section class="py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>What's Included</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>End-to-End Prompt System Delivery</h2>
+        <ul class="mt-8 space-y-4">
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Use case audit + prompt strategy</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Align business goals, user intent, and model behavior requirements.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">System prompt architecture</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Design control instructions, constraints, and response contracts.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Few-shot example curation</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Create representative examples that shape stable output quality.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Chain-of-thought and reasoning scaffolds</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Improve task reasoning on multi-step and high-ambiguity prompts.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Output formatting + constraint design</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Define schemas and safeguards to keep output machine-usable.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Persona + tone of voice calibration</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Match output style to your brand and audience expectations.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Guardrails + safety instructions</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Reduce hallucinations and unsafe behavior through explicit controls.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Prompt evaluation framework (test suite)</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Run repeatable tests to catch regressions before release.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">RAG prompt optimization (if applicable)</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Optimize context retrieval and response grounding behavior.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Version-controlled documentation</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Document changes clearly so prompt evolution is traceable.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* Social Proof Placeholder */}
+  <section class="bg-[var(--surface-elevated)] py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="mx-auto max-w-2xl">
+        <blockquote class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)]">
+          <div class="flex gap-1 text-[var(--accent-strong)]">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="mt-4 text-lg italic text-[var(--text-strong)]">"[Client testimonial will go here]"</p>
+          <footer class="mt-4">
+            <p class="text-sm font-semibold text-[var(--text-strong)]">— Client Name</p>
+            <p class="text-sm text-[var(--text-muted)]">Title, Company</p>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

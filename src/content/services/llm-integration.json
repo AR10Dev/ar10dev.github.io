@@ -1,8 +1,8 @@
 {
   "slug": "llm-integration",
   "title": "LLM Integration & API Consulting",
-  "metaTitle": "LLM Integration Consulting | OpenAI & Claude API Implementation - Miami, FL",
-  "metaDescription": "Expert LLM integration services. Connect OpenAI, Anthropic Claude, and open-source models to your applications. API consulting in Miami, Florida.",
+  "metaTitle": "LLM Integration Services in Miami, FL | Avaab Razzaq",
+  "metaDescription": "Integrate GPT and Claude into your product in Miami, FL with secure architecture, prompt systems, and monitoring. Book a discovery call with Avaab Razzaq.",
   "heroTitle": "LLM Integration & API Consulting",
   "heroSubtitle": "Connect the power of large language models to your existing tools, databases, and workflows.",
   "introduction": "I help businesses integrate LLMs into their existing systems—whether you need OpenAI's GPT models, Anthropic's Claude, or open-source alternatives. From API architecture to production deployment, I handle the technical complexity so you can focus on the business value.",
@@ -78,6 +78,11 @@
     }
   ],
   "parentService": "ai-automation",
-  "relatedServices": ["ai-chatbot-development", "ai-workflow-automation"],
-  "relatedBlogPosts": ["openai-vs-anthropic-which-llm-for-business"]
+  "relatedServices": [
+    "ai-chatbot-development",
+    "ai-workflow-automation"
+  ],
+  "relatedBlogPosts": [
+    "openai-vs-anthropic-which-llm-for-business"
+  ]
 }

@@ -1,8 +1,8 @@
 {
   "slug": "web-development",
   "title": "Full-Stack Web Development",
-  "metaTitle": "Full-Stack Web Development Services | Avaab Razzaq - Miami, FL",
-  "metaDescription": "Professional full-stack web development in Miami, Florida. Fast, modern web applications using Astro, React, SolidJS, and Node.js. Serving clients nationwide.",
+  "metaTitle": "Full-Stack Web Development in Miami, FL | Avaab Razzaq",
+  "metaDescription": "Build high-performance web applications in Miami, FL with modern full-stack architecture, strong SEO foundations, and fast delivery. Book a discovery call.",
   "heroTitle": "Full-Stack Web Development",
   "heroSubtitle": "Modern, blazing-fast web applications built with the latest frameworks and best practices.",
   "introduction": "Slow websites lose customers. I build high-performance web applications that load instantly, convert visitors, and scale effortlessly. From landing pages to complex SaaS platforms, I deliver production-ready code that works.",
@@ -77,5 +77,8 @@
       "answer": "Performance directly impacts business outcomes. Every 100ms of latency costs 1% in conversions. Google uses Core Web Vitals as a ranking factor. Mobile users abandon sites that take longer than 3 seconds to load. Fast sites rank better, convert better, and provide better user experience."
     }
   ],
-  "relatedServices": ["astro-development", "saas-mvp-development"]
+  "relatedServices": [
+    "astro-development",
+    "saas-mvp-development"
+  ]
 }

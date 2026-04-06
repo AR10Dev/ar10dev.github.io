@@ -80,8 +80,17 @@ const { Content, headings } = await render(post);
 
 const siteUrl = "https://avaabrazzaq.com";
 const postUrl = new URL(`/blog/${post.id}/`, siteUrl).toString();
-const title = `${post.data.title} | Blog - Avaab Razzaq`;
-const description = post.data.description;
+const clampText = (value: string, maxLength: number) =>
+  value.length > maxLength
+    ? `${value.slice(0, maxLength - 3).trimEnd()}...`
+    : value;
+
+const title = clampText(`${post.data.title} | Avaab Razzaq`, 60);
+const descriptionSource =
+  post.data.description.length >= 120
+    ? post.data.description
+    : `${post.data.description} Learn practical implementation steps, tools, and outcomes from Avaab Razzaq.`;
+const description = clampText(descriptionSource, 160);
 const canonicalUrl = postUrl;
 const ogImage =
   post.data.image?.src ??

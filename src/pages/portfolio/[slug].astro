@@ -65,30 +65,79 @@ const { item, relatedService, relatedPosts, relatedPortfolio } = Astro.props;
 const siteUrl = "https://avaabrazzaq.com";
 const canonicalUrl = new URL(`/portfolio/${item.id}/`, siteUrl).toString();
 
-const title = `${item.data.title} | Portfolio - Avaab Razzaq`;
-const description = `${item.data.summary} Built with ${item.data.stack.join(", ")}.`;
+const clampText = (value: string, maxLength: number) =>
+  value.length > maxLength
+    ? `${value.slice(0, maxLength - 3).trimEnd()}...`
+    : value;
+
+const title = clampText(`${item.data.title} | Avaab Razzaq`, 60);
+const description = clampText(
+  `${item.data.summary} Case study by Avaab Razzaq covering implementation details and measurable outcomes using ${item.data.stack.slice(0, 3).join(", ")}.`,
+  160,
+);
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "@id": `${siteUrl}/portfolio/${item.id}/#application`,
-  name: item.data.title,
-  applicationCategory: item.data.category,
-  description: item.data.summary,
-  url: canonicalUrl,
-  operatingSystem: "Web",
-  author: {
-    "@type": "Person",
-    name: "Avaab Razzaq",
-    url: siteUrl,
-  },
-  offers: {
-    "@type": "Offer",
-    availability: "https://schema.org/InStock",
-    priceCurrency: "USD",
-    price: "0",
-    description: "Custom implementation available",
-  },
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${siteUrl}/portfolio/${item.id}/#application`,
+      name: item.data.title,
+      applicationCategory: item.data.category,
+      description: item.data.summary,
+      url: canonicalUrl,
+      operatingSystem: "Web",
+      author: {
+        "@id": `${siteUrl}/#person`,
+      },
+      offers: {
+        "@type": "Offer",
+        availability: "https://schema.org/InStock",
+        priceCurrency: "USD",
+        price: "0",
+        description: "Custom implementation available",
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+      url: canonicalUrl,
+      name: title,
+      description,
+      isPartOf: {
+        "@id": `${siteUrl}/#website`,
+      },
+      breadcrumb: {
+        "@id": `${canonicalUrl}#breadcrumb`,
+      },
+      mainEntity: {
+        "@id": `${siteUrl}/portfolio/${item.id}/#application`,
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Portfolio",
+          item: `${siteUrl}/portfolio/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: item.data.title,
+        },
+      ],
+    },
+  ],
 };
 
 // Use the relatedPortfolio from props instead of fetching again

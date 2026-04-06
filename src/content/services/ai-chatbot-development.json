@@ -1,8 +1,8 @@
 {
   "slug": "ai-chatbot-development",
   "title": "Custom AI Chatbot Development",
-  "metaTitle": "Custom AI Chatbot Development | GPT-Powered Business Assistants - Miami, FL",
-  "metaDescription": "Build custom AI chatbots trained on your business data. ChatGPT-style interfaces for customer support, sales, and internal operations. Expert development in Miami, Florida.",
+  "metaTitle": "AI Chatbot Development in Miami, FL | Avaab Razzaq",
+  "metaDescription": "Build custom AI chatbots in Miami, FL with GPT and Claude integration, RAG support, and production deployment. Book a discovery call with Avaab Razzaq.",
   "heroTitle": "Custom AI Chatbot Development",
   "heroSubtitle": "Deploy intelligent AI assistants that understand your business and serve your customers 24/7.",
   "introduction": "I build custom ChatGPT-style chatbots trained on your specific business knowledge. These aren't generic bots—they understand your products, policies, and processes to deliver accurate, helpful responses that feel like talking to your best employee.",
@@ -77,6 +77,11 @@
     }
   ],
   "parentService": "ai-automation",
-  "relatedServices": ["ai-workflow-automation", "llm-integration"],
-  "relatedBlogPosts": ["building-custom-chatgpt-interfaces-for-business"]
+  "relatedServices": [
+    "ai-workflow-automation",
+    "llm-integration"
+  ],
+  "relatedBlogPosts": [
+    "building-custom-chatgpt-interfaces-for-business"
+  ]
 }

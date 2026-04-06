@@ -1,8 +1,8 @@
 {
   "slug": "programmatic-seo",
   "title": "Programmatic SEO Services",
-  "metaTitle": "Programmatic SEO Services | Scalable Content Generation - Miami, FL",
-  "metaDescription": "Build automated content systems that generate thousands of SEO-optimized pages. Programmatic SEO services for scalable organic growth in Miami, Florida.",
+  "metaTitle": "Programmatic SEO Services in Miami, FL | Avaab Razzaq",
+  "metaDescription": "Scale organic growth with programmatic SEO in Miami, FL using structured data, templates, and automation pipelines. Book a discovery call today.",
   "heroTitle": "Programmatic SEO Services",
   "heroSubtitle": "Generate thousands of targeted pages automatically and capture long-tail search traffic at scale.",
   "introduction": "I build programmatic SEO systems that create hundreds or thousands of optimized pages from your data. Whether you have a product catalog, location database, or any structured dataset, I turn it into a traffic-generating machine that captures long-tail keywords your competitors can't target manually.",
@@ -77,6 +77,11 @@
     }
   ],
   "parentService": "seo-growth",
-  "relatedServices": ["technical-seo-audit", "conversion-optimization"],
-  "relatedBlogPosts": ["how-programmatic-seo-generates-10x-traffic"]
+  "relatedServices": [
+    "technical-seo-audit",
+    "conversion-optimization"
+  ],
+  "relatedBlogPosts": [
+    "how-programmatic-seo-generates-10x-traffic"
+  ]
 }

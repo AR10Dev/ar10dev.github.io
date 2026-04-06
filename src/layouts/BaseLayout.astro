@@ -21,10 +21,21 @@ export interface Props {
 }
 
 const siteUrl = "https://avaabrazzaq.com";
+
+const normalizeCanonicalUrl = (inputUrl: string) => {
+  const parsedUrl = new URL(inputUrl, siteUrl);
+
+  if (!parsedUrl.pathname.endsWith("/") && !parsedUrl.pathname.includes(".")) {
+    parsedUrl.pathname = `${parsedUrl.pathname}/`;
+  }
+
+  return parsedUrl.toString();
+};
+
 const {
   title,
   description,
-  canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString(),
+  canonicalUrl: canonicalUrlProp,
   ogImage = new URL("/og-ai-growth-engineer.png", siteUrl).toString(),
   ogType = "website",
   structuredData,
@@ -35,6 +46,13 @@ const {
   author = "Avaab Razzaq",
   readingTime,
 } = Astro.props;
+
+const canonicalUrl = normalizeCanonicalUrl(
+  canonicalUrlProp ?? new URL(Astro.url.pathname, siteUrl).toString(),
+);
+const finalOgImage = ogImage.startsWith("http")
+  ? ogImage
+  : new URL(ogImage, siteUrl).toString();
 
 const defaultKeywords =
   "AI Growth Engineer, AI Automation, Full-Stack Developer, SEO Expert, Miami Florida, Web Development, LLM Integration, Workflow Automation";
@@ -95,7 +113,7 @@ const currentPath = Astro.url.pathname;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={finalOgImage} />
     <meta property="og:image:alt" content={title} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -119,7 +137,7 @@ const currentPath = Astro.url.pathname;
     <meta name="twitter:creator" content="@itsmeAvaab" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={finalOgImage} />
     {ogType === "article" && (
       <>
         <meta name="twitter:label1" content="Written by" />

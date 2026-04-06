@@ -1,0 +1,76 @@
+{
+  "slug": "ai-agent-development",
+  "title": "AI Agent Development",
+  "metaTitle": "AI Agent Developer for Hire — Agentic AI Systems | Avaab Razzaq",
+  "metaDescription": "Build autonomous multi-agent AI systems using LangGraph, CrewAI, and MCP. I design AI agents that take real-world actions and complete complex tasks end-to-end.",
+  "heroTitle": "AI Agent Development",
+  "heroSubtitle": "I build autonomous, multi-agent AI systems that perceive, plan, use tools, and complete complex tasks without constant human input.",
+  "introduction": "I design and build agentic AI systems — from single autonomous agents to multi-agent orchestration pipelines. Using LangGraph, CrewAI, and Model Context Protocol, I deliver AI that acts, not just answers.",
+  "benefits": [
+    {
+      "title": "True Autonomy",
+      "description": "Agents that plan, use tools, delegate, and complete goals end-to-end — not just answer prompts."
+    },
+    {
+      "title": "Real-World Tool Access",
+      "description": "Via MCP and direct integrations, agents act on your business systems: CRM, databases, email, APIs."
+    },
+    {
+      "title": "Safe by Design",
+      "description": "Human-in-the-loop checkpoints, confidence thresholds, and full audit logs built in from day one."
+    }
+  ],
+  "services": [
+    {
+      "name": "Single Agent Systems",
+      "description": "Autonomous agents with tool access, memory, and goal-directed behavior for specific business tasks.",
+      "icon": "agent"
+    },
+    {
+      "name": "Multi-Agent Orchestration",
+      "description": "CrewAI and LangGraph pipelines with specialized agent roles that collaborate and delegate sub-tasks.",
+      "icon": "workflow"
+    },
+    {
+      "name": "MCP Tool Integration",
+      "description": "Connect agents to your business systems via Model Context Protocol servers for standardized tool access.",
+      "icon": "integration"
+    },
+    {
+      "name": "Agent Evaluation & Safety",
+      "description": "Evaluation frameworks, safety guardrails, and monitoring systems that make agents production-ready.",
+      "icon": "check"
+    }
+  ],
+  "technologies": [
+    "LangGraph",
+    "CrewAI",
+    "Model Context Protocol",
+    "Anthropic Claude",
+    "OpenAI",
+    "Python",
+    "TypeScript",
+    "PostgreSQL"
+  ],
+  "cta": {
+    "title": "Ready to Build an AI Agent?",
+    "description": "Book a free discovery call to scope your agentic AI use case.",
+    "buttonText": "Book a Free Call",
+    "buttonLink": "/contact/"
+  },
+  "faqs": [
+    {
+      "question": "What's the difference between AI automation and an AI agent?",
+      "answer": "AI automation executes predefined workflows. An AI agent perceives context, decides which steps to take, uses tools dynamically, and adapts when things change. Agents handle complexity that automation can't."
+    },
+    {
+      "question": "What frameworks do you use?",
+      "answer": "LangGraph for stateful workflows with complex branching. CrewAI for multi-agent role-based systems. MCP for standardized tool access. I choose based on your use case."
+    }
+  ],
+  "relatedServices": [
+    "ai-automation",
+    "mcp-integration",
+    "llm-integration"
+  ]
+}

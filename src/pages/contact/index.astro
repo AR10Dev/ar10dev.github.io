@@ -18,9 +18,9 @@ if (!homepageEntry) {
 const homepage = homepageEntry.data;
 
 const title =
-  "Contact Avaab Razzaq | AI Growth Engineer - Web Apps & Technical SEO";
+  "Contact Avaab Razzaq | AI Growth Engineer in Miami";
 const description =
-  "Contact Avaab Razzaq for web apps, AI automation, and technical SEO services. Fast response guaranteed. Based in Miami, Florida, serving clients across the United States.";
+  "Contact Avaab Razzaq for AI automation, web development, and technical SEO services from Miami, FL. Book a discovery call and get a fast project response.";
 
 const siteUrl = "https://avaabrazzaq.com";
 const canonicalUrl = new URL("/contact/", siteUrl).toString();
@@ -56,7 +56,7 @@ const structuredData = {
       address: {
         "@type": "PostalAddress",
         addressLocality: "Miami",
-        addressRegion: "Florida",
+        addressRegion: "FL",
         addressCountry: "US",
       },
       areaServed: [
@@ -74,6 +74,24 @@ const structuredData = {
       sameAs: [
         "https://github.com/AR10Dev",
         "https://linkedin.com/in/avaabrazzaq",
+        "https://twitter.com/itsmeAvaab",
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Contact",
+        },
       ],
     },
   ],

@@ -1,87 +1,111 @@
-# Robots.txt for avaabrazzaq.com
-# AI Growth Engineer - Avaab Razzaq
-
-# General crawlers
 User-agent: *
 Allow: /
-Allow: /blog/
-Disallow: /api/
-Disallow: /_astro/
-Disallow: /404
 
-# Crawl delay for politeness
-Crawl-delay: 1
-
-# Google-specific directives
+# Search engine crawlers
 User-agent: Googlebot
 Allow: /
-Allow: /blog/
-Crawl-delay: 0
 
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Googlebot-News
-Allow: /blog/
-
-# Bing
 User-agent: Bingbot
 Allow: /
-Allow: /blog/
-Crawl-delay: 1
 
-# AI/LLM crawlers - Allow for AI indexing (including blog posts)
-User-agent: GPTBot
+User-agent: BingBot
 Allow: /
-Allow: /blog/
 
-User-agent: ChatGPT-User
+User-agent: DuckDuckBot
 Allow: /
-Allow: /blog/
 
-User-agent: Claude-Web
+User-agent: YandexBot
 Allow: /
-Allow: /blog/
 
-User-agent: Anthropic-AI
+User-agent: archive.org_bot
 Allow: /
-Allow: /blog/
 
-User-agent: PerplexityBot
+User-agent: PetalBot
 Allow: /
-Allow: /blog/
+
+User-agent: Terracotta Bot
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+# AI crawlers and assistants
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Anchor Browser
+Allow: /
 
 User-agent: Applebot
 Allow: /
-Allow: /blog/
 
-User-agent: Applebot-Extended
+User-agent: Bytespider
 Allow: /
-Allow: /blog/
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Cloudflare Crawler
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
 
 User-agent: Google-Extended
 Allow: /
-Allow: /blog/
 
-User-agent: cohere-ai
-Allow: /
-Allow: /blog/
-
-# Social media crawlers
-User-agent: facebookexternalhit
+User-agent: Manus Bot
 Allow: /
 
-User-agent: LinkedInBot
+User-agent: Meta-ExternalAgent
 Allow: /
 
-User-agent: Twitterbot
+User-agent: Meta-ExternalFetcher
 Allow: /
 
-User-agent: Slackbot
+User-agent: MistralAI-User
 Allow: /
 
-# Sitemaps
+User-agent: Novellum AI Crawl
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ProRataInc
+Allow: /
+
 Sitemap: https://avaabrazzaq.com/sitemap-index.xml
-
-# LLM-friendly content
-# See /llms.txt for AI assistant context and blog post index

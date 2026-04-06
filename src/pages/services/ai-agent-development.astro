@@ -1,0 +1,209 @@
+---
+import ServiceLayout from "@layouts/ServiceLayout.astro";
+import { CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+
+const faqs = [
+  {
+    question: "What's the difference between AI automation and an AI agent?",
+    answer:
+      "AI automation executes predefined workflows — if this, then that. An AI agent perceives context, decides which steps to take, uses tools dynamically, and adapts when things change. Agents handle tasks with ambiguity and complexity that automation can't touch.",
+  },
+  {
+    question: "What frameworks do you use to build agents?",
+    answer:
+      "LangGraph for complex stateful workflows with branching logic and loops. CrewAI for multi-agent systems with defined roles and collaboration. MCP (Model Context Protocol) for standardized tool access. I choose based on your use case — not just what's trending.",
+  },
+  {
+    question: "Can an AI agent access my business systems?",
+    answer:
+      "Yes — that's the point. Via MCP or direct API integration, agents can read and write to your CRM, database, email, Slack, calendar, internal APIs, and more. I build with proper auth, scoping, and audit logging so agents have only the access they need.",
+  },
+  {
+    question: "Are AI agents safe to run autonomously?",
+    answer:
+      "With proper design, yes. I always build in human-in-the-loop checkpoints for high-stakes actions, confidence thresholds, rate limits, and full audit logs. The agent runs unsupervised on routine tasks while flagging anything that needs a human decision.",
+  },
+];
+---
+
+<ServiceLayout
+  title="AI Agent Developer for Hire — Agentic AI Systems | Avaab Razzaq"
+  description="Hire an AI agent developer to build autonomous, multi-agent systems using LangGraph, CrewAI, and MCP. I build agentic AI that takes real-world actions, not just generates text."
+  heroHeadline="Build AI That Takes Action, Not Just Answers"
+  heroSubheadline="I design and build autonomous AI agents — multi-agent systems using LangGraph, CrewAI, and Model Context Protocol that perceive your environment, plan steps, use tools, and complete complex tasks without human input."
+  ctaText="Book a Free Discovery Call"
+  ctaHref="/contact/"
+  serviceName="AI Agent Development"
+  serviceDescription="Custom autonomous AI agent development using LangGraph, CrewAI, and Model Context Protocol. Multi-agent systems that take real-world actions and complete complex tasks end-to-end."
+  keywords={["AI agent developer", "agentic AI developer for hire", "LangGraph developer", "CrewAI developer", "multi-agent system development", "autonomous AI systems"]}
+  faqs={faqs}
+>
+  {/* Problem Section */}
+  <section class="py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>The Problem</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>The Gap Between a Chatbot and a Real Agent Is Enormous</h2>
+        <div class={`mt-6 space-y-4 ${TYPOGRAPHY_CLASSES.body}`}>
+          <p>
+            A chatbot answers questions. An agent perceives its environment, makes decisions, uses tools, delegates sub-tasks to other agents, and completes a goal — without someone prompting it at every step.
+          </p>
+          <p>
+            Most businesses are still using AI as a fancier search bar when they could be deploying systems that run entire workflows end-to-end. The opportunity cost is compounding every month you wait.
+          </p>
+          <p>
+            Building agents that are reliable, safe, and actually useful in production is a systems design problem — not just a prompt engineering problem. It requires architecture, tool design, memory management, and evaluation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Solution Section */}
+  <section class="bg-[var(--surface-elevated)] py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>The Solution</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Agentic AI Built for Production</h2>
+        <div class={`mt-6 space-y-4 ${TYPOGRAPHY_CLASSES.body}`}>
+          <p>
+            I design and deploy agent systems that can plan, use tools, coordinate across roles, and execute high-value workflows in production with clear controls and measurable outcomes.
+          </p>
+        </div>
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Multi-Agent Orchestration</h3>
+            <p class="mt-2 text-[var(--text-muted)]">LangGraph and CrewAI pipelines with specialized agent roles that plan, delegate, and collaborate on complex tasks.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">MCP Tool Integration</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Agents that connect to your real business systems via Model Context Protocol — CRM, databases, email, APIs, and more.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Memory & State Management</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Persistent agent memory, context windows, and state machines that keep agents on-task across long-horizon workflows.</p>
+          </div>
+          <div class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)]">
+            <h3 class="text-lg font-bold text-[var(--text-strong)]">Human-in-the-Loop Design</h3>
+            <p class="mt-2 text-[var(--text-muted)]">Checkpoints, confidence thresholds, and escalation paths so agents handle routine tasks and flag edge cases to you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* What's Included Section */}
+  <section class="py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="max-w-3xl">
+        <p class={TYPOGRAPHY_CLASSES.kicker}>What's Included</p>
+        <h2 class={`mt-3 ${TYPOGRAPHY_CLASSES.sectionTitle}`}>End-to-End Agent Development Delivery</h2>
+        <ul class="mt-8 space-y-4">
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Use case scoping + agent architecture design</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Define objectives, constraints, and a production-ready architecture blueprint.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Agent graph / orchestration (LangGraph or CrewAI)</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Implement role-based orchestration for reliable task execution.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Tool definition + MCP server integration</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Connect agents to secure tool interfaces and business systems.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Memory and state management</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Persist context and state to keep long-running tasks coherent.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Human-in-the-loop checkpoints</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Introduce review gates for sensitive or high-risk decisions.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">API and database integrations</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Implement robust integrations for real-world execution pathways.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Evaluation + safety testing</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Validate reliability, safeguards, and failure handling before launch.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Deployment + monitoring setup</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Deploy with observability, logs, and health checks in place.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)]/10 text-[var(--accent-strong)]">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-[var(--text-strong)]">Documentation + handoff</h3>
+              <p class="mt-1 text-[var(--text-muted)]">Deliver clear implementation docs and operating guidance for your team.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {/* Social Proof Placeholder */}
+  <section class="bg-[var(--surface-elevated)] py-16">
+    <div class={CONTAINER_CLASSES.horizontal}>
+      <div class="mx-auto max-w-2xl">
+        <blockquote class="rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)]">
+          <div class="flex gap-1 text-[var(--accent-strong)]">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="mt-4 text-lg italic text-[var(--text-strong)]">"[Client testimonial will go here]"</p>
+          <footer class="mt-4">
+            <p class="text-sm font-semibold text-[var(--text-strong)]">— Client Name</p>
+            <p class="text-sm text-[var(--text-muted)]">Title, Company</p>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

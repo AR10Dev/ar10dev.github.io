@@ -9,26 +9,27 @@ import {
 } from "@lib/constants";
 
 const title =
-  "AI Growth Engineer Services | Avaab Razzaq - Web Apps & Technical SEO";
+  "AI Growth Engineer Services in Miami | Avaab Razzaq";
 const description =
-  "Expert AI automation, web apps development, and technical SEO services by Avaab Razzaq. Transform your business with growth engineering solutions.";
+  "Explore AI automation, web development, and technical SEO services by Avaab Razzaq in Miami, FL. Book a discovery call to accelerate growth today.";
 
 const allServices = await getCollection("services");
 
-// Order services by market demand signal (highest to lowest)
 const serviceOrder = [
-  "web-development",           // 1. Most searched — general web dev
-  "ai-automation",             // 2. Highest growth — AI automation
-  "saas-mvp-development",      // 3. High buyer intent — startup MVPs
-  "mobile-app-development",    // 4. Consistent demand — mobile
-  "ai-chatbot-development",    // 5. Hot market — AI chatbots
-  "ai-workflow-automation",    // 6. B2B automation demand
-  "llm-integration",           // 7. Technical buyers — LLM integration
-  "seo-growth",                // 8. Universal need — SEO
-  "technical-seo-audit",       // 9. Specific audit intent
-  "conversion-optimization",   // 10. Revenue-focused buyers
-  "programmatic-seo",          // 11. Technical SEO specialists
-  "astro-development",         // 12. Niche — framework-specific
+  "web-development",
+  "ai-agent-development",
+  "ai-automation",
+  "saas-mvp-development",
+  "mobile-app-development",
+  "ai-chatbot-development",
+  "ai-workflow-automation",
+  "llm-integration",
+  "prompt-engineering",
+  "seo-growth",
+  "technical-seo-audit",
+  "conversion-optimization",
+  "social-media-growth",
+  "programmatic-seo",
 ];
 
 const services = allServices.sort((a, b) => {
@@ -92,23 +93,43 @@ const structuredData = {
       sameAs: [
         "https://github.com/AR10Dev",
         "https://linkedin.com/in/avaabrazzaq",
+        "https://twitter.com/itsmeAvaab",
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+        },
       ],
     },
   ],
 };
 
 const serviceIcons: Record<string, string> = {
+  "ai-agent-development": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M1 12h4m14 0h4M4.9 4.9l2.8 2.8m8.6 8.6l2.8 2.8M4.9 19.1l2.8-2.8m8.6-8.6l2.8-2.8"/><path d="M12 9v3l2 2"/></svg>`,
   "ai-automation": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>`,
   "web-development": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
   "seo-growth": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>`,
   "ai-workflow-automation": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/></svg>`,
   "ai-chatbot-development": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
   "llm-integration": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>`,
+  "prompt-engineering": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>`,
   "technical-seo-audit": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>`,
   "programmatic-seo": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>`,
   "conversion-optimization": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>`,
-  "astro-development": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>`,
   "saas-mvp-development": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+  "social-media-growth": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 5.8c-.7.3-1.4.5-2.2.6a3.8 3.8 0 0 0 1.7-2.1c-.7.4-1.6.8-2.5 1a3.8 3.8 0 0 0-6.5 3.5 10.8 10.8 0 0 1-7.8-4 3.8 3.8 0 0 0 1.2 5.1c-.6 0-1.1-.2-1.6-.4v.1a3.8 3.8 0 0 0 3 3.7c-.5.1-1 .1-1.5.1-.4 0-.7 0-1.1-.1a3.8 3.8 0 0 0 3.5 2.6 7.7 7.7 0 0 1-4.8 1.6H3a10.9 10.9 0 0 0 5.9 1.7c7.1 0 11-5.8 11-10.9v-.5c.8-.5 1.5-1.2 2.1-2Z"/></svg>`,
   "mobile-app-development": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>`,
 };
 ---

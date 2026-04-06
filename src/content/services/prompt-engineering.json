@@ -1,0 +1,76 @@
+{
+  "slug": "prompt-engineering",
+  "title": "Prompt Engineering & AI System Design",
+  "metaTitle": "Prompt Engineering Services | AI System Design | Avaab Razzaq",
+  "metaDescription": "Production-grade prompt engineering and AI system design. System prompts, evaluation frameworks, and prompt pipelines that make your AI reliable and consistent.",
+  "heroTitle": "Prompt Engineering & AI System Design",
+  "heroSubtitle": "Production-grade system prompts, evaluation frameworks, and prompt pipelines that turn unpredictable AI into reliable business tools.",
+  "introduction": "I design the full prompt system for your AI use case — architecture, examples, constraints, persona, guardrails, and evaluation frameworks — so your AI works consistently in production.",
+  "benefits": [
+    {
+      "title": "Reliable AI Outputs",
+      "description": "Structured prompt systems that produce consistent, on-brand results — not random outputs that change every run."
+    },
+    {
+      "title": "Regression-Proof",
+      "description": "Evaluation test suites that catch prompt regressions before they reach users when models or prompts update."
+    },
+    {
+      "title": "Model-Optimized",
+      "description": "Prompts designed for your specific model — Claude, GPT-4o, Gemini — each has different instruction-following behaviors."
+    }
+  ],
+  "services": [
+    {
+      "name": "System Prompt Architecture",
+      "description": "Complete system prompt design: persona, instructions, constraints, output formatting, and guardrails.",
+      "icon": "document"
+    },
+    {
+      "name": "Prompt Evaluation Framework",
+      "description": "Test suites that score AI outputs against expected criteria and catch regressions on every update.",
+      "icon": "check"
+    },
+    {
+      "name": "RAG Prompt Optimization",
+      "description": "Context injection strategy, retrieval prompt design, and no-result handling for RAG systems.",
+      "icon": "integration"
+    },
+    {
+      "name": "Chain-of-Thought Engineering",
+      "description": "Reasoning scaffolds and few-shot examples that improve model accuracy on complex tasks.",
+      "icon": "workflow"
+    }
+  ],
+  "technologies": [
+    "Anthropic Claude",
+    "OpenAI GPT-4o",
+    "Google Gemini",
+    "LangChain",
+    "Python",
+    "TypeScript",
+    "Pinecone",
+    "pgvector"
+  ],
+  "cta": {
+    "title": "Ready to Fix Your AI Reliability?",
+    "description": "Book a free call to audit your current prompt system and identify the biggest issues.",
+    "buttonText": "Book a Free Call",
+    "buttonLink": "/contact/"
+  },
+  "faqs": [
+    {
+      "question": "Is prompt engineering a real service or can I just do it myself?",
+      "answer": "For simple use cases, yes. For production systems where reliability and brand consistency matter, prompt engineering is the difference between a toy and a product."
+    },
+    {
+      "question": "What models do you design prompts for?",
+      "answer": "Claude (Anthropic), GPT-4o (OpenAI), and Gemini Pro primarily. Each has different instruction-following behaviors — I design for the model you're deploying."
+    }
+  ],
+  "relatedServices": [
+    "ai-automation",
+    "ai-agent-development",
+    "llm-integration"
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "slug": "conversion-optimization",
   "title": "Conversion Rate Optimization Services",
-  "metaTitle": "Conversion Rate Optimization Services | CRO & A/B Testing - Miami, FL",
-  "metaDescription": "Increase conversions with data-driven CRO services. A/B testing, landing page optimization, and funnel analysis. Expert CRO consulting in Miami, Florida.",
+  "metaTitle": "Conversion Optimization in Miami, FL | Avaab Razzaq",
+  "metaDescription": "Increase revenue with conversion optimization in Miami, FL through data-backed UX, A/B testing, and funnel improvements. Book a discovery call today.",
   "heroTitle": "Conversion Rate Optimization Services",
   "heroSubtitle": "Turn more visitors into customers with systematic testing and data-driven optimization.",
   "introduction": "I help businesses maximize revenue from existing traffic through rigorous conversion rate optimization. Using A/B testing, funnel analysis, and behavioral data, I identify exactly where you're losing conversions and implement changes that measurably increase your bottom line.",
@@ -77,6 +77,11 @@
     }
   ],
   "parentService": "seo-growth",
-  "relatedServices": ["technical-seo-audit", "programmatic-seo"],
-  "relatedBlogPosts": ["ab-testing-best-practices-improve-conversions"]
+  "relatedServices": [
+    "technical-seo-audit",
+    "programmatic-seo"
+  ],
+  "relatedBlogPosts": [
+    "ab-testing-best-practices-improve-conversions"
+  ]
 }

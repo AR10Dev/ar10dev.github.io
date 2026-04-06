@@ -1,8 +1,8 @@
 {
   "slug": "ai-workflow-automation",
   "title": "AI Workflow Automation Services",
-  "metaTitle": "AI Workflow Automation Services | Automate Business Processes - Miami, FL",
-  "metaDescription": "Transform your business with AI workflow automation. Automate lead qualification, CRM enrichment, email sequences, and reporting. Expert services in Miami, Florida.",
+  "metaTitle": "AI Workflow Automation in Miami, FL | Avaab Razzaq",
+  "metaDescription": "Automate repetitive operations with AI workflow automation in Miami, FL using n8n, APIs, and smart routing. Book a discovery call with Avaab Razzaq.",
   "heroTitle": "AI Workflow Automation Services",
   "heroSubtitle": "Eliminate manual bottlenecks and scale your operations with intelligent automation that works 24/7.",
   "introduction": "I build AI-powered workflow systems that automate your most time-consuming business processes. From lead qualification to document processing, these systems handle repetitive tasks with human-level accuracy while you focus on growth.",
@@ -77,6 +77,11 @@
     }
   ],
   "parentService": "ai-automation",
-  "relatedServices": ["ai-chatbot-development", "llm-integration"],
-  "relatedBlogPosts": ["how-to-automate-lead-qualification-with-ai"]
+  "relatedServices": [
+    "ai-chatbot-development",
+    "llm-integration"
+  ],
+  "relatedBlogPosts": [
+    "how-to-automate-lead-qualification-with-ai"
+  ]
 }

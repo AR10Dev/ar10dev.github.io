@@ -1,8 +1,8 @@
 {
   "slug": "mobile-app-development",
   "title": "Mobile App Development",
-  "metaTitle": "Mobile App Development Services | Flutter & iOS Apps - Miami, FL",
-  "metaDescription": "Build cross-platform mobile apps with Flutter or native iOS development. Fast, beautiful, production-ready apps for startups and businesses in Miami, Florida.",
+  "metaTitle": "Mobile App Development in Miami, FL | Avaab Razzaq",
+  "metaDescription": "Build iOS and Android apps in Miami, FL with Flutter and modern backend integrations for speed and scale. Book a discovery call with Avaab Razzaq.",
   "heroTitle": "Mobile App Development Services",
   "heroSubtitle": "Ship beautiful, high-performance mobile apps faster with Flutter cross-platform development or native iOS.",
   "introduction": "I build mobile applications that users love. Whether you need a cross-platform app with Flutter to reach both iOS and Android simultaneously, or a polished native iOS experience, I deliver production-ready apps with clean architecture, smooth performance, and intuitive UX.",
@@ -83,6 +83,9 @@
     }
   ],
   "parentService": "web-development",
-  "relatedServices": ["saas-mvp-development", "astro-development"],
+  "relatedServices": [
+    "saas-mvp-development",
+    "astro-development"
+  ],
   "relatedBlogPosts": []
 }

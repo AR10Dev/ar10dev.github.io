@@ -1,0 +1,76 @@
+{
+  "slug": "social-media-growth",
+  "title": "AI-Powered Social Media Growth",
+  "metaTitle": "AI Social Media Growth Services | Avaab Razzaq",
+  "metaDescription": "Social media growth powered by AI automation. Content pipelines, scheduling systems, and analytics dashboards that grow your audience on autopilot.",
+  "heroTitle": "AI-Powered Social Media Growth",
+  "heroSubtitle": "AI-automated content pipelines and growth systems that grow your social presence consistently — without manual posting every day.",
+  "introduction": "I build AI-powered social media systems that combine strategy with automation — content pipelines calibrated to your voice, scheduling workflows, and analytics dashboards that drive compound growth.",
+  "benefits": [
+    {
+      "title": "Consistent Presence",
+      "description": "Automated pipelines that publish consistently on your behalf — even when you're heads-down building."
+    },
+    {
+      "title": "Your Voice, Automated",
+      "description": "Content generation calibrated to your writing style and brand — not generic AI output."
+    },
+    {
+      "title": "Data-Driven Growth",
+      "description": "Analytics dashboards and monthly reviews that tell you what's working and where to double down."
+    }
+  ],
+  "services": [
+    {
+      "name": "Content Pipeline Setup",
+      "description": "AI-assisted content generation workflows calibrated to your voice, with scheduling automation via n8n or Make.",
+      "icon": "workflow"
+    },
+    {
+      "name": "Growth Strategy",
+      "description": "Platform selection, content pillars, editorial calendar, and audience growth playbook tailored to your business.",
+      "icon": "chart"
+    },
+    {
+      "name": "Content Repurposing System",
+      "description": "Automated workflows that turn long-form content into threads, clips, carousels, and newsletters.",
+      "icon": "integration"
+    },
+    {
+      "name": "Analytics & Reporting",
+      "description": "Growth tracking dashboards and monthly performance reviews with actionable next steps.",
+      "icon": "analytics"
+    }
+  ],
+  "technologies": [
+    "n8n",
+    "Make",
+    "Anthropic Claude",
+    "OpenAI API",
+    "Buffer",
+    "Twitter API",
+    "LinkedIn API",
+    "Python"
+  ],
+  "cta": {
+    "title": "Ready to Grow on Autopilot?",
+    "description": "Book a free discovery call to map out your social media growth system.",
+    "buttonText": "Book a Free Call",
+    "buttonLink": "/contact/"
+  },
+  "faqs": [
+    {
+      "question": "Will the AI content sound generic?",
+      "answer": "Only if it's not calibrated properly. I build content pipelines trained on your voice and existing writing. The AI handles speed; you maintain authenticity."
+    },
+    {
+      "question": "Which platforms do you focus on?",
+      "answer": "Twitter/X and LinkedIn are highest ROI for most founders and B2B businesses. I can extend to Instagram, YouTube Shorts, and TikTok based on your audience."
+    }
+  ],
+  "relatedServices": [
+    "ai-automation",
+    "seo-growth",
+    "conversion-optimization"
+  ]
+}

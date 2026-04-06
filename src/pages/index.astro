@@ -36,6 +36,10 @@ const siteUrl = "https://avaabrazzaq.com";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
 const linkedInUrl = "https://www.linkedin.com/in/ar10dev";
+const twitterUrl = "https://twitter.com/itsmeAvaab";
+const seoTitle = "AI Growth Engineer Services in Miami | Avaab Razzaq";
+const seoDescription =
+  "Hire Avaab Razzaq for AI automation, full-stack web development, and technical SEO in Miami, FL. Book a discovery call to accelerate growth.";
 
 const rolePhrases = [
   "web apps that convert.",
@@ -100,33 +104,62 @@ const serviceItems = [
   },
 ];
 
+const emergingServiceSlugs = [
+  "ai-agent-development",
+  "prompt-engineering",
+  "social-media-growth",
+];
+
+const emergingServiceItems = (await getCollection("services"))
+  .filter((entry) => emergingServiceSlugs.includes(entry.data.slug))
+  .map((entry) => ({
+    title: entry.data.title,
+    body: entry.data.heroSubtitle,
+    href: `/services/${entry.data.slug}/`,
+  }));
+
+const homepageServiceItems = [...serviceItems, ...emergingServiceItems];
+
 // Enhanced structured data with local business info for SEO
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Person",
-      "@id": `${siteUrl}#person`,
+      "@id": `${siteUrl}/#person`,
       name: "Avaab Razzaq",
       alternateName: "AR10Dev",
-      jobTitle: "AI-Driven Growth Engineer",
+      jobTitle: "AI Growth Engineer",
+      description:
+        "AI Growth Engineer helping businesses build web apps, implement AI automation, and scale technical SEO and GEO performance.",
       url: siteUrl,
       image: ogImage,
-      sameAs: [homepage.githubUrl, linkedInUrl],
+      sameAs: [homepage.githubUrl, linkedInUrl, twitterUrl],
       address: {
         "@type": "PostalAddress",
         addressLocality: "Miami",
-        addressRegion: "Florida",
+        addressRegion: "FL",
         addressCountry: "US",
       },
       knowsAbout: [
-        "AI workflow automation",
-        "Prompt engineering",
-        "Full-stack development",
-        "Conversion optimization",
-        "Growth marketing",
+        "AI Automation",
+        "Model Context Protocol",
+        "Agentic AI Systems",
         "Technical SEO",
+        "Generative Engine Optimization",
+        "Full Stack Web Development",
+        "Prompt Engineering",
+        "LLM Integration",
       ],
+      hasOccupation: {
+        "@type": "Occupation",
+        name: "AI Growth Engineer",
+      },
+      hasCredential: {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Professional Expertise",
+        name: "AI Growth Engineering Practitioner",
+      },
       worksFor: {
         "@type": "Organization",
         name: "Independent Consultant",
@@ -156,15 +189,18 @@ const structuredData = {
     },
     {
       "@type": "ProfessionalService",
-      "@id": `${siteUrl}#business`,
+      "@id": `${siteUrl}/#business`,
       name: "Avaab Razzaq - AI Growth Engineer",
       description: homepage.metaDescription,
       url: siteUrl,
       email: homepage.contactEmail,
+      provider: {
+        "@id": `${siteUrl}/#person`,
+      },
       address: {
         "@type": "PostalAddress",
         addressLocality: "Miami",
-        addressRegion: "Florida",
+        addressRegion: "FL",
         addressCountry: "US",
       },
       geo: {
@@ -187,29 +223,29 @@ const structuredData = {
     },
     {
       "@type": "Organization",
-      "@id": `${siteUrl}#organization`,
+      "@id": `${siteUrl}/#organization`,
       name: "Avaab Razzaq - AI Growth Engineer",
       url: siteUrl,
       logo: {
         "@type": "ImageObject",
-        "@id": `${siteUrl}#logo`,
+        "@id": `${siteUrl}/#logo`,
         url: `${siteUrl}/pwa-512x512.png`,
         contentUrl: `${siteUrl}/pwa-512x512.png`,
         width: 512,
         height: 512,
         caption: "Avaab Razzaq - AI Growth Engineer",
       },
-      sameAs: [homepage.githubUrl, linkedInUrl],
+      sameAs: [homepage.githubUrl, linkedInUrl, twitterUrl],
     },
     {
       "@type": "WebSite",
-      "@id": `${siteUrl}#website`,
+      "@id": `${siteUrl}/#website`,
       name: homepage.brandTitle,
       url: siteUrl,
       description: homepage.metaDescription,
       inLanguage: "en-US",
       publisher: {
-        "@id": `${siteUrl}#organization`,
+        "@id": `${siteUrl}/#organization`,
       },
       potentialAction: {
         "@type": "SearchAction",
@@ -217,11 +253,24 @@ const structuredData = {
           "@type": "EntryPoint",
           urlTemplate: `${siteUrl}/blog/?q={search_term_string}`,
         },
-        "query-input": {
-          "@type": "PropertyValueSpecification",
-          valueRequired: true,
-          valueName: "search_term_string",
-        },
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+      url: canonicalUrl,
+      name: homepage.brandTitle,
+      description: homepage.metaDescription,
+      isPartOf: {
+        "@id": `${siteUrl}/#website`,
+      },
+      mainEntity: {
+        "@id": `${siteUrl}/#person`,
+      },
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", ".hero-subheadline", ".service-intro"],
       },
     },
     {
@@ -231,7 +280,7 @@ const structuredData = {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: siteUrl,
+          item: `${siteUrl}/`,
         },
       ],
     },
@@ -240,8 +289,8 @@ const structuredData = {
 ---
 
 <BaseLayout 
-  title={homepage.brandTitle} 
-  description={homepage.metaDescription}
+  title={seoTitle} 
+  description={seoDescription}
   canonicalUrl={canonicalUrl}
   ogImage={ogImage}
   structuredData={structuredData}
@@ -257,7 +306,7 @@ const structuredData = {
               <h1 id="hero-title" class={TYPOGRAPHY_CLASSES.heroTitle}>
                 Avaab Razzaq — AI Growth Engineer
               </h1>
-              <p class={TYPOGRAPHY_CLASSES.subheading}>
+              <p class={`${TYPOGRAPHY_CLASSES.subheading} hero-subheadline service-intro`}>
                 <span class={TYPING_CLASSES.fallback}>I build web apps, AI automation, and technical SEO systems.</span>
                 <span class={TYPING_CLASSES.live} aria-hidden="true">
                   I build <Typer text={rolePhrases} cursor cursorClassName={TYPING_CLASSES.cursor} loop typingSpeed={90} backspaceSpeed={80} typingPause={1300} client:load />
@@ -280,6 +329,7 @@ const structuredData = {
             </div>
             
             <div class="grid gap-4 md:grid-cols-1">
+              <h2 class="sr-only">Featured Growth Engineering Services</h2>
               {heroFeatures.map((feature) => (
                 <a href={feature.href} class="group block rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-0.5 hover:shadow-lg hover:border-[var(--accent-strong)]/30">
                   <h3 class="font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors">{feature.title}</h3>
@@ -302,7 +352,7 @@ const structuredData = {
             </p>
           </div>
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {serviceItems.map((service) => (
+            {homepageServiceItems.map((service) => (
               <a href={service.href} class="group flex flex-col rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl">
                 <h3 class="text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors">{service.title}</h3>
                 <p class="mt-3 text-sm text-[var(--text-muted)] flex-grow">{service.body}</p>

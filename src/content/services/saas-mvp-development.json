@@ -1,8 +1,8 @@
 {
   "slug": "saas-mvp-development",
   "title": "SaaS MVP Development Services",
-  "metaTitle": "SaaS MVP Development Services | Build Your Product Fast - Miami, FL",
-  "metaDescription": "Launch your SaaS MVP in weeks, not months. Full-stack development with authentication, payments, and core features. Expert MVP development in Miami, Florida.",
+  "metaTitle": "SaaS MVP Development Services in Miami, FL | Avaab Razzaq",
+  "metaDescription": "Launch your SaaS MVP in Miami, FL within weeks using a lean stack, clear milestones, and production-ready architecture. Book a discovery call today.",
   "heroTitle": "SaaS MVP Development Services",
   "heroSubtitle": "Go from idea to launched product in 4-8 weeks with a production-ready MVP.",
   "introduction": "I help founders and product teams build SaaS MVPs fast. Using modern frameworks and proven patterns, I deliver working products with authentication, payments, and your core features—ready to acquire customers and validate your business model.",
@@ -78,6 +78,11 @@
     }
   ],
   "parentService": "web-development",
-  "relatedServices": ["astro-development"],
-  "relatedBlogPosts": ["building-mvp-4-weeks-technical-guide"]
+  "relatedServices": [
+    "astro-development",
+    "web-development"
+  ],
+  "relatedBlogPosts": [
+    "building-mvp-4-weeks-technical-guide"
+  ]
 }

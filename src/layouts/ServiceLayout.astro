@@ -29,6 +29,16 @@ export interface Props {
 const siteUrl = "https://avaabrazzaq.com";
 const currentYear = new Date().getFullYear();
 
+const normalizeCanonicalUrl = (inputUrl: string) => {
+  const parsedUrl = new URL(inputUrl, siteUrl);
+
+  if (!parsedUrl.pathname.endsWith("/") && !parsedUrl.pathname.includes(".")) {
+    parsedUrl.pathname = `${parsedUrl.pathname}/`;
+  }
+
+  return parsedUrl.toString();
+};
+
 const {
   title,
   description,
@@ -45,7 +55,72 @@ const {
   modifiedTime,
 } = Astro.props;
 
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const canonicalUrl = normalizeCanonicalUrl(
+  new URL(Astro.url.pathname, siteUrl).toString(),
+);
+const finalOgImage = ogImage.startsWith("http")
+  ? ogImage
+  : new URL(ogImage, siteUrl).toString();
+
+const currentServiceSlug = Astro.url.pathname
+  .replace(/^\/services\//, "")
+  .replace(/\/$/, "");
+
+const serviceCrossLinks = [
+  {
+    slug: "ai-automation",
+    href: "/services/ai-automation/",
+    label: "AI Automation",
+    summary: "Automate repetitive operations with AI-powered workflows.",
+  },
+  {
+    slug: "mcp-integration",
+    href: "/services/mcp-integration/",
+    label: "MCP Integration",
+    summary: "Connect AI systems to real business tools through MCP.",
+  },
+  {
+    slug: "fullstack-development",
+    href: "/services/fullstack-development/",
+    label: "Full-Stack Development",
+    summary: "Build fast, scalable web products with modern frameworks.",
+  },
+  {
+    slug: "technical-seo",
+    href: "/services/technical-seo/",
+    label: "Technical SEO & GEO",
+    summary: "Improve discoverability across search engines and AI answers.",
+  },
+  {
+    slug: "programmatic-seo",
+    href: "/services/programmatic-seo/",
+    label: "Programmatic SEO",
+    summary: "Scale targeted SEO landing pages with structured systems.",
+  },
+  {
+    slug: "llm-integration",
+    href: "/services/llm-integration/",
+    label: "LLM Integration",
+    summary: "Integrate GPT and Claude into production workflows.",
+  },
+];
+
+const relatedServices = serviceCrossLinks
+  .filter((service) => service.slug !== currentServiceSlug)
+  .slice(0, 3);
+
+const seoTitle =
+  title.length > 60
+    ? `${serviceName} in Miami, FL | Avaab Razzaq`
+    : title.length < 50
+      ? `${serviceName} Services | Avaab Razzaq`
+      : title;
+
+const seoDescription =
+  description.length > 160
+    ? `${description.slice(0, 157).trimEnd()}...`
+    : description;
+
 const defaultKeywords =
   "AI Growth Engineer, AI Automation, Full-Stack Developer, SEO Expert, Miami Florida, Web Development, LLM Integration, Workflow Automation";
 const finalKeywords =
@@ -64,17 +139,30 @@ const structuredData = {
       name: serviceName,
       description: serviceDescription,
       provider: {
-        "@type": "Person",
-        "@id": `${siteUrl}#person`,
-        name: "Avaab Razzaq",
-        jobTitle: "AI Growth Engineer",
-        url: siteUrl,
+        "@id": `${siteUrl}/#person`,
       },
       areaServed: {
         "@type": "Place",
         name: "United States",
       },
       url: canonicalUrl,
+    },
+    {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+      url: canonicalUrl,
+      name: seoTitle,
+      description: seoDescription,
+      isPartOf: {
+        "@id": `${siteUrl}/#website`,
+      },
+      about: {
+        "@id": `${canonicalUrl}#service`,
+      },
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", ".hero-subheadline", ".service-intro"],
+      },
     },
     ...(faqs && faqs.length > 0
       ? [
@@ -108,7 +196,7 @@ const structuredData = {
     )}
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <meta name="description" content={description} />
+    <meta name="description" content={seoDescription} />
     <meta name="author" content="Avaab Razzaq" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     
@@ -133,16 +221,16 @@ const structuredData = {
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
     
-    <title>{title}</title>
+    <title>{seoTitle}</title>
     <meta name="keywords" content={finalKeywords} />
 
     {/* Open Graph */}
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={seoTitle} />
+    <meta property="og:description" content={seoDescription} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content={title} />
+    <meta property="og:image" content={finalOgImage} />
+    <meta property="og:image:alt" content={seoTitle} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Avaab Razzaq - AI Growth Engineer" />
@@ -155,9 +243,9 @@ const structuredData = {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@itsmeAvaab" />
     <meta name="twitter:creator" content="@itsmeAvaab" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:title" content={seoTitle} />
+    <meta name="twitter:description" content={seoDescription} />
+    <meta name="twitter:image" content={finalOgImage} />
 
     <meta name="theme-color" content="#0e2a47" />
 
@@ -218,7 +306,7 @@ const structuredData = {
         <div class={CONTAINER_CLASSES.horizontal}>
           <div class="max-w-4xl">
             <h1 class={TYPOGRAPHY_CLASSES.heroTitle}>{heroHeadline}</h1>
-            <p class={`mt-6 ${TYPOGRAPHY_CLASSES.subheading}`}>{heroSubheadline}</p>
+            <p class={`hero-subheadline service-intro mt-6 ${TYPOGRAPHY_CLASSES.subheading}`}>{heroSubheadline}</p>
             
             <div class="mt-10 flex flex-wrap gap-4">
               <a href={ctaHref} class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}>
@@ -234,6 +322,34 @@ const structuredData = {
 
       {/* Page Content Slot */}
       <slot />
+
+      {/* Related Services */}
+      <section class="py-16">
+        <div class={CONTAINER_CLASSES.horizontal}>
+          <div class="mx-auto max-w-4xl">
+            <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Services</h2>
+            <p class="service-intro mt-4 text-center text-[var(--text-muted)]">
+              Explore complementary services to build a complete growth system.
+            </p>
+            <div class="mt-10 grid gap-6 md:grid-cols-3">
+              {relatedServices.map((relatedService) => (
+                <a
+                  href={relatedService.href}
+                  class="group rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                >
+                  <h3 class="text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors">
+                    {relatedService.label}
+                  </h3>
+                  <p class="mt-2 text-sm text-[var(--text-muted)]">{relatedService.summary}</p>
+                  <span class="mt-4 inline-flex text-sm font-semibold text-[var(--accent-strong)]">
+                    Learn more →
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section - Conditional */}
       {faqs && faqs.length > 0 && (
