@@ -42,20 +42,28 @@ The custom assistant knows your order system, understands your product catalog, 
 
 A production-ready custom chatbot has several components:
 
-```
-User Interface (Web/Mobile/Slack)
-         ↓
-    API Gateway
-         ↓
-  Orchestration Layer
-    ↓         ↓
-Knowledge   External
-  Base      Systems
-(RAG)      (CRM, DB)
-    ↓         ↓
-    LLM Processing
-         ↓
-   Response Generation
+```mermaid
+flowchart TD
+  subgraph app[Application Layer]
+    ui[💬 User Interface<br/>Web, Mobile, Slack]
+    api[🛡️ API Gateway<br/>Auth, rate limits, routing]
+    orchestration[🧠 Orchestration Layer<br/>Context + tool decisioning]
+  end
+
+  subgraph data[Data + Tool Access Layer]
+    rag[📚 Knowledge Base Retrieval<br/>RAG over docs and support content]
+    external[🔌 External Business Systems<br/>CRM, databases, billing, inventory]
+  end
+
+  llm[🤖 LLM Processing Engine<br/>Reasoning + function/tool calling]
+  response[✅ Response Generation<br/>Grounded answer and next action]
+
+  ui --> api --> orchestration
+  orchestration --> rag
+  orchestration --> external
+  rag --> llm
+  external --> llm
+  llm --> response
 ```
 
 Let's break down each piece.

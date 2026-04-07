@@ -57,18 +57,21 @@ Each page builds domain authority. More indexed pages (if quality) = stronger ov
 
 A successful system has these components:
 
-```
-Structured Data Source
-        ↓
-Template System
-        ↓
-Content Generation
-        ↓
-Quality Assurance
-        ↓
-Internal Linking
-        ↓
-Publication & Indexing
+```mermaid
+flowchart TD
+  subgraph creation[Content Creation Pipeline]
+    data[🗂️ Structured Data Source<br/>Databases, APIs, taxonomies]
+    templates[🧩 Template System<br/>Reusable SEO page patterns]
+    generation[✍️ Content Generation<br/>Data-driven + AI-assisted copy]
+  end
+
+  subgraph quality[Quality + Distribution Pipeline]
+    qa[✅ Quality Assurance<br/>Uniqueness, schema, link validation]
+    links[🔗 Internal Linking System<br/>Parent, sibling, breadcrumb paths]
+    publish[🚀 Publication & Indexing<br/>Sitemaps, crawl checks, monitoring]
+  end
+
+  data --> templates --> generation --> qa --> links --> publish
 ```
 
 Let's break each down.

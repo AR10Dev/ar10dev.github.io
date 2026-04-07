@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 import AstroPWA from "@vite-pwa/astro";
 import { defineConfig } from "astro/config";
 import rehypeMermaid from "rehype-mermaid";
+import rehypeCopyCodeButton from "./src/lib/rehypeCopyCodeButton";
 
 type HastNode = {
   type?: string;
@@ -49,6 +50,17 @@ export default defineConfig({
       type: "shiki",
       excludeLangs: ["math", "mermaid"],
     },
+    rehypePlugins: [
+      [
+        rehypeMermaid,
+        {
+          strategy: "inline-svg",
+          dark: true,
+        },
+      ],
+      rehypeMermaidAriaLabel,
+      rehypeCopyCodeButton,
+    ],
   },
   vite: {
     plugins: [tailwindcss()],
@@ -65,6 +77,7 @@ export default defineConfig({
           },
         ],
         rehypeMermaidAriaLabel,
+        rehypeCopyCodeButton,
       ],
     }),
     partytown({
