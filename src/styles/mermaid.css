@@ -1,0 +1,54 @@
+:root {
+  --mermaid-diagram-bg: #f7f3ec;
+  --mermaid-node-fill: #ffffff;
+  --mermaid-node-border: #d7cdc0;
+  --mermaid-node-text: #132033;
+  --mermaid-edge: #b05422;
+}
+
+.dark {
+  --mermaid-diagram-bg: #0a0a0a;
+  --mermaid-node-fill: #132339;
+  --mermaid-node-border: #243955;
+  --mermaid-node-text: #e5edf8;
+  --mermaid-edge: #f09c63;
+}
+
+.prose-blog :where(svg[id^="mermaid-"]) {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: 1.75rem auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--mermaid-node-border) 78%, transparent);
+  background-color: var(--mermaid-diagram-bg);
+  box-shadow: 0 16px 32px rgba(10, 10, 10, 0.16);
+}
+
+.prose-blog :where(svg[id^="mermaid-"] .node rect),
+.prose-blog :where(svg[id^="mermaid-"] .node circle),
+.prose-blog :where(svg[id^="mermaid-"] .node ellipse),
+.prose-blog :where(svg[id^="mermaid-"] .node polygon),
+.prose-blog :where(svg[id^="mermaid-"] .node path),
+.prose-blog :where(svg[id^="mermaid-"] .cluster rect) {
+  fill: var(--mermaid-node-fill) !important;
+  stroke: var(--mermaid-node-border) !important;
+}
+
+.prose-blog :where(svg[id^="mermaid-"] .nodeLabel),
+.prose-blog :where(svg[id^="mermaid-"] .node .label),
+.prose-blog :where(svg[id^="mermaid-"] .node text),
+.prose-blog :where(svg[id^="mermaid-"] .cluster-label),
+.prose-blog :where(svg[id^="mermaid-"] .edgeLabel text) {
+  color: var(--mermaid-node-text) !important;
+  fill: var(--mermaid-node-text) !important;
+}
+
+.prose-blog :where(svg[id^="mermaid-"] .edgePath .path),
+.prose-blog :where(svg[id^="mermaid-"] .flowchart-link),
+.prose-blog :where(svg[id^="mermaid-"] .arrowheadPath) {
+  stroke: var(--mermaid-edge) !important;
+  fill: var(--mermaid-edge) !important;
+}

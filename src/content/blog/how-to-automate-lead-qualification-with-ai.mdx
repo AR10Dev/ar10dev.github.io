@@ -89,20 +89,19 @@ These emails go out within minutes of form submission—catching leads at peak i
 
 Here's the architecture I typically implement:
 
-```
-Form Submission
-      ↓
-Webhook triggers n8n/Make workflow
-      ↓
-API calls to enrichment services
-      ↓
-LLM analyzes and scores lead
-      ↓
-CRM updated with score + enrichment
-      ↓
-Routing rules assign owner
-      ↓
-Personalized email via SendGrid
+```mermaid
+flowchart TD
+  A[🧾 Form Submission] --> B[⚡ Webhook Trigger\nn8n / Make]
+  B --> C[🔍 Enrichment APIs\nClearbit · Apollo · HubSpot]
+  C --> D[🤖 LLM Analysis\nScores & Qualifies Lead]
+  D --> E[📊 CRM Update\nScore + Enrichment Data]
+  E --> F[🔀 Routing Rules\nAssign Owner]
+  F --> G[📧 Personalized Email\nSendGrid]
+
+  subgraph "AI Processing Layer"
+    C
+    D
+  end
 ```
 
 The key components:

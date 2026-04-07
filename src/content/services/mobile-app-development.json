@@ -83,6 +83,6 @@
     }
   ],
   "parentService": "full-stack-web-development",
-  "relatedServices": ["saas-mvp-development", "astro-development"],
+  "relatedServices": ["saas-mvp-development", "full-stack-web-development"],
   "relatedBlogPosts": []
 }

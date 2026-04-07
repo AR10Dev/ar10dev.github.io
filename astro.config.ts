@@ -5,17 +5,68 @@ import solid from "@astrojs/solid-js";
 import tailwindcss from "@tailwindcss/vite";
 import AstroPWA from "@vite-pwa/astro";
 import { defineConfig } from "astro/config";
+import rehypeMermaid from "rehype-mermaid";
+
+type HastNode = {
+  type?: string;
+  tagName?: string;
+  properties?: Record<string, unknown>;
+  children?: HastNode[];
+};
+
+const rehypeMermaidAriaLabel = () => {
+  return (tree: HastNode) => {
+    const visit = (node: HastNode) => {
+      if (
+        node.type === "element" &&
+        node.tagName === "svg" &&
+        typeof node.properties?.id === "string" &&
+        node.properties.id.startsWith("mermaid-")
+      ) {
+        if (!node.properties) {
+          node.properties = {};
+        }
+
+        const properties = node.properties;
+        if (typeof properties["aria-label"] !== "string") {
+          properties["aria-label"] = "Mermaid diagram";
+        }
+      }
+
+      node.children?.forEach(visit);
+    };
+
+    visit(tree);
+  };
+};
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://avaabrazzaq.com", // Used to generate canonical URLs and sitemap entries.
   trailingSlash: "always", // Consistent URL format - all URLs end with /
+  markdown: {
+    syntaxHighlight: {
+      type: "shiki",
+      excludeLangs: ["math", "mermaid"],
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },
   integrations: [
     solid(),
-    mdx(),
+    mdx({
+      rehypePlugins: [
+        [
+          rehypeMermaid,
+          {
+            strategy: "inline-svg",
+            dark: true,
+          },
+        ],
+        rehypeMermaidAriaLabel,
+      ],
+    }),
     partytown({
       config: {
         forward: ["dataLayer.push"],

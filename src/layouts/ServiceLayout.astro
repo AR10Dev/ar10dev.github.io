@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import logo from "@assets/logo.png";
 import "../styles/global.css";
 import AnalyticsConsent from "@components/AnalyticsConsent.astro";
@@ -62,6 +63,101 @@ const currentServiceSlug = Astro.url.pathname
 const relatedServices = serviceCrossLinks
   .filter((service) => service.slug !== currentServiceSlug)
   .slice(0, 3);
+
+const blogLinksByService: Record<string, string[]> = {
+  "ai-agent-development": [
+    "building-custom-chatgpt-interfaces-for-business",
+    "openai-vs-anthropic-which-llm-for-business",
+  ],
+  "ai-automation": [
+    "how-to-automate-lead-qualification-with-ai",
+    "building-custom-chatgpt-interfaces-for-business",
+  ],
+  "ai-chatbot-development": [
+    "building-custom-chatgpt-interfaces-for-business",
+    "openai-vs-anthropic-which-llm-for-business",
+  ],
+  "ai-workflow-automation": [
+    "how-to-automate-lead-qualification-with-ai",
+    "building-custom-chatgpt-interfaces-for-business",
+  ],
+  "conversion-optimization": [
+    "ab-testing-best-practices-improve-conversions",
+    "how-programmatic-seo-generates-10x-traffic",
+  ],
+  "full-stack-web-development": [
+    "why-astro-best-framework-marketing-sites",
+    "building-mvp-4-weeks-technical-guide",
+  ],
+  "llm-integration": [
+    "openai-vs-anthropic-which-llm-for-business",
+    "building-custom-chatgpt-interfaces-for-business",
+  ],
+  "mcp-integration": [
+    "openai-vs-anthropic-which-llm-for-business",
+    "building-custom-chatgpt-interfaces-for-business",
+  ],
+  "mobile-app-development": [
+    "building-mvp-4-weeks-technical-guide",
+    "why-astro-best-framework-marketing-sites",
+  ],
+  "programmatic-seo": [
+    "how-programmatic-seo-generates-10x-traffic",
+    "complete-technical-seo-audit-checklist-2025",
+  ],
+  "prompt-engineering": [
+    "openai-vs-anthropic-which-llm-for-business",
+    "building-custom-chatgpt-interfaces-for-business",
+  ],
+  "saas-mvp-development": [
+    "building-mvp-4-weeks-technical-guide",
+    "building-custom-chatgpt-interfaces-for-business",
+  ],
+  "seo-growth": [
+    "complete-technical-seo-audit-checklist-2025",
+    "how-programmatic-seo-generates-10x-traffic",
+  ],
+  "social-media-growth": [
+    "how-to-automate-lead-qualification-with-ai",
+    "ab-testing-best-practices-improve-conversions",
+  ],
+  "technical-seo": [
+    "complete-technical-seo-audit-checklist-2025",
+    "how-programmatic-seo-generates-10x-traffic",
+  ],
+  "technical-seo-audit": [
+    "complete-technical-seo-audit-checklist-2025",
+    "how-programmatic-seo-generates-10x-traffic",
+  ],
+};
+
+const blogPosts = await getCollection(
+  "blog",
+  ({ data }) => data.draft !== true,
+);
+const blogPostById = new Map(blogPosts.map((post) => [post.id, post]));
+const preferredBlogPosts = (blogLinksByService[currentServiceSlug] ?? [])
+  .map((slug) => blogPostById.get(slug))
+  .filter((post): post is (typeof blogPosts)[number] => post !== undefined);
+
+const fallbackBlogPosts = blogPosts.filter(
+  (post) =>
+    post.id !== "placeholder" &&
+    !preferredBlogPosts.some((preferredPost) => preferredPost.id === post.id),
+);
+
+const relatedBlogPosts = [...preferredBlogPosts, ...fallbackBlogPosts].slice(
+  0,
+  2,
+);
+
+const defaultBuyerFaq = {
+  question: `How fast can we launch this ${serviceName.toLowerCase()} engagement?`,
+  answer:
+    "Most engagements start with a strategy call, then a scoped execution plan within 3-5 business days. From there, delivery timelines depend on complexity, but we prioritize high-impact milestones first so you can see measurable results early.",
+};
+
+const normalizedFaqs = faqs.length >= 5 ? faqs : [...faqs, defaultBuyerFaq];
 
 const seoTitle =
   title.length > 60
@@ -126,11 +222,11 @@ const structuredData = {
         cssSelector: ["h1", ".hero-subheadline", ".service-intro"],
       },
     },
-    ...(faqs && faqs.length > 0
+    ...(normalizedFaqs.length > 0
       ? [
           {
             "@type": "FAQPage",
-            mainEntity: faqs.map((faq) => ({
+            mainEntity: normalizedFaqs.map((faq) => ({
               "@type": "Question",
               name: faq.question,
               acceptedAnswer: {
@@ -250,13 +346,43 @@ const structuredData = {
         </div>
       </section>
 
+      {/* Related Blog Posts */}
+      {relatedBlogPosts.length > 0 && (
+        <section class="bg-[var(--surface-elevated)] py-16">
+          <div class={CONTAINER_CLASSES.section}>
+            <div class="mx-auto max-w-4xl">
+              <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Insights</h2>
+              <p class="service-intro mt-4 text-center text-[var(--text-muted)]">
+                Read technical breakdowns tied to this service area.
+              </p>
+              <div class="mt-10 grid gap-6 md:grid-cols-2">
+                {relatedBlogPosts.map((post) => (
+                  <a
+                    href={`/blog/${post.id}/`}
+                    class="group rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                  >
+                    <h3 class="text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors">
+                      {post.data.title}
+                    </h3>
+                    <p class="mt-2 text-sm text-[var(--text-muted)]">{post.data.description}</p>
+                    <span class="mt-4 inline-flex text-sm font-semibold text-[var(--accent-strong)]">
+                      Read article →
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FAQ Section - Conditional */}
-      {faqs && faqs.length > 0 && (
+      {normalizedFaqs.length > 0 && (
         <section class="bg-[var(--surface-elevated)] py-16">
           <div class={CONTAINER_CLASSES.section}>
             <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Frequently Asked Questions</h2>
             <div class="mx-auto mt-12 max-w-3xl space-y-4">
-              {faqs.map((faq) => (
+              {normalizedFaqs.map((faq) => (
                 <details class="group rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] shadow-[var(--card-shadow)]">
                   <summary class="flex cursor-pointer items-center justify-between p-6 text-lg font-bold text-[var(--text-strong)] [&::-webkit-details-marker]:hidden">
                     {faq.question}

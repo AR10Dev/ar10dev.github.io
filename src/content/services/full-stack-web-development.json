@@ -77,5 +77,5 @@
       "answer": "Performance directly impacts business outcomes. Every 100ms of latency costs 1% in conversions. Google uses Core Web Vitals as a ranking factor. Mobile users abandon sites that take longer than 3 seconds to load. Fast sites rank better, convert better, and provide better user experience."
     }
   ],
-  "relatedServices": ["astro-development", "saas-mvp-development"]
+  "relatedServices": ["mobile-app-development", "saas-mvp-development"]
 }

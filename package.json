@@ -16,21 +16,23 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@astrojs/mdx": "5.0.2",
-    "@astrojs/sitemap": "3.7.1",
+    "@astrojs/mdx": "5.0.3",
+    "@astrojs/sitemap": "3.7.2",
     "@astrojs/solid-js": "6.0.1",
-    "@biomejs/biome": "2.4.8",
-    "@tailwindcss/typography": "0.5.16",
+    "@biomejs/biome": "2.4.10",
+    "@tailwindcss/typography": "0.5.19",
     "@tailwindcss/vite": "4.2.2",
     "@vite-pwa/astro": "1.2.0",
-    "cspell": "9.7.0",
+    "cspell": "10.0.0",
+    "playwright": "1.59.1",
+    "rehype-mermaid": "3.0.0",
     "tailwindcss": "4.2.2",
     "typescript": "6.0.2"
   },
   "dependencies": {
     "@astrojs/partytown": "2.1.6",
     "@astrojs/rss": "4.0.18",
-    "astro": "6.0.8",
-    "solid-js": "1.9.11"
+    "astro": "6.1.4",
+    "solid-js": "1.9.12"
   }
 }

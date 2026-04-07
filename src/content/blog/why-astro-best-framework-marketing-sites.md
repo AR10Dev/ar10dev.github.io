@@ -8,7 +8,7 @@ category: Development
 draft: false
 featured: false
 readingTime: 10
-relatedService: astro-development
+relatedService: full-stack-web-development
 ---
 
 After building dozens of marketing sites across different frameworks, I keep coming back to Astro. Not because it's trendy, but because it solves the specific problems marketing sites face better than the alternatives.
