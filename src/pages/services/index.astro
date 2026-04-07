@@ -8,8 +8,7 @@ import {
   TYPOGRAPHY_CLASSES,
 } from "@lib/constants";
 
-const title =
-  "AI Automation, Web & SEO Services in Miami | Avaab Razzaq";
+const title = "AI Automation, Web & SEO Services in Miami | Avaab Razzaq";
 const description =
   "Explore AI automation, full-stack web and mobile development, and technical SEO services by Avaab Razzaq in Miami, built to improve conversions and growth.";
 
@@ -41,9 +40,8 @@ const services = allServices.sort((a, b) => {
   return aOrder - bOrder;
 });
 
-const siteUrl = new URL(
-  Astro.site?.toString() ?? "https://avaabrazzaq.com",
-).origin;
+const siteUrl = new URL(Astro.site?.toString() ?? "https://avaabrazzaq.com")
+  .origin;
 const canonicalUrl = new URL("/services/", siteUrl).toString();
 
 const structuredData = {
@@ -138,7 +136,7 @@ const serviceIcons: Record<string, string> = {
 
 <BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage="https://avaabrazzaq.com/og-services.png" structuredData={structuredData}>
   <div class="min-h-screen py-12">
-    <div class={CONTAINER_CLASSES.horizontal}>
+    <div class={CONTAINER_CLASSES.section}>
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} class="mb-8" />
       
       <header class="mb-16 text-center">
@@ -154,7 +152,7 @@ const serviceIcons: Record<string, string> = {
           <article class="group relative flex flex-col rounded-2xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-8 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl">
             <div class="mb-6 text-[var(--accent-strong)]" set:html={serviceIcons[service.data.slug] || serviceIcons["ai-automation"]} />
             
-            <h2 class={`${TYPOGRAPHY_CLASSES.cardTitleBold} mb-3`}>
+            <h2 class={`${TYPOGRAPHY_CLASSES.cardTitle} font-bold mb-3`}>
               <a
                 href={`/services/${service.data.slug}/`}
                 data-track={`open_service_detail_${service.data.slug}`}
@@ -164,7 +162,7 @@ const serviceIcons: Record<string, string> = {
               </a>
             </h2>
             
-            <p class={`${TYPOGRAPHY_CLASSES.cardText} mb-6 flex-grow`}>
+            <p class={`${TYPOGRAPHY_CLASSES.cardBodyMuted} mb-6 flex-grow`}>
               {service.data.heroSubtitle}
             </p>
 

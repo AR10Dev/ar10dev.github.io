@@ -259,7 +259,7 @@ const relatedServices = [
   <article class="min-h-screen">
     {/* Hero Section */}
     <section class="bg-[var(--surface-elevated)] py-16 md:py-24">
-      <div class={CONTAINER_CLASSES.horizontal}>
+      <div class={CONTAINER_CLASSES.section}>
         <Breadcrumb items={[
           { label: "Home", href: "/" },
           { label: "Services", href: "/services/" },
@@ -286,7 +286,7 @@ const relatedServices = [
 
     {/* Benefits Section */}
     <section class="py-16">
-      <div class={CONTAINER_CLASSES.horizontal}>
+      <div class={CONTAINER_CLASSES.section}>
         <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Why Work With Me</h2>
         <div class="mt-12 grid gap-8 md:grid-cols-3">
           {service.data.benefits.map((benefit) => (
@@ -306,7 +306,7 @@ const relatedServices = [
 
     {/* Services Grid */}
     <section class="bg-[var(--surface-elevated)] py-16">
-      <div class={CONTAINER_CLASSES.horizontal}>
+      <div class={CONTAINER_CLASSES.section}>
         <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>What I Offer</h2>
         <div class="mt-12 grid gap-6 md:grid-cols-2">
           {service.data.services.map((item) => (
@@ -324,7 +324,7 @@ const relatedServices = [
 
     {/* Technologies */}
     <section class="py-16">
-      <div class={CONTAINER_CLASSES.horizontal}>
+      <div class={CONTAINER_CLASSES.section}>
         <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Technologies & Tools</h2>
         <div class="mt-10 flex flex-wrap justify-center gap-3">
           {service.data.technologies.map((tech) => (
@@ -339,7 +339,7 @@ const relatedServices = [
     {/* FAQ Section */}
     {service.data.faqs && service.data.faqs.length > 0 && (
       <section class="bg-[var(--surface-elevated)] py-16">
-        <div class={CONTAINER_CLASSES.horizontal}>
+        <div class={CONTAINER_CLASSES.section}>
           <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Frequently Asked Questions</h2>
           <div class="mx-auto mt-12 max-w-3xl space-y-6">
             {service.data.faqs.map((faq) => (
@@ -363,7 +363,7 @@ const relatedServices = [
     {/* Related Services */}
     {relatedServices.length > 0 && (
       <section class="py-16">
-        <div class={CONTAINER_CLASSES.horizontal}>
+        <div class={CONTAINER_CLASSES.section}>
           <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Services</h2>
           <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {relatedServices.map((related) => (
@@ -390,7 +390,7 @@ const relatedServices = [
     {/* Related Blog Posts */}
     {relatedPosts.length > 0 && (
       <section class="py-16 bg-[var(--surface-base)]">
-        <div class={CONTAINER_CLASSES.horizontal}>
+        <div class={CONTAINER_CLASSES.section}>
           <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Articles</h2>
           <p class="text-center text-[var(--text-muted)] mt-4 max-w-2xl mx-auto">
             Learn more about {service.data.title.toLowerCase()} with these in-depth articles and guides.
@@ -426,7 +426,7 @@ const relatedServices = [
     {/* Related Portfolio Items */}
     {relatedPortfolio.length > 0 && (
       <section class="py-16">
-        <div class={CONTAINER_CLASSES.horizontal}>
+        <div class={CONTAINER_CLASSES.section}>
           <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Projects</h2>
           <p class="text-center text-[var(--text-muted)] mt-4 max-w-2xl mx-auto">
             See how I've applied {service.data.title.toLowerCase()} in real-world projects.
@@ -465,7 +465,7 @@ const relatedServices = [
 
     {/* CTA Section */}
     <section class="bg-[var(--surface-elevated)] py-16">
-      <div class={CONTAINER_CLASSES.horizontal}>
+      <div class={CONTAINER_CLASSES.section}>
         <div class="mx-auto max-w-2xl text-center">
           <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>{service.data.cta.title}</h2>
           <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>{service.data.cta.description}</p>

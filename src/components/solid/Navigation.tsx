@@ -1,5 +1,6 @@
 import type { Component } from "solid-js";
-import { createSignal, For, onCleanup, onMount, Show } from "solid-js";
+import { createEffect, createSignal, For, Show } from "solid-js";
+import { Portal } from "solid-js/web";
 
 export interface NavLink {
   label: string;
@@ -16,6 +17,7 @@ interface NavigationProps {
 const Navigation: Component<NavigationProps> = (props) => {
   const [isOpen, setIsOpen] = createSignal(false);
   const [openDropdown, setOpenDropdown] = createSignal<string | null>(null);
+  let mobileMenuRef: HTMLDivElement | undefined;
 
   const isActive = (href: string): boolean => {
     if (href === "/") {
@@ -29,12 +31,13 @@ const Navigation: Component<NavigationProps> = (props) => {
     return link.children.some((child) => isActive(child.href));
   };
 
-  onMount(() => {
-    if (typeof window === "undefined") return;
+  createEffect(() => {
+    if (isOpen()) {
+      mobileMenuRef?.focus();
+      return;
+    }
 
-    onCleanup(() => {
-      // Cleanup if needed
-    });
+    setOpenDropdown(null);
   });
 
   const handleKeyDown = (e: KeyboardEvent) => {
@@ -163,7 +166,7 @@ const Navigation: Component<NavigationProps> = (props) => {
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              aria-label="Menu"
+              aria-hidden="true"
             >
               <line x1="3" y1="6" x2="21" y2="6" />
               <line x1="3" y1="12" x2="21" y2="12" />
@@ -180,7 +183,7 @@ const Navigation: Component<NavigationProps> = (props) => {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            aria-label="Close menu"
+            aria-hidden="true"
           >
             <line x1="18" y1="6" x2="6" y2="18" />
             <line x1="6" y1="6" x2="18" y2="18" />
@@ -190,131 +193,137 @@ const Navigation: Component<NavigationProps> = (props) => {
 
       {/* Mobile Menu Overlay */}
       <Show when={isOpen()}>
-        <button
-          type="button"
-          class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
-          onClick={() => setIsOpen(false)}
-          onKeyDown={handleKeyDown}
-          aria-label="Close menu"
-        />
-        <div
-          id="mobile-menu"
-          class="fixed right-0 top-0 z-50 h-full w-[280px] bg-[var(--surface-elevated)] shadow-xl md:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Mobile navigation menu"
-        >
-          <div class="flex items-center justify-between border-b border-[var(--border-strong)] p-4">
-            <span class="text-lg font-bold text-[var(--text-strong)]">
-              Menu
-            </span>
-            <button
-              type="button"
-              class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-[var(--text-muted)] hover:bg-[var(--surface-panel)] hover:text-[var(--text-strong)]"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close menu"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+        <Portal>
+          <button
+            type="button"
+            class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+            onClick={() => setIsOpen(false)}
+            aria-label="Close menu"
+          />
+          <div
+            id="mobile-menu"
+            ref={mobileMenuRef}
+            class="fixed right-0 top-0 z-50 h-full w-[280px] bg-[var(--surface-elevated)] shadow-xl md:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation menu"
+            tabIndex={-1}
+            onKeyDown={handleKeyDown}
+          >
+            <div class="flex items-center justify-between border-b border-[var(--border-strong)] p-4">
+              <span class="text-lg font-bold text-[var(--text-strong)]">
+                Menu
+              </span>
+              <button
+                type="button"
+                class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-[var(--text-muted)] hover:bg-[var(--surface-panel)] hover:text-[var(--text-strong)]"
+                onClick={() => setIsOpen(false)}
                 aria-label="Close menu"
               >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-          </div>
-          <ul class="py-2 overflow-y-auto max-h-[calc(100vh-180px)]">
-            <For each={props.links}>
-              {(link) => (
-                <li>
-                  <Show
-                    when={link.children && link.children.length > 0}
-                    fallback={
-                      <a
-                        class={`${mobileBaseClass} ${isActive(link.href) ? mobileActiveClass : ""}`}
-                        href={link.href}
-                        data-track={`nav_mobile_${toTrackToken(link.label)}`}
-                        onClick={() => setIsOpen(false)}
-                        aria-current={isActive(link.href) ? "page" : undefined}
-                      >
-                        {link.label}
-                      </a>
-                    }
-                  >
-                    <button
-                      type="button"
-                      class={`${mobileBaseClass} flex items-center justify-between ${isActive(link.href) || hasActiveChild(link) ? mobileActiveClass : ""}`}
-                      onClick={() =>
-                        setOpenDropdown(
-                          openDropdown() === link.label ? null : link.label,
-                        )
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
+            <ul class="py-2 overflow-y-auto max-h-[calc(100vh-180px)]">
+              <For each={props.links}>
+                {(link) => (
+                  <li>
+                    <Show
+                      when={link.children && link.children.length > 0}
+                      fallback={
+                        <a
+                          class={`${mobileBaseClass} ${isActive(link.href) ? mobileActiveClass : ""}`}
+                          href={link.href}
+                          data-track={`nav_mobile_${toTrackToken(link.label)}`}
+                          onClick={() => setIsOpen(false)}
+                          aria-current={
+                            isActive(link.href) ? "page" : undefined
+                          }
+                        >
+                          {link.label}
+                        </a>
                       }
                     >
-                      {link.label}
-                      <svg
-                        class={`h-4 w-4 transition-transform ${openDropdown() === link.label ? "rotate-180" : ""}`}
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        aria-hidden="true"
+                      <button
+                        type="button"
+                        class={`${mobileBaseClass} flex items-center justify-between ${isActive(link.href) || hasActiveChild(link) ? mobileActiveClass : ""}`}
+                        onClick={() =>
+                          setOpenDropdown(
+                            openDropdown() === link.label ? null : link.label,
+                          )
+                        }
                       >
-                        <polyline points="6 9 12 15 18 9" />
-                      </svg>
-                    </button>
-                    <Show when={openDropdown() === link.label}>
-                      <ul class="bg-[var(--surface-panel)] border-t border-[var(--border-strong)]">
-                        <For each={link.children}>
-                          {(child) => (
-                            <li>
-                              <a
-                                class="block px-8 py-2.5 text-sm text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] hover:text-[var(--text-strong)]"
-                                href={child.href}
-                                data-track={`nav_mobile_${toTrackToken(link.label)}_${toTrackToken(child.label)}`}
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {child.label}
-                              </a>
-                            </li>
-                          )}
-                        </For>
-                        <li>
-                          <a
-                            class="block px-8 py-2.5 text-sm font-semibold text-[var(--accent-strong)] hover:bg-[var(--surface-elevated)]"
-                            href={link.href}
-                            data-track={`nav_mobile_${toTrackToken(link.label)}_all`}
-                            onClick={() => setIsOpen(false)}
-                          >
-                            View All Services →
-                          </a>
-                        </li>
-                      </ul>
+                        {link.label}
+                        <svg
+                          class={`h-4 w-4 transition-transform ${openDropdown() === link.label ? "rotate-180" : ""}`}
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                      </button>
+                      <Show when={openDropdown() === link.label}>
+                        <ul class="bg-[var(--surface-panel)] border-t border-[var(--border-strong)]">
+                          <For each={link.children}>
+                            {(child) => (
+                              <li>
+                                <a
+                                  class="block px-8 py-2.5 text-sm text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] hover:text-[var(--text-strong)]"
+                                  href={child.href}
+                                  data-track={`nav_mobile_${toTrackToken(link.label)}_${toTrackToken(child.label)}`}
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  {child.label}
+                                </a>
+                              </li>
+                            )}
+                          </For>
+                          <li>
+                            <a
+                              class="block px-8 py-2.5 text-sm font-semibold text-[var(--accent-strong)] hover:bg-[var(--surface-elevated)]"
+                              href={link.href}
+                              data-track={`nav_mobile_${toTrackToken(link.label)}_all`}
+                              onClick={() => setIsOpen(false)}
+                            >
+                              View All Services →
+                            </a>
+                          </li>
+                        </ul>
+                      </Show>
                     </Show>
-                  </Show>
-                </li>
-              )}
-            </For>
-          </ul>
-          <div class="absolute bottom-0 left-0 right-0 border-t border-[var(--border-strong)] p-4">
-            <a
-              href="/contact/"
-              class="block w-full rounded-lg bg-[linear-gradient(120deg,#db7a38,#b05422)] px-4 py-3 text-center font-bold text-white shadow-lg"
-              data-track="nav_mobile_contact_cta"
-              onClick={() => setIsOpen(false)}
-            >
-              Get in Touch
-            </a>
+                  </li>
+                )}
+              </For>
+            </ul>
+            <div class="absolute bottom-0 left-0 right-0 border-t border-[var(--border-strong)] p-4">
+              <a
+                href="/contact/"
+                class="block w-full rounded-lg bg-[linear-gradient(120deg,#db7a38,#b05422)] px-4 py-3 text-center font-bold text-white shadow-lg"
+                data-track="nav_mobile_contact_cta"
+                onClick={() => setIsOpen(false)}
+              >
+                Get in Touch
+              </a>
+            </div>
           </div>
-        </div>
+        </Portal>
       </Show>
     </nav>
   );

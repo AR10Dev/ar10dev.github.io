@@ -34,3 +34,6 @@ dist
 
 # Typescript mcp cache
 .lsmcp/
+
+# Playwright mcp cache
+.playwright-mcp/

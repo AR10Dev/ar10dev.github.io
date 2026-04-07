@@ -3,9 +3,13 @@ import AnalyticsConsent from "@components/AnalyticsConsent.astro";
 import FooterNav from "@components/FooterNav.astro";
 import GoogleAnalytics from "@components/GoogleAnalytics.astro";
 import HeaderNav from "@components/HeaderNav.astro";
+import HeadSEO from "@components/HeadSEO.astro";
+import { getAnalyticsConfig } from "@lib/analytics";
+import { buildSiteUrl, normalizeCanonicalUrl } from "@lib/canonicalUrl";
+import { themeInitScript } from "@scripts/themeInit";
 import "../styles/global.css";
 
-export interface Props {
+type Props = {
   title: string;
   description: string;
   canonicalUrl?: string;
@@ -17,29 +21,11 @@ export interface Props {
   publishedTime?: string;
   modifiedTime?: string;
   author?: string;
+  robots?: string;
   readingTime?: string;
-}
-
-const configuredSite = new URL(
-  Astro.site?.toString() ?? "https://avaabrazzaq.com",
-);
-configuredSite.protocol = "https:";
-
-const siteUrl = configuredSite.origin;
-
-const normalizeCanonicalUrl = (inputUrl: string) => {
-  const parsedUrl = new URL(inputUrl, siteUrl);
-  parsedUrl.protocol = "https:";
-  parsedUrl.host = configuredSite.host;
-  parsedUrl.search = "";
-  parsedUrl.hash = "";
-
-  if (!parsedUrl.pathname.endsWith("/") && !parsedUrl.pathname.includes(".")) {
-    parsedUrl.pathname = `${parsedUrl.pathname}/`;
-  }
-
-  return parsedUrl.toString();
 };
+
+const siteUrl = buildSiteUrl(Astro.site);
 
 const {
   title,
@@ -53,11 +39,12 @@ const {
   publishedTime,
   modifiedTime,
   author = "Avaab Razzaq",
-  readingTime,
-} = Astro.props;
+  robots,
+} = Astro.props as Props;
 
 const canonicalUrl = normalizeCanonicalUrl(
-  canonicalUrlProp ?? new URL(Astro.url.pathname, siteUrl).toString(),
+  canonicalUrlProp ?? Astro.url.pathname,
+  siteUrl,
 );
 const finalOgImage = ogImage.startsWith("http")
   ? ogImage
@@ -66,9 +53,11 @@ const finalOgImage = ogImage.startsWith("http")
 const defaultKeywords =
   "AI Growth Engineer, AI Automation, Full-Stack Developer, SEO Expert, Miami Florida, Web Development, LLM Integration, Workflow Automation";
 const finalKeywords = keywords || defaultKeywords;
-const gaMeasurementId =
-  import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() || "G-LKVQYYL9XZ";
-const shouldLoadAnalytics = import.meta.env.PROD && gaMeasurementId.length > 0;
+const defaultRobots =
+  "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+const resolvedRobots =
+  robots ?? (noIndex ? "noindex, nofollow" : defaultRobots);
+const { gaMeasurementId, shouldLoadAnalytics } = getAnalyticsConfig();
 
 const currentPath = Astro.url.pathname;
 ---
@@ -76,113 +65,27 @@ const currentPath = Astro.url.pathname;
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8" />
-    
     {shouldLoadAnalytics && (
       <>
         <!-- Google Analytics -->
         <GoogleAnalytics id={gaMeasurementId} />
       </>
     )}
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <meta name="description" content={description} />
-    <meta name="author" content="Avaab Razzaq" />
-    {noIndex && <meta name="robots" content="noindex, nofollow" />}
-    {!noIndex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
-    
-    {/* Geo-targeting for local SEO */}
-    <meta name="geo.region" content="US-FL" />
-    <meta name="geo.placename" content="Miami" />
-    <meta name="geo.position" content="25.7617;-80.1918" />
-    <meta name="ICBM" content="25.7617, -80.1918" />
-    
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="msapplication-TileImage" content="/pwa-192x192.png" />
-    <link rel="canonical" href={canonicalUrl} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="alternate" type="application/rss+xml" title="Avaab Razzaq Blog RSS Feed" href="/blog/rss.xml" />
-    
-    {/* Preconnect to external resources */}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://cal.com" />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://github.com" />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
-    
-    <title>{title}</title>
-    <meta name="keywords" content={finalKeywords} />
+    <HeadSEO
+      title={title}
+      description={description}
+      canonicalUrl={canonicalUrl}
+      ogImage={finalOgImage}
+      ogType={ogType}
+      author={author}
+      robots={resolvedRobots}
+      keywords={finalKeywords}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      structuredData={structuredData}
+    />
 
-    {/* Open Graph */}
-    <meta property="og:type" content={ogType} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={finalOgImage} />
-    <meta property="og:image:alt" content={title} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="Avaab Razzaq - AI Growth Engineer" />
-    <meta property="og:locale" content="en_US" />
-    
-    {/* Article-specific Open Graph tags */}
-    {ogType === "article" && publishedTime && (
-      <meta property="article:published_time" content={publishedTime} />
-    )}
-    {ogType === "article" && modifiedTime && (
-      <meta property="article:modified_time" content={modifiedTime} />
-    )}
-    {ogType === "article" && (
-      <meta property="article:author" content={author} />
-    )}
-
-    {/* Twitter/X Card */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@itsmeAvaab" />
-    <meta name="twitter:creator" content="@itsmeAvaab" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={finalOgImage} />
-    {ogType === "article" && (
-      <>
-        <meta name="twitter:label1" content="Written by" />
-        <meta name="twitter:data1" content={author} />
-        {readingTime && (
-          <>
-            <meta name="twitter:label2" content="Est. reading time" />
-            <meta name="twitter:data2" content={readingTime} />
-          </>
-        )}
-      </>
-    )}
-
-    <meta name="theme-color" content="#0e2a47" />
-
-    {structuredData && (
-      <script
-        is:inline
-        type="application/ld+json"
-        set:html={JSON.stringify(structuredData)}
-      />
-    )}
-
-    <script is:inline>
-      (() => {
-        try {
-          const storedTheme = localStorage.getItem("theme");
-          const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          const shouldUseDark = storedTheme === null ? systemPrefersDark : storedTheme === "dark";
-          document.documentElement.classList.toggle("dark", shouldUseDark);
-          document.documentElement.classList.add("js");
-        } catch {
-          // Ignore localStorage restrictions
-        }
-      })();
-    </script>
+    <script is:inline set:html={themeInitScript}></script>
   </head>
   <body class="min-h-screen bg-transparent text-[var(--text-strong)]">
     <div aria-hidden="true" class="fixed inset-0 -z-10 pointer-events-none site-bg"></div>

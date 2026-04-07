@@ -1,0 +1,89 @@
+---
+type Props = {
+  title: string;
+  description: string;
+  canonicalUrl: string;
+  ogImage: string;
+  ogType?: string;
+  author?: string;
+  robots?: string;
+  keywords?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  twitterHandle?: string;
+  structuredData?: Record<string, unknown>;
+};
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  ogImage,
+  ogType = "website",
+  author = "Avaab Razzaq",
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  keywords,
+  publishedTime,
+  modifiedTime,
+  twitterHandle = "@itsmeAvaab",
+  structuredData,
+} = Astro.props as Props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+<meta name="robots" content={robots} />
+{keywords && <meta name="keywords" content={keywords} />}
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="canonical" href={canonicalUrl} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="Avaab Razzaq Blog RSS Feed"
+  href="/blog/rss.xml"
+/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Sora:wght@300..800&display=swap"
+  rel="stylesheet"
+/>
+
+<title>{title}</title>
+
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content={title} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Avaab Razzaq - AI Growth Engineer" />
+<meta property="og:locale" content="en_US" />
+
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={twitterHandle} />
+<meta name="twitter:creator" content={twitterHandle} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<meta name="theme-color" content="#0e2a47" />
+
+{structuredData && (
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  />
+)}

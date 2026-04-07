@@ -76,11 +76,6 @@
     }
   ],
   "parentService": "seo-growth",
-  "relatedServices": [
-    "programmatic-seo",
-    "conversion-optimization"
-  ],
-  "relatedBlogPosts": [
-    "complete-technical-seo-audit-checklist-2025"
-  ]
+  "relatedServices": ["programmatic-seo", "conversion-optimization"],
+  "relatedBlogPosts": ["complete-technical-seo-audit-checklist-2025"]
 }

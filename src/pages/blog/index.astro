@@ -91,7 +91,7 @@ const structuredData = {
 
 <BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage} structuredData={structuredData}>
   <div class="min-h-screen py-12">
-    <div class={CONTAINER_CLASSES.horizontal}>
+    <div class={CONTAINER_CLASSES.section}>
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} class="mb-8" />
       
       <!-- Header -->
@@ -146,14 +146,14 @@ const structuredData = {
                 </div>
 
                 {/* Title */}
-                <h2 class={`${TYPOGRAPHY_CLASSES.cardTitleBold} mb-3`}>
+                <h2 class={`${TYPOGRAPHY_CLASSES.cardTitle} font-bold mb-3`}>
                   <a href={`/blog/${post.id}/`} class="after:absolute after:inset-0 hover:text-[var(--accent-strong)] transition-colors">
                     {post.data.title}
                   </a>
                 </h2>
 
                 {/* Description */}
-                <p class={`${TYPOGRAPHY_CLASSES.cardText} mb-6 flex-grow`}>
+                <p class={`${TYPOGRAPHY_CLASSES.cardBodyMuted} mb-6 flex-grow`}>
                   {post.data.description}
                 </p>
 

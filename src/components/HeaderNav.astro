@@ -5,13 +5,12 @@ import { ICON_BUTTON_CLASSES } from "@lib/constants";
 import type { NavLink } from "@solid-components/Navigation";
 import Navigation from "@solid-components/Navigation";
 
-export interface Props {
+type Props = {
   background?: string;
-  currentPath?: string;
-}
+  currentPath: string;
+};
 
-const { background = "", currentPath = Astro.url.pathname } =
-  Astro.props as Props;
+const { background = "", currentPath } = Astro.props as Props;
 
 const navLinks: NavLink[] = [
   { label: "Home", href: "/" },

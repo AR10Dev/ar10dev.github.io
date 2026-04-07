@@ -77,11 +77,6 @@
     }
   ],
   "parentService": "ai-automation",
-  "relatedServices": [
-    "ai-workflow-automation",
-    "llm-integration"
-  ],
-  "relatedBlogPosts": [
-    "building-custom-chatgpt-interfaces-for-business"
-  ]
+  "relatedServices": ["ai-workflow-automation", "llm-integration"],
+  "relatedBlogPosts": ["building-custom-chatgpt-interfaces-for-business"]
 }

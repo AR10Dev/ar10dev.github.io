@@ -5,15 +5,11 @@
   "compilerOptions": {
     "ignoreDeprecations": "6.0",
     "baseUrl": "./src",
-    "target": "ESNext",
-    "module": "ESNext",
     "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "noEmit": true,
     "verbatimModuleSyntax": true,
     "paths": {
@@ -21,7 +17,9 @@
       "@layouts/*": ["layouts/*"],
       "@lib/*": ["lib/*"],
       "@assets/*": ["assets/*"],
-      "@solid-components/*": ["components/solid/*"]
+      "@solid-components/*": ["components/solid/*"],
+      "@scripts/*": ["scripts/*"],
+      "@data/*": ["data/*"]
     }
   }
 }

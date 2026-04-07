@@ -77,11 +77,6 @@
     }
   ],
   "parentService": "seo-growth",
-  "relatedServices": [
-    "technical-seo-audit",
-    "conversion-optimization"
-  ],
-  "relatedBlogPosts": [
-    "how-programmatic-seo-generates-10x-traffic"
-  ]
+  "relatedServices": ["technical-seo-audit", "conversion-optimization"],
+  "relatedBlogPosts": ["how-programmatic-seo-generates-10x-traffic"]
 }

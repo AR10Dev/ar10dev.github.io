@@ -62,9 +62,8 @@ interface Props {
 }
 
 const { item, relatedService, relatedPosts, relatedPortfolio } = Astro.props;
-const siteUrl = new URL(
-  Astro.site?.toString() ?? "https://avaabrazzaq.com",
-).origin;
+const siteUrl = new URL(Astro.site?.toString() ?? "https://avaabrazzaq.com")
+  .origin;
 const canonicalUrl = new URL(`/portfolio/${item.id}/`, siteUrl).toString();
 
 const clampText = (value: string, maxLength: number) =>
@@ -169,7 +168,7 @@ const relatedItems = relatedPortfolio;
   <article class="min-h-screen">
     {/* Hero Section */}
     <section class="bg-[var(--surface-elevated)] py-16 md:py-24">
-      <div class={CONTAINER_CLASSES.horizontal}>
+      <div class={CONTAINER_CLASSES.section}>
         <Breadcrumb items={[
           { label: "Home", href: "/" },
           { label: "Portfolio", href: "/portfolio/" },
@@ -212,7 +211,7 @@ const relatedItems = relatedPortfolio;
 
     {/* Details Section */}
     <section class="py-16">
-      <div class={CONTAINER_CLASSES.horizontal}>
+      <div class={CONTAINER_CLASSES.section}>
         <div class="grid gap-12 lg:grid-cols-3">
           {/* Main Content */}
           <div class="lg:col-span-2">
@@ -293,7 +292,7 @@ const relatedItems = relatedPortfolio;
     {/* Related Projects */}
     {relatedItems.length > 0 && (
       <section class="bg-[var(--surface-elevated)] py-16">
-        <div class={CONTAINER_CLASSES.horizontal}>
+        <div class={CONTAINER_CLASSES.section}>
           <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Projects</h2>
           <div class="mt-10 grid gap-6 md:grid-cols-2">
             {relatedItems.map((related) => (
@@ -316,7 +315,7 @@ const relatedItems = relatedPortfolio;
     {/* Related Service */}
     {relatedService && (
       <section class="py-16">
-        <div class={CONTAINER_CLASSES.horizontal}>
+        <div class={CONTAINER_CLASSES.section}>
           <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Service</h2>
           <div class="mt-10 mx-auto max-w-2xl">
             <a 
@@ -341,7 +340,7 @@ const relatedItems = relatedPortfolio;
     {/* Related Blog Posts */}
     {relatedPosts.length > 0 && (
       <section class="bg-[var(--surface-elevated)] py-16">
-        <div class={CONTAINER_CLASSES.horizontal}>
+        <div class={CONTAINER_CLASSES.section}>
           <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Articles</h2>
           <div class="mt-10 grid gap-6 md:grid-cols-3">
             {relatedPosts.map((post) => (
@@ -365,7 +364,7 @@ const relatedItems = relatedPortfolio;
 
     {/* CTA Section */}
     <section class="py-16">
-      <div class={CONTAINER_CLASSES.horizontal}>
+      <div class={CONTAINER_CLASSES.section}>
         <div class="mx-auto max-w-2xl text-center">
           <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>Want Something Similar?</h2>
           <p class={`mt-4 ${TYPOGRAPHY_CLASSES.body}`}>

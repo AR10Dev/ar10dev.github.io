@@ -20,9 +20,8 @@ export const TYPOGRAPHY_CLASSES = {
     "text-xs font-semibold text-[var(--accent-strong)] leading-[1.4] tracking-[0.02em]",
   cardTitle:
     "text-xl font-semibold text-[var(--text-strong)] leading-[1.3] tracking-[-0.01em]",
-  cardTitleBold:
-    "text-xl font-bold leading-[1.25] text-[var(--text-strong)] tracking-[-0.01em]",
-  cardText: "text-base font-normal text-[var(--text-muted)] leading-[1.65]",
+  cardBodyMuted:
+    "text-base font-normal text-[var(--text-muted)] leading-[1.65]",
   cardBody: "text-base font-normal text-[var(--text-strong)] leading-[1.65]",
   cardBodySm: "text-sm text-[var(--text-muted)] leading-[1.6]",
   cardBodyXs: "text-xs text-[var(--text-muted)] leading-[1.5]",
@@ -41,8 +40,6 @@ export const CARD_CLASSES = {
   compact: "p-5",
   glass:
     "rounded-lg border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_80%,transparent)] shadow-[0_10px_26px_rgba(0,0,0,0.2)] backdrop-blur-sm",
-  glassVariant:
-    "rounded-lg border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_88%,transparent)] shadow-[0_8px_18px_rgba(0,0,0,0.16)] backdrop-blur-sm",
   portfolio:
     "rounded-lg border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_80%,transparent)] p-4 shadow-[0_12px_30px_rgba(0,0,0,0.22)] backdrop-blur-sm hover:shadow-[0_14px_36px_rgba(0,0,0,0.28)]",
 };
@@ -59,7 +56,6 @@ export const ICON_BUTTON_CLASSES = {
 };
 
 export const SOCIAL_LINK_CLASSES = {
-  icon: "inline-flex h-[2.4rem] w-[2.4rem] items-center justify-center rounded-xl border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_86%,transparent)] text-[var(--text-strong)] transition-[transform,border-color,background] duration-200 hover:-translate-y-[1px] hover:border-[color-mix(in_srgb,var(--accent-strong)_60%,var(--border-strong))] hover:bg-[color-mix(in_srgb,var(--surface-panel)_78%,var(--accent-strong)_22%)]",
   text: "text-[0.82rem] font-bold text-[var(--accent-strong)] transition-opacity duration-200 hover:opacity-80",
 };
 
@@ -67,7 +63,6 @@ export const SKIP_LINK_CLASSES =
   "absolute left-4 top-[-100%] z-[200] rounded-[0.6rem] border border-[var(--border-strong)] bg-[var(--surface-panel)] px-[0.85rem] py-[0.55rem] font-bold text-[var(--text-strong)] focus-visible:top-[0.8rem]";
 
 export const CONTAINER_CLASSES = {
-  horizontal: "mx-auto max-w-screen-xl px-6",
   section: "mx-auto w-full max-w-screen-xl px-6",
   sectionLg:
     "section-content max-w-screen-lg mx-auto xl:max-w-screen-xl w-full",

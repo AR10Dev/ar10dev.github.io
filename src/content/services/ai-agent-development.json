@@ -68,9 +68,5 @@
       "answer": "LangGraph for stateful workflows with complex branching. CrewAI for multi-agent role-based systems. MCP for standardized tool access. I choose based on your use case."
     }
   ],
-  "relatedServices": [
-    "ai-automation",
-    "mcp-integration",
-    "llm-integration"
-  ]
+  "relatedServices": ["ai-automation", "mcp-integration", "llm-integration"]
 }

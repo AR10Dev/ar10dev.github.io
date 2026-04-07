@@ -78,11 +78,6 @@
     }
   ],
   "parentService": "ai-automation",
-  "relatedServices": [
-    "ai-chatbot-development",
-    "ai-workflow-automation"
-  ],
-  "relatedBlogPosts": [
-    "openai-vs-anthropic-which-llm-for-business"
-  ]
+  "relatedServices": ["ai-chatbot-development", "ai-workflow-automation"],
+  "relatedBlogPosts": ["openai-vs-anthropic-which-llm-for-business"]
 }

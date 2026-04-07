@@ -4,13 +4,18 @@ import logo from "@assets/logo.png";
 import "../styles/global.css";
 import AnalyticsConsent from "@components/AnalyticsConsent.astro";
 import GoogleAnalytics from "@components/GoogleAnalytics.astro";
+import HeadSEO from "@components/HeadSEO.astro";
+import { serviceCrossLinks } from "@data/services";
+import { getAnalyticsConfig } from "@lib/analytics";
+import { buildSiteUrl, normalizeCanonicalUrl } from "@lib/canonicalUrl";
 import {
   BUTTON_CLASSES,
   CONTAINER_CLASSES,
   TYPOGRAPHY_CLASSES,
 } from "@lib/constants";
+import { themeInitScript } from "@scripts/themeInit";
 
-export interface Props {
+type Props = {
   title: string;
   description: string;
   heroHeadline: string;
@@ -24,29 +29,10 @@ export interface Props {
   faqs?: { question: string; answer: string }[];
   publishedTime?: string;
   modifiedTime?: string;
-}
-
-const configuredSite = new URL(
-  Astro.site?.toString() ?? "https://avaabrazzaq.com",
-);
-configuredSite.protocol = "https:";
-
-const siteUrl = configuredSite.origin;
-const currentYear = new Date().getFullYear();
-
-const normalizeCanonicalUrl = (inputUrl: string) => {
-  const parsedUrl = new URL(inputUrl, siteUrl);
-  parsedUrl.protocol = "https:";
-  parsedUrl.host = configuredSite.host;
-  parsedUrl.search = "";
-  parsedUrl.hash = "";
-
-  if (!parsedUrl.pathname.endsWith("/") && !parsedUrl.pathname.includes(".")) {
-    parsedUrl.pathname = `${parsedUrl.pathname}/`;
-  }
-
-  return parsedUrl.toString();
 };
+
+const siteUrl = buildSiteUrl(Astro.site);
+const currentYear = new Date().getFullYear();
 
 const {
   title,
@@ -62,11 +48,9 @@ const {
   faqs = [],
   publishedTime,
   modifiedTime,
-} = Astro.props;
+} = Astro.props as Props;
 
-const canonicalUrl = normalizeCanonicalUrl(
-  new URL(Astro.url.pathname, siteUrl).toString(),
-);
+const canonicalUrl = normalizeCanonicalUrl(Astro.url.pathname, siteUrl);
 const finalOgImage = ogImage.startsWith("http")
   ? ogImage
   : new URL(ogImage, siteUrl).toString();
@@ -74,63 +58,6 @@ const finalOgImage = ogImage.startsWith("http")
 const currentServiceSlug = Astro.url.pathname
   .replace(/^\/services\//, "")
   .replace(/\/$/, "");
-
-const serviceCrossLinks = [
-  {
-    slug: "ai-automation",
-    href: "/services/ai-automation/",
-    label: "AI Automation",
-    summary: "Automate repetitive operations with AI-powered workflows.",
-  },
-  {
-    slug: "mcp-integration",
-    href: "/services/mcp-integration/",
-    label: "MCP Integration",
-    summary: "Connect AI systems to real business tools through MCP.",
-  },
-  {
-    slug: "full-stack-web-development",
-    href: "/services/full-stack-web-development/",
-    label: "Full-Stack Development",
-    summary: "Build fast, scalable web products with modern frameworks.",
-  },
-  {
-    slug: "technical-seo",
-    href: "/services/technical-seo/",
-    label: "Technical SEO & GEO",
-    summary: "Improve discoverability across search engines and AI answers.",
-  },
-  {
-    slug: "programmatic-seo",
-    href: "/services/programmatic-seo/",
-    label: "Programmatic SEO",
-    summary: "Scale targeted SEO landing pages with structured systems.",
-  },
-  {
-    slug: "llm-integration",
-    href: "/services/llm-integration/",
-    label: "LLM Integration",
-    summary: "Integrate GPT and Claude into production workflows.",
-  },
-  {
-    slug: "ai-agent-development",
-    href: "/services/ai-agent-development/",
-    label: "AI Agent Development",
-    summary: "Build autonomous AI agents that plan, use tools, and complete complex tasks end-to-end.",
-  },
-  {
-    slug: "prompt-engineering",
-    href: "/services/prompt-engineering/",
-    label: "Prompt Engineering",
-    summary: "Design reliable system prompts and evaluation frameworks for production AI products.",
-  },
-  {
-    slug: "social-media-growth",
-    href: "/services/social-media-growth/",
-    label: "Social Media Growth",
-    summary: "AI-automated content pipelines and growth systems that build your audience on autopilot.",
-  },
-];
 
 const relatedServices = serviceCrossLinks
   .filter((service) => service.slug !== currentServiceSlug)
@@ -152,9 +79,7 @@ const defaultKeywords =
   "AI Growth Engineer, AI Automation, Full-Stack Developer, SEO Expert, Miami Florida, Web Development, LLM Integration, Workflow Automation";
 const finalKeywords =
   keywords.length > 0 ? keywords.join(", ") : defaultKeywords;
-const gaMeasurementId =
-  import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() || "G-LKVQYYL9XZ";
-const shouldLoadAnalytics = import.meta.env.PROD && gaMeasurementId.length > 0;
+const { gaMeasurementId, shouldLoadAnalytics } = getAnalyticsConfig();
 
 // Build structured data with Service schema and optional FAQPage
 const structuredData = {
@@ -223,88 +148,25 @@ const structuredData = {
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8" />
-    
     {shouldLoadAnalytics && (
       <>
         <!-- Google Analytics -->
         <GoogleAnalytics id={gaMeasurementId} />
       </>
     )}
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <meta name="description" content={seoDescription} />
-    <meta name="author" content="Avaab Razzaq" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    
-    {/* Geo-targeting for local SEO */}
-    <meta name="geo.region" content="US-FL" />
-    <meta name="geo.placename" content="Miami" />
-    <meta name="geo.position" content="25.7617;-80.1918" />
-    <meta name="ICBM" content="25.7617, -80.1918" />
-    
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="msapplication-TileImage" content="/pwa-192x192.png" />
-    <link rel="canonical" href={canonicalUrl} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    
-    {/* Preconnect to external resources */}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://cal.com" />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
-    
-    <title>{seoTitle}</title>
-    <meta name="keywords" content={finalKeywords} />
-
-    {/* Open Graph */}
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={seoTitle} />
-    <meta property="og:description" content={seoDescription} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={finalOgImage} />
-    <meta property="og:image:alt" content={seoTitle} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="Avaab Razzaq - AI Growth Engineer" />
-    <meta property="og:locale" content="en_US" />
-    
-    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
-
-    {/* Twitter/X Card */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@itsmeAvaab" />
-    <meta name="twitter:creator" content="@itsmeAvaab" />
-    <meta name="twitter:title" content={seoTitle} />
-    <meta name="twitter:description" content={seoDescription} />
-    <meta name="twitter:image" content={finalOgImage} />
-
-    <meta name="theme-color" content="#0e2a47" />
-
-    <script
-      is:inline
-      type="application/ld+json"
-      set:html={JSON.stringify(structuredData)}
+    <HeadSEO
+      title={seoTitle}
+      description={seoDescription}
+      canonicalUrl={canonicalUrl}
+      ogImage={finalOgImage}
+      ogType="website"
+      keywords={finalKeywords}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      structuredData={structuredData}
     />
 
-    <script is:inline>
-      (() => {
-        try {
-          const storedTheme = localStorage.getItem("theme");
-          const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          const shouldUseDark = storedTheme === null ? systemPrefersDark : storedTheme === "dark";
-          document.documentElement.classList.toggle("dark", shouldUseDark);
-          document.documentElement.classList.add("js");
-        } catch {
-          // Ignore localStorage restrictions
-        }
-      })();
-    </script>
+    <script is:inline set:html={themeInitScript}></script>
   </head>
   <body class="min-h-screen bg-transparent text-[var(--text-strong)]">
     <div aria-hidden="true" class="fixed inset-0 -z-10 pointer-events-none site-bg"></div>
@@ -340,7 +202,7 @@ const structuredData = {
     <main id="main-content" class="pt-20" tabindex="-1">
       {/* Hero Section */}
       <section class="bg-[var(--surface-elevated)] py-16 md:py-24">
-        <div class={CONTAINER_CLASSES.horizontal}>
+        <div class={CONTAINER_CLASSES.section}>
           <div class="max-w-4xl">
             <h1 class={TYPOGRAPHY_CLASSES.heroTitle}>{heroHeadline}</h1>
             <p class={`hero-subheadline service-intro mt-6 ${TYPOGRAPHY_CLASSES.subheading}`}>{heroSubheadline}</p>
@@ -362,7 +224,7 @@ const structuredData = {
 
       {/* Related Services */}
       <section class="py-16">
-        <div class={CONTAINER_CLASSES.horizontal}>
+        <div class={CONTAINER_CLASSES.section}>
           <div class="mx-auto max-w-4xl">
             <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Related Services</h2>
             <p class="service-intro mt-4 text-center text-[var(--text-muted)]">
@@ -391,7 +253,7 @@ const structuredData = {
       {/* FAQ Section - Conditional */}
       {faqs && faqs.length > 0 && (
         <section class="bg-[var(--surface-elevated)] py-16">
-          <div class={CONTAINER_CLASSES.horizontal}>
+          <div class={CONTAINER_CLASSES.section}>
             <h2 class={`text-center ${TYPOGRAPHY_CLASSES.sectionTitle}`}>Frequently Asked Questions</h2>
             <div class="mx-auto mt-12 max-w-3xl space-y-4">
               {faqs.map((faq) => (
@@ -414,7 +276,7 @@ const structuredData = {
 
       {/* Final CTA Banner */}
       <section class="py-16">
-        <div class={CONTAINER_CLASSES.horizontal}>
+        <div class={CONTAINER_CLASSES.section}>
           <div class="mx-auto max-w-2xl text-center">
             <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>Ready to Get Started?</h2>
             <p class="mt-4 text-[var(--text-muted)]">Free discovery call · No commitment</p>

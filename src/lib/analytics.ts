@@ -74,21 +74,21 @@ const normalizeEventName = (value: string): string => {
   return normalized || "interaction_click";
 };
 
-const inferPageType = (pathname: string): string => {
+const getPageSection = (pathname: string): string => {
   if (pathname === "/") {
     return "home";
   }
 
   if (pathname.startsWith("/services/")) {
-    return pathname === "/services/" ? "services_index" : "service_detail";
+    return "services";
   }
 
   if (pathname.startsWith("/portfolio/")) {
-    return pathname === "/portfolio/" ? "portfolio_index" : "portfolio_detail";
+    return "portfolio";
   }
 
   if (pathname.startsWith("/blog/")) {
-    return pathname === "/blog/" ? "blog_index" : "blog_detail";
+    return "blog";
   }
 
   if (pathname.startsWith("/contact/")) {
@@ -100,6 +100,24 @@ const inferPageType = (pathname: string): string => {
   }
 
   return "other";
+};
+
+const inferPageType = (pathname: string): string => {
+  const pageSection = getPageSection(pathname);
+
+  if (pageSection === "services") {
+    return pathname === "/services/" ? "services_index" : "service_detail";
+  }
+
+  if (pageSection === "portfolio") {
+    return pathname === "/portfolio/" ? "portfolio_index" : "portfolio_detail";
+  }
+
+  if (pageSection === "blog") {
+    return pathname === "/blog/" ? "blog_index" : "blog_detail";
+  }
+
+  return pageSection;
 };
 
 const inferCtaLocation = (
@@ -173,6 +191,11 @@ const compactPayload = (
     ),
   );
 
+const getDataLayer = (): Array<Record<string, unknown>> => {
+  window.dataLayer ||= [];
+  return window.dataLayer;
+};
+
 /**
  * Emits tracking data to dataLayer, gtag, and an internal custom event.
  */
@@ -190,19 +213,20 @@ export const trackEvent = (
 
   const normalizedEventName = normalizeEventName(eventName);
   const pagePath = window.location.pathname;
+  const pageSection = getPageSection(pagePath);
 
   const normalizedPayload = compactPayload({
     ...payload,
     event_name: normalizedEventName,
     page_path: pagePath,
     page_type: inferPageType(pagePath),
+    page_section: pageSection,
     page_title: document.title,
     cta_location: inferCtaLocation(normalizedEventName, payload),
     destination_url: inferDestinationUrl(payload),
   });
 
-  window.dataLayer ||= [];
-  window.dataLayer.push({ event: normalizedEventName, ...normalizedPayload });
+  getDataLayer().push({ event: normalizedEventName, ...normalizedPayload });
 
   if (typeof window.gtag === "function") {
     window.gtag("event", normalizedEventName, normalizedPayload);
@@ -218,3 +242,21 @@ export const trackEvent = (
     console.info("[analytics]", normalizedEventName, normalizedPayload);
   }
 };
+
+/**
+ * Returns the GA measurement ID from the environment and whether analytics
+ * should load. Analytics only loads in production with a non-empty ID.
+ */
+export function getAnalyticsConfig(): {
+  gaMeasurementId: string;
+  shouldLoadAnalytics: boolean;
+} {
+  const gaMeasurementId =
+    (typeof import.meta !== "undefined"
+      ? import.meta.env?.PUBLIC_GA_MEASUREMENT_ID
+      : undefined
+    )?.trim() ?? "";
+  const shouldLoadAnalytics =
+    import.meta.env.PROD === true && gaMeasurementId.length > 0;
+  return { gaMeasurementId, shouldLoadAnalytics };
+}

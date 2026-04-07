@@ -22,13 +22,6 @@ export const setupRevealObserver = (): (() => void) => {
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       entry.target.classList.toggle("is-visible", entry.isIntersecting);
-
-      if (
-        entry.isIntersecting &&
-        entry.target.getAttribute("data-reveal-list")
-      ) {
-        entry.target.classList.add("is-visible");
-      }
     });
   }, observerOptions);
 

@@ -1,19 +1,17 @@
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
-import sitemap, { ChangeFreqEnum } from "@astrojs/sitemap";
+import sitemap from "@astrojs/sitemap";
 import solid from "@astrojs/solid-js";
 import tailwindcss from "@tailwindcss/vite";
 import AstroPWA from "@vite-pwa/astro";
 import { defineConfig } from "astro/config";
-
-const tailwindPlugin = tailwindcss() as unknown as never;
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://avaabrazzaq.com", // Used to generate canonical URLs and sitemap entries.
   trailingSlash: "always", // Consistent URL format - all URLs end with /
   vite: {
-    plugins: [tailwindPlugin],
+    plugins: [tailwindcss()],
   },
   integrations: [
     solid(),
@@ -28,52 +26,52 @@ export default defineConfig({
         // Enhanced sitemap with priority and changefreq
         const url = item.url;
         let priority = 0.5;
-        let changefreq = ChangeFreqEnum.MONTHLY;
+        let changefreq = "monthly";
 
         // Homepage gets highest priority
         if (url === "https://avaabrazzaq.com/") {
           priority = 1.0;
-          changefreq = ChangeFreqEnum.WEEKLY;
+          changefreq = "weekly";
         }
         // Blog posts - high priority, updated occasionally
         else if (url.includes("/blog/") && !url.endsWith("/blog/")) {
           priority = 0.8;
-          changefreq = ChangeFreqEnum.MONTHLY;
+          changefreq = "monthly";
         }
         // Blog index
         else if (url.endsWith("/blog/")) {
           priority = 0.9;
-          changefreq = ChangeFreqEnum.WEEKLY;
+          changefreq = "weekly";
         }
         // Service pages - high priority
         else if (url.includes("/services/") && !url.endsWith("/services/")) {
           priority = 0.8;
-          changefreq = ChangeFreqEnum.MONTHLY;
+          changefreq = "monthly";
         }
         // Services index
         else if (url.endsWith("/services/")) {
           priority = 0.9;
-          changefreq = ChangeFreqEnum.MONTHLY;
+          changefreq = "monthly";
         }
         // Portfolio items
         else if (url.includes("/portfolio/") && !url.endsWith("/portfolio/")) {
           priority = 0.7;
-          changefreq = ChangeFreqEnum.YEARLY;
+          changefreq = "yearly";
         }
         // Portfolio index
         else if (url.endsWith("/portfolio/")) {
           priority = 0.8;
-          changefreq = ChangeFreqEnum.MONTHLY;
+          changefreq = "monthly";
         }
         // About and contact
         else if (url.includes("/about/") || url.includes("/contact/")) {
           priority = 0.7;
-          changefreq = ChangeFreqEnum.MONTHLY;
+          changefreq = "monthly";
         }
 
         return {
           ...item,
-          changefreq,
+          changefreq: changefreq as typeof item.changefreq,
           priority,
           // Note: lastmod is automatically added by Astro sitemap when available
         };
@@ -94,17 +92,19 @@ export default defineConfig({
             src: "/pwa-192x192.png",
             sizes: "192x192",
             type: "image/png",
+            purpose: "any",
           },
           {
             src: "/pwa-512x512.png",
             sizes: "512x512",
             type: "image/png",
+            purpose: "any",
           },
           {
-            src: "/pwa-192x192.png",
-            sizes: "192x192",
+            src: "/pwa-512x512.png",
+            sizes: "512x512",
             type: "image/png",
-            purpose: "any maskable",
+            purpose: "maskable",
           },
         ],
       },

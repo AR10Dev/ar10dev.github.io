@@ -77,11 +77,6 @@
     }
   ],
   "parentService": "seo-growth",
-  "relatedServices": [
-    "technical-seo-audit",
-    "programmatic-seo"
-  ],
-  "relatedBlogPosts": [
-    "ab-testing-best-practices-improve-conversions"
-  ]
+  "relatedServices": ["technical-seo-audit", "programmatic-seo"],
+  "relatedBlogPosts": ["ab-testing-best-practices-improve-conversions"]
 }

@@ -78,11 +78,6 @@
     }
   ],
   "parentService": "full-stack-web-development",
-  "relatedServices": [
-    "astro-development",
-    "full-stack-web-development"
-  ],
-  "relatedBlogPosts": [
-    "building-mvp-4-weeks-technical-guide"
-  ]
+  "relatedServices": ["astro-development", "full-stack-web-development"],
+  "relatedBlogPosts": ["building-mvp-4-weeks-technical-guide"]
 }

@@ -1,5 +1,5 @@
 ---
-import { SOCIAL_LINK_CLASSES } from "@lib/constants";
+import { ICON_BUTTON_CLASSES, SOCIAL_LINK_CLASSES } from "@lib/constants";
 
 export type SocialKind = "linkedin" | "github";
 export type SocialVariant = "icon" | "text";
@@ -21,6 +21,7 @@ const { links, variant = "icon", className = "" } = Astro.props as Props;
 
 const listBaseClass = "m-0 flex list-none flex-wrap items-center p-0";
 const listVariantClass = "gap-3";
+const iconVariantClass = `${ICON_BUTTON_CLASSES.base} ${ICON_BUTTON_CLASSES.elevated} h-[2.4rem] w-[2.4rem]`;
 
 const iconPathByKind: Record<SocialKind, string> = {
   linkedin:
@@ -37,7 +38,7 @@ const iconPathByKind: Record<SocialKind, string> = {
         href={link.href}
         target="_blank"
         rel="noopener noreferrer"
-        class={variant === "icon" ? SOCIAL_LINK_CLASSES.icon : SOCIAL_LINK_CLASSES.text}
+        class={variant === "icon" ? iconVariantClass : SOCIAL_LINK_CLASSES.text}
         data-track={link.trackId}
         aria-label={variant === "icon" ? `Open ${link.label}` : undefined}
         title={link.label}
