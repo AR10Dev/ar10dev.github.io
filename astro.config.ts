@@ -5,41 +5,8 @@ import solid from "@astrojs/solid-js";
 import tailwindcss from "@tailwindcss/vite";
 import AstroPWA from "@vite-pwa/astro";
 import { defineConfig } from "astro/config";
-import rehypeMermaid from "rehype-mermaid";
+import rehypeD2 from "rehype-d2";
 import rehypeCopyCodeButton from "./src/lib/rehypeCopyCodeButton";
-
-type HastNode = {
-  type?: string;
-  tagName?: string;
-  properties?: Record<string, unknown>;
-  children?: HastNode[];
-};
-
-const rehypeMermaidAriaLabel = () => {
-  return (tree: HastNode) => {
-    const visit = (node: HastNode) => {
-      if (
-        node.type === "element" &&
-        node.tagName === "svg" &&
-        typeof node.properties?.id === "string" &&
-        node.properties.id.startsWith("mermaid-")
-      ) {
-        if (!node.properties) {
-          node.properties = {};
-        }
-
-        const properties = node.properties;
-        if (typeof properties["aria-label"] !== "string") {
-          properties["aria-label"] = "Mermaid diagram";
-        }
-      }
-
-      node.children?.forEach(visit);
-    };
-
-    visit(tree);
-  };
-};
 
 // https://astro.build/config
 export default defineConfig({
@@ -48,17 +15,17 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: {
       type: "shiki",
-      excludeLangs: ["math", "mermaid"],
+      excludeLangs: ["math", "d2"],
     },
     rehypePlugins: [
       [
-        rehypeMermaid,
+        rehypeD2,
         {
-          strategy: "inline-svg",
-          dark: true,
+          theme: 0,
+          darkTheme: 200,
+          sketch: false,
         },
       ],
-      rehypeMermaidAriaLabel,
       rehypeCopyCodeButton,
     ],
   },
@@ -70,13 +37,13 @@ export default defineConfig({
     mdx({
       rehypePlugins: [
         [
-          rehypeMermaid,
+          rehypeD2,
           {
-            strategy: "inline-svg",
-            dark: true,
+            theme: 0,
+            darkTheme: 200,
+            sketch: false,
           },
         ],
-        rehypeMermaidAriaLabel,
         rehypeCopyCodeButton,
       ],
     }),

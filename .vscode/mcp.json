@@ -43,18 +43,22 @@
       "command": "bunx",
       "args": ["-y", "@modelcontextprotocol/server-memory"]
     },
-    // "github": {
-    //   "type": "stdio",
-    //   "command": "bunx",
-    //   "args": ["-y", "@modelcontextprotocol/server-github"],
-    //   "env": {
-    //     "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_TOKEN_HERE"
-    //   }
-    // },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/"
+    },
     "playwright": {
       "type": "stdio",
       "command": "bunx",
       "args": ["@playwright/mcp@latest"]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
+    },
+    "time": {
+      "command": "uvx",
+      "args": ["mcp-server-time"]
     }
   }
 }

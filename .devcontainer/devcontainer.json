@@ -5,7 +5,10 @@
     "BUN_INSTALL": "/home/node/.bun",
     "PATH": "/home/node/.bun/bin:${containerEnv:PATH}"
   },
-  "postCreateCommand": "bash -lc 'set -e; export BUN_INSTALL=\"$HOME/.bun\"; curl -fsSL https://bun.sh/install | bash; \"$BUN_INSTALL/bin/bun\" --version; \"$BUN_INSTALL/bin/bun\" install; grep -q \"BUN_INSTALL=\\\"$HOME/.bun\\\"\" ~/.bashrc || printf \"\\nexport BUN_INSTALL=\\\"$HOME/.bun\\\"\\nexport PATH=\\\"$BUN_INSTALL/bin:$PATH\\\"\\n\" >> ~/.bashrc; grep -q \"BUN_INSTALL=\\\"$HOME/.bun\\\"\" ~/.zshrc || printf \"\\nexport BUN_INSTALL=\\\"$HOME/.bun\\\"\\nexport PATH=\\\"$BUN_INSTALL/bin:$PATH\\\"\\n\" >> ~/.zshrc'",
+  "postCreateCommand": "bash -lc 'set -e; export BUN_INSTALL=\"$HOME/.bun\"; curl -fsSL https://bun.sh/install | bash; \"$BUN_INSTALL/bin/bun\" --version; \"$BUN_INSTALL/bin/bun\" install; curl -fsSL https://d2lang.com/install.sh | sh -s --; d2 --version; grep -q \"BUN_INSTALL=\\\"$HOME/.bun\\\"\" ~/.bashrc || printf \"\\nexport BUN_INSTALL=\\\"$HOME/.bun\\\"\\nexport PATH=\\\"$BUN_INSTALL/bin:$PATH\\\"\\n\" >> ~/.bashrc; grep -q \"BUN_INSTALL=\\\"$HOME/.bun\\\"\" ~/.zshrc || printf \"\\nexport BUN_INSTALL=\\\"$HOME/.bun\\\"\\nexport PATH=\\\"$BUN_INSTALL/bin:$PATH\\\"\\n\" >> ~/.zshrc'",
+  "features": {
+    "ghcr.io/devcontainer-community/devcontainer-features/astral.sh-uv:1": {}
+  },
   "customizations": {
     "vscode": {
       "extensions": ["astro-build.astro-vscode", "biomejs.biome"]

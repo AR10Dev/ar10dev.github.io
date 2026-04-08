@@ -42,28 +42,45 @@ The custom assistant knows your order system, understands your product catalog, 
 
 A production-ready custom chatbot has several components:
 
-```mermaid
-flowchart TD
-  subgraph app[Application Layer]
-    ui[💬 User Interface<br/>Web, Mobile, Slack]
-    api[🛡️ API Gateway<br/>Auth, rate limits, routing]
-    orchestration[🧠 Orchestration Layer<br/>Context + tool decisioning]
-  end
+```d2
+direction: down
 
-  subgraph data[Data + Tool Access Layer]
-    rag[📚 Knowledge Base Retrieval<br/>RAG over docs and support content]
-    external[🔌 External Business Systems<br/>CRM, databases, billing, inventory]
-  end
+app: "Application Layer" {
+  ui: "User Interface\nWeb, Mobile, Slack" {
+    shape: rectangle
+  }
+  api: "API Gateway\nAuth, rate limits, routing" {
+    shape: rectangle
+  }
+  orchestration: "Orchestration Layer\nContext + tool decisioning" {
+    shape: rectangle
+  }
+  
+  ui -> api -> orchestration
+}
 
-  llm[🤖 LLM Processing Engine<br/>Reasoning + function/tool calling]
-  response[✅ Response Generation<br/>Grounded answer and next action]
+data: "Data + Tool Access Layer" {
+  rag: "Knowledge Base Retrieval\nRAG over docs and support content" {
+    shape: rectangle
+  }
+  external: "External Business Systems\nCRM, databases, billing, inventory" {
+    shape: rectangle
+  }
+}
 
-  ui --> api --> orchestration
-  orchestration --> rag
-  orchestration --> external
-  rag --> llm
-  external --> llm
-  llm --> response
+llm: "LLM Processing Engine\nReasoning + function/tool calling" {
+  shape: rectangle
+}
+
+response: "Response Generation\nGrounded answer and next action" {
+  shape: rectangle
+}
+
+app.orchestration -> data.rag
+app.orchestration -> data.external
+data.rag -> llm
+data.external -> llm
+llm -> response
 ```
 
 Let's break down each piece.

@@ -5,19 +5,25 @@
 ## Requirements
 
 - Bun
+- D2 CLI (for diagram rendering)
 
 ## Setup
 
 ```bash
+# Install D2 CLI (required for diagram rendering)
+bun run setup:d2
+
+# Install dependencies
 bun install
 ```
 
 ## Scripts
 
 ```bash
-bun run dev
-bun run build
-bun run preview
-bun run lint
-bun run format
+bun run dev       # Start development server
+bun run build     # Build for production
+bun run preview   # Preview production build
+bun run lint      # Lint codebase
+bun run format    # Format codebase
+bun run setup:d2  # Install D2 diagram CLI
 ```

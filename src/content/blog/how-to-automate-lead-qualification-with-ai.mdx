@@ -89,19 +89,43 @@ These emails go out within minutes of form submission—catching leads at peak i
 
 Here's the architecture I typically implement:
 
-```mermaid
-flowchart TD
-  A[🧾 Form Submission] --> B[⚡ Webhook Trigger\nn8n / Make]
-  B --> C[🔍 Enrichment APIs\nClearbit · Apollo · HubSpot]
-  C --> D[🤖 LLM Analysis\nScores & Qualifies Lead]
-  D --> E[📊 CRM Update\nScore + Enrichment Data]
-  E --> F[🔀 Routing Rules\nAssign Owner]
-  F --> G[📧 Personalized Email\nSendGrid]
+```d2
+direction: down
 
-  subgraph "AI Processing Layer"
-    C
-    D
-  end
+form: "Form Submission" {
+  shape: rectangle
+}
+
+webhook: "Webhook Trigger\nn8n / Make" {
+  shape: rectangle
+}
+
+enrichment: "Enrichment APIs\nClearbit · Apollo · HubSpot" {
+  shape: rectangle
+}
+
+llm: "LLM Analysis\nScores & Qualifies Lead" {
+  shape: rectangle
+}
+
+crm: "CRM Update\nScore + Enrichment Data" {
+  shape: rectangle
+}
+
+routing: "Routing Rules\nAssign Owner" {
+  shape: rectangle
+}
+
+email: "Personalized Email\nSendGrid" {
+  shape: rectangle
+}
+
+form -> webhook -> enrichment -> llm -> crm -> routing -> email
+
+ai_layer: "AI Processing Layer" {
+  style.stroke: "#6366f1"
+  style.fill: "#eef2ff"
+}
 ```
 
 The key components:

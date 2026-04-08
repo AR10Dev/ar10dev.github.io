@@ -1,0 +1,48 @@
+/* D2 Diagram Styles */
+:root {
+  --d2-diagram-bg: #f7f3ec;
+  --d2-diagram-border: #d7cdc0;
+}
+
+.dark {
+  --d2-diagram-bg: #0a0a0a;
+  --d2-diagram-border: #243955;
+}
+
+/* rehype-d2 wraps diagrams in <figure class="rehype-d2-diagram" data-rehype-d2> */
+.prose-blog :where(figure.rehype-d2-diagram) {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  margin: 1.75rem auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--d2-diagram-border) 78%, transparent);
+  background-color: var(--d2-diagram-bg);
+  box-shadow: 0 16px 32px rgba(10, 10, 10, 0.16);
+}
+
+/* Light/dark theme switching for D2 diagrams */
+.prose-blog :where(figure.rehype-d2-diagram .d2-light) {
+  display: block;
+}
+
+.prose-blog :where(figure.rehype-d2-diagram .d2-dark) {
+  display: none;
+}
+
+.dark .prose-blog :where(figure.rehype-d2-diagram .d2-light) {
+  display: none;
+}
+
+.dark .prose-blog :where(figure.rehype-d2-diagram .d2-dark) {
+  display: block;
+}
+
+/* SVG sizing within D2 diagrams */
+.prose-blog :where(figure.rehype-d2-diagram svg) {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
