@@ -5,7 +5,7 @@ import solid from "@astrojs/solid-js";
 import tailwindcss from "@tailwindcss/vite";
 import AstroPWA from "@vite-pwa/astro";
 import { defineConfig } from "astro/config";
-import rehypeD2 from "rehype-d2";
+import rehypeD2 from "@beoe/rehype-d2";
 import rehypeCopyCodeButton from "./src/lib/rehypeCopyCodeButton";
 
 // https://astro.build/config

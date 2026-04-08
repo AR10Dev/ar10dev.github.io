@@ -1,4 +1,4 @@
-declare module "rehype-d2" {
+declare module "@beoe/rehype-d2" {
   import type { Root } from "hast";
 
   interface RehypeD2Options {
