@@ -226,6 +226,30 @@ const structuredData = {
         cssSelector: ["h1", ".hero-subheadline", ".service-intro"],
       },
     },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: `${siteUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: `${siteUrl}/services/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: serviceName,
+          item: canonicalUrl,
+        },
+      ],
+    },
     ...(normalizedFaqs.length > 0
       ? [
           {
@@ -442,7 +466,6 @@ const structuredData = {
 
     <script>
       import "../scripts/code-copy.ts";
-      import "../scripts/homepage.ts";
     </script>
   </body>
 </html>
