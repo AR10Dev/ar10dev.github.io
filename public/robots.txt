@@ -109,3 +109,9 @@ Allow: /
 
 User-agent: ProRataInc
 Allow: /
+
+User-agent: xai-crawler
+Allow: /
+
+User-agent: Grok
+Allow: /
