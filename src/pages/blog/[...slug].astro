@@ -96,6 +96,44 @@ const ogImage =
   post.data.image?.src ??
   new URL("/og-ai-growth-engineer.png", siteUrl).toString();
 
+const blogPostingSchema: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: post.data.description,
+  url: postUrl,
+  datePublished: post.data.publishDate.toISOString(),
+  dateModified: (post.data.updatedDate ?? post.data.publishDate).toISOString(),
+  author: {
+    "@type": "Person",
+    name: post.data.author,
+    url: siteUrl,
+    sameAs: ["https://twitter.com/itsmeAvaab", "https://github.com/AR10Dev"],
+  },
+  publisher: {
+    "@type": "Person",
+    name: "Avaab Razzaq",
+    url: siteUrl,
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": postUrl,
+  },
+  keywords: post.data.tags.join(", "),
+  articleSection: post.data.category,
+  inLanguage: "en-US",
+  ...(post.data.readingTime && {
+    timeRequired: `PT${post.data.readingTime}M`,
+  }),
+  ...(post.data.image?.src && {
+    image: {
+      "@type": "ImageObject",
+      url: new URL(post.data.image.src, siteUrl).toString(),
+      description: post.data.image.alt,
+    },
+  }),
+};
+
 // Format date helper
 function formatDate(date: Date): string {
   return new Intl.DateTimeFormat("en-US", {
@@ -112,6 +150,10 @@ const readingTimeString = `${readingTimeMinutes} ${readingTimeMinutes === 1 ? "m
 
 // Build the structured data graph
 const structuredDataGraph: Record<string, unknown>[] = [
+  {
+    ...blogPostingSchema,
+    "@context": undefined,
+  },
   {
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
