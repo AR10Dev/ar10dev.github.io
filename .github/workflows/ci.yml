@@ -18,10 +18,13 @@ jobs:
           bun-version: latest
 
       - name: Install D2 CLI
-        run: curl -fsSL https://d2lang.com/install.sh | sh -s --
+        run: |
+          curl -fsSL https://d2lang.com/install.sh | sh -s --
+          echo "$HOME/.d2/bin" >> $GITHUB_PATH
+          d2 --version
 
       - name: Install dependencies
-        run: bun install
+        run: bun install --no-cache
 
       - name: Lint 🔍
         run: bun run lint
@@ -31,3 +34,5 @@ jobs:
 
       - name: Build 🔧
         uses: withastro/action@v5
+        env:
+          PATH: ${{ env.PATH }}:${{ env.HOME }}/.d2/bin
