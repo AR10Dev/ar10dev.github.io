@@ -70,8 +70,10 @@ const {
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={title} />
 
-<meta name="theme-color" content="#0e2a47" />
+<meta name="theme-color" content="#01696f" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#4f98a3" media="(prefers-color-scheme: dark)" />
 
 {structuredData && (
   <script
