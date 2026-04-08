@@ -89,7 +89,10 @@ These emails go out within minutes of form submission—catching leads at peak i
 
 Here's the architecture I typically implement:
 
+<figure>
+
 ```d2
+title: "AI Lead Qualification Automation Pipeline" { near: top-center }
 direction: down
 
 form: "Form Submission" {
@@ -127,6 +130,11 @@ ai_layer: "AI Processing Layer" {
   style.fill: "#eef2ff"
 }
 ```
+
+<figcaption>
+AI lead qualification automation pipeline: n8n webhook triggers Clearbit enrichment and LLM scoring, then automated CRM routing and personalized SendGrid follow-up in 30 seconds.
+</figcaption>
+</figure>
 
 The key components:
 

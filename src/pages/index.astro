@@ -35,7 +35,7 @@ const portfolioItems = (await getCollection("portfolio"))
 const siteUrl = new URL(Astro.site?.toString() ?? "https://avaabrazzaq.com")
   .origin;
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
-const ogImage = new URL("/og-ai-growth-engineer.svg", siteUrl).toString();
+const ogImage = new URL("/og-ai-growth-engineer.png", siteUrl).toString();
 const linkedInUrl = "https://www.linkedin.com/in/ar10dev";
 const twitterUrl = "https://twitter.com/itsmeAvaab";
 const seoTitle = "AI Growth Engineer Services in Miami | Avaab Razzaq";
@@ -308,7 +308,6 @@ const structuredData = {
   structuredData={structuredData}
 >
 
-    <main id="main-content" class="scroll-smooth" tabindex="-1">
       {/* Hero Section */}
       <section id="home" class="min-h-[90vh] flex items-center py-20" aria-labelledby="hero-title">
         <div class="mx-auto w-full max-w-screen-xl px-6">
@@ -479,5 +478,4 @@ const structuredData = {
           </div>
         </div>
       </section>
-    </main>
 </BaseLayout>
