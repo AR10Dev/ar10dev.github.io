@@ -21,7 +21,6 @@ const {
   author = "Avaab Razzaq",
   robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   keywords,
-  twitterHandle = "@itsmeAvaab",
   structuredData,
 } = Astro.props as Props;
 ---
@@ -54,6 +53,7 @@ const {
 <title>{title}</title>
 
 <meta property="og:type" content={ogType} />
+<meta property="og:locale" content="en_US" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalUrl} />
@@ -63,11 +63,10 @@ const {
 <meta property="og:image:height" content="630" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:site_name" content="Avaab Razzaq - AI Growth Engineer" />
-<meta property="og:locale" content="en_US" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content={twitterHandle} />
-<meta name="twitter:creator" content={twitterHandle} />
+<meta name="twitter:site" content="@itsmeAvaab" />
+<meta name="twitter:creator" content="@itsmeAvaab" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
@@ -77,8 +76,8 @@ const {
 <meta name="twitter:label2" content="Based in" />
 <meta name="twitter:data2" content="Miami, FL" />
 
-<meta name="theme-color" content="#01696f" media="(prefers-color-scheme: light)" />
-<meta name="theme-color" content="#4f98a3" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 
 {structuredData && (
   <script
