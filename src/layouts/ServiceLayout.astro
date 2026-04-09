@@ -35,6 +35,12 @@ type Props = {
 const siteUrl = buildSiteUrl(Astro.site);
 const currentYear = new Date().getFullYear();
 
+const SERVICE_OG_MAP: Record<string, string> = {
+  "ai-automation": `${siteUrl}/og-service-ai.png`,
+  "technical-seo": `${siteUrl}/og-service-seo.png`,
+  "full-stack-web-development": `${siteUrl}/og-service-web.png`,
+};
+
 const {
   title,
   description,
@@ -45,20 +51,27 @@ const {
   serviceName,
   serviceDescription,
   keywords = [],
-  ogImage = new URL("/og-services.png", siteUrl).toString(),
+  ogImage,
   faqs = [],
   publishedTime,
   modifiedTime,
 } = Astro.props as Props;
 
 const canonicalUrl = normalizeCanonicalUrl(Astro.url.pathname, siteUrl);
-const finalOgImage = ogImage.startsWith("http")
-  ? ogImage
-  : new URL(ogImage, siteUrl).toString();
 
 const currentServiceSlug = Astro.url.pathname
   .replace(/^\/services\//, "")
   .replace(/\/$/, "");
+
+const serviceSlug = currentServiceSlug;
+
+const finalOgImage =
+  SERVICE_OG_MAP[serviceSlug] ??
+  (ogImage
+    ? ogImage.startsWith("http")
+      ? ogImage
+      : new URL(ogImage, siteUrl).toString()
+    : `${siteUrl}/og-ai-growth-engineer.png`);
 
 const relatedServices = serviceCrossLinks
   .filter((service) => service.slug !== currentServiceSlug)
