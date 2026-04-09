@@ -177,36 +177,62 @@ const finalKeywords =
   keywords.length > 0 ? keywords.join(", ") : defaultKeywords;
 const { gaMeasurementId, shouldLoadAnalytics } = getAnalyticsConfig();
 
-// Build structured data with Service schema and optional FAQPage
+const serviceUrl = new URL(Astro.url.pathname, siteUrl).toString();
+
+const breadcrumbSchema = {
+  "@type": "BreadcrumbList",
+  "@id": `${serviceUrl}#breadcrumb`,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: siteUrl,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Services",
+      item: `${siteUrl}/services/`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: serviceName,
+      item: serviceUrl,
+    },
+  ],
+};
+
+const serviceOfferingSchema = {
+  "@type": ["Service", "Offer"],
+  "@id": `${serviceUrl}#service`,
+  name: serviceName,
+  description: serviceDescription,
+  url: serviceUrl,
+  provider: {
+    "@type": "Person",
+    "@id": `${siteUrl}/#person`,
+    name: "Avaab Razzaq",
+    url: siteUrl,
+  },
+  areaServed: {
+    "@type": "Place",
+    name: "United States",
+  },
+  serviceType: serviceName,
+  availableChannel: {
+    "@type": "ServiceChannel",
+    serviceUrl: `${siteUrl}/contact/`,
+    servicePhone: "",
+    availableLanguage: "English",
+  },
+};
+
+// Build structured data with optional FAQPage
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "Service",
-      "@id": `${canonicalUrl}#service`,
-      name: serviceName,
-      description: serviceDescription,
-      datePublished: publishedTime,
-      dateModified: modifiedTime,
-      provider: {
-        "@id": `${siteUrl}/#person`,
-      },
-      areaServed: [
-        {
-          "@type": "Country",
-          name: "United States",
-        },
-        {
-          "@type": "City",
-          name: "Miami",
-          containedInPlace: {
-            "@type": "State",
-            name: "Florida",
-          },
-        },
-      ],
-      url: canonicalUrl,
-    },
     {
       "@type": "WebPage",
       "@id": canonicalUrl,
@@ -226,30 +252,6 @@ const structuredData = {
         cssSelector: ["h1", ".hero-subheadline", ".service-intro"],
       },
     },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${canonicalUrl}#breadcrumb`,
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: `${siteUrl}/`,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Services",
-          item: `${siteUrl}/services/`,
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: serviceName,
-          item: canonicalUrl,
-        },
-      ],
-    },
     ...(normalizedFaqs.length > 0
       ? [
           {
@@ -265,6 +267,8 @@ const structuredData = {
           },
         ]
       : []),
+    breadcrumbSchema,
+    serviceOfferingSchema,
   ],
 };
 ---
