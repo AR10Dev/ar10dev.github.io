@@ -96,6 +96,7 @@ const structuredData = {
         "https://github.com/AR10Dev",
         "https://linkedin.com/in/avaab-razzaq-937b89366",
         "https://twitter.com/itsmeAvaab",
+        "https://x.com/itsmeAvaab",
       ],
       address: {
         "@type": "PostalAddress",
@@ -116,6 +117,32 @@ const structuredData = {
       hasOccupation: {
         "@type": "Occupation",
         name: "AI Growth Engineer",
+        description:
+          "Builds AI automation systems, full-stack web applications, and implements technical SEO strategies that drive organic growth for businesses.",
+        occupationalCategory: "15-1299.09",
+        occupationLocation: {
+          "@type": "City",
+          name: "Miami",
+          containedInPlace: {
+            "@type": "State",
+            name: "Florida",
+            containedInPlace: {
+              "@type": "Country",
+              name: "United States",
+            },
+          },
+        },
+        estimatedSalary: {
+          "@type": "MonetaryAmountDistribution",
+          name: "base",
+          currency: "USD",
+          duration: "P1H",
+          percentile10: 150,
+          percentile25: 175,
+          median: 200,
+          percentile75: 250,
+          percentile90: 300,
+        },
       },
       hasCredential: credentials.map((cred) => ({
         "@type": "EducationalOccupationalCredential",

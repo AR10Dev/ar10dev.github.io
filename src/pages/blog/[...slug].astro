@@ -146,11 +146,10 @@ function formatDate(date: Date): string {
 // Calculate reading time if not in frontmatter
 const wordCount = (post.body ?? "").split(/\s+/).filter(Boolean).length;
 const readingTimeMinutes = post.data.readingTime || Math.ceil(wordCount / 200);
-const readingTimeString = `${readingTimeMinutes} ${readingTimeMinutes === 1 ? "minute" : "minutes"}`;
 
 const publishedTimeISO = post.data.publishDate
   ? new Date(post.data.publishDate).toISOString()
-  : null;
+  : undefined;
 
 const modifiedTimeISO = post.data.updatedDate
   ? new Date(post.data.updatedDate).toISOString()
@@ -294,14 +293,13 @@ const structuredData = {
   canonicalUrl={canonicalUrl} 
   ogImage={ogImage} 
   ogType="article"
-  publishedTime={publishedTimeISO ?? undefined}
-  modifiedTime={modifiedTimeISO ?? undefined}
+  publishedTime={publishedTimeISO}
+  modifiedTime={modifiedTimeISO}
+  articleSection={articleSection}
   author={articleAuthorUrl}
-  readingTime={readingTimeString}
+  readingTime={post.data.readingTime ? String(post.data.readingTime) : undefined}
   structuredData={structuredData}
 >
-  <meta slot="head" property="article:section" content={articleSection} />
-
   <article class="min-h-screen py-12">
     <div class={CONTAINER_CLASSES.section}>
       <div class="mx-auto max-w-3xl">
