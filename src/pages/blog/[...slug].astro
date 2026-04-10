@@ -148,6 +148,17 @@ const wordCount = (post.body ?? "").split(/\s+/).filter(Boolean).length;
 const readingTimeMinutes = post.data.readingTime || Math.ceil(wordCount / 200);
 const readingTimeString = `${readingTimeMinutes} ${readingTimeMinutes === 1 ? "minute" : "minutes"}`;
 
+const publishedTimeISO = post.data.publishDate
+  ? new Date(post.data.publishDate).toISOString()
+  : null;
+
+const modifiedTimeISO = post.data.updatedDate
+  ? new Date(post.data.updatedDate).toISOString()
+  : publishedTimeISO;
+
+const articleAuthorUrl = "https://avaabrazzaq.com/about/";
+const articleSection = post.data.category ?? "AI & Technology";
+
 // Build the structured data graph
 const structuredDataGraph: Record<string, unknown>[] = [
   {
@@ -283,12 +294,14 @@ const structuredData = {
   canonicalUrl={canonicalUrl} 
   ogImage={ogImage} 
   ogType="article"
-  publishedTime={post.data.publishDate.toISOString()}
-  modifiedTime={post.data.updatedDate?.toISOString()}
-  author={post.data.author}
+  publishedTime={publishedTimeISO ?? undefined}
+  modifiedTime={modifiedTimeISO ?? undefined}
+  author={articleAuthorUrl}
   readingTime={readingTimeString}
   structuredData={structuredData}
 >
+  <meta slot="head" property="article:section" content={articleSection} />
+
   <article class="min-h-screen py-12">
     <div class={CONTAINER_CLASSES.section}>
       <div class="mx-auto max-w-3xl">
@@ -319,15 +332,6 @@ const structuredData = {
         </div>
 
         <!-- Title -->
-        <h1 class={`${TYPOGRAPHY_CLASSES.heroTitle} mb-6`}>
-          {post.data.title}
-        </h1>
-
-        <!-- Description -->
-        <p class={`${TYPOGRAPHY_CLASSES.subheading} mb-8`}>
-          {post.data.description}
-        </p>
-
         <!-- Meta Info -->
         <div class="flex flex-wrap items-center gap-4 text-sm text-[var(--text-base)] border-t border-b border-[var(--border-base)] py-4">
           <div class="flex items-center gap-2">
