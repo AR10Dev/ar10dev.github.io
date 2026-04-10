@@ -115,6 +115,8 @@ const categoryColors: Record<string, string> = {
             itemscope
             itemtype="https://schema.org/SoftwareApplication"
           >
+            <meta itemprop="operatingSystem" content="Web" />
+            <meta itemprop="url" content={`${siteUrl}/portfolio/${item.id}/`} />
             <div class="mb-4 flex items-center justify-between">
               <span class={`inline-block rounded-full border px-3 py-1 text-xs font-semibold ${categoryColors[item.data.category] || categoryColors["Development"]}`} itemprop="applicationCategory">
                 {item.data.category}
