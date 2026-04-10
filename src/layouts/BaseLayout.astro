@@ -92,10 +92,10 @@ const currentPath = Astro.url.pathname;
 
     <slot name="head" />
 
-    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-  {publishedTime && <meta property="article:author" content={author} />}
-    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
-    {articleSection && <meta property="article:section" content={articleSection} />}
+    {ogType === "article" && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {ogType === "article" && <meta property="article:author" content={author} />}
+    {ogType === "article" && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    {ogType === "article" && articleSection && <meta property="article:section" content={articleSection} />}
 
     <script is:inline set:html={themeInitScript}></script>
   </head>

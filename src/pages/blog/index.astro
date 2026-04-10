@@ -49,6 +49,19 @@ const structuredData = {
       name: title,
       description: description,
       isPartOf: { "@id": `${siteUrl}/#website` },
+      hasPart: sortedPosts.map((post, index) => ({
+        "@type": "BlogPosting",
+        "@id": `${siteUrl}/blog/${post.id}/`,
+        headline: post.data.title,
+        description: post.data.description,
+        url: `${siteUrl}/blog/${post.id}/`,
+        datePublished: post.data.publishDate.toISOString(),
+        dateModified:
+          post.data.updatedDate?.toISOString() ??
+          post.data.publishDate.toISOString(),
+        author: { "@id": `${siteUrl}/#person` },
+        position: index + 1,
+      })),
       about: {
         "@type": "Blog",
         name: "Avaab Razzaq Blog",
@@ -132,6 +145,8 @@ const structuredData = {
                     <img 
                       src={post.data.image.src} 
                       alt={post.data.image.alt}
+                      width="800"
+                      height="450"
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                     />

@@ -2,6 +2,8 @@
 import ServiceLayout from "@layouts/ServiceLayout.astro";
 import { CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
 
+const siteUrl = new URL(Astro.site?.toString() ?? "https://avaabrazzaq.com").origin;
+
 const faqs = [
   {
     question: "What is MCP (Model Context Protocol)?",
@@ -36,6 +38,7 @@ const faqs = [
   serviceName="MCP (Model Context Protocol) Development"
   serviceDescription="Custom MCP server development and integration services for businesses looking to extend AI capabilities with real-world tool access, database connections, and API integrations using Anthropic's Model Context Protocol."
   keywords={["MCP developer", "Model Context Protocol", "MCP integration", "Claude MCP", "agentic AI developer", "AI tool integration"]}
+  ogImage={`${siteUrl}/og-service-ai.png`}
   publishedTime="2025-03-01"
   modifiedTime="2026-04-08"
   faqs={faqs}

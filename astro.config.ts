@@ -58,6 +58,7 @@ export default defineConfig({
         const url = item.url;
         let priority = 0.5;
         let changefreq = "monthly";
+        const lastmod = item.lastmod ?? new Date().toISOString();
 
         // Homepage gets highest priority
         if (url === "https://avaabrazzaq.com/") {
@@ -103,8 +104,8 @@ export default defineConfig({
         return {
           ...item,
           changefreq: changefreq as typeof item.changefreq,
+          lastmod,
           priority,
-          // Note: lastmod is automatically added by Astro sitemap when available
         };
       },
     }),

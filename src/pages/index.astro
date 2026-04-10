@@ -36,7 +36,7 @@ const siteUrl = new URL(Astro.site?.toString() ?? "https://avaabrazzaq.com")
   .origin;
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImage = new URL("/og-ai-growth-engineer.png", siteUrl).toString();
-const linkedInUrl = "https://www.linkedin.com/in/ar10dev";
+const linkedInUrl = "https://linkedin.com/in/avaab-razzaq-937b89366";
 const twitterUrl = "https://twitter.com/itsmeAvaab";
 const seoTitle = "AI Growth Engineer Services in Miami | Avaab Razzaq";
 const seoDescription =
@@ -140,7 +140,7 @@ const structuredData = {
         "AI Growth Engineer helping businesses build web apps, implement AI automation, and scale technical SEO and GEO performance.",
       url: siteUrl,
       image: ogImage,
-      sameAs: [homepage.githubUrl, linkedInUrl, twitterUrl],
+      sameAs: [homepage.githubUrl, linkedInUrl, twitterUrl, "https://x.com/itsmeAvaab"],
       address: {
         "@type": "PostalAddress",
         addressLocality: "Miami",
