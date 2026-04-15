@@ -5,15 +5,21 @@
   "description": "AR10Dev Github Page",
   "author": "AR10Dev",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro check && astro build",
-    "check": "astro check",
-    "preview": "astro preview",
-    "lint": "biome check .",
-    "lint:fix": "biome check --write .",
-    "format": "biome format .",
-    "format:fix": "biome format --write .",
-    "setup:d2": "curl -fsSL https://d2lang.com/install.sh | sh -s --"
+    "dev":          "astro dev",
+    "build":        "astro check && astro build",
+    "check":        "astro check",
+    "preview":      "astro preview",
+    "lint":         "biome check .",
+    "lint:fix":     "biome check --write .",
+    "format":       "biome format .",
+    "format:fix":   "biome format --write .",
+    "setup:d2":     "curl -fsSL https://d2lang.com/install.sh | sh -s --",
+
+    "agent:lint":   "biome check --write . --reporter=summary",
+    "agent:check":  "astro check 2>&1 | grep -E '(error|warning|Error|Warning)' || true",
+    "agent:build":  "astro build --silent 2>&1 | grep -E '(error|Error|warn|✗)' || true",
+    "agent:spell":  "cspell \"**\" --no-progress --no-summary 2>&1 | grep -v '^$' || true",
+    "agent:verify": "bun run agent:lint && bun run agent:check && bun run agent:build"
   },
   "keywords": [],
   "devDependencies": {

@@ -70,12 +70,23 @@ draft(bool), featured(bool), readingTime?, relatedService?,
 howTo?{totalTime?,estimatedCost?,steps[]{name,text}}
 
 ## Commands
+
+### Development
 - Dev:     `bun run dev`
-- Build:   `bun run build`  (runs `astro check` + `astro build`)
+- Build:   `bun run build`
 - Check:   `bun run check`
-- Lint:    `bun run lint:fix`
-- Format:  `bun run format:fix`
-- Spell:   `bun cspell "**"`
+- Preview: `bun run preview`
+
+### For use during AI-assisted implementation (errors/warnings only)
+- Lint:    `bun run agent:lint`
+- Check:   `bun run agent:check`
+- Build:   `bun run agent:build`
+- Spell:   `bun run agent:spell`
+
+Always use `agent:*` commands when verifying code — never the full verbose versions.
+
+After making any code changes, always run `bun run agent:verify` to confirm
+no errors before considering the task complete.
 
 ## Commit Conventions
 Conventional commits scoped to area: `feat(blog): add reading time display`
