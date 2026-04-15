@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import logo from "@assets/logo.png";
 import "../styles/global.css";
 import AnalyticsConsent from "@components/AnalyticsConsent.astro";
+import CalEmbed from "@components/CalEmbed.astro";
 import GoogleAnalytics from "@components/GoogleAnalytics.astro";
 import HeadSEO from "@components/HeadSEO.astro";
 import { serviceCrossLinks } from "@data/services";
@@ -48,7 +49,6 @@ const {
   heroHeadline,
   heroSubheadline,
   ctaText,
-  ctaHref = "/contact/",
   serviceName,
   serviceDescription,
   keywords = [],
@@ -352,9 +352,15 @@ const structuredData = {
             <p class={`hero-subheadline service-intro mt-6 ${TYPOGRAPHY_CLASSES.subheading}`}>{heroSubheadline}</p>
             
             <div class="mt-10 flex flex-wrap gap-4">
-              <a href={ctaHref} class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}>
+              <button
+                type="button"
+                data-cal-link="avaabrazzaq"
+                data-cal-namespace="discovery-call"
+                data-cal-config='{"layout":"month_view"}'
+                class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary} min-h-[44px] active:scale-95 transition-transform cursor-pointer`}
+              >
                 {ctaText}
-              </a>
+              </button>
               <a href="/#portfolio" class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.secondary}`}>
                 See my work →
               </a>
@@ -454,9 +460,15 @@ const structuredData = {
           <div class="mx-auto max-w-2xl text-center">
             <h2 class={TYPOGRAPHY_CLASSES.sectionTitle}>Ready to Get Started?</h2>
             <p class="mt-4 text-[var(--text-muted)]">Free discovery call · No commitment</p>
-            <a href={ctaHref} class={`mt-8 ${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}>
+            <button
+              type="button"
+              data-cal-link="avaabrazzaq"
+              data-cal-namespace="discovery-call"
+              data-cal-config='{"layout":"month_view"}'
+              class={`mt-8 ${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary} min-h-[44px] active:scale-95 transition-transform cursor-pointer`}
+            >
               {ctaText}
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -486,5 +498,7 @@ const structuredData = {
     <script>
       import "../scripts/code-copy.ts";
     </script>
+
+    <CalEmbed />
   </body>
 </html>

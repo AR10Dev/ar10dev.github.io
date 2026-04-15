@@ -2,7 +2,8 @@
 import ServiceLayout from "@layouts/ServiceLayout.astro";
 import { CONTAINER_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
 
-const siteUrl = new URL(Astro.site?.toString() ?? "https://avaabrazzaq.com").origin;
+const siteUrl = new URL(Astro.site?.toString() ?? "https://avaabrazzaq.com")
+  .origin;
 
 const faqs = [
   {

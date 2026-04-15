@@ -1,5 +1,6 @@
 ---
 import AnalyticsConsent from "@components/AnalyticsConsent.astro";
+import CalEmbed from "@components/CalEmbed.astro";
 import FooterNav from "@components/FooterNav.astro";
 import GoogleAnalytics from "@components/GoogleAnalytics.astro";
 import HeaderNav from "@components/HeaderNav.astro";
@@ -119,6 +120,93 @@ const currentPath = Astro.url.pathname;
     <script>
       import "../scripts/code-copy.ts";
       import "../scripts/homepage.ts";
+    </script>
+
+    <CalEmbed />
+
+    <div
+      id="cal-mobile-bar"
+      class="fixed bottom-0 left-0 right-0 z-50 md:hidden pb-[env(safe-area-inset-bottom,0px)]"
+      style="transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); transform: translateY(0px);"
+    >
+      <button
+        data-cal-link="avaabrazzaq"
+        data-cal-namespace="discovery-call"
+        data-cal-config='{"layout":"mobile"}'
+        class="w-full flex items-center justify-center gap-2 bg-[linear-gradient(120deg,#db7a38,#b05422)] text-[var(--accent-contrast)] font-bold uppercase tracking-[0.05em] text-[0.84rem] px-6 min-h-[56px] active:opacity-90 transition-opacity cursor-pointer shadow-[0_-4px_20px_rgba(176,84,34,0.3)]"
+        type="button"
+        aria-label="Book a discovery call with Avaab Razzaq"
+      >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+        </svg>
+        Book a Discovery Call
+      </button>
+    </div>
+
+    <div class="fixed bottom-6 right-6 z-50 hidden md:block">
+      <button
+        data-cal-link="avaabrazzaq"
+        data-cal-namespace="discovery-call"
+        data-cal-config='{"layout":"month_view"}'
+        class="inline-flex items-center gap-2 bg-[linear-gradient(120deg,#db7a38,#b05422)] text-[var(--accent-contrast)] shadow-[0_14px_30px_rgba(176,84,34,0.25)] hover:shadow-[0_12px_26px_rgba(15,23,42,0.2)] hover:-translate-y-[1px] rounded-full px-5 py-3 text-[0.84rem] font-bold uppercase tracking-[0.05em] transition-[transform,box-shadow,background] duration-200 cursor-pointer"
+        type="button"
+        aria-label="Book a discovery call with Avaab Razzaq"
+      >
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+        </svg>
+        Book a Call
+      </button>
+    </div>
+
+    <script is:inline>
+      (function () {
+        var bar = document.getElementById("cal-mobile-bar");
+        if (!bar) return;
+
+        var contact = document.querySelector("#contact, [data-section='contact'], section:last-of-type");
+        if (!contact) return;
+
+        bar.style.transition = "transform 0.3s cubic-bezier(0.16,1,0.3,1)";
+
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              bar.style.transform = entry.isIntersecting ? "translateY(110%)" : "translateY(0)";
+            });
+          },
+          { threshold: 0.25 }
+        );
+
+        io.observe(contact);
+      })();
     </script>
   </body>
 </html>
