@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -196,7 +197,7 @@ const structuredDataGraph: Record<string, unknown>[] = [
     jobTitle: "AI Growth Engineer",
     sameAs: [
       "https://github.com/AR10Dev",
-      "https://linkedin.com/in/avaab-razzaq-937b89366",
+      "https://linkedin.com/in/avaab-razzaq",
     ],
   },
   {
@@ -299,6 +300,7 @@ const structuredData = {
   author={articleAuthorUrl}
   readingTime={post.data.readingTime ? String(post.data.readingTime) : undefined}
   structuredData={structuredData}
+  loadCodeCopy={true}
 >
   <article class="min-h-screen py-12">
     <div class={CONTAINER_CLASSES.section}>
@@ -374,15 +376,15 @@ const structuredData = {
         <!-- Featured Image -->
         {post.data.image && (
           <div class="mt-8 overflow-hidden rounded-lg aspect-video bg-[var(--surface-strong)]">
-            <img 
-              src={post.data.image.src} 
+            <Image
+              src={post.data.image.src}
               alt={post.data.image.alt}
               class="w-full h-full object-cover"
               loading="eager"
               fetchpriority="high"
               decoding="async"
-              width="1200"
-              height="630"
+              width={1200}
+              height={630}
             />
           </div>
         )}

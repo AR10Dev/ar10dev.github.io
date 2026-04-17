@@ -36,7 +36,7 @@ const siteUrl = new URL(Astro.site?.toString() ?? "https://avaabrazzaq.com")
   .origin;
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImage = new URL("/og-ai-growth-engineer.png", siteUrl).toString();
-const linkedInUrl = "https://linkedin.com/in/avaab-razzaq-937b89366";
+const linkedInUrl = "https://linkedin.com/in/avaab-razzaq";
 const twitterUrl = "https://twitter.com/itsmeAvaab";
 const seoTitle = "AI Growth Engineer Services in Miami | Avaab Razzaq";
 const seoDescription =
@@ -55,6 +55,24 @@ const socialLinks = [
     href: linkedInUrl,
     label: "LinkedIn",
     trackId: "open_linkedin_hero",
+  },
+  {
+    kind: "x" as const,
+    href: "https://x.com/itsmeAvaab",
+    label: "X",
+    trackId: "open_x_hero",
+  },
+  {
+    kind: "instagram" as const,
+    href: "https://www.instagram.com/itsmeavaab/",
+    label: "Instagram",
+    trackId: "open_instagram_hero",
+  },
+  {
+    kind: "tiktok" as const,
+    href: "https://www.tiktok.com/@itsmeavaab",
+    label: "TikTok",
+    trackId: "open_tiktok_hero",
   },
   {
     kind: "github" as const,
@@ -358,6 +376,15 @@ const structuredData = {
   ogImage={ogImage}
   structuredData={structuredData}
 >
+  <Fragment slot="head">
+    <link
+      rel="preload"
+      as="font"
+      href="https://fonts.gstatic.com/s/sora/v17/xMQbuFFYT72XzQUpDg.woff2"
+      type="font/woff2"
+      crossorigin
+    />
+  </Fragment>
 
       {/* Hero Section */}
       <section id="home" class="min-h-[90vh] flex items-center py-20" aria-labelledby="hero-title">

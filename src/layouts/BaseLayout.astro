@@ -26,6 +26,7 @@ type Props = {
   author?: string;
   robots?: string;
   readingTime?: string;
+  loadCodeCopy?: boolean;
 };
 
 const siteUrl = buildSiteUrl(Astro.site);
@@ -45,6 +46,7 @@ const {
   readingTime,
   author = "Avaab Razzaq",
   robots,
+  loadCodeCopy = false,
 } = Astro.props as Props;
 
 const canonicalUrl = normalizeCanonicalUrl(
@@ -70,8 +72,8 @@ const currentPath = Astro.url.pathname;
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     {shouldLoadAnalytics && (
       <>
         <!-- Google Analytics -->
@@ -117,8 +119,13 @@ const currentPath = Astro.url.pathname;
 
     {shouldLoadAnalytics && <AnalyticsConsent />}
 
+    {loadCodeCopy && (
+      <script>
+        import "../scripts/code-copy.ts";
+      </script>
+    )}
+
     <script>
-      import "../scripts/code-copy.ts";
       import "../scripts/homepage.ts";
     </script>
 

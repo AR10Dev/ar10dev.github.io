@@ -1,65 +1,92 @@
 <script is:inline>
-(function (C, A, L) {
-  let p = function (a, ar) {
-    a.q.push(ar);
+(function (window, scriptUrl, initCommand) {
+  var enqueue = function (api, args) {
+    api.q.push(args);
   };
-  let d = C.document;
-  C.Cal = C.Cal || function () {
-    let cal = C.Cal;
-    let ar = arguments;
+  var documentRef = window.document;
+
+  window.Cal = window.Cal || function () {
+    var cal = window.Cal;
+    var args = Array.prototype.slice.call(arguments);
+
     if (!cal.loaded) {
       cal.ns = {};
       cal.q = cal.q || [];
-      d.head.appendChild(d.createElement("script")).src = A;
+      documentRef.head.appendChild(documentRef.createElement("script")).src = scriptUrl;
       cal.loaded = true;
     }
-    if (ar[0] === L) {
-      const api = function () {
-        p(api, arguments);
+
+    if (args[0] === initCommand) {
+      var namespaceApi = function () {
+        enqueue(namespaceApi, Array.prototype.slice.call(arguments));
       };
-      const namespace = ar[1];
-      api.q = api.q || [];
+      var namespace = args[1];
+      namespaceApi.q = namespaceApi.q || [];
+
       if (typeof namespace === "string") {
-        cal.ns[namespace] = cal.ns[namespace] || api;
-        p(cal.ns[namespace], ar);
-        p(cal, ["initNamespace", namespace]);
+        cal.ns[namespace] = cal.ns[namespace] || namespaceApi;
+        enqueue(cal.ns[namespace], args);
+        enqueue(cal, ["initNamespace", namespace]);
       } else {
-        p(cal, ar);
+        enqueue(cal, args);
       }
+
       return;
     }
-    p(cal, ar);
+
+    enqueue(cal, args);
   };
 })(window, "https://app.cal.com/embed/embed.js", "init");
 
 (function () {
-  var isMobile = window.innerWidth < 768;
-  var layout = isMobile ? "mobile" : "month_view";
-  var namespace = "discovery-call";
+  var loadCal = function () {
+    if (window.__calEmbedLoaded) {
+      return;
+    }
 
-  Cal("init", namespace, { origin: "https://cal.com" });
+    var cal = window.Cal;
+    if (!cal) {
+      return;
+    }
 
-  Cal.ns[namespace]("ui", {
-    styles: {
-      branding: {
-        brandColor: "#01696f",
+    window.__calEmbedLoaded = true;
+
+    var namespace = "discovery-call";
+    var layout = window.innerWidth < 768 ? "mobile" : "month_view";
+
+    cal("init", namespace, { origin: "https://cal.com" });
+
+    var namespaceCal = cal.ns[namespace];
+    if (!namespaceCal) {
+      return;
+    }
+
+    namespaceCal("ui", {
+      styles: {
+        branding: {
+          brandColor: "#01696f",
+        },
       },
-    },
-    hideEventTypeDetails: false,
-    layout: layout,
-  });
+      hideEventTypeDetails: false,
+      layout: layout,
+    });
 
-  Cal.ns[namespace]("on", {
-    action: "bookingSuccessful",
-    callback: function () {
-      if (typeof gtag !== "undefined") {
-        gtag("event", "booking_completed", {
-          event_category: "conversion",
-          event_label: "discovery_call",
-          value: 1,
-        });
-      }
-    },
+    namespaceCal("on", {
+      action: "bookingSuccessful",
+      callback: function () {
+        if (typeof window.gtag !== "undefined") {
+          window.gtag("event", "booking_completed", {
+            event_category: "conversion",
+            event_label: "discovery_call",
+            value: 1,
+          });
+        }
+      },
+    });
+  };
+
+  ["mousedown", "touchstart", "keydown", "scroll"].forEach(function (eventName) {
+    document.addEventListener(eventName, loadCal, { once: true, passive: true });
   });
 })();
 </script>

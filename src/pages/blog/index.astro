@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -77,7 +78,7 @@ const structuredData = {
       jobTitle: "AI Growth Engineer",
       sameAs: [
         "https://github.com/AR10Dev",
-        "https://linkedin.com/in/avaab-razzaq-937b89366",
+        "https://linkedin.com/in/avaab-razzaq",
         "https://twitter.com/itsmeAvaab",
       ],
     },
@@ -142,13 +143,14 @@ const structuredData = {
                 {/* Post Image */}
                 {post.data.image && (
                   <div class="mb-6 overflow-hidden rounded-lg aspect-video bg-[var(--surface-strong)]">
-                    <img 
-                      src={post.data.image.src} 
+                    <Image
+                      src={post.data.image.src}
                       alt={post.data.image.alt}
-                      width="800"
-                      height="450"
+                      width={800}
+                      height={450}
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 )}

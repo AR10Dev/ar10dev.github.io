@@ -10,6 +10,7 @@ import rehypeCopyCodeButton from "./src/lib/rehypeCopyCodeButton";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "static",
   site: "https://avaabrazzaq.com", // Used to generate canonical URLs and sitemap entries.
   trailingSlash: "always", // Consistent URL format - all URLs end with /
   markdown: {

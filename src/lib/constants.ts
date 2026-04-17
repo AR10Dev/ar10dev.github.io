@@ -50,7 +50,7 @@ export const FORM_CLASSES = {
 };
 
 export const ICON_BUTTON_CLASSES = {
-  base: "inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border-strong)] text-[var(--text-strong)] transition-[transform,border-color,background,color] duration-200 hover:-translate-y-[1px]",
+  base: "inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--border-strong)] text-[var(--text-strong)] transition-[transform,border-color,background,color] duration-200 hover:-translate-y-[1px]",
   elevated:
     "bg-[color-mix(in_srgb,var(--surface-panel)_85%,transparent)] hover:border-[color-mix(in_srgb,var(--accent-strong)_55%,var(--border-strong))] hover:bg-[color-mix(in_srgb,var(--surface-panel)_78%,var(--accent-strong)_22%)]",
 };

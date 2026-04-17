@@ -47,13 +47,13 @@ const Navigation: Component<NavigationProps> = (props) => {
   };
 
   const baseClass =
-    "inline-flex items-center justify-center rounded-[0.65rem] border border-transparent px-[0.85rem] py-[0.5rem] text-[0.78rem] font-semibold tracking-[0.04em] text-[var(--text-muted)] transition-all duration-200 hover:border-[var(--border-strong)] hover:bg-[color-mix(in_srgb,var(--surface-panel)_76%,transparent)] hover:text-[var(--text-strong)]";
+    "inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-[0.65rem] border border-transparent px-[0.85rem] py-[0.5rem] text-[0.78rem] font-semibold tracking-[0.04em] text-[var(--text-muted)] transition-all duration-200 hover:border-[var(--border-strong)] hover:bg-[color-mix(in_srgb,var(--surface-panel)_76%,transparent)] hover:text-[var(--text-strong)]";
 
   const activeClass =
     "!text-white border-[color-mix(in_srgb,var(--accent-strong)_70%,var(--border-strong))] bg-[color-mix(in_srgb,var(--accent-strong)_86%,#10243d)] shadow-[0_0_0_1px_color-mix(in_srgb,var(--accent-strong)_55%,transparent)]";
 
   const mobileBaseClass =
-    "block w-full px-4 py-3 text-left text-base font-semibold text-[var(--text-muted)] transition-colors hover:bg-[var(--surface-elevated)] hover:text-[var(--text-strong)]";
+    "block min-h-[44px] w-full px-4 py-3 text-left text-base font-semibold text-[var(--text-muted)] transition-colors hover:bg-[var(--surface-elevated)] hover:text-[var(--text-strong)]";
 
   const mobileActiveClass =
     "!text-[var(--accent-strong)] bg-[var(--surface-elevated)]";
@@ -148,7 +148,7 @@ const Navigation: Component<NavigationProps> = (props) => {
       {/* Mobile Menu Button */}
       <button
         type="button"
-        class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_85%,transparent)] text-[var(--text-strong)] transition-all hover:bg-[var(--surface-elevated)]"
+        class="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--border-strong)] bg-[color-mix(in_srgb,var(--surface-panel)_85%,transparent)] text-[var(--text-strong)] transition-all hover:bg-[var(--surface-elevated)]"
         aria-expanded={isOpen()}
         aria-controls="mobile-menu"
         aria-label={isOpen() ? "Close menu" : "Open menu"}
@@ -216,7 +216,7 @@ const Navigation: Component<NavigationProps> = (props) => {
               </span>
               <button
                 type="button"
-                class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-[var(--text-muted)] hover:bg-[var(--surface-panel)] hover:text-[var(--text-strong)]"
+                class="inline-flex h-11 w-11 items-center justify-center rounded-lg text-[var(--text-muted)] hover:bg-[var(--surface-panel)] hover:text-[var(--text-strong)]"
                 onClick={() => setIsOpen(false)}
                 aria-label="Close menu"
               >
@@ -285,7 +285,7 @@ const Navigation: Component<NavigationProps> = (props) => {
                             {(child) => (
                               <li>
                                 <a
-                                  class="block px-8 py-2.5 text-sm text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] hover:text-[var(--text-strong)]"
+                                  class="flex min-h-[44px] items-center px-8 py-2.5 text-sm text-[var(--text-muted)] hover:bg-[var(--surface-elevated)] hover:text-[var(--text-strong)]"
                                   href={child.href}
                                   data-track={`nav_mobile_${toTrackToken(link.label)}_${toTrackToken(child.label)}`}
                                   onClick={() => setIsOpen(false)}
@@ -297,7 +297,7 @@ const Navigation: Component<NavigationProps> = (props) => {
                           </For>
                           <li>
                             <a
-                              class="block px-8 py-2.5 text-sm font-semibold text-[var(--accent-strong)] hover:bg-[var(--surface-elevated)]"
+                              class="flex min-h-[44px] items-center px-8 py-2.5 text-sm font-semibold text-[var(--accent-strong)] hover:bg-[var(--surface-elevated)]"
                               href={link.href}
                               data-track={`nav_mobile_${toTrackToken(link.label)}_all`}
                               onClick={() => setIsOpen(false)}

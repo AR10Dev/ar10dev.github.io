@@ -1,7 +1,7 @@
 ---
 import { ICON_BUTTON_CLASSES, SOCIAL_LINK_CLASSES } from "@lib/constants";
 
-export type SocialKind = "linkedin" | "github";
+export type SocialKind = "linkedin" | "github" | "x" | "instagram" | "tiktok";
 export type SocialVariant = "icon" | "text";
 
 interface SocialLinkItem {
@@ -21,13 +21,18 @@ const { links, variant = "icon", className = "" } = Astro.props as Props;
 
 const listBaseClass = "m-0 flex list-none flex-wrap items-center p-0";
 const listVariantClass = "gap-3";
-const iconVariantClass = `${ICON_BUTTON_CLASSES.base} ${ICON_BUTTON_CLASSES.elevated} h-[2.4rem] w-[2.4rem]`;
+const iconVariantClass = `${ICON_BUTTON_CLASSES.base} ${ICON_BUTTON_CLASSES.elevated} h-11 w-11`;
 
 const iconPathByKind: Record<SocialKind, string> = {
   linkedin:
     "M6.94 8.5H3.56V20h3.38V8.5Zm-1.69-1.54c1.08 0 1.95-.9 1.95-2.01A1.98 1.98 0 0 0 5.25 3 1.98 1.98 0 0 0 3.3 4.95c0 1.11.87 2.01 1.95 2.01ZM20.7 13.44c0-3.34-1.78-4.9-4.15-4.9-1.91 0-2.77 1.05-3.25 1.79V8.5H9.93V20h3.37v-6.42c0-.34.02-.68.13-.92.27-.68.87-1.38 1.88-1.38 1.33 0 1.87 1.03 1.87 2.54V20H20.7v-6.56Z",
   github:
     "M12 .5C5.65.5.5 5.67.5 12.05c0 5.1 3.3 9.42 7.87 10.95.58.1.79-.25.79-.57v-2.2c-3.2.7-3.88-1.38-3.88-1.38-.53-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.72-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.48.11-3.08 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.6.24 2.79.12 3.08.74.81 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.69.41.36.77 1.07.77 2.16v3.2c0 .31.2.68.8.56 4.56-1.53 7.85-5.85 7.85-10.95C23.5 5.67 18.35.5 12 .5Z",
+  x: "M18.5 3h3.1l-7 8L23.5 21h-6.7l-5.3-6.2L6.1 21H3l7.4-8.5L.5 3h7l5 5.8L18.5 3Z",
+  instagram:
+    "M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Zm5 2.5A4.5 4.5 0 1 0 16.5 11 4.5 4.5 0 0 0 12 6.5Zm0 1.5A3 3 0 1 1 9 11a3 3 0 0 1 3-3Zm5.6-1.2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z",
+  tiktok:
+    "M14 3.5h2.5c.4 2.6 2.4 4.7 5 5.1V11c-1.5 0-2.8-.3-4-1v5.1a6.5 6.5 0 1 1-6.5-6.5c.3 0 .6 0 .9.1V15a2.6 2.6 0 1 0 2.1-2.6V3.5Z",
 };
 ---
 

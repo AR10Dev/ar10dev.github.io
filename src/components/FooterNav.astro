@@ -6,9 +6,27 @@ const currentYear = new Date().getFullYear();
 const socialLinks = [
   {
     kind: "linkedin" as const,
-    href: "https://linkedin.com/in/avaab-razzaq-937b89366",
+    href: "https://linkedin.com/in/avaab-razzaq",
     label: "LinkedIn",
     trackId: "footer_open_linkedin",
+  },
+  {
+    kind: "x" as const,
+    href: "https://x.com/itsmeAvaab",
+    label: "X",
+    trackId: "footer_open_x",
+  },
+  {
+    kind: "instagram" as const,
+    href: "https://www.instagram.com/itsmeavaab/",
+    label: "Instagram",
+    trackId: "footer_open_instagram",
+  },
+  {
+    kind: "tiktok" as const,
+    href: "https://www.tiktok.com/@itsmeavaab",
+    label: "TikTok",
+    trackId: "footer_open_tiktok",
   },
   {
     kind: "github" as const,
@@ -61,10 +79,10 @@ const contactInfo = {
 
 <footer class="border-t border-[var(--border-strong)] bg-[var(--surface-elevated)]">
   <div class="mx-auto max-w-screen-xl px-6 py-12">
-    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+    <nav aria-label="Footer navigation" class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
       {/* Brand Column */}
       <div class="lg:col-span-1">
-        <a href="/" class="text-xl font-bold text-[var(--text-strong)]" data-track="footer_brand_home">
+        <a href="/" class="inline-flex min-h-[44px] items-center text-xl font-bold text-[var(--text-strong)]" data-track="footer_brand_home">
           Avaab Razzaq
         </a>
         <p class="mt-3 text-sm text-[var(--text-muted)] leading-relaxed">
@@ -84,7 +102,7 @@ const contactInfo = {
               <a 
                 href={link.href} 
                 data-track={link.trackId}
-                class="text-sm text-[var(--text-muted)] hover:text-[var(--accent-strong)] transition-colors"
+                class="inline-flex min-h-[44px] items-center text-sm text-[var(--text-muted)] hover:text-[var(--accent-strong)] transition-colors"
               >
                 {link.label}
               </a>
@@ -104,7 +122,7 @@ const contactInfo = {
               <a 
                 href={link.href} 
                 data-track={link.trackId}
-                class="text-sm text-[var(--text-muted)] hover:text-[var(--accent-strong)] transition-colors"
+                class="inline-flex min-h-[44px] items-center text-sm text-[var(--text-muted)] hover:text-[var(--accent-strong)] transition-colors"
               >
                 {link.label}
               </a>
@@ -138,7 +156,7 @@ const contactInfo = {
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
               <polyline points="22,6 12,13 2,6"/>
             </svg>
-            <a href={`mailto:${contactInfo.email}`} data-track="footer_contact_email" class="hover:text-[var(--accent-strong)] transition-colors">
+            <a href={`mailto:${contactInfo.email}`} data-track="footer_contact_email" class="inline-flex min-h-[44px] items-center hover:text-[var(--accent-strong)] transition-colors">
               {contactInfo.email}
             </a>
           </li>
@@ -146,7 +164,7 @@ const contactInfo = {
         <a 
           href="/contact/" 
           data-track="footer_contact_cta"
-          class="mt-5 inline-flex items-center gap-2 rounded-lg bg-[linear-gradient(120deg,#db7a38,#b05422)] px-4 py-2 text-sm font-bold text-white shadow-md hover:shadow-lg transition-shadow"
+          class="mt-5 inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-[linear-gradient(120deg,#db7a38,#b05422)] px-4 py-2 text-sm font-bold text-white shadow-md hover:shadow-lg transition-shadow"
         >
           Get in Touch
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -155,7 +173,7 @@ const contactInfo = {
           </svg>
         </a>
       </div>
-    </div>
+    </nav>
 
     {/* Bottom Bar */}
     <div class="mt-10 flex flex-col items-center justify-between gap-4 border-t border-[var(--border-strong)] pt-8 md:flex-row">
