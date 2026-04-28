@@ -14,7 +14,6 @@
     "format": "biome format .",
     "format:fix": "biome format --write .",
     "setup:d2": "curl -fsSL https://d2lang.com/install.sh | sh -s --",
-
     "agent:lint": "biome check --write . --reporter=summary",
     "agent:check": "astro check 2>&1 | grep -E '(error|warning|Error|Warning)' || true",
     "agent:build": "astro build --silent 2>&1 | grep -E '(error|Error|warn|✗)' || true",
@@ -24,23 +23,23 @@
   "keywords": [],
   "devDependencies": {
     "@astrojs/check": "0.9.8",
-    "@astrojs/mdx": "5.0.3",
+    "@astrojs/mdx": "5.0.4",
     "@astrojs/sitemap": "3.7.2",
     "@astrojs/solid-js": "6.0.1",
-    "@biomejs/biome": "2.4.12",
+    "@biomejs/biome": "2.4.13",
     "@tailwindcss/typography": "0.5.19",
-    "@tailwindcss/vite": "4.2.2",
+    "@tailwindcss/vite": "4.2.4",
     "@vite-pwa/astro": "1.2.0",
     "cspell": "10.0.0",
     "playwright": "1.59.1",
-    "tailwindcss": "4.2.2",
+    "tailwindcss": "4.2.4",
     "typescript": "6.0.3"
   },
   "dependencies": {
     "@astrojs/partytown": "2.1.7",
     "@astrojs/rss": "4.0.18",
     "@beoe/rehype-d2": "0.5.4",
-    "astro": "6.1.7",
+    "astro": "6.1.9",
     "solid-js": "1.9.12"
   }
 }
