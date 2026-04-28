@@ -7,37 +7,36 @@ import {
   CONTAINER_CLASSES,
   TYPOGRAPHY_CLASSES,
 } from "@lib/constants";
+import { createSeoContext, createStructuredData } from "@lib/seo";
 
 const title = "Portfolio Case Studies | Avaab Razzaq AI Growth Engineer";
 const description =
   "Explore web apps, AI automation builds, and technical SEO case studies by Avaab Razzaq. See measurable project outcomes and book a discovery call.";
 
-const siteUrl = "https://avaabrazzaq.com";
-const canonicalUrl = new URL("/portfolio/", siteUrl).toString();
+const seo = createSeoContext({
+  astroSite: Astro.site,
+  pathname: Astro.url.pathname,
+  ogImage: "/og-portfolio.png",
+});
 
 const portfolioItems = (await getCollection("portfolio")).sort(
   (a, b) => a.data.order - b.data.order,
 );
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
-      url: siteUrl,
-      name: "Avaab Razzaq - AI Growth Engineer",
-      description:
-        "AI Growth Engineer specializing in web apps, AI automation, and technical SEO",
-      publisher: { "@id": `${siteUrl}/#person` },
-    },
+const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Portfolio" }];
+
+const structuredData = createStructuredData({
+  siteUrl: seo.siteUrl,
+  canonicalUrl: seo.canonicalUrl,
+  breadcrumbs: breadcrumbItems,
+  graph: [
     {
       "@type": "CollectionPage",
-      "@id": canonicalUrl,
-      url: canonicalUrl,
+      "@id": seo.canonicalUrl,
+      url: seo.canonicalUrl,
       name: "Portfolio & Case Studies",
       description: description,
-      isPartOf: { "@id": `${siteUrl}/#website` },
+      isPartOf: { "@id": `${seo.siteUrl}/#website` },
       mainEntity: {
         "@type": "ItemList",
         itemListElement: portfolioItems.map((item, index) => ({
@@ -48,43 +47,14 @@ const structuredData = {
             name: item.data.title,
             applicationCategory: item.data.category,
             description: item.data.summary,
-            url: `${siteUrl}/portfolio/${item.id}/`,
+            url: `${seo.siteUrl}/portfolio/${item.id}/`,
             operatingSystem: "Web",
           },
         })),
       },
     },
-    {
-      "@type": "Person",
-      "@id": `${siteUrl}/#person`,
-      name: "Avaab Razzaq",
-      url: siteUrl,
-      jobTitle: "AI Growth Engineer",
-      sameAs: [
-        "https://github.com/AR10Dev",
-        "https://linkedin.com/in/avaab-razzaq",
-        "https://twitter.com/itsmeAvaab",
-      ],
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${canonicalUrl}#breadcrumb`,
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: `${siteUrl}/`,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Portfolio",
-        },
-      ],
-    },
   ],
-};
+});
 
 const categoryColors: Record<string, string> = {
   Automation: "bg-purple-500/10 text-purple-600 border-purple-500/20",
@@ -95,10 +65,10 @@ const categoryColors: Record<string, string> = {
 };
 ---
 
-<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage="https://avaabrazzaq.com/og-portfolio.png" structuredData={structuredData}>
+<BaseLayout title={title} description={description} canonicalUrl={seo.canonicalUrl} ogImage={seo.ogImage} structuredData={structuredData}>
   <div class="min-h-screen py-12">
     <div class={CONTAINER_CLASSES.section}>
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Portfolio" }]} class="mb-8" />
+      <Breadcrumb items={breadcrumbItems} class="mb-8" />
       
       <header class="mb-16 text-center">
         <p class={TYPOGRAPHY_CLASSES.kicker}>Avaab Razzaq - AI Growth Engineer Portfolio</p>
@@ -116,7 +86,7 @@ const categoryColors: Record<string, string> = {
             itemtype="https://schema.org/SoftwareApplication"
           >
             <meta itemprop="operatingSystem" content="Web" />
-            <meta itemprop="url" content={`${siteUrl}/portfolio/${item.id}/`} />
+            <meta itemprop="url" content={`${seo.siteUrl}/portfolio/${item.id}/`} />
             <div class="mb-4 flex items-center justify-between">
               <span class={`inline-block rounded-full border px-3 py-1 text-xs font-semibold ${categoryColors[item.data.category] || categoryColors["Development"]}`} itemprop="applicationCategory">
                 {item.data.category}

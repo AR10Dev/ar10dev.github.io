@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  service: CollectionEntry<"services">;
+  /**
+   * Title of the section. Defaults to "Related Service".
+   */
+  title?: string;
+  /**
+   * Optional CSS classes for the wrapper element.
+   */
+  class?: string;
+}
+
+const {
+  service,
+  title = "Related Service",
+  class: className = "",
+} = Astro.props;
+---
+
+<div class={className}>
+  {title && (
+    <h3 class="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-4">
+      {title}
+    </h3>
+  )}
+  <a 
+    href={`/services/${service.data.slug}/`}
+    class="block rounded-2xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-6 shadow-[var(--card-shadow)] transition-all hover:-translate-y-1 hover:shadow-xl group"
+  >
+    <div class="flex items-start gap-4">
+      <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--accent-strong)] flex items-center justify-center text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+      </div>
+      <div class="flex-1">
+        <h4 class="text-lg font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors mb-2">
+          {service.data.title}
+        </h4>
+        <p class="text-[var(--text-muted)] text-sm leading-relaxed mb-3">
+          {service.data.metaDescription}
+        </p>
+        <span class="inline-flex items-center gap-2 text-sm font-medium text-[var(--accent-strong)]">
+          Learn more
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </a>
+</div>

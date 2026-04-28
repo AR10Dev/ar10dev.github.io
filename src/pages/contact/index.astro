@@ -3,6 +3,7 @@ import { getEntry } from "astro:content";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import FormField from "@components/ui/FormField.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { createSeoContext, createStructuredData } from "@lib/seo";
 import {
   BUTTON_CLASSES,
   CONTAINER_CLASSES,
@@ -21,36 +22,35 @@ const title = "Contact Avaab Razzaq | AI Growth Engineer in Miami";
 const description =
   "Contact Avaab Razzaq for AI automation, web development, and technical SEO services from Miami, FL. Book a discovery call and get a fast project response.";
 
-const siteUrl = "https://avaabrazzaq.com";
-const canonicalUrl = new URL("/contact/", siteUrl).toString();
+const seo = createSeoContext({
+  astroSite: Astro.site,
+  pathname: Astro.url.pathname,
+  ogImage: "/og-contact.png",
+});
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
-      url: siteUrl,
-      name: "Avaab Razzaq - AI Growth Engineer",
-      description:
-        "AI Growth Engineer specializing in web apps, AI automation, and technical SEO",
-      publisher: { "@id": `${siteUrl}/#person` },
-    },
+const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Contact" }];
+
+const structuredData = createStructuredData({
+  siteUrl: seo.siteUrl,
+  canonicalUrl: seo.canonicalUrl,
+  includePerson: false,
+  breadcrumbs: breadcrumbItems,
+  graph: [
     {
       "@type": "ContactPage",
-      "@id": canonicalUrl,
-      url: canonicalUrl,
+      "@id": seo.canonicalUrl,
+      url: seo.canonicalUrl,
       name: "Contact Avaab Razzaq",
       description: description,
-      isPartOf: { "@id": `${siteUrl}/#website` },
-      mainEntity: { "@id": `${siteUrl}/#person` },
+      isPartOf: { "@id": `${seo.siteUrl}/#website` },
+      mainEntity: { "@id": `${seo.siteUrl}/#person` },
     },
     {
       "@type": "Person",
-      "@id": `${siteUrl}/#person`,
+      "@id": `${seo.siteUrl}/#person`,
       name: "Avaab Razzaq",
       email: homepage.contactEmail,
-      url: siteUrl,
+      url: seo.siteUrl,
       jobTitle: "AI Growth Engineer",
       address: {
         "@type": "PostalAddress",
@@ -82,25 +82,8 @@ const structuredData = {
         "https://twitter.com/itsmeAvaab",
       ],
     },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${canonicalUrl}#breadcrumb`,
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: `${siteUrl}/`,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Contact",
-        },
-      ],
-    },
   ],
-};
+});
 
 const contactMethods = [
   {
@@ -129,10 +112,10 @@ const contactMethods = [
 const leadInputClass = FORM_CLASSES.input;
 ---
 
-<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage="https://avaabrazzaq.com/og-contact.png" structuredData={structuredData}>
+<BaseLayout title={title} description={description} canonicalUrl={seo.canonicalUrl} ogImage={seo.ogImage} structuredData={structuredData}>
   <div class="min-h-screen py-12">
     <div class={CONTAINER_CLASSES.section}>
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} class="mb-8" />
+      <Breadcrumb items={breadcrumbItems} class="mb-8" />
       
       <header class="mb-16 text-center">
         <p class={TYPOGRAPHY_CLASSES.kicker}>Contact Avaab Razzaq</p>

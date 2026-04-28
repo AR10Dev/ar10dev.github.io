@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import logo from "@assets/logo.png";
 import "../styles/global.css";
 import AnalyticsConsent from "@components/AnalyticsConsent.astro";
+import Breadcrumb from "@components/Breadcrumb.astro";
 import CalEmbed from "@components/CalEmbed.astro";
 import GoogleAnalytics from "@components/GoogleAnalytics.astro";
 import HeadSEO from "@components/HeadSEO.astro";
@@ -15,6 +16,13 @@ import {
   CONTAINER_CLASSES,
   TYPOGRAPHY_CLASSES,
 } from "@lib/constants";
+import { generateBreadcrumbSchema, getBaseSchemaGraph } from "@lib/schema";
+import {
+  DEFAULT_META_KEYWORDS,
+  DEFAULT_OG_IMAGE,
+  PERSON_NAME,
+  resolveAbsoluteUrl,
+} from "@lib/siteMeta";
 import { themeInitScript } from "@scripts/themeInit";
 
 type Props = {
@@ -65,15 +73,10 @@ const currentServiceSlug = Astro.url.pathname
   .replace(/^\/services\//, "")
   .replace(/\/$/, "");
 
-const serviceSlug = currentServiceSlug;
-
-const finalOgImage =
-  SERVICE_OG_MAP[serviceSlug] ??
-  (ogImage
-    ? ogImage.startsWith("http")
-      ? ogImage
-      : new URL(ogImage, siteUrl).toString()
-    : `${siteUrl}/og-ai-growth-engineer.png`);
+const finalOgImage = resolveAbsoluteUrl(
+  SERVICE_OG_MAP[currentServiceSlug] ?? ogImage ?? DEFAULT_OG_IMAGE,
+  siteUrl,
+);
 
 const relatedServices = serviceCrossLinks
   .filter((service) => service.slug !== currentServiceSlug)
@@ -118,7 +121,7 @@ const blogLinksByService: Record<string, string[]> = {
   ],
   "programmatic-seo": [
     "how-programmatic-seo-generates-10x-traffic",
-    "complete-technical-seo-audit-checklist-2025",
+    "complete-technical-seo-audit-checklist",
   ],
   "prompt-engineering": [
     "openai-vs-anthropic-which-llm-for-business",
@@ -129,7 +132,7 @@ const blogLinksByService: Record<string, string[]> = {
     "building-custom-chatgpt-interfaces-for-business",
   ],
   "seo-growth": [
-    "complete-technical-seo-audit-checklist-2025",
+    "complete-technical-seo-audit-checklist",
     "how-programmatic-seo-generates-10x-traffic",
   ],
   "social-media-growth": [
@@ -137,11 +140,11 @@ const blogLinksByService: Record<string, string[]> = {
     "ab-testing-best-practices-improve-conversions",
   ],
   "technical-seo": [
-    "complete-technical-seo-audit-checklist-2025",
+    "complete-technical-seo-audit-checklist",
     "how-programmatic-seo-generates-10x-traffic",
   ],
   "technical-seo-audit": [
-    "complete-technical-seo-audit-checklist-2025",
+    "complete-technical-seo-audit-checklist",
     "how-programmatic-seo-generates-10x-traffic",
   ],
 };
@@ -186,38 +189,22 @@ const seoDescription =
     ? `${description.slice(0, 157).trimEnd()}...`
     : description;
 
-const defaultKeywords =
-  "AI Growth Engineer, AI Automation, Full-Stack Developer, SEO Expert, Miami Florida, Web Development, LLM Integration, Workflow Automation";
 const finalKeywords =
-  keywords.length > 0 ? keywords.join(", ") : defaultKeywords;
+  keywords.length > 0 ? keywords.join(", ") : DEFAULT_META_KEYWORDS;
 const { gaMeasurementId, shouldLoadAnalytics } = getAnalyticsConfig();
 
-const serviceUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const serviceUrl = canonicalUrl;
 
-const breadcrumbSchema = {
-  "@type": "BreadcrumbList",
-  "@id": `${serviceUrl}#breadcrumb`,
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: siteUrl,
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Services",
-      item: `${siteUrl}/services/`,
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: serviceName,
-      item: serviceUrl,
-    },
-  ],
-};
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services/" },
+  { label: serviceName, href: serviceUrl },
+];
+
+const breadcrumbSchema = generateBreadcrumbSchema(
+  breadcrumbItems,
+  canonicalUrl,
+);
 
 const serviceOfferingSchema = {
   "@type": ["Service", "Offer"],
@@ -228,7 +215,7 @@ const serviceOfferingSchema = {
   provider: {
     "@type": "Person",
     "@id": `${siteUrl}/#person`,
-    name: "Avaab Razzaq",
+    name: PERSON_NAME,
     url: siteUrl,
   },
   areaServed: {
@@ -244,10 +231,10 @@ const serviceOfferingSchema = {
   },
 };
 
-// Build structured data with optional FAQPage
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
+    ...getBaseSchemaGraph(siteUrl),
     {
       "@type": "WebPage",
       "@id": canonicalUrl,
@@ -271,6 +258,7 @@ const structuredData = {
       ? [
           {
             "@type": "FAQPage",
+            "@id": `${canonicalUrl}#faq`,
             mainEntity: normalizedFaqs.map((faq) => ({
               "@type": "Question",
               name: faq.question,
@@ -334,12 +322,7 @@ const structuredData = {
             class="h-12 w-12"
           />
         </a>
-        <a 
-          href="/" 
-          class="text-sm font-medium text-[var(--text-muted)] hover:text-[var(--accent-strong)] transition-colors"
-        >
-          ← Back to site
-        </a>
+        <Breadcrumb items={breadcrumbItems} />
       </div>
     </header>
 

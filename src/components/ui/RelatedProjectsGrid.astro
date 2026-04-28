@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  projects: CollectionEntry<"portfolio">[];
+  /**
+   * Title of the section. Defaults to "Related Projects".
+   */
+  title?: string;
+  /**
+   * Optional CSS classes for the wrapper element.
+   */
+  class?: string;
+}
+
+const {
+  projects,
+  title = "Related Projects",
+  class: className = "",
+} = Astro.props;
+
+if (projects.length === 0) {
+  return null;
+}
+---
+
+<div class={className}>
+  {title && (
+    <h3 class="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-6">
+      {title}
+    </h3>
+  )}
+  <div class="grid gap-4 md:grid-cols-2">
+    {projects.map((item) => (
+      <a 
+        href={`/portfolio/${item.id}/`}
+        class="block rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-4 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md group"
+      >
+        <p class="text-xs font-semibold text-[var(--accent-strong)] uppercase tracking-wide mb-2">{item.data.category}</p>
+        <h4 class="text-sm font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors">
+          {item.data.title}
+        </h4>
+        <p class="text-xs text-[var(--text-muted)] mt-1 line-clamp-2">{item.data.summary}</p>
+      </a>
+    ))}
+  </div>
+</div>

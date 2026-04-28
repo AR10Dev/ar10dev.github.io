@@ -10,20 +10,6 @@ export interface Props {
 }
 
 const { items, class: className = "" } = Astro.props as Props;
-
-const siteUrl = "https://avaabrazzaq.com";
-
-// Generate schema.org BreadcrumbList
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: items.map((item, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    name: item.label,
-    ...(item.href && { item: new URL(item.href, siteUrl).toString() }),
-  })),
-};
 ---
 
 <nav aria-label="Breadcrumb" class={`text-sm ${className}`}>
@@ -47,5 +33,3 @@ const breadcrumbSchema = {
     ))}
   </ol>
 </nav>
-
-<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

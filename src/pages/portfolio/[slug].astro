@@ -2,11 +2,13 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { createSeoContext } from "@lib/seo";
 import {
   BUTTON_CLASSES,
   CONTAINER_CLASSES,
   TYPOGRAPHY_CLASSES,
 } from "@lib/constants";
+import { generateBreadcrumbSchema, getBaseSchemaGraph } from "@lib/schema";
 
 export async function getStaticPaths() {
   const portfolioItems = await getCollection("portfolio");
@@ -62,9 +64,12 @@ interface Props {
 }
 
 const { item, relatedService, relatedPosts, relatedPortfolio } = Astro.props;
-const siteUrl = new URL(Astro.site?.toString() ?? "https://avaabrazzaq.com")
-  .origin;
-const canonicalUrl = new URL(`/portfolio/${item.id}/`, siteUrl).toString();
+const seo = createSeoContext({
+  astroSite: Astro.site,
+  pathname: `/portfolio/${item.id}/`,
+});
+const siteUrl = seo.siteUrl;
+const canonicalUrl = seo.canonicalUrl;
 
 const clampText = (value: string, maxLength: number) =>
   value.length > maxLength
@@ -96,27 +101,35 @@ const fallbackDescription = clampText(
 const title = seoOverrides[item.id]?.title ?? fallbackTitle;
 const description = seoOverrides[item.id]?.description ?? fallbackDescription;
 
+const breadcrumbItems = [
+  { label: "Home", href: "/" },
+  { label: "Portfolio", href: "/portfolio/" },
+  { label: item.data.title },
+];
+
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
+    ...getBaseSchemaGraph(siteUrl),
     {
-      "@type": "SoftwareApplication",
-      "@id": `${siteUrl}/portfolio/${item.id}/#application`,
+      "@type": "CreativeWork",
+      "@id": `${siteUrl}/portfolio/${item.id}/#work`,
       name: item.data.title,
-      applicationCategory: item.data.category,
       description: item.data.summary,
+      abstract: item.data.description,
       url: canonicalUrl,
-      operatingSystem: "Web",
+      genre: item.data.category,
+      dateCreated: item.data.timeframe,
       author: {
+        "@type": "Person",
+        "@id": `${siteUrl}/#person`,
+        name: "Avaab Razzaq",
+      },
+      provider: {
+        "@type": "Person",
         "@id": `${siteUrl}/#person`,
       },
-      offers: {
-        "@type": "Offer",
-        availability: "https://schema.org/InStock",
-        priceCurrency: "USD",
-        price: "0",
-        description: "Custom implementation available",
-      },
+      keywords: item.data.stack.join(", "),
     },
     {
       "@type": "WebPage",
@@ -131,32 +144,10 @@ const structuredData = {
         "@id": `${canonicalUrl}#breadcrumb`,
       },
       mainEntity: {
-        "@id": `${siteUrl}/portfolio/${item.id}/#application`,
+        "@id": `${siteUrl}/portfolio/${item.id}/#work`,
       },
     },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${canonicalUrl}#breadcrumb`,
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: `${siteUrl}/`,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Portfolio",
-          item: `${siteUrl}/portfolio/`,
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: item.data.title,
-        },
-      ],
-    },
+    generateBreadcrumbSchema(breadcrumbItems, canonicalUrl),
   ],
 };
 
@@ -169,11 +160,7 @@ const relatedItems = relatedPortfolio;
     {/* Hero Section */}
     <section class="bg-[var(--surface-elevated)] py-16 md:py-24">
       <div class={CONTAINER_CLASSES.section}>
-        <Breadcrumb items={[
-          { label: "Home", href: "/" },
-          { label: "Portfolio", href: "/portfolio/" },
-          { label: item.data.title }
-        ]} class="mb-8" />
+        <Breadcrumb items={breadcrumbItems} class="mb-8" />
         
         <div class="max-w-4xl">
           <div class="mb-4 flex flex-wrap items-center gap-3">

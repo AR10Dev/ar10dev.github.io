@@ -1,3 +1,5 @@
+import { SITE_URL } from "./siteMeta";
+
 export function normalizeCanonicalUrl(
   inputUrl: string,
   siteUrl: string,
@@ -16,7 +18,7 @@ export function normalizeCanonicalUrl(
 }
 
 export function buildSiteUrl(astroSite: URL | undefined): string {
-  const url = new URL(astroSite?.toString() ?? "https://avaabrazzaq.com");
+  const url = new URL(astroSite?.toString() ?? SITE_URL);
   url.protocol = "https:";
   return url.origin;
 }

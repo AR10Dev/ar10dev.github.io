@@ -2,6 +2,8 @@
 
 [![pages-build-deployment](https://github.com/AR10Dev/ar10dev.github.io/actions/workflows/pages-build-deployment.yml/badge.svg)](https://github.com/AR10Dev/ar10dev.github.io/actions/workflows/pages-build-deployment.yml)
 
+**[avaabrazzaq.com](https://avaabrazzaq.com)** — Personal site of Avaab Razzaq, AI Growth Engineer based in Miami, FL. Built with Astro, SolidJS, and Tailwind CSS. Offering AI automation, full-stack development, and technical SEO services.
+
 ## Requirements
 
 - Bun

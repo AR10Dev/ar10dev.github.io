@@ -1,9 +1,10 @@
 import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
+import { PERSON_NAME, SITE_NAME, SITE_URL } from "@lib/siteMeta";
 
 export async function GET(context: APIContext) {
-  const siteUrl = "https://avaabrazzaq.com";
+  const siteUrl = SITE_URL;
 
   const blogPosts = await getCollection("blog", ({ data }) => {
     return data.draft !== true;
@@ -14,7 +15,7 @@ export async function GET(context: APIContext) {
   );
 
   return rss({
-    title: "Avaab Razzaq - AI Growth Engineer Blog",
+    title: `${SITE_NAME} Blog`,
     description:
       "Insights on AI automation, growth engineering, full-stack development, and marketing optimization strategies. Expert articles from a Miami-based consultant.",
     site: context.site ?? siteUrl,
@@ -28,7 +29,7 @@ export async function GET(context: APIContext) {
     })),
     customData: `<language>en-us</language>
 <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-<managingEditor>itsavaab@gmail.com (Avaab Razzaq)</managingEditor>
-<webMaster>itsavaab@gmail.com (Avaab Razzaq)</webMaster>`,
+<managingEditor>itsavaab@gmail.com (${PERSON_NAME})</managingEditor>
+<webMaster>itsavaab@gmail.com (${PERSON_NAME})</webMaster>`,
   });
 }

@@ -1,0 +1,35 @@
+---
+import { BUTTON_CLASSES, TYPOGRAPHY_CLASSES } from "@lib/constants";
+
+interface Props {
+  title?: string;
+  body?: string;
+  buttonText?: string;
+  buttonHref?: string;
+  class?: string;
+}
+
+const {
+  title = "Found this helpful?",
+  body = "Let's work together on your next project. I specialize in AI automation, growth engineering, and full-stack development.",
+  buttonText = "Get in Touch",
+  buttonHref = "/contact/",
+  class:
+    className = "mt-12 p-8 rounded-2xl bg-[var(--surface-panel)] border border-[var(--border-base)] text-center",
+} = Astro.props;
+---
+
+<div class={className}>
+  <h3 class={`${TYPOGRAPHY_CLASSES.sectionTitle} mb-4`}>
+    {title}
+  </h3>
+  <p class={`${TYPOGRAPHY_CLASSES.body} mb-6 max-w-lg mx-auto`}>
+    {body}
+  </p>
+  <a 
+    href={buttonHref} 
+    class={`${BUTTON_CLASSES.base} ${BUTTON_CLASSES.primary}`}
+  >
+    {buttonText}
+  </a>
+</div>

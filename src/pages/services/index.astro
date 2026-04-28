@@ -7,6 +7,7 @@ import {
   CONTAINER_CLASSES,
   TYPOGRAPHY_CLASSES,
 } from "@lib/constants";
+import { createSeoContext, createStructuredData } from "@lib/seo";
 
 const title = "AI Automation, Web & SEO Services in Miami | Avaab Razzaq";
 const description =
@@ -40,34 +41,31 @@ const services = allServices.sort((a, b) => {
   return aOrder - bOrder;
 });
 
-const siteUrl = new URL(Astro.site?.toString() ?? "https://avaabrazzaq.com")
-  .origin;
-const canonicalUrl = new URL("/services/", siteUrl).toString();
+const seo = createSeoContext({
+  astroSite: Astro.site,
+  pathname: Astro.url.pathname,
+  ogImage: "/og-services.png",
+});
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
-      url: siteUrl,
-      name: "Avaab Razzaq - AI Growth Engineer",
-      description:
-        "AI Growth Engineer specializing in web apps, AI automation, and technical SEO",
-      publisher: { "@id": `${siteUrl}/#person` },
-    },
+const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "Services" }];
+
+const structuredData = createStructuredData({
+  siteUrl: seo.siteUrl,
+  canonicalUrl: seo.canonicalUrl,
+  breadcrumbs: breadcrumbItems,
+  graph: [
     {
       "@type": "CollectionPage",
-      "@id": canonicalUrl,
-      url: canonicalUrl,
+      "@id": seo.canonicalUrl,
+      url: seo.canonicalUrl,
       name: title,
       description: description,
-      isPartOf: { "@id": `${siteUrl}/#website` },
+      isPartOf: { "@id": `${seo.siteUrl}/#website` },
       about: {
         "@type": "ProfessionalService",
-        "@id": `${siteUrl}/#services`,
+        "@id": `${seo.siteUrl}/#services`,
         name: "AI Growth Engineering Services",
-        provider: { "@id": `${siteUrl}/#person` },
+        provider: { "@id": `${seo.siteUrl}/#person` },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Professional Services",
@@ -77,44 +75,15 @@ const structuredData = {
               "@type": "Service",
               name: service.data.title,
               description: service.data.introduction,
-              url: `${siteUrl}/services/${service.data.slug}/`,
+              url: `${seo.siteUrl}/services/${service.data.slug}/`,
             },
             position: index + 1,
           })),
         },
       },
     },
-    {
-      "@type": "Person",
-      "@id": `${siteUrl}/#person`,
-      name: "Avaab Razzaq",
-      url: siteUrl,
-      jobTitle: "AI Growth Engineer",
-      sameAs: [
-        "https://github.com/AR10Dev",
-        "https://linkedin.com/in/avaab-razzaq",
-        "https://twitter.com/itsmeAvaab",
-      ],
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${canonicalUrl}#breadcrumb`,
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: `${siteUrl}/`,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Services",
-        },
-      ],
-    },
   ],
-};
+});
 
 const serviceIcons: Record<string, string> = {
   "ai-agent-development": `<svg class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M1 12h4m14 0h4M4.9 4.9l2.8 2.8m8.6 8.6l2.8 2.8M4.9 19.1l2.8-2.8m8.6-8.6l2.8-2.8"/><path d="M12 9v3l2 2"/></svg>`,
@@ -134,10 +103,10 @@ const serviceIcons: Record<string, string> = {
 };
 ---
 
-<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage="https://avaabrazzaq.com/og-services.png" structuredData={structuredData}>
+<BaseLayout title={title} description={description} canonicalUrl={seo.canonicalUrl} ogImage={seo.ogImage} structuredData={structuredData}>
   <div class="min-h-screen py-12">
     <div class={CONTAINER_CLASSES.section}>
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Services" }]} class="mb-8" />
+      <Breadcrumb items={breadcrumbItems} class="mb-8" />
       
       <header class="mb-16 text-center">
         <p class={TYPOGRAPHY_CLASSES.kicker}>Avaab Razzaq - AI Growth Engineer</p>

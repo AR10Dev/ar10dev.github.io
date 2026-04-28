@@ -7,6 +7,8 @@ import {
   TYPING_CLASSES,
   TYPOGRAPHY_CLASSES,
 } from "@lib/constants";
+import { getBaseSchemaGraph } from "@lib/schema";
+import { createSeoContext } from "@lib/seo";
 import "../styles/global.css";
 
 import SocialLinks from "@components/SocialLinks.astro";
@@ -32,10 +34,14 @@ const portfolioItems = (await getCollection("portfolio"))
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 4);
 
-const siteUrl = new URL(Astro.site?.toString() ?? "https://avaabrazzaq.com")
-  .origin;
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
-const ogImage = new URL("/og-ai-growth-engineer.png", siteUrl).toString();
+const seo = createSeoContext({
+  astroSite: Astro.site,
+  pathname: Astro.url.pathname,
+  ogImage: "/og-ai-growth-engineer.png",
+});
+const siteUrl = seo.siteUrl;
+const canonicalUrl = seo.canonicalUrl;
+const ogImage = seo.ogImage;
 const linkedInUrl = "https://linkedin.com/in/avaab-razzaq";
 const twitterUrl = "https://twitter.com/itsmeAvaab";
 const seoTitle = "AI Growth Engineer Services in Miami | Avaab Razzaq";
@@ -148,6 +154,7 @@ const homepageServiceItems = [...serviceItems, ...emergingServiceItems];
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
+    ...getBaseSchemaGraph(siteUrl, false),
     {
       "@type": "Person",
       "@id": `${siteUrl}/#person`,

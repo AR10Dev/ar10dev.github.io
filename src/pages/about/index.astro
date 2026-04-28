@@ -1,18 +1,25 @@
 ---
 import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { createSeoContext } from "@lib/seo";
 import {
   BUTTON_CLASSES,
   CONTAINER_CLASSES,
   TYPOGRAPHY_CLASSES,
 } from "@lib/constants";
+import { generateBreadcrumbSchema, getBaseSchemaGraph } from "@lib/schema";
 
 const title = "About Avaab Razzaq, AI Growth Engineer | Miami, FL";
 const description =
   "Learn how Avaab Razzaq helps businesses with AI automation, full-stack development, and technical SEO from Miami, FL. Book a discovery call to get started.";
 
-const siteUrl = "https://avaabrazzaq.com";
-const canonicalUrl = new URL("/about/", siteUrl).toString();
+const seo = createSeoContext({
+  astroSite: Astro.site,
+  pathname: Astro.url.pathname,
+  ogImage: "/og-about.png",
+});
+
+const breadcrumbItems = [{ label: "Home", href: "/" }, { label: "About" }];
 
 const credentials = [
   {
@@ -65,33 +72,25 @@ const skills = {
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
-      url: siteUrl,
-      name: "Avaab Razzaq - AI Growth Engineer",
-      description:
-        "AI Growth Engineer specializing in web apps, AI automation, and technical SEO",
-      publisher: { "@id": `${siteUrl}/#person` },
-    },
+    ...getBaseSchemaGraph(seo.siteUrl, false),
     {
       "@type": "AboutPage",
-      "@id": canonicalUrl,
-      url: canonicalUrl,
+      "@id": seo.canonicalUrl,
+      url: seo.canonicalUrl,
       name: title,
       description: description,
-      isPartOf: { "@id": `${siteUrl}/#website` },
-      mainEntity: { "@id": `${siteUrl}/#person` },
+      isPartOf: { "@id": `${seo.siteUrl}/#website` },
+      mainEntity: { "@id": `${seo.siteUrl}/#person` },
     },
     {
       "@type": "Person",
-      "@id": `${siteUrl}/#person`,
+      "@id": `${seo.siteUrl}/#person`,
       name: "Avaab Razzaq",
       alternateName: "AR10Dev",
       jobTitle: "AI Growth Engineer",
       description: description,
-      url: siteUrl,
-      image: new URL("/og-ai-growth-engineer.png", siteUrl).toString(),
+      url: seo.siteUrl,
+      image: seo.ogImage,
       sameAs: [
         "https://github.com/AR10Dev",
         "https://linkedin.com/in/avaab-razzaq",
@@ -164,23 +163,7 @@ const structuredData = {
         },
       },
     },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${canonicalUrl}#breadcrumb`,
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: `${siteUrl}/`,
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "About",
-        },
-      ],
-    },
+    generateBreadcrumbSchema(breadcrumbItems, seo.canonicalUrl),
   ],
 };
 
@@ -191,12 +174,12 @@ const icons: Record<string, string> = {
 };
 ---
 
-<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} ogImage={`${siteUrl}/og-about.png`} structuredData={structuredData}>
+<BaseLayout title={title} description={description} canonicalUrl={seo.canonicalUrl} ogImage={seo.ogImage} structuredData={structuredData}>
   <div class="min-h-screen">
     {/* Hero Section */}
     <section class="bg-[var(--surface-elevated)] py-16 md:py-24">
       <div class={CONTAINER_CLASSES.section}>
-        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About" }]} class="mb-8" />
+        <Breadcrumb items={breadcrumbItems} class="mb-8" />
         
         <div class="grid items-center gap-12 md:grid-cols-2">
           <div>

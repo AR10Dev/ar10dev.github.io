@@ -1,4 +1,11 @@
 ---
+import {
+  DEFAULT_ROBOTS,
+  PERSON_NAME,
+  SITE_NAME,
+  TWITTER_HANDLE,
+} from "@lib/siteMeta";
+
 type Props = {
   title: string;
   description: string;
@@ -21,9 +28,10 @@ const {
   ogImage,
   ogImageAlt = `Open Graph preview image for ${title}`,
   ogType = "website",
-  author = "Avaab Razzaq",
-  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  author = PERSON_NAME,
+  robots = DEFAULT_ROBOTS,
   keywords,
+  twitterHandle = TWITTER_HANDLE,
   readingTime,
   structuredData,
 } = Astro.props as Props;
@@ -79,17 +87,17 @@ const {
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:type" content="image/png" />
-<meta property="og:site_name" content="Avaab Razzaq - AI Growth Engineer" />
+<meta property="og:site_name" content={SITE_NAME} />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@itsmeAvaab" />
-<meta name="twitter:creator" content="@itsmeAvaab" />
+<meta name="twitter:site" content={twitterHandle} />
+<meta name="twitter:creator" content={twitterHandle} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 <meta name="twitter:image:alt" content={ogImageAlt} />
 <meta name="twitter:label1" content="Built by" />
-<meta name="twitter:data1" content="Avaab Razzaq" />
+<meta name="twitter:data1" content={PERSON_NAME} />
 {readingTime ? (
   <>
     <meta name="twitter:label2" content="Reading time" />

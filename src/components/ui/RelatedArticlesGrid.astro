@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  posts: CollectionEntry<"blog">[];
+  /**
+   * Title of the section. Defaults to "Related Articles".
+   */
+  title?: string;
+  /**
+   * Optional CSS classes for the wrapper element.
+   */
+  class?: string;
+}
+
+const {
+  posts,
+  title = "Related Articles",
+  class: className = "",
+} = Astro.props;
+
+if (posts.length === 0) {
+  return null;
+}
+---
+
+<div class={className}>
+  {title && (
+    <h3 class="text-sm font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-6">
+      {title}
+    </h3>
+  )}
+  <div class="grid gap-4 md:grid-cols-3">
+    {posts.map((post) => (
+      <a 
+        href={`/blog/${post.id}/`}
+        class="block rounded-xl border border-[var(--card-uniform-border)] bg-[var(--card-uniform-bg)] p-4 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md group"
+      >
+        <p class="text-xs font-semibold text-[var(--accent-strong)] uppercase tracking-wide mb-2">{post.data.category}</p>
+        <h4 class="text-sm font-bold text-[var(--text-strong)] group-hover:text-[var(--accent-strong)] transition-colors line-clamp-2">
+          {post.data.title}
+        </h4>
+        <p class="mt-2 text-xs text-[var(--text-muted)] line-clamp-2">
+          {post.data.description}
+        </p>
+      </a>
+    ))}
+  </div>
+</div>

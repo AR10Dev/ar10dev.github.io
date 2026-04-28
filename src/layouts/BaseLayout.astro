@@ -7,6 +7,13 @@ import HeaderNav from "@components/HeaderNav.astro";
 import HeadSEO from "@components/HeadSEO.astro";
 import { getAnalyticsConfig } from "@lib/analytics";
 import { buildSiteUrl, normalizeCanonicalUrl } from "@lib/canonicalUrl";
+import {
+  DEFAULT_META_KEYWORDS,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_ROBOTS,
+  PERSON_NAME,
+  resolveAbsoluteUrl,
+} from "@lib/siteMeta";
 import { themeInitScript } from "@scripts/themeInit";
 import "../styles/global.css";
 import "../styles/diagrams.css";
@@ -35,7 +42,7 @@ const {
   title,
   description,
   canonicalUrl: canonicalUrlProp,
-  ogImage = new URL("/og-ai-growth-engineer.png", siteUrl).toString(),
+  ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
   articleSection,
   structuredData,
@@ -44,7 +51,7 @@ const {
   publishedTime,
   modifiedTime,
   readingTime,
-  author = "Avaab Razzaq",
+  author = PERSON_NAME,
   robots,
   loadCodeCopy = false,
 } = Astro.props as Props;
@@ -53,17 +60,10 @@ const canonicalUrl = normalizeCanonicalUrl(
   canonicalUrlProp ?? Astro.url.pathname,
   siteUrl,
 );
-const finalOgImage = ogImage.startsWith("http")
-  ? ogImage
-  : new URL(ogImage, siteUrl).toString();
-
-const defaultKeywords =
-  "AI Growth Engineer, AI Automation, Full-Stack Developer, SEO Expert, Miami Florida, Web Development, LLM Integration, Workflow Automation";
-const finalKeywords = keywords || defaultKeywords;
-const defaultRobots =
-  "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+const finalOgImage = resolveAbsoluteUrl(ogImage, siteUrl);
+const finalKeywords = keywords || DEFAULT_META_KEYWORDS;
 const resolvedRobots =
-  robots ?? (noIndex ? "noindex, nofollow" : defaultRobots);
+  robots ?? (noIndex ? "noindex, nofollow" : DEFAULT_ROBOTS);
 const { gaMeasurementId, shouldLoadAnalytics } = getAnalyticsConfig();
 
 const currentPath = Astro.url.pathname;

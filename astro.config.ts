@@ -7,11 +7,13 @@ import tailwindcss from "@tailwindcss/vite";
 import AstroPWA from "@vite-pwa/astro";
 import { defineConfig } from "astro/config";
 import rehypeCopyCodeButton from "./src/lib/rehypeCopyCodeButton";
+import { PERSON_NAME, SITE_URL } from "./src/lib/siteMeta";
+import { getLastmodForUrl } from "./src/lib/sitemapDates";
 
 // https://astro.build/config
 export default defineConfig({
   output: "static",
-  site: "https://avaabrazzaq.com", // Used to generate canonical URLs and sitemap entries.
+  site: SITE_URL, // Used to generate canonical URLs and sitemap entries.
   trailingSlash: "always", // Consistent URL format - all URLs end with /
   markdown: {
     syntaxHighlight: {
@@ -59,10 +61,11 @@ export default defineConfig({
         const url = item.url;
         let priority = 0.5;
         let changefreq = "monthly";
-        const lastmod = item.lastmod ?? new Date().toISOString();
+        const lastmod =
+          getLastmodForUrl(url) ?? item.lastmod ?? new Date().toISOString();
 
         // Homepage gets highest priority
-        if (url === "https://avaabrazzaq.com/") {
+        if (url === `${SITE_URL}/`) {
           priority = 1.0;
           changefreq = "weekly";
         }
@@ -114,7 +117,7 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["favicon.ico", "apple-touch-icon.png"],
       manifest: {
-        name: "Avaab Razzaq",
+        name: PERSON_NAME,
         short_name: "AR10",
         theme_color: "#000000",
         background_color: "#000000",
