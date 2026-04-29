@@ -93,7 +93,19 @@ const clampText = (value: string, maxLength: number) =>
     ? `${value.slice(0, maxLength - 3).trimEnd()}...`
     : value;
 
-const title = clampText(`${post.data.title} | Avaab Razzaq`, 60);
+const seoTitleSuffixMap: Record<string, string> = {
+  AI: "AI Automation & Business Growth",
+  Marketing: "SEO & Content Marketing",
+  Development: "Full-Stack Web Development",
+  Growth: "Conversion Optimization & Growth Systems",
+  Analytics: "Analytics & Conversion Strategy",
+  Tutorial: "Technical Guides for Business Owners",
+};
+
+const title = clampText(
+  `${post.data.title} | ${seoTitleSuffixMap[post.data.category] ?? "Business Insights"} | Avaab Razzaq`,
+  72,
+);
 const descriptionSource =
   post.data.description.length >= 120
     ? post.data.description
@@ -306,9 +318,16 @@ const structuredData = {
           </span>
         </div>
 
-        <!-- Title -->
+        <h1 class="text-4xl font-black tracking-tight text-[var(--text-strong)] md:text-5xl leading-tight">
+          {post.data.title}
+        </h1>
+
+        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--text-base)]">
+          {post.data.description}
+        </p>
+
         <!-- Meta Info -->
-        <div class="flex flex-wrap items-center gap-4 text-sm text-[var(--text-base)] border-t border-b border-[var(--border-base)] py-4">
+        <div class="mt-8 flex flex-wrap items-center gap-4 border-t border-b border-[var(--border-base)] py-4 text-sm text-[var(--text-base)]">
           <div class="flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -350,7 +369,7 @@ const structuredData = {
 
         <!-- Featured Image -->
         {post.data.image && (
-          <div class="mt-8 overflow-hidden rounded-lg aspect-video bg-[var(--surface-strong)]">
+          <div class="mt-8 aspect-video overflow-hidden rounded-lg bg-[var(--surface-strong)]">
             <Image
               src={post.data.image.src}
               alt={post.data.image.alt}

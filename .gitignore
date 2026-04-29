@@ -37,3 +37,6 @@ dist
 
 # Playwright mcp cache
 .playwright-mcp/
+
+# wrangler generated cache
+.wrangler/
