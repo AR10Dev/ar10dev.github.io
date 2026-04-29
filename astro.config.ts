@@ -1,3 +1,4 @@
+import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
@@ -10,11 +11,8 @@ import rehypeCopyCodeButton from "./src/lib/rehypeCopyCodeButton";
 import { PERSON_NAME, SITE_URL } from "./src/lib/siteMeta";
 import { getLastmodForUrl } from "./src/lib/sitemapDates";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
-  
   adapter: cloudflare(),
 
   // Used to generate canonical URLs and sitemap entries.
