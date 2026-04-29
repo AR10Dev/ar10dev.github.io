@@ -3,13 +3,13 @@ import { getEntry } from "astro:content";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import FormField from "@components/ui/FormField.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { createSeoContext, createStructuredData } from "@lib/seo";
 import {
   BUTTON_CLASSES,
   CONTAINER_CLASSES,
   FORM_CLASSES,
   TYPOGRAPHY_CLASSES,
 } from "@lib/constants";
+import { createSeoContext, createStructuredData } from "@lib/seo";
 
 const homepageEntry = await getEntry("site", "homepage");
 if (!homepageEntry) {

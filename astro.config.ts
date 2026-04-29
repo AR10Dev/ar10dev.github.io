@@ -10,11 +10,19 @@ import rehypeCopyCodeButton from "./src/lib/rehypeCopyCodeButton";
 import { PERSON_NAME, SITE_URL } from "./src/lib/siteMeta";
 import { getLastmodForUrl } from "./src/lib/sitemapDates";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
-  output: "static",
-  site: SITE_URL, // Used to generate canonical URLs and sitemap entries.
-  trailingSlash: "always", // Consistent URL format - all URLs end with /
+  
+  adapter: cloudflare(),
+
+  // Used to generate canonical URLs and sitemap entries.
+  site: SITE_URL,
+
+  // Consistent URL format - all URLs end with /
+  trailingSlash: "always",
+
   markdown: {
     syntaxHighlight: {
       type: "shiki",
@@ -32,9 +40,11 @@ export default defineConfig({
       rehypeCopyCodeButton,
     ],
   },
+
   vite: {
     plugins: [tailwindcss()],
   },
+
   integrations: [
     solid(),
     mdx({

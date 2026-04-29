@@ -2,13 +2,13 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import Breadcrumb from "@components/Breadcrumb.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { createSeoContext } from "@lib/seo";
 import {
   BUTTON_CLASSES,
   CONTAINER_CLASSES,
   TYPOGRAPHY_CLASSES,
 } from "@lib/constants";
 import { generateBreadcrumbSchema, getBaseSchemaGraph } from "@lib/schema";
+import { createSeoContext } from "@lib/seo";
 
 export async function getStaticPaths() {
   const portfolioItems = await getCollection("portfolio");

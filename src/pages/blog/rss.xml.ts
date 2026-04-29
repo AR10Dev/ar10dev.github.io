@@ -1,7 +1,7 @@
 import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
-import type { APIContext } from "astro";
 import { PERSON_NAME, SITE_NAME, SITE_URL } from "@lib/siteMeta";
+import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
   const siteUrl = SITE_URL;

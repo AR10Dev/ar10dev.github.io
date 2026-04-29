@@ -1,7 +1,7 @@
 import type { BreadcrumbItem } from "../components/Breadcrumb.astro";
 import { buildSiteUrl, normalizeCanonicalUrl } from "./canonicalUrl";
-import { DEFAULT_OG_IMAGE, resolveAbsoluteUrl } from "./siteMeta";
 import { generateBreadcrumbSchema, getBaseSchemaGraph } from "./schema";
+import { DEFAULT_OG_IMAGE, resolveAbsoluteUrl } from "./siteMeta";
 
 export interface SeoContext {
   siteUrl: string;
