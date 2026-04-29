@@ -9,4 +9,38 @@ export const themeInitScript = `(() => {
   } catch {
     // Ignore localStorage restrictions
   }
+
+  // Give injected iframes a descriptive title for accessibility audits.
+  const applyIframeTitles = () => {
+    document.querySelectorAll("iframe:not([title])").forEach((iframe) => {
+      const iframeElement = iframe;
+      const source = iframeElement.getAttribute("src") ?? "";
+      const title = source.includes("partytown")
+        ? "Partytown worker frame"
+        : source.includes("cal.com")
+          ? "Calendar scheduling embed"
+          : "Embedded content";
+
+      iframeElement.setAttribute("title", title);
+    });
+  };
+
+  const startIframeTitleObserver = () => {
+    applyIframeTitles();
+
+    const observer = new MutationObserver(() => {
+      applyIframeTitles();
+    });
+
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startIframeTitleObserver, { once: true });
+  } else {
+    startIframeTitleObserver();
+  }
 })();`;

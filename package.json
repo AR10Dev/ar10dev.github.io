@@ -6,11 +6,12 @@
   "author": "AR10Dev",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && bun run copy:pwa",
     "check": "astro check",
     "preview": "astro preview",
     "preview:cloudflare": "bun run build && wrangler dev",
     "deploy:cloudflare": "bun run build && wrangler deploy",
+    "copy:pwa": "node -e \"const { copyFileSync, existsSync } = require('node:fs'); const files = [['dist/client/manifest.webmanifest', 'dist/manifest.webmanifest'], ['dist/server/sw.js', 'dist/sw.js']]; for (const [source, target] of files) { if (existsSync(source)) copyFileSync(source, target); }\"",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format .",

@@ -17,8 +17,8 @@
     }
 
     if (args[0] === initCommand) {
-      var namespaceApi = function () {
-        enqueue(namespaceApi, Array.prototype.slice.call(arguments));
+      var namespaceApi = (...namespaceArgs) => {
+        enqueue(namespaceApi, namespaceArgs);
       };
       var namespace = args[1];
       namespaceApi.q = namespaceApi.q || [];

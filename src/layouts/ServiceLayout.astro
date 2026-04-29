@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import logo from "@assets/logo.png";
 import "../styles/global.css";
 import AnalyticsConsent from "@components/AnalyticsConsent.astro";
 import Breadcrumb from "@components/Breadcrumb.astro";
@@ -312,7 +311,7 @@ const structuredData = {
       <div class="mx-auto flex max-w-screen-xl items-center justify-between px-6 py-4">
         <a href="/" class="flex-none" aria-label="Avaab Razzaq - Home">
           <Image 
-            src={logo}
+            src=/logo.png
             alt="Avaab Razzaq - AI Growth Engineer" 
             width={48}
             height={48}

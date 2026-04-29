@@ -63,10 +63,10 @@ const {
   crossorigin
 />
 <link
+  id="font-manrope-sora-preload"
   rel="preload"
   as="style"
   href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Sora:wght@300..800&display=swap"
-  onload="this.onload=null;this.rel='stylesheet'"
 />
 <noscript>
   <link
@@ -74,6 +74,15 @@ const {
     rel="stylesheet"
   />
 </noscript>
+
+<script is:inline>
+  const fontPreload = document.getElementById("font-manrope-sora-preload");
+  if (fontPreload) {
+    fontPreload.addEventListener("load", function () {
+      fontPreload.rel = "stylesheet";
+    });
+  }
+</script>
 
 <title>{title}</title>
 

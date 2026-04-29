@@ -93,6 +93,14 @@ const currentPath = Astro.url.pathname;
       structuredData={structuredData}
     />
 
+    <!-- PWA manifest and iOS support tags for reliable install detection. -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="AR10" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
     <slot name="head" />
 
     {ogType === "article" && publishedTime && <meta property="article:published_time" content={publishedTime} />}
@@ -214,6 +222,17 @@ const currentPath = Astro.url.pathname;
 
         io.observe(contact);
       })();
+    </script>
+
+    <!-- Explicit SW registration so PWA startup still works with Partytown in the page. -->
+    <script is:inline>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/sw.js").catch(function (err) {
+            console.warn("SW registration failed:", err);
+          });
+        });
+      }
     </script>
   </body>
 </html>
